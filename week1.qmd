@@ -1,0 +1,464 @@
+---
+title: "Week 1"
+editor: visual
+callout-appearance: simple
+callout-icon: false
+---
+
+## Data Structures
+
+### Vectors
+
+R has two kinds of vectors:
+
+-   **Atomic vectors**. All elements of the vector must have the same **type** (e.g., `logical`, `integer`, `double`, `character`).[^week1-1] *They are homogeneous.*
+
+    See @fig-atomic-vectors.
+
+    Note that `integer` and `double` are collectively known as `numeric`.
+
+-   **Lists**. The elements of the vector can have different types. *They can be heterogeneous.*
+
+[^week1-1]: Technically, there are two other types of atomic vectors: **complex** and **raw**. I don't think you'll see much of these.
+
+*All data structures---e.g., data frames, matrices, factors, dates, and more complex model objects---are built on top of these. All of these will have an additional **class** attribute.* For example, a "data frame" (e.g., `mtcars`) is basically a list of atomic vectors *that have the same `length()`.*
+
+![Atomic vectors\
+https://adv-r.hadley.nz/vectors-chap.html#atomic-vectors](images/typeof.png){#fig-atomic-vectors fig-align="center" width="60%"}
+
+::: callout-note
+[**Exercise 1.1**]{.underline}
+
+Try typing `typeof(mtcars)` and `class(mtcars)` in the console to see what happens.
+
+Now type the following chunks of code into your console and understand what they do:
+
+-   `nrow(mtcars)`
+
+-   `ncol(mtcars)`
+
+-   `length(mtcars)`
+
+-   `dim(mtcars)`
+
+-   `rownames(mtcars)`
+
+-   `colnames(mtcars)`
+
+Briefly describe what each of these do.
+:::
+
+*Note. The absence of a vector is usually represented with `NULL` (as opposed to `NA` which is used to represent the absence of a value in a vector). `NULL` typically behaves like a vector of length 0.*
+
+**Creating vectors of length 1 (scalars).**
+
+Each of the four primary types depicted in @fig-atomic-vectors can be created using a special syntax:
+
+-   Logicals can be written in full (`TRUE` or `FALSE`), or abbreviated (`T` or `F`).
+
+-   Doubles are the default for numbers (`123`). They can also be specified in decimal (`0.1234`) and scientific (`1.23e4`).
+
+    There are three special values unique to doubles: `Inf`, `-Inf`, and `NaN` (not a number). Don't worry about these for now!
+
+-   Integers are written similarly to doubles but must be followed by `L` (`1234L`)
+
+-   Strings are surrounded by `"` (`"hi"`) or `'` (`'bye'`).
+
+::: callout-note
+[**Exercise 1.2**]{.underline}
+
+I suggest you always use long-form when creating logical vectors. Try assigning a different value to `TRUE` and to `T`.
+
+```{r}
+#| error: true
+#| eval: false
+T <- 123
+TRUE <- 123
+```
+
+*What just happened?*
+
+**Exercise 1.3**
+
+*Implicit coercion*
+
+You can create atomic vectors of any length with `c()` for "concatenate".
+
+For example:
+
+```{r}
+lgl <- c(TRUE, FALSE, NA)
+int <- c(1L, 6L, NA, 10L)
+dbl <- c(1, NA, 2.5, 4.5)
+chr <- c(NA, "these are", "some strings")
+```
+
+Recall that atomic vectors are homogeneous. If you try to concatenate vectors of different types you will end up discovering **implicit coercion**. Basically, different types will be coerced in the following order: logical → integer → double → character.
+
+For example, a logical and a character combine into a character:
+
+```{r}
+str(c(TRUE, "chr")) ## str() is (almost) identical to dplyr::glimpse()
+```
+
+Test your knowledge of the vector coercion rules by predicting the output of the following uses of `c()`:
+
+```{r}
+#| eval: false
+c(1, FALSE)
+c("a", 1)
+c(TRUE, 1L)
+```
+
+**Exercise 1.4**
+
+*Explicit coercion*
+
+Explicit coercion happens when you call a function like `as.logical()`, `as.integer()`, `as.double()`, or `as.character()`. Use `as.integer()` on `FALSE` and `TRUE`, what values do they get coerced to?
+
+**Exercise 1.5**
+
+*The most common form of implicit coercion*
+
+The following chunk of code creates a logical vector of size 75.
+
+```{r}
+x <- sample(c(TRUE, FALSE), size = 75, replace = TRUE)
+str(x)
+```
+
+Use `sum(x)` to get the number of `TRUE` values. Use `mean(x)` to get the proportion of `TRUE` values. Verify that `mean(x)` and `sum(x) / length(x)` give the same value.
+:::
+
+We will usually use logical operators to transform a variable and then do the kinds of calculations in **Exercise 1.5.**
+
+For example:
+
+```{r}
+## the proportion of cars in the dataset with more than 3 carburators
+mean(mtcars$carb > 3)
+```
+
+**Sequences**
+
+We will sometimes create sequences of integers for various purposes (e.g., subsetting). For example, we can use the `seq()` to create a sequence of even numbers this way:
+
+```{r}
+seq(from = 2, to = 26, by = 2)
+```
+
+You can create a simple sequence of numbers from `x1` to `x2` by using the `:` operator this way:
+
+```{r}
+1:10
+seq(1, 10, by = 1)
+```
+
+### Subsetting 
+
+**Vectors**
+
+As a reminder, you can subset *named* *lists* (and therefore data frames) with the `$` operator.
+
+For example:
+
+```{r}
+mtcars$mpg
+x <- list(chr, lgl, letters)
+str(x)
+names(x) <- c("chr", "lgl", "alphabet")
+str(x)
+x$alphabet
+```
+
+You can also do this using the `[` and `[[` operators, but this time you have to put the `name` in quotation marks.
+
+Thus:
+
+```{r}
+#| error: true
+mtcars[mpg]
+mtcars["mpg"]
+```
+
+::: callout-note
+**Exercise 1.6**
+
+What is the difference between `mtcars["mpg"]` and `mtcars[["mpg"]]`? More generally, what is the difference between the `[` and `[[` operators?
+
+Which of the following two is `TRUE`?
+
+```{r}
+#| eval: false
+identical(mtcars["mpg"], mtcars$mpg)
+identical(mtcars[["mpg"]], mtcars$mpg)
+```
+:::
+
+You will be subsetting different kinds of things in R---mostly data frames---using integers and logicals.
+
+::: callout-note
+**Exercise 1.7**
+
+`letters` is a built-in object in R that contains the 26 letters of English alphabet.
+
+Using the `[` operator, do the following:
+
+-   Extract the 17^th^ value of `letters`
+
+-   Create a sequence of even numbers from `2` to `26` and use that to subset `letters`
+
+-   Use `8:12` to subset `letters`.
+
+This is known as integer subsetting.
+
+What happens if instead of `[` you use `[[`?
+:::
+
+**Subsetting + Assignment**
+
+You can use the assignment operator `<-` in combination with subsetting to replace the values of a vector.
+
+For example:
+
+```{r}
+dbl
+dbl[1] <- 10
+dbl
+dbl[is.na(dbl)] <- 0
+dbl
+```
+
+Make sure you understand what `is.na()` is doing here. Did we just do "integer" or "logical" subsetting?
+
+::: callout-note
+**Exercise 1.8**
+
+Now that you know all this
+
+Replace the 18^th^ value of `letters` with a missing value (`NA`).
+:::
+
+### The most common error you'll see
+
+```{r}
+#| error: true
+mean[1:5]
+```
+
+This just means that you have tried to subset a function, and functions are most definitely *not* *vectors.*
+
+This will happen for example if you *think* you created a dataset called `df` and try to extract a column:
+
+```{r}
+#| error: true
+df$col
+```
+
+### Data Frames
+
+The most obvious use case `$`, `[`, or `[[` is in the context of working with data frames.
+
+Here we will use the `[` operator behaves differently when used on some objects---e.g., data frames and matrices.
+
+-   When subsetting with a single index, data frames behave like lists and index the columns, so `mtcars[1:2]` selects the first two columns.
+
+-   When subsetting with two indices, `mtcars[1:3, ]` selects the first three *rows* (and all the columns); `mtcars[5, ]` selects the fifth row and all columns; `mtcars[1:5, "cyl"]` selects the `cyl` column and the first five rows. Matrices behave in the same way.
+
+**Logical subsetting**
+
+The most common way of using logicals to subset data frames is to learn some Boolean operators---e.g., `<`, `<=`, `>`, `>=`, `!=`, and `==`.
+
+For example, we can create a logical vector that tests for `mtcars$wt` values greater than `4`.
+
+```{r}
+mtcars$wt > 4
+```
+
+And then we can subset with `[`:
+
+```{r}
+mtcars[mtcars$wt > 4, ]
+```
+
+::: callout-note
+**Exercise 1.9**
+
+Subset `mtcars` so that we only see the observations for which `cyl == 4`.
+
+Subset `mtcars` so that we only see the observations for which `mpg` is greater than `23`.
+:::
+
+Sometimes it will be easier to use the `%in%` operator to test for many conditions at the same time.
+
+For example:
+
+```{r}
+mtcars[mtcars$carb %in% c(3, 6, 8), ]
+```
+
+Alternatively we could have done this:
+
+```{r}
+mtcars[mtcars$carb == 3 | mtcars$carb == 6 | mtcars$carb == 8, ]
+```
+
+Which do you prefer?
+
+## Search
+
+In this section I will introduce two functions that are pretty much useless except for the fact that they will help use understand how R finds "objects" in your R session: `search()` and `find()`.
+
+Type `search()` into your console. I you are like me---and haven't loaded any package yet---you should see the exact same output as this:
+
+```{r}
+search()
+```
+
+`.GlobalEnv` is the what's known as the "global environment." Any variable that shows up in your Environment pane is stored there.
+
+Type `names(.GlobalEnv)` into the console and see what shows up. You'll notice that there's an object called `.Random.seed` in `.GlobalEnv` that doesn't show up in your Environment pane. That's because R "hides" any variable that has a `.` prefix.
+
+```{r}
+.secret_var <- 1:10
+.secret_var
+```
+
+You should not be able to see `.secret_var` in the Environment pane and yet it's there!
+
+Any time you type something in R, it will proceed to *search* for it sequentially: first, in `.GlobalEnv`, then in the built-in `stats` package, then in `graphics`, and so on until it reaches the `base` package.
+
+*Ignore "Autoloads" and "tools:rstudio" (this last one shows up when you type `search()` in the console if you are using RStudio). This is not important!*
+
+So, if you type `asdfasdfasdf` into the console, R will search all these environments and produce an error once it comes out empty handed.
+
+```{r}
+#| error: true
+asdfasdfasdf
+```
+
+But if you type `mtcars`, R will search all these environments until it finds `mtcars` living in the built-in `datasets` package.
+
+You can verify that this is the case using the `find()` function.
+
+```{r}
+find("mtcars")
+```
+
+Now, suppose you decide to create an object called `mtcars`, which then gets saved to the global environment.
+
+```{r}
+mtcars <- "this is not the mtcars dataset"
+mtcars
+```
+
+If you now type `find("mtcars")` into the console you'll the names of two environments, in the order that R finds `mtcars`.
+
+```{r}
+find("mtcars")
+```
+
+You can still access the original `mtcars` dataset using the `::` operator like this:
+
+```{r}
+str(datasets::mtcars)
+```
+
+In fact, you can use `pkgname::obj` to access any object in any package (even if you haven't loaded it yet).
+
+For example:
+
+```{r}
+dplyr::glimpse(datasets::mtcars)
+```
+
+### Errors!
+
+Suppose you want to analyze the `penguins` dataset contained in the [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/) package.
+
+You will have to type the following into your console once if you haven't already:
+
+```{r}
+#| eval: false
+install.packages("palmerpenguins")
+```
+
+You want to use the `table()` function to count up the number of times a specific `year` shows up in the dataset.
+
+```{r}
+#| error: true
+#| message: false
+
+# library(tidyverse)
+# library(palmerpenguins)
+table(year)
+```
+
+*Oh no, an error!*
+
+After realizing that you "commented out" the `library(pkg)` lines, you remove the `#` symbols and do this:
+
+```{r}
+#| error: true
+#| message: false
+
+library(tidyverse)
+library(palmerpenguins)
+table(year)
+```
+
+*Oh no, a different error!*
+
+You realize that `table()` has no way of knowing that you wanted to access the `year` variable in the `penguins` dataset. You forgot to subset!
+
+This should work:
+
+```{r}
+table(penguins$year)
+```
+
+::: callout-note
+**Exercise 1.10**
+
+Using what told you earlier about the `search()` function, explain why you get two different errors. What is going on? What is R doing when you type `table(year)`? (You might want to type `search()` into the console again). In what package does R find the `year` object?
+:::
+
+## `dplyr` subsetting
+
+You will almost never subset data frames in the way we did for the previous exercises. In fact, we won't use "base R" much.
+
+Instead, we will use two functions contained in the dplyr package:
+
+-   [`slice()`](https://dplyr.tidyverse.org/reference/slice.html) for integer subsetting.
+
+-   [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) for logical subsetting.
+
+    I recommend you follow those two links.
+
+    Part of the reason we use `tidyverse` instead of `base` R is because the documentation for the [tidyverse](https://www.tidyverse.org/) is excellent.
+
+Don't forget to `library(tidyverse)` if you haven't done so already.
+
+```{r}
+library(tidyverse)
+```
+
+::: callout-note
+**Exercise 1.11**
+
+Use `slice()` to extract the even-numbered rows in the penguins dataset.
+
+It will look something like this:
+
+```{r}
+#| eval: false
+penguins |> 
+  slice("SOME NUMERIC VECTOR GOES HERE")
+```
+
+Now use `slice()` to extract every third row---i.e., row 3, 6, 9, and so on.
+
+**Exercise 1.12**
+
+Use `filter()` to extract the observations in the `penguins` dataset for which `species == "Gentoo"`, `island == "Biscoe"`, and `body_mass_g` is between 5,000 and 5,500.
+:::

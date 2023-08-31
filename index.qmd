@@ -1,0 +1,61 @@
+# Preface {.unnumbered}
+
+[Syllabus](https://docs.google.com/document/d/1SnKMREAejFdr-MpejuxieZ3nPz7ftdHDoWiRv2aRtQc/)
+
+Hi everyone, I will be uploading the homework questions to this website.
+
+Feel free to reach out to me with *any* questions.
+
+## Resources
+
+These are my personal recommendations for resources to start getting interested in statistics. It's somewhat incomplete---e.g., there are no dedicated textbooks to causal inference, which is what we'll cover next semester.
+
+**Class Resources:**
+
+-   [*R for Data Science*](https://r4ds.hadley.nz/) [@wickham2023]
+
+    I learned *a lot* using the first edition of this book. Feel free to skip *some* chapters on a first pass and come back to them *if* you think you might need them (e.g., strings, regular expressions, webscraping). Also, I suggest you start with chapters 29 and 30.
+
+-   [*The tidyverse style guide*](https://style.tidyverse.org/)
+
+    It will help you write pretty code.
+
+-   [*Data Visualization*](https://socviz.co/) [@healy2018]
+
+    It will help you make good graphs.
+
+**Good books to play around with:**
+
+-   *Data Analysis for Social Science: A Friendly and Practical Introduction* [@llaudet2022]
+
+    Very introductory but useful.
+
+-   *Statistical Inference via Data Science* [@ismay2019]
+
+    It's good!
+
+-   *Quantitative Social Science: An Introduction in Tidyverse* [@imai2022]
+
+    I read this one a while ago, before it was re-written in tidyverse dialect. The chapters on probability and uncertainty are a great self-contained introduction to probability and statistical inference.
+
+-   [*Regression and Other Stories*](https://users.aalto.fi/~ave/ROS.pdf) [@gelman2020]
+
+    This one seems a little too advanced for a first pass, but not advanced enough for a second pass? I like it a lot though.
+
+**Advanced Resources:**
+
+-   [*Advanced R*](https://adv-r.hadley.nz/) [@wickham2019].
+
+    This one is good for those of you that have a background in computer science and are looking for reasons to like R. It's also good for those of you who finished (most of) R4DS and want to learn some computer science concepts.
+
+-   [*Introduction to probability*](https://projects.iq.harvard.edu/stat110/home) [@blitzstein2019]
+
+    Covers more probability theory than what you'll *probably* need, but it's a fascinating topic and it's very accessible.
+
+-   [*Statistical Rethinking*](https://github.com/rmcelreath/stat_rethinking_2023) [@mcelreath2020]
+
+    *It's what the cool kids are into these days.*
+
+-   [*Modern Statistics for Modern Biology*](https://www.huber.embl.de/msmb/) [@holmes2018]
+
+    Great book, very different. But the examples are a bit outside of what we usually encounter in social science.

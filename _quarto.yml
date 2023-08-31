@@ -1,0 +1,33 @@
+project:
+  type: book
+  output-dir: output
+
+book:
+  title: "Social Statistics I (Exercises)"
+  author: "andrés castro araújo"
+  date: last-modified
+  chapters:
+    - index.qmd
+    - part: sec1.qmd
+      chapters: 
+        - week1.qmd
+    # - part: sec2.qmd
+    # - part: sec3.qmd
+    # - part: sec4.qmd
+    # - part: sec5.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    mainfont: Optima
+    #monofont: Fira Code
+    fontsize: 1em
+    code-fold: show
+    code-line-numbers: true
+    fig-align: "center"
+
+
+

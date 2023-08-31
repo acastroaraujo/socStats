@@ -1,0 +1,19 @@
+---
+title: "Math and computing preliminaries"
+format: html
+editor: visual
+---
+
+To include:
+
+-   `search()`
+
+-   Markdown (including cross-references and bib)
+
+-   LaTeX
+
+-   subsetting
+
+-   data structures
+
+-   read and export
