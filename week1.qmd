@@ -130,7 +130,7 @@ str(x)
 Use `sum(x)` to get the number of `TRUE` values. Use `mean(x)` to get the proportion of `TRUE` values. Verify that `mean(x)` and `sum(x) / length(x)` give the same value.
 :::
 
-We will usually use logical operators to transform a variable and then do the kinds of calculations in **Exercise 1.5.**
+We will usually use logical operators to transform a variable and then do the kinds of calculations in Exercise 1.5.
 
 For example:
 
@@ -154,7 +154,7 @@ You can create a simple sequence of numbers from `x1` to `x2` by using the `:` o
 seq(1, 10, by = 1)
 ```
 
-### Subsetting 
+### Subsetting
 
 **Vectors**
 
@@ -433,11 +433,7 @@ We will subset data frames using two functions contained in the dplyr package:
 
 -   [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) for logical subsetting.
 
-<aside>
-
-I recommend you follow these two links.
-
-</aside>
+<aside>I recommend you follow these two links.</aside>
 
 Don't forget to `library(tidyverse)` if you haven't done so already.
 
