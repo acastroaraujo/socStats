@@ -14,7 +14,9 @@ These are my personal recommendations for resources to start getting interested 
 
 -   [*R for Data Science*](https://r4ds.hadley.nz/) [@wickham2023]
 
-    I learned *a lot* using the first edition of this book. Feel free to skip *some* chapters on a first pass and come back to them *if* you think you might need them (e.g., strings, regular expressions, webscraping). Also, I suggest you start with chapters 29 and 30.
+    I learned *a lot* using the first edition of this book. Feel free to skip *some* chapters on a first pass and come back to them *if* you think you might need them (e.g., strings, regular expressions, webscraping).
+
+    Also, I suggest you start with chapters 29 and 30.
 
 -   [*The tidyverse style guide*](https://style.tidyverse.org/)
 

@@ -177,8 +177,8 @@ Thus:
 
 ```{r}
 #| error: true
-mtcars[mpg]
-mtcars["mpg"]
+mtcars[[mpg]]
+mtcars[["mpg"]]
 ```
 
 ::: callout-note
@@ -425,17 +425,19 @@ Using what told you earlier about the `search()` function, explain why you get t
 
 ## `dplyr` subsetting
 
-You will almost never subset data frames in the way we did for the previous exercises. In fact, we won't use "base R" much.
+You will almost never subset data frames in the way we did for the previous exercises. In fact, we won't use "base R" much. Part of the reason we use `tidyverse` instead of `base` R is because the documentation for the [tidyverse](https://www.tidyverse.org/) is excellent. Also, the error messages are easier to understand.
 
-Instead, we will use two functions contained in the dplyr package:
+We will subset data frames using two functions contained in the dplyr package:
 
 -   [`slice()`](https://dplyr.tidyverse.org/reference/slice.html) for integer subsetting.
 
 -   [`filter()`](https://dplyr.tidyverse.org/reference/filter.html) for logical subsetting.
 
-    I recommend you follow those two links.
+<aside>
 
-    Part of the reason we use `tidyverse` instead of `base` R is because the documentation for the [tidyverse](https://www.tidyverse.org/) is excellent.
+I recommend you follow these two links.
+
+</aside>
 
 Don't forget to `library(tidyverse)` if you haven't done so already.
 
