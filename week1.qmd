@@ -326,9 +326,9 @@ Type `names(.GlobalEnv)` into the console and see what shows up. You'll notice t
 
 You should not be able to see `.secret_var` in the Environment pane and yet it's there!
 
-Any time you type something in R, it will proceed to *search* for it sequentially: first, in `.GlobalEnv`, then in the built-in `stats` package, then in `graphics`, and so on until it reaches the `base` package.
+Any time you type something in R, it will proceed to *search* for it sequentially: first, in `.GlobalEnv`, then in the built-in `stats` package, then in `graphics`, and so on until it reaches the `base` package.[^week1-2]
 
-*Ignore "Autoloads" and "tools:rstudio" (this last one shows up when you type `search()` in the console if you are using RStudio). This is not important!*
+[^week1-2]: Ignore "Autoloads" and "tools:rstudio" (this last one shows up when you type `search()` in the console if you are using RStudio). *This is not important!*
 
 So, if you type `asdfasdfasdf` into the console, R will search all these environments and produce an error once it comes out empty handed.
 
@@ -352,7 +352,7 @@ mtcars <- "this is not the mtcars dataset"
 mtcars
 ```
 
-If you now type `find("mtcars")` into the console you'll the names of two environments, in the order that R finds `mtcars`.
+If you now type `find("mtcars")` into the console you'll see the names of two environments in the order that R searches for `mtcars`.
 
 ```{r}
 find("mtcars")

@@ -319,7 +319,7 @@ https://adv-r.hadley.nz/vectors-chap.html#atomic-vectors</figcaption>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="fu">str</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code> logi [1:75] FALSE TRUE FALSE TRUE FALSE TRUE ...</code></pre>
+<pre><code> logi [1:75] TRUE TRUE TRUE FALSE FALSE TRUE ...</code></pre>
 </div>
 </div>
 <p>Use <code>sum(x)</code> to get the number of <code>TRUE</code> values. Use <code>mean(x)</code> to get the proportion of <code>TRUE</code> values. Verify that <code>mean(x)</code> and <code>sum(x) / length(x)</code> give the same value.</p>
@@ -647,8 +647,7 @@ Maserati Bora 15.0   8 301.0 335 3.54 3.57 14.6  0  1    5    8</code></pre>
 </div>
 </div>
 <p>You should not be able to see <code>.secret_var</code> in the Environment pane and yet it’s there!</p>
-<p>Any time you type something in R, it will proceed to <em>search</em> for it sequentially: first, in <code>.GlobalEnv</code>, then in the built-in <code>stats</code> package, then in <code>graphics</code>, and so on until it reaches the <code>base</code> package.</p>
-<p><em>Ignore “Autoloads” and “tools:rstudio” (this last one shows up when you type <code>search()</code> in the console if you are using RStudio). This is not important!</em></p>
+<p>Any time you type something in R, it will proceed to <em>search</em> for it sequentially: first, in <code>.GlobalEnv</code>, then in the built-in <code>stats</code> package, then in <code>graphics</code>, and so on until it reaches the <code>base</code> package.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <p>So, if you type <code>asdfasdfasdf</code> into the console, R will search all these environments and produce an error once it comes out empty handed.</p>
 <div class="cell">
 <details open="">
@@ -681,7 +680,7 @@ Maserati Bora 15.0   8 301.0 335 3.54 3.57 14.6  0  1    5    8</code></pre>
 <pre><code>[1] "this is not the mtcars dataset"</code></pre>
 </div>
 </div>
-<p>If you now type <code>find("mtcars")</code> into the console you’ll the names of two environments, in the order that R finds <code>mtcars</code>.</p>
+<p>If you now type <code>find("mtcars")</code> into the console you’ll see the names of two environments in the order that R searches for <code>mtcars</code>.</p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
@@ -844,6 +843,7 @@ $ carb &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1
 <hr>
 <ol>
 <li id="fn1"><p>Technically, there are two other types of atomic vectors: <strong>complex</strong> and <strong>raw</strong>. I don’t think you’ll see much of these.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Ignore “Autoloads” and “tools:rstudio” (this last one shows up when you type <code>search()</code> in the console if you are using RStudio). <em>This is not important!</em><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
