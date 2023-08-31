@@ -46,7 +46,7 @@ These are my personal recommendations for resources to start getting interested 
 
 -   [*Advanced R*](https://adv-r.hadley.nz/) [@wickham2019].
 
-    This one is good for those of you that have a background in computer science and are looking for reasons to like R. It's also good for those of you who finished (most of) R4DS and want to learn some computer science concepts.
+    This one is good for those of you that have a background in computer science and are looking for reasons to like R. It's also good for those of you who finished (most of) R4DS and want to learn more general programming ideas.
 
 -   [*Introduction to probability*](https://projects.iq.harvard.edu/stat110/home) [@blitzstein2019]
 
@@ -55,7 +55,3 @@ These are my personal recommendations for resources to start getting interested 
 -   [*Statistical Rethinking*](https://github.com/rmcelreath/stat_rethinking_2023) [@mcelreath2020]
 
     *It's what the cool kids are into these days.*
-
--   [*Modern Statistics for Modern Biology*](https://www.huber.embl.de/msmb/) [@holmes2018]
-
-    Great book, very different. But the examples are a bit outside of what we usually encounter in social science.

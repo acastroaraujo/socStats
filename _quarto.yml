@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: output
+  output-dir: docs
 
 book:
   title: "Social Statistics I (Exercises)"
@@ -28,6 +28,9 @@ format:
     code-fold: show
     code-line-numbers: true
     fig-align: "center"
+    
+execute:
+  freeze: auto
 
 
 

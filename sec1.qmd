@@ -4,16 +4,4 @@ format: html
 editor: visual
 ---
 
-To include:
-
--   `search()`
-
--   Markdown (including cross-references and bib)
-
--   LaTeX
-
--   subsetting
-
--   data structures
-
--   read and export
+The time we learned how to program in R, write simple reports using `.qmd` documents, and review some high school math.
