@@ -319,7 +319,7 @@ https://adv-r.hadley.nz/vectors-chap.html#atomic-vectors</figcaption>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="fu">str</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code> logi [1:75] TRUE TRUE TRUE FALSE FALSE TRUE ...</code></pre>
+<pre><code> logi [1:75] TRUE FALSE FALSE FALSE FALSE FALSE ...</code></pre>
 </div>
 </div>
 <p>Use <code>sum(x)</code> to get the number of <code>TRUE</code> values. Use <code>mean(x)</code> to get the proportion of <code>TRUE</code> values. Verify that <code>mean(x)</code> and <code>sum(x) / length(x)</code> give the same value.</p>
@@ -635,7 +635,7 @@ Maserati Bora 15.0   8 301.0 335 3.54 3.57 14.6  0  1    5    8</code></pre>
 </div>
 </div>
 <p><code>.GlobalEnv</code> is the what’s known as the “global environment.” Any variable that shows up in your Environment pane is stored there.</p>
-<p>Type <code>names(.GlobalEnv)</code> into the console and see what shows up. You’ll notice that there’s an object called <code>.Random.seed</code> in <code>.GlobalEnv</code> that doesn’t show up in your Environment pane. That’s because R “hides” any variable that has a <code>.</code> prefix.</p>
+<p>Type <code>names(.GlobalEnv)</code> into the console and see what shows up. You’ll notice that there’s an object called <code>.Random.seed</code> in <code>.GlobalEnv</code> that doesn’t show up in your Environment pane. That’s because RStudio “hides” any variable that has a <code>.</code> prefix.</p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>

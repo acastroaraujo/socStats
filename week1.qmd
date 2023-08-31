@@ -317,7 +317,7 @@ search()
 
 `.GlobalEnv` is the what's known as the "global environment." Any variable that shows up in your Environment pane is stored there.
 
-Type `names(.GlobalEnv)` into the console and see what shows up. You'll notice that there's an object called `.Random.seed` in `.GlobalEnv` that doesn't show up in your Environment pane. That's because R "hides" any variable that has a `.` prefix.
+Type `names(.GlobalEnv)` into the console and see what shows up. You'll notice that there's an object called `.Random.seed` in `.GlobalEnv` that doesn't show up in your Environment pane. That's because RStudio "hides" any variable that has a `.` prefix.
 
 ```{r}
 .secret_var <- 1:10
