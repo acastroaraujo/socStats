@@ -420,7 +420,7 @@ table(penguins$year)
 ::: callout-note
 **Exercise 1.10**
 
-Using what told you earlier about the `search()` function, explain why you get two different errors. What is going on? What is R doing when you type `table(year)`? (You might want to type `search()` into the console again). In what package does R find the `year` object?
+Using what I told you earlier about the `search()` function, explain why you get two different errors. What is going on? What is R doing when you type `table(year)`? (You might want to type `search()` into the console again). In what package does R find the `year` object?
 :::
 
 ## `dplyr` subsetting
