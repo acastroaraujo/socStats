@@ -4,7 +4,7 @@ callout-appearance: simple
 callout-icon: false
 ---
 
-The homework for this week consists on developing two skills:
+The homework for this week consists of developing two skills:
 
 1.  Writing technical reports using [Quarto](https://quarto.org/docs/get-started/authoring/rstudio.html).
 2.  Data wrangling using the [`dplyr`](https://dplyr.tidyverse.org/) package.
