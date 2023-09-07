@@ -54,13 +54,13 @@ You will then need to do the following:
 
 Download [this .qmd file](https://github.com/acastroaraujo/socStats/blob/main/quarto_template.qmd) and put it into your project folder.
 
--   Change Figure 1 (the cat picture) with an image of your liking. Adjust the caption accordingly.
+-   Change Figure 1 (the cat picture) to an image of your liking. Adjust the caption accordingly.
 
--   Change Equation 1 for a different equation.
+-   Change Equation 1 to a different equation.
 
     Hint: If your not familiar with writing these sorts of equations, you can ask ChatGPT to generate the latex code for a different equation---e.g., "the normal distribution."
 
--   Change the "citations paragraph" at the end to so that it corresponds to yourself---i.e.,
+-   Change the "citations paragraph" at the end to so that it corresponds to yourself---i.e., different name, different citations.
 
 -   Edit the YAML file so that it includes your name (`name`), the appropriate date (`date`), a different font (`mainfont`), and whatever csl file you decided to go with (`csl`).
 
