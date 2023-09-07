@@ -11,13 +11,11 @@ book:
     - part: sec1.qmd
       chapters: 
         - week1.qmd
-    # - part: sec2.qmd
-    # - part: sec3.qmd
-    # - part: sec4.qmd
-    # - part: sec5.qmd
+        - week2.qmd
     - references.qmd
 
 bibliography: references.bib
+csl: american-journal-of-sociology.csl
 
 format:
   html:
@@ -26,6 +24,7 @@ format:
     fontsize: 1em
     code-fold: show
     code-line-numbers: true
+    code-tools: true
     fig-align: "center"
     mainfont: Optima
     header-includes: |

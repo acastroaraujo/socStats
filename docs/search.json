@@ -54,5 +54,40 @@
     "title": "References",
     "section": "",
     "text": "Blitzstein, Joseph K., and Jessica Hwang. 2019. Introduction to\nProbability. CRC Press.\n\n\nGelman, Andrew, Jennifer Hill, and Aki Vehtari. 2020. Regression and\nOther Stories. Cambridge University Press.\n\n\nHealy, Kieran. 2018. Data Visualization: A Practical\nIntroduction. https://socviz.co/.\n\n\nImai, Kosuke, and Nora Webb Williams. 2022. Quantitative Social\nScience: An Introduction in Tidyverse. Princeton University Press.\n\n\nIsmay, Chester, and Albert Y. Kim. 2019. Statistical Inference via\nData Science: A ModernDive into r and the Tidyverse. CRC Press.\n\n\nLlaudet, Elena, and Kosuke Imai. 2022. Data Analysis for Social\nScience: A Friendly and Practical Introduction. Princeton\nUniversity Press.\n\n\nMcElreath, Richard. 2020. Statistical Rethinking: A Bayesian Course\nwith Examples in r and Stan. CRC press.\n\n\nWickham, Hadley. 2019. Advanced R. CRC Press.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023.\nR for Data Science. \" O’Reilly Media,\nInc.\"."
+  },
+  {
+    "objectID": "week2.html#quarto",
+    "href": "week2.html#quarto",
+    "title": "2  Week 2",
+    "section": "2.1 Quarto",
+    "text": "2.1 Quarto\nQuarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "week2.html#running-code",
+    "href": "week2.html#running-code",
+    "title": "2  Week 2",
+    "section": "2.2 Running Code",
+    "text": "2.2 Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n\nCode\n1 + 1\n\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "week2.html#communication",
+    "href": "week2.html#communication",
+    "title": "2  Week 2",
+    "section": "2.1 Communication",
+    "text": "2.1 Communication\nRead Chapter 29 in R for Data Science (Wickham et al. 2023).1\nYou will then need to do the following:\n\nInstall Zotero in your computer if you haven’t already.\nRead Citations from Zotero and stop reading when you get to “Group Libraries.” This is 3 paragraphs.\nGo to this repository and download any CSL file you want—e.g., I am using the this one.\nInstall the following packages:\n\n\nCode\ninstall.packages(\"modelsummary\")\ninstall.packages(\"flextable\")\ninstall.packages(\"tinytex\")\n\n\nYou should also type this into the console:\n\n\nCode\ntinytex::install_tinytex()\n\n\n\n\n\n\n\n\n\nExercise\nasdfasdf"
+  },
+  {
+    "objectID": "week2.html#data-wrangling",
+    "href": "week2.html#data-wrangling",
+    "title": "2  Week 2",
+    "section": "2.2 Data Wrangling",
+    "text": "2.2 Data Wrangling\n\n\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. \" O’Reilly Media, Inc.\"."
+  },
+  {
+    "objectID": "week2.html#footnotes",
+    "href": "week2.html#footnotes",
+    "title": "2  Week 2",
+    "section": "",
+    "text": "Some additional resources:\n\nhttps://quarto.org/docs/get-started/authoring/rstudio.html\nhttps://quarto.org/docs/visual-editor/technical.html\n\n↩︎"
   }
 ]

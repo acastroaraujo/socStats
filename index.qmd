@@ -32,7 +32,7 @@ These are my personal recommendations for resources to start getting interested 
 
     Very introductory but useful.
 
--   *Statistical Inference via Data Science* [@ismay2019]
+-   [*Statistical Inference via Data Science*](https://moderndive.com/) [@ismay2019]
 
     It's good!
 

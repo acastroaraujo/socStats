@@ -1,0 +1,144 @@
+---
+title: "Quarto Document Template"
+author: "andrés castro araújo"
+date: "2023-09-07"
+mainfont: "Palatino"
+format: 
+  html: 
+    theme: cosmo
+    toc: true
+    embed-resources: true
+  pdf:
+    colorlinks: true
+execute: 
+  echo: false
+bibliography: references.bib
+csl: extra/american-journal-of-sociology.csl
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+library(modelsummary)
+```
+
+# 1^st^ Header
+
+Vestibulum sollicitudin quis leo id ornare. Aenean tristique auctor justo sed ornare. Morbi ac suscipit eros. Integer tortor enim, cursus vitae tincidunt vitae, tristique id lectus. Donec mollis mauris ac sapien venenatis cursus. Suspendisse dapibus nunc augue. Nam in urna egestas elit vehicula malesuada nec non tortor. Morbi ac tincidunt velit, sed viverra metus. Phasellus lacinia pellentesque tellus, eget finibus nisl commodo vitae. Curabitur ac nisi vitae nunc eleifend mollis. In id dapibus sem, vel lobortis odio. Suspendisse tincidunt fringilla scelerisque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed et leo lectus. Cras felis arcu, ornare nec arcu cursus, commodo venenatis velit.
+
+## 2^nd^ Header
+
+Vestibulum scelerisque sed erat eu porta. Nullam sit amet dictum quam. Ut risus quam, aliquam non pellentesque at, aliquet eget nisi. Sed molestie sapien nec interdum volutpat. Sed suscipit leo ut efficitur vehicula. Suspendisse ac sodales risus, eu pulvinar justo. Donec magna nibh, ultrices id tortor ac, accumsan finibus mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum finibus elit augue, non porta turpis eleifend ac. Aliquam aliquet at nulla in sollicitudin. Suspendisse laoreet dolor id placerat interdum. Phasellus a metus blandit, lacinia arcu aliquet, ultrices urna. Suspendisse blandit odio eget nulla cursus, ac fermentum libero tincidunt.
+
+### 3^rd^ Header
+
+Nullam eu diam vel ipsum malesuada gravida. Vestibulum id vestibulum dui. Donec tincidunt euismod sapien dignissim lobortis. Cras et velit eu orci porttitor blandit. Nulla nec nunc ac ex mollis luctus. Duis nisl felis, finibus vel justo vel, sodales condimentum nibh. Pellentesque viverra egestas elit, at venenatis purus finibus et. Suspendisse auctor sem in nisl tincidunt vehicula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+## Text formatting
+
+> I want to be a part of the people that make meaning, not the thing that is made.
+>
+> \- Barbie, The Movie
+
+*italic* **bold** ~~strikeout~~ `code`
+
+superscript^2^ subscript~2~
+
+[underline]{.underline} [small caps]{.smallcaps}
+
+## Lists
+
+-   Bulleted list item 1
+
+-   Item 2
+
+    -   Item 2a
+
+    -   Item 2b
+
+1.  Numbered list item 1
+
+2.  Item 2. The numbers are incremented automatically in the output.
+
+3.  Another numbered list item
+
+## Images and Figures
+
+Quarto allows for [easy cross-references of images and plots](https://quarto.org/docs/authoring/cross-references.html#figures). @fig-cat shows an image, whereas @fig-plot shows a plot created using ggplot2.
+
+![This is a picture of cat. This cat appears to have mastery over the so-called "[Care Bear Stare](https://carebears.fandom.com/wiki/Care_Bear_Stare)."](images/cat.jpeg){#fig-cat fig-align="center" width="75%"}
+
+```{r}
+#| label: fig-plot
+#| fig-cap: "This plot shows the effect of vitamin C on tooth growth in Guinea Pigs. The response is the length of odontoblasts (cells responsible for tooth growth) in 60 guinea pigs. Each animal received one of three dose levels of vitamin C (0.5, 1, and 2 mg/day) by one of two delivery methods, orange juice or ascorbic acid (a form of vitamin C and coded as `VC`)."
+
+ToothGrowth |> 
+  ggplot(aes(dose, len, group = dose)) + 
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(width = 1/10) +
+  facet_wrap(~supp) + 
+  theme_light()
+
+```
+
+To find more about the dataset used to create @fig-plot type the following line of code into the console:
+
+```{r}
+#| echo: true
+#| eval: false
+?ToothGrowth
+```
+
+## Equations
+
+It's also easy to cross-reference equations. For example, @eq-1 depicts the *fundamental theorem of calculus.*
+
+$$
+f(b) - f(a) = \int_a^b f^\prime (x) dx
+$$ {#eq-1}
+
+## Tables
+
+We can also cross-reference [tables](https://quarto.org/docs/authoring/cross-references.html#tables) easily, as shown in @tbl-manual and @tbl-regression.
+
+| Col1 | Col2 |
+|------|------|
+| a    | b    |
+| c    | d    |
+
+: This table was created using Markdown. {#tbl-manual}
+
+@tbl-regression shows some very simple regression models. Ask Steve what he thinks about those asterisks!
+
+```{r}
+#| label: tbl-regression
+#| tbl-cap: "This table was created using the `modelsummary` package"
+#| tbl-cap-location: bottom
+
+mod1 <- lm(mpg ~ am, data = mtcars)
+mod2 <- lm(mpg ~ am + vs, data = mtcars)
+mod3 <- lm(mpg ~ am + vs + hp, data = mtcars)
+mod4 <- lm(mpg ~ am + vs + hp + disp, data = mtcars)
+
+modelsummary(
+  models = list(
+    "Model 1" = mod1,
+    "Model 2" = mod2,
+    "Model 3" = mod3,
+    "Model 4" = mod4
+  ), 
+  stars = TRUE, 
+  gof_map = c("nobs", "r.squared")
+)
+```
+
+## Citations
+
+Finally, Quarto has great Zotero integration.
+
+> Hi! My name is Andrés. My favorite academic book is @abbott1988. @ferguson2022 is the last thing I read. The next thing I plan on reading is @smaldino2023.
+
+## References
+
+::: {#refs}
+:::
