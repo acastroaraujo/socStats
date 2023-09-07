@@ -74,20 +74,20 @@
     "href": "week2.html#communication",
     "title": "2  Week 2",
     "section": "2.1 Communication",
-    "text": "2.1 Communication\nRead Chapter 29 in R for Data Science (Wickham et al. 2023).1\nYou will then need to do the following:\n\nInstall Zotero in your computer if you haven’t already.\nRead Citations from Zotero and stop reading when you get to “Group Libraries.” This is 3 paragraphs.\nGo to this repository and download any CSL file you want—e.g., I am using the this one.\nInstall the following packages:\n\n\nCode\ninstall.packages(\"modelsummary\")\ninstall.packages(\"flextable\")\ninstall.packages(\"tinytex\")\n\n\nYou should also type this into the console:\n\n\nCode\ntinytex::install_tinytex()\n\n\n\n\n\n\n\n\n\nExercise\nasdfasdf"
+    "text": "2.1 Communication\nSkim Chapter 29 in R for Data Science (Wickham et al. 2023).1\nYou will then need to do the following:\n\nInstall Zotero in your computer if you haven’t already.\nRead Citations from Zotero and stop reading when you get to “Group Libraries.” This is 3 paragraphs.\nGo to this repository and download any CSL file you want—e.g., I am using the this one. Save the file in your Project folder.\nInstall the following packages:\n\n\nCode\ninstall.packages(\"modelsummary\")\ninstall.packages(\"flextable\")\ninstall.packages(\"tinytex\")\n\n\nYou should also type this into the console after installing tinytex:\n\n\nCode\ntinytex::install_tinytex()\n\n\n\n\n\n\n\n\n\nExercise\nDownload this .qmd file and put it into your project folder.\n\nChange Figure 1 (the cat picture) with an image of your liking. Adjust the caption accordingly.\nChange Equation 1 for a different equation.\nHint: If your not familiar with writing these sorts of equations, you can ask ChatGPT to generate the latex code for a different equation—e.g., “the normal distribution.”\nChange the “citations paragraph” at the end to so that it corresponds to yourself—i.e.,\nEdit the YAML file so that it includes your name (name), the appropriate date (date), a different font (mainfont), and whatever csl file you decided to go with (csl).\nToggle between the Source and Visual editors and try to understand what is going on.\nCreate a pdf and an html file.\nHint: This is how my .pdf and .html files look like.\nUpload the .qmd, .pdf, and .html files to your github repository."
   },
   {
     "objectID": "week2.html#data-wrangling",
     "href": "week2.html#data-wrangling",
     "title": "2  Week 2",
     "section": "2.2 Data Wrangling",
-    "text": "2.2 Data Wrangling\n\n\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. \" O’Reilly Media, Inc.\"."
+    "text": "2.2 Data Wrangling\n\n\n\n\n\n\nMultiple Exercises\nRead Chapter 4 of R4DS (Wickham et al. 2023) and complete the following exercises:\n\n4.2.5: all six exercises\n4.3.5: all seven exercises\n4.5.7: all six exercises\n\nAnswer these exercises in a quarto document and upload both .qmd and .html files to your github repository, just as you did for last week’s homework.\n\n\n\nYes, this means that for this week you will upload five different files to your github repository!\n\n\n\n\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023. R for Data Science. \" O’Reilly Media, Inc.\"."
   },
   {
     "objectID": "week2.html#footnotes",
     "href": "week2.html#footnotes",
     "title": "2  Week 2",
     "section": "",
-    "text": "Some additional resources:\n\nhttps://quarto.org/docs/get-started/authoring/rstudio.html\nhttps://quarto.org/docs/visual-editor/technical.html\n\n↩︎"
+    "text": "Some additional resources to skim:\n\nhttps://quarto.org/docs/get-started/authoring/rstudio.html\nhttps://quarto.org/docs/visual-editor/technical.html\n\n↩︎"
   }
 ]

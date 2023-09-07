@@ -13,7 +13,7 @@ format:
 execute: 
   echo: false
 bibliography: references.bib
-csl: extra/american-journal-of-sociology.csl
+csl: american-journal-of-sociology.csl
 ---
 
 ```{r}
@@ -108,7 +108,9 @@ We can also cross-reference [tables](https://quarto.org/docs/authoring/cross-ref
 
 : This table was created using Markdown. {#tbl-manual}
 
-@tbl-regression shows some very simple regression models. Ask Steve what he thinks about those asterisks!
+@tbl-regression shows some very simple regression models.
+
+\newpage
 
 ```{r}
 #| label: tbl-regression
@@ -132,11 +134,15 @@ modelsummary(
 )
 ```
 
+_Ask Steve what he thinks about those asterisks!_
+
+\newpage
+
 ## Citations
 
 Finally, Quarto has great Zotero integration.
 
-> Hi! My name is Andrés. My favorite academic book is @abbott1988. @ferguson2022 is the last thing I read. The next thing I plan on reading is @smaldino2023.
+> Hi! My name is Andrés. One of my favorite academic books is @abbott1988. @ferguson2022 is the last thing I read. The next thing I plan on reading is Paul Smaldino's _Modeling Social Behavior_ [-@smaldino2023] book.
 
 ## References
 
