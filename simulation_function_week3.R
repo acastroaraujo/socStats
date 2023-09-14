@@ -1,5 +1,4 @@
 
-
 validate_sim_parameters <- function(dem_prob, sample_size, num_sim) {
 
   if (!is.numeric(dem_prob) | !dplyr::between(dem_prob, left = 0, right = 1)) {
