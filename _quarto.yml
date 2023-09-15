@@ -12,6 +12,9 @@ book:
       chapters: 
         - week1.qmd
         - week2.qmd
+    - part: sec2.qmd
+      chapters: 
+        - week3.qmd
     - references.qmd
 
 bibliography: references.bib
@@ -33,4 +36,5 @@ format:
 execute:
   freeze: auto
 
+editor: visual
 

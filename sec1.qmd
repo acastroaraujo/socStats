@@ -1,7 +1,7 @@
 ---
-title: "Math and computing preliminaries"
+title: "Computing preliminaries"
 format: html
 editor: visual
 ---
 
-The time we learned how to program in R, write simple reports using `.qmd` documents, and review some high school math.
+That time we learned how to program in R, write simple reports using `.qmd` documents~~, and review some high school math~~.

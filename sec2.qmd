@@ -1,0 +1,7 @@
+---
+title: "Data, sampling, and probability"
+---
+
+That time we learned a little bit about **probability** and **simulation**. This stuff is important, we can't really understand statistics without probability, as hinted at in @fig-prob-stats.
+
+![Source: @wasserman2004](images/probability_statistics.png){#fig-prob-stats fig-align="center" width="100%"}
