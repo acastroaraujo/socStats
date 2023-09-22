@@ -15,6 +15,7 @@ book:
     - part: sec2.qmd
       chapters: 
         - week3.qmd
+        - week4.qmd
     - references.qmd
 
 bibliography: references.bib

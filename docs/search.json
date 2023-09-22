@@ -152,5 +152,47 @@
     "title": "3  Week 3",
     "section": "4.1 Introduction",
     "text": "4.1 Introduction\nWe will look at the basic ggplot2 use using the faithful dataset, giving information on the eruption pattern of the Old Faithful geyser in Yellowstone National Park.\n\n\nCode\nlibrary(tidyverse)  ## ggplot2 is part of the tidyverse\ndata(\"faithful\")    ## this creates a copy of `faithful` in your global environment.\n\n# Basic scatterplot\nggplot(\n  data = faithful, \n  mapping = aes(x = eruptions, y = waiting)\n  ) + \n  geom_point()\n\n\n\n\n\nCode\n# Data and mapping can be given both as global (in ggplot()) or per layer\nggplot() + \n  geom_point(mapping = aes(x = eruptions, y = waiting), data = faithful)\n\n\n\n\n\nIf an aesthetic is linked to data it is put into aes()\n\n\nCode\nfaithful |&gt; \n  ggplot() + \n  geom_point(aes(x = eruptions, y = waiting, color = eruptions &lt; 3))\n\n\n\n\n\nIf you simple want to set it to a value, put it outside of aes()\n\n\nCode\nggplot(faithful) + \n  geom_point(aes(x = eruptions, y = waiting),\n             color = 'steelblue')\n\n\n\n\n\nSome geoms only need a single mapping and will calculate the rest for you—e.g., histograms and boxplots.\n\n\nCode\nggplot(faithful) + \n  geom_histogram(aes(x = eruptions))\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\nFinally, geoms are drawn in the order they are added. The point layer is thus drawn on top of the density contours in the example below:\n\n\nCode\nggplot(faithful, aes(x = eruptions, y = waiting)) + \n  geom_density_2d() + \n  geom_point()\n\n\n\n\n\n\n4.1.1 Exercise\n\n\n\n\n\n\nModify the code below to make the points larger squares and slightly transparent. See ?geom_point for more information on the point layer.\n\n\n\n\n\nCode\nggplot(faithful) + \n  geom_point(aes(x = eruptions, y = waiting))\n\n\n\n\n\n\n\n\nHint 1: transparency is controlled with alpha, and shape with shape\nHint 2: remember the difference between mapping and setting aesthetics\nHint 3: shape can also be controlled via the following numeric values\nNote that shapes 21 to 25 can be assigned color (for the stroke) and fill values (above in pink).\n\n\n\n\n\n4.1.2 Exercise\n\n\n\n\n\n\nColor the two distributions in the histogram with different colors.\n\n\n\n\n\nCode\nggplot(faithful) + \n  geom_histogram(aes(x = eruptions))\n\n\n\n\n\n\n\n\nHint 1: For polygons you can map two different color-like aesthetics: color (the color of the stroke) and fill (the fill color)\n\n\n\n\n\n4.1.3 Exercise\n\n\n\n\n\n\nAdd a line that separates the two point distributions. See ?geom_abline for how to draw straight lines from a slope and intercept.\n\n\n\n\n\nCode\nggplot(faithful) + \n  geom_point(aes(x = eruptions, y = waiting))"
+  },
+  {
+    "objectID": "week4.html#exercise",
+    "href": "week4.html#exercise",
+    "title": "4  Week 4",
+    "section": "4.1 Exercise",
+    "text": "4.1 Exercise\nSo far, we have generated data using the sample() and rbinom() functions. R has a built-in function for generating data from normal distributions, it’s called rnorm().\nRecall that all normal distributions exhibit the following behavior:\n\nThe probability that \\(x\\) is within one standard deviation \\(\\sigma\\) away from the mean is roughly 68%.\nThe probability that \\(x\\) is within two standard deviations \\(2\\sigma\\) away from the mean is roughly 95%.\nThe probability that \\(x\\) is above the mean ( \\(x \\geq \\mu\\) ) is 50%.\nThe probability that \\(x\\) is below the mean ( \\(x \\leq \\mu\\) ) is also 50%.\n\nThe following chunk generates 100,000 observations from a normal distribution with mean = 0 and standard deviation = 1.\n\n\nCode\nx &lt;- rnorm(100000, mean = 0, sd = 1)\n\n\n\n\n\n\n\n\nUse the mean() function to verify that x exhibits those four behaviors.\n\n\n\n\n\n\n\n\n\nHint: Remember that you can coerce numeric variables into TRUE and FALSE values using logical operators (==, &gt;, &lt;, etc.)"
+  },
+  {
+    "objectID": "week4.html#exercise-1",
+    "href": "week4.html#exercise-1",
+    "title": "4  Week 4",
+    "section": "4.2 Exercise",
+    "text": "4.2 Exercise\n\n\n\n\n\n\nUse the quantile() function on the x created in the previous exercise. Explain the results."
+  },
+  {
+    "objectID": "week4.html#exercise-2",
+    "href": "week4.html#exercise-2",
+    "title": "4  Week 4",
+    "section": "4.3 Exercise",
+    "text": "4.3 Exercise\n\n\n\n\n\n\nNow modify the probs argument in the quantile() to find the 0.5% and 0.995% percentiles of x.\n\n\n\n\n\n\n\n\n\nHint: If you Google “99 percent confidence interval” you should see a table that foreshadows the answer—i.e., you should get some number roughly equal to -2.576 and 2.576 respectively."
+  },
+  {
+    "objectID": "week4.html#exercise-3",
+    "href": "week4.html#exercise-3",
+    "title": "4  Week 4",
+    "section": "4.4 Exercise",
+    "text": "4.4 Exercise\n\n\n\n\n\n\nUse the mean() function to verify that the probability of \\(x\\) being between \\(-2.576\\) and \\(2.576\\) is roughly 99%.\n\n\n\n\n\n\n\n\n\nHint: The logical operator for “AND” is &."
+  },
+  {
+    "objectID": "week4.html#exercise-4",
+    "href": "week4.html#exercise-4",
+    "title": "4  Week 4",
+    "section": "4.5 Exercise",
+    "text": "4.5 Exercise\nCentral Limit Theorem\n\n\n\n\n\n\nLet \\(x = x_1 + \\dots + x_{20}\\), the sum of 20 independent uniform(0, 1) random variables. In R, create 1000 simulations of \\(x\\) and plot the histogram of their means.\n\n\n\n\n\n\n\n\n\nHint: You can simulate the sum of 20 independent uniform random variables using the following code:\n\n\nCode\nsum(runif(n = 20, min = 0, max = 1))\n\n\n[1] 10.36996\n\n\nThe simulation you create will have 1000 instances of a value like this.\n\n\n\nThe sampling distribution is the set of possible sample “statistics” (e.g., means) that could have been observed, if the data collection process had been repeated many many times. There’s an important theorem in statistics called the Central Limit Theorem (CLT) that proves that this sampling distribution converges to a normal distribution when the sample size is big enough, regardless of how our data looks like.\nThe standard error is how we estimate of the the standard deviation of the sampling distribution.\n\n\n\n\n\n\nUse the sd() function on the sampling distribution simulated earlier, then compare this value to the standard error given by \\(\\text{se}(x) = \\sigma_x / \\sqrt{N}\\) for one sample—i.e., sd(runif(20)) / sqrt(20). Do they match? Are they close?"
+  },
+  {
+    "objectID": "week4.html#exercise-5",
+    "href": "week4.html#exercise-5",
+    "title": "4  Week 4",
+    "section": "4.6 Exercise",
+    "text": "4.6 Exercise\nSimulation study of CLT\nMany introductory statistics textbooks say that “sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold.”\n\n\n\n\n\n\nWrite down intuitively what you think this means.\n\n\n\nNow lets revisit last class’ simulation exercise.\nhttps://github.com/vaiseys/soc-stats-1/blob/main/demos/day-08.R\nYou’ll notice that the sample size is controlled by the following object:\n\n\nCode\nsvy_size &lt;- 2247  # number of people in each \"poll\"\n\n\nAnd the “true” population proportion is given by:\n\n\nCode\nest_prop &lt;- 1/3\n\n\nIn class, we also calculated the standard error “analytically” using the following mathematical equation:\n\\[\n\\text{se}_x = \\sqrt{\\frac{p (1-p)}{n}}\n\\]\nOr in code:\n\n\nCode\nstd_error &lt;- sqrt((1/3) * (2/3) / svy_size)\nstd_error\n\n\n[1] 0.009944712\n\n\nThis means that the 95% confidence interval should be roughly 2 standard errors away from 0.33\n\n\nCode\n0.33 - 1.96*std_error ## \"1.96\" is roughly \"2\"!\n\n\n[1] 0.3105084\n\n\nCode\n0.33 + 1.96*std_error\n\n\n[1] 0.3494916\n\n\nIn Steve’s simulation, this is given by ci95.\n\n\n\n\n\n\nRepeat Steve’s simulation with different values of svy_size. Is the 95% confidence interval still roughly 2 standard errors away from 0.33?\nDo these results change your initial interpretation of the idea that “sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold” ?"
   }
 ]

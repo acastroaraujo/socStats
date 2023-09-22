@@ -7,10 +7,12 @@ format:
     theme: cosmo
     monofont: Fira Code
     fontsize: 1em
+    toc: true
     code-fold: show
     code-line-numbers: true
     code-tools: true
     fig-align: "center"
+    embed-resources: true
     mainfont: Optima
 editor: visual
 ---
@@ -62,7 +64,7 @@ flights |>
 ```{r}
 flights |> 
   ## I will also accept dep_delay <= 0
-  filter(arr_delay >= 120 & dep_delay <= 5)
+  filter(arr_delay > 120 & dep_delay <= 5)
 ```
 
 *Were delayed by at least an hour, but made up over 30 minutes in flight*
@@ -83,7 +85,7 @@ flights |>
   arrange(desc(dep_delay))
 
 flights |> 
-  arrange(hour, minute)
+  arrange(dep_time)
 ```
 
 ### 4.2.5.3
