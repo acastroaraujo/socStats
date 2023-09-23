@@ -22,7 +22,7 @@ The purpose of this week's homework is two-fold:
 
     Learning how to generate data will help us understand statistics better. *I promise!*
 
-*Note that exercise questions are surrounded by depicted with blue and hints are depicted with green.*
+*Note that exercise questions are depicted with blue and hints are depicted with green.*
 
 ::: callout-note
 Questions...
