@@ -172,7 +172,7 @@
     "href": "week4.html#exercise-2",
     "title": "4  Week 4",
     "section": "4.3 Exercise",
-    "text": "4.3 Exercise\n\n\n\n\n\n\nNow modify the probs argument in the quantile() to find the 0.5% and 0.995% percentiles of x.\n\n\n\n\n\n\n\n\n\nHint: If you Google “99 percent confidence interval” you should see a table that foreshadows the answer—i.e., you should get some number roughly equal to -2.576 and 2.576 respectively."
+    "text": "4.3 Exercise\n\n\n\n\n\n\nNow modify the probs argument in the quantile() to find the 0.5% and 99.5% percentiles of x.\n\n\n\n\n\n\n\n\n\nHint: If you Google “99 percent confidence interval” you should see a table that foreshadows the answer—i.e., you should get some number roughly equal to -2.576 and 2.576 respectively."
   },
   {
     "objectID": "week4.html#exercise-3",
@@ -186,7 +186,7 @@
     "href": "week4.html#exercise-4",
     "title": "4  Week 4",
     "section": "4.5 Exercise",
-    "text": "4.5 Exercise\nCentral Limit Theorem\n\n\n\n\n\n\nLet \\(x = x_1 + \\dots + x_{20}\\), the sum of 20 independent uniform(0, 1) random variables. In R, create 1000 simulations of \\(x\\) and plot the histogram of their means.\n\n\n\n\n\n\n\n\n\nHint: You can simulate the sum of 20 independent uniform random variables using the following code:\n\n\nCode\nsum(runif(n = 20, min = 0, max = 1))\n\n\n[1] 11.37239\n\n\nThe simulation you create will have 1000 instances of a value like this.\n\n\n\nThe sampling distribution is the set of possible sample “statistics” (e.g., means) that could have been observed, if the data collection process had been repeated many many times. There’s an important theorem in statistics called the Central Limit Theorem (CLT) that proves that this sampling distribution converges to a normal distribution when the sample size is big enough, regardless of how our data looks like.\nThe standard error is how we estimate of the the standard deviation of the sampling distribution.\n\n\n\n\n\n\nUse the sd() function on the sampling distribution simulated earlier, then compare this value to the standard error given by \\(\\text{se}(x) = \\sigma_x / \\sqrt{N}\\) for one sample—i.e., sd(runif(20)) / sqrt(20). Do they match? Are they close?"
+    "text": "4.5 Exercise\nCentral Limit Theorem\n\n\n\n\n\n\nLet \\(x = x_1 + \\dots + x_{20}\\), the sum of 20 independent uniform(0, 1) random variables. In R, create 1000 simulations of \\(x\\) and plot the histogram of their means.\n\n\n\n\n\n\n\n\n\nHint: You can simulate the sum of 20 independent uniform random variables using the following code:\n\n\nCode\nsum(runif(n = 20, min = 0, max = 1))\n\n\n[1] 8.089165\n\n\nThe simulation you create will have 1000 instances of a value like this.\n\n\n\nThe sampling distribution is the set of possible sample “statistics” (e.g., means) that could have been observed, if the data collection process had been repeated many many times. There’s an important theorem in statistics called the Central Limit Theorem (CLT) that proves that this sampling distribution converges to a normal distribution when the sample size is big enough, regardless of how our data looks like.\nThe standard error is how we estimate of the the standard deviation of the sampling distribution.\n\n\n\n\n\n\nUse the sd() function on the sampling distribution simulated earlier, then compare this value to the standard error given by \\(\\text{se}(x) = \\sigma_x / \\sqrt{N}\\) for one sample—i.e., sd(runif(20)) / sqrt(20). Do they match? Are they close?"
   },
   {
     "objectID": "week4.html#exercise-5",

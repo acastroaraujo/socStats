@@ -24,7 +24,7 @@ Questions...
 Hints...
 :::
 
-## Exercise 
+## Exercise
 
 So far, we have generated data using the `sample()` and `rbinom()` functions. R has a built-in function for generating data from normal distributions, it's called `rnorm()`.
 
@@ -61,7 +61,7 @@ Use the `quantile()` function on the `x` created in the previous exercise. Expla
 ## Exercise
 
 ::: callout-note
-Now modify the `probs` argument in the `quantile()` to find the 0.5% and 0.995% percentiles of `x`.
+Now modify the `probs` argument in the `quantile()` to find the 0.5% and 99.5% percentiles of `x`.
 :::
 
 ::: callout-tip

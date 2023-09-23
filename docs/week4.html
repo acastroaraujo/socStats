@@ -322,7 +322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Now modify the <code>probs</code> argument in the <code>quantile()</code> to find the 0.5% and 0.995% percentiles of <code>x</code>.</p>
+<p>Now modify the <code>probs</code> argument in the <code>quantile()</code> to find the 0.5% and 99.5% percentiles of <code>x</code>.</p>
 </div>
 </div>
 </div>
@@ -386,7 +386,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">sum</span>(<span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 11.37239</code></pre>
+<pre><code>[1] 8.089165</code></pre>
 </div>
 </div>
 <p>The simulation you create will have 1000 instances of a value like this.</p>
@@ -809,7 +809,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-26"><a href="#cb13-26"></a>Hints...</span>
 <span id="cb13-27"><a href="#cb13-27"></a>:::</span>
 <span id="cb13-28"><a href="#cb13-28"></a></span>
-<span id="cb13-29"><a href="#cb13-29"></a><span class="fu">## Exercise </span></span>
+<span id="cb13-29"><a href="#cb13-29"></a><span class="fu">## Exercise</span></span>
 <span id="cb13-30"><a href="#cb13-30"></a></span>
 <span id="cb13-31"><a href="#cb13-31"></a>So far, we have generated data using the <span class="in">`sample()`</span> and <span class="in">`rbinom()`</span> functions. R has a built-in function for generating data from normal distributions, it's called <span class="in">`rnorm()`</span>.</span>
 <span id="cb13-32"><a href="#cb13-32"></a></span>
@@ -846,7 +846,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-65"><a href="#cb13-65"></a><span class="fu">## Exercise</span></span>
 <span id="cb13-66"><a href="#cb13-66"></a></span>
 <span id="cb13-67"><a href="#cb13-67"></a>::: callout-note</span>
-<span id="cb13-68"><a href="#cb13-68"></a>Now modify the <span class="in">`probs`</span> argument in the <span class="in">`quantile()`</span> to find the 0.5% and 0.995% percentiles of <span class="in">`x`</span>.</span>
+<span id="cb13-68"><a href="#cb13-68"></a>Now modify the <span class="in">`probs`</span> argument in the <span class="in">`quantile()`</span> to find the 0.5% and 99.5% percentiles of <span class="in">`x`</span>.</span>
 <span id="cb13-69"><a href="#cb13-69"></a>:::</span>
 <span id="cb13-70"><a href="#cb13-70"></a></span>
 <span id="cb13-71"><a href="#cb13-71"></a>::: callout-tip</span>
