@@ -96,13 +96,23 @@ sum(runif(n = 20, min = 0, max = 1))
 The simulation you create will have 1000 instances of a value like this.
 :::
 
-The **sampling distribution** is the set of possible sample "statistics" (e.g., means) that could have been observed, *if the data collection process had been repeated many many times*. There's an important theorem in statistics called the Central Limit Theorem (CLT) that *proves* that this sampling distribution converges to a normal distribution when the sample size is big enough, *regardless of how our data looks like.*
+The **sampling distribution** is the set of possible sample "statistics" or "data summaries" (e.g., means) that could have been observed, *if the data collection process had been repeated many many times*. There's an important theorem in statistics called the Central Limit Theorem (CLT) that *proves* that this sampling distribution converges to a normal distribution when the sample size is big enough, *regardless of how our data looks like.*
 
 The **standard error** is how we estimate of the *the standard deviation of the sampling distribution*.
 
-::: callout-note
-Use the `sd()` function on the sampling distribution simulated earlier, then compare this value to the standard error given by $\text{se}(x) = \sigma_x / \sqrt{N}$ for one sample---i.e., `sd(runif(20)) / sqrt(20)`. Do they match? Are they close?
+::: callout-tip
+**Bonus**:
+
+Use the `sd()` function on the sampling distribution simulated earlier, then compare this value to the standard error given by the formula for the standard error of a sum of 20 uniform(0, 1) random variables:
+
+$$
+\text{se}(x) = \sqrt{\frac{20}{12}}
+$$
+
+See that? We can calculate the standard errors of different "data summaries" without having to think too much about the math.[^week4-1]
 :::
+
+[^week4-1]: We can *estimate* the standard error for one sample using `sd(runif(20)) * sqrt(20)`. The answer should be *close* to the "true" value (1.29), but it shouldn't match.
 
 ## Exercise
 

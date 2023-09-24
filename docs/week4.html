@@ -215,12 +215,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./solutions-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -421,22 +415,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">sum</span>(<span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.36507</code></pre>
+<pre><code>[1] 10.72799</code></pre>
 </div>
 </div>
 <p>The simulation you create will have 1000 instances of a value like this.</p>
 </div>
 </div>
 </div>
-<p>The <strong>sampling distribution</strong> is the set of possible sample “statistics” (e.g., means) that could have been observed, <em>if the data collection process had been repeated many many times</em>. There’s an important theorem in statistics called the Central Limit Theorem (CLT) that <em>proves</em> that this sampling distribution converges to a normal distribution when the sample size is big enough, <em>regardless of how our data looks like.</em></p>
+<p>The <strong>sampling distribution</strong> is the set of possible sample “statistics” or “data summaries” (e.g., means) that could have been observed, <em>if the data collection process had been repeated many many times</em>. There’s an important theorem in statistics called the Central Limit Theorem (CLT) that <em>proves</em> that this sampling distribution converges to a normal distribution when the sample size is big enough, <em>regardless of how our data looks like.</em></p>
 <p>The <strong>standard error</strong> is how we estimate of the <em>the standard deviation of the sampling distribution</em>.</p>
-<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Use the <code>sd()</code> function on the sampling distribution simulated earlier, then compare this value to the standard error given by <span class="math inline">\(\text{se}(x) = \sigma_x / \sqrt{N}\)</span> for one sample—i.e., <code>sd(runif(20)) / sqrt(20)</code>. Do they match? Are they close?</p>
+<p><strong>Bonus</strong>:</p>
+<p>Use the <code>sd()</code> function on the sampling distribution simulated earlier, then compare this value to the standard error given by the formula for the standard error of a sum of 20 uniform(0, 1) random variables:</p>
+<p><span class="math display">\[
+\text{se}(x) = \sqrt{\frac{20}{12}}
+\]</span></p>
+<p>See that? We can calculate the standard errors of different “data summaries” without having to think too much about the math.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 </div>
 </div>
 </div>
@@ -519,6 +518,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <!-- -->
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>We can <em>estimate</em> the standard error for one sample using <code>sd(runif(20)) * sqrt(20)</code>. The answer should be <em>close</em> to the “true” value (1.29), but it shouldn’t match.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -916,67 +921,77 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-102"><a href="#cb13-102"></a>The simulation you create will have 1000 instances of a value like this.</span>
 <span id="cb13-103"><a href="#cb13-103"></a>:::</span>
 <span id="cb13-104"><a href="#cb13-104"></a></span>
-<span id="cb13-105"><a href="#cb13-105"></a>The **sampling distribution** is the set of possible sample "statistics" (e.g., means) that could have been observed, *if the data collection process had been repeated many many times*. There's an important theorem in statistics called the Central Limit Theorem (CLT) that *proves* that this sampling distribution converges to a normal distribution when the sample size is big enough, *regardless of how our data looks like.*</span>
+<span id="cb13-105"><a href="#cb13-105"></a>The **sampling distribution** is the set of possible sample "statistics" or "data summaries" (e.g., means) that could have been observed, *if the data collection process had been repeated many many times*. There's an important theorem in statistics called the Central Limit Theorem (CLT) that *proves* that this sampling distribution converges to a normal distribution when the sample size is big enough, *regardless of how our data looks like.*</span>
 <span id="cb13-106"><a href="#cb13-106"></a></span>
 <span id="cb13-107"><a href="#cb13-107"></a>The **standard error** is how we estimate of the *the standard deviation of the sampling distribution*.</span>
 <span id="cb13-108"><a href="#cb13-108"></a></span>
-<span id="cb13-109"><a href="#cb13-109"></a>::: callout-note</span>
-<span id="cb13-110"><a href="#cb13-110"></a>Use the <span class="in">`sd()`</span> function on the sampling distribution simulated earlier, then compare this value to the standard error given by $\text{se}(x) = \sigma_x / \sqrt{N}$ for one sample---i.e., <span class="in">`sd(runif(20)) / sqrt(20)`</span>. Do they match? Are they close?</span>
-<span id="cb13-111"><a href="#cb13-111"></a>:::</span>
-<span id="cb13-112"><a href="#cb13-112"></a></span>
-<span id="cb13-113"><a href="#cb13-113"></a><span class="fu">## Exercise</span></span>
-<span id="cb13-114"><a href="#cb13-114"></a></span>
-<span id="cb13-115"><a href="#cb13-115"></a>**Simulation study of CLT**</span>
-<span id="cb13-116"><a href="#cb13-116"></a></span>
-<span id="cb13-117"><a href="#cb13-117"></a>Many introductory statistics textbooks say that "sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold."</span>
-<span id="cb13-118"><a href="#cb13-118"></a></span>
-<span id="cb13-119"><a href="#cb13-119"></a>::: callout-note</span>
-<span id="cb13-120"><a href="#cb13-120"></a>Write down intuitively what you think this means.</span>
-<span id="cb13-121"><a href="#cb13-121"></a>:::</span>
+<span id="cb13-109"><a href="#cb13-109"></a>::: callout-tip</span>
+<span id="cb13-110"><a href="#cb13-110"></a>**Bonus**:</span>
+<span id="cb13-111"><a href="#cb13-111"></a></span>
+<span id="cb13-112"><a href="#cb13-112"></a>Use the <span class="in">`sd()`</span> function on the sampling distribution simulated earlier, then compare this value to the standard error given by the formula for the standard error of a sum of 20 uniform(0, 1) random variables:</span>
+<span id="cb13-113"><a href="#cb13-113"></a></span>
+<span id="cb13-114"><a href="#cb13-114"></a>$$</span>
+<span id="cb13-115"><a href="#cb13-115"></a>\text{se}(x) = \sqrt{\frac{20}{12}}</span>
+<span id="cb13-116"><a href="#cb13-116"></a>$$</span>
+<span id="cb13-117"><a href="#cb13-117"></a></span>
+<span id="cb13-118"><a href="#cb13-118"></a>See that? We can calculate the standard errors of different "data summaries" without having to think too much about the math.<span class="ot">[^week4-1]</span></span>
+<span id="cb13-119"><a href="#cb13-119"></a>:::</span>
+<span id="cb13-120"><a href="#cb13-120"></a></span>
+<span id="cb13-121"><a href="#cb13-121"></a><span class="ot">[^week4-1]: </span>We can *estimate* the standard error for one sample using `sd(runif(20)) * sqrt(20)`. The answer should be *close* to the "true" value (1.29), but it shouldn't match.</span>
 <span id="cb13-122"><a href="#cb13-122"></a></span>
-<span id="cb13-123"><a href="#cb13-123"></a>Now lets revisit last class' simulation exercise.</span>
+<span id="cb13-123"><a href="#cb13-123"></a><span class="fu">## Exercise</span></span>
 <span id="cb13-124"><a href="#cb13-124"></a></span>
-<span id="cb13-125"><a href="#cb13-125"></a><span class="ot">&lt;https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-08.R&gt;</span></span>
+<span id="cb13-125"><a href="#cb13-125"></a>**Simulation study of CLT**</span>
 <span id="cb13-126"><a href="#cb13-126"></a></span>
-<span id="cb13-127"><a href="#cb13-127"></a>You'll notice that the sample size is controlled by the following object:</span>
+<span id="cb13-127"><a href="#cb13-127"></a>Many introductory statistics textbooks say that "sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold."</span>
 <span id="cb13-128"><a href="#cb13-128"></a></span>
-<span id="cb13-131"><a href="#cb13-131"></a><span class="in">```{r}</span></span>
-<span id="cb13-132"><a href="#cb13-132"></a>svy_size <span class="ot">&lt;-</span> <span class="dv">2247</span>  <span class="co"># number of people in each "poll"</span></span>
-<span id="cb13-133"><a href="#cb13-133"></a><span class="in">```</span></span>
+<span id="cb13-129"><a href="#cb13-129"></a>::: callout-note</span>
+<span id="cb13-130"><a href="#cb13-130"></a>Write down intuitively what you think this means.</span>
+<span id="cb13-131"><a href="#cb13-131"></a>:::</span>
+<span id="cb13-132"><a href="#cb13-132"></a></span>
+<span id="cb13-133"><a href="#cb13-133"></a>Now lets revisit last class' simulation exercise.</span>
 <span id="cb13-134"><a href="#cb13-134"></a></span>
-<span id="cb13-135"><a href="#cb13-135"></a>And the "true" population proportion is given by:</span>
+<span id="cb13-135"><a href="#cb13-135"></a><span class="ot">&lt;https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-08.R&gt;</span></span>
 <span id="cb13-136"><a href="#cb13-136"></a></span>
-<span id="cb13-139"><a href="#cb13-139"></a><span class="in">```{r}</span></span>
-<span id="cb13-140"><a href="#cb13-140"></a>est_prop <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb13-141"><a href="#cb13-141"></a><span class="in">```</span></span>
-<span id="cb13-142"><a href="#cb13-142"></a></span>
-<span id="cb13-143"><a href="#cb13-143"></a>In class, we also calculated the standard error "analytically" using the following mathematical equation:</span>
+<span id="cb13-137"><a href="#cb13-137"></a>You'll notice that the sample size is controlled by the following object:</span>
+<span id="cb13-138"><a href="#cb13-138"></a></span>
+<span id="cb13-141"><a href="#cb13-141"></a><span class="in">```{r}</span></span>
+<span id="cb13-142"><a href="#cb13-142"></a>svy_size <span class="ot">&lt;-</span> <span class="dv">2247</span>  <span class="co"># number of people in each "poll"</span></span>
+<span id="cb13-143"><a href="#cb13-143"></a><span class="in">```</span></span>
 <span id="cb13-144"><a href="#cb13-144"></a></span>
-<span id="cb13-145"><a href="#cb13-145"></a>$$</span>
-<span id="cb13-146"><a href="#cb13-146"></a>\text{se}_x = \sqrt{\frac{p (1-p)}{n}}</span>
-<span id="cb13-147"><a href="#cb13-147"></a>$$</span>
-<span id="cb13-148"><a href="#cb13-148"></a></span>
-<span id="cb13-149"><a href="#cb13-149"></a>Or in code:</span>
-<span id="cb13-150"><a href="#cb13-150"></a></span>
-<span id="cb13-153"><a href="#cb13-153"></a><span class="in">```{r}</span></span>
-<span id="cb13-154"><a href="#cb13-154"></a>std_error <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">*</span> (<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">/</span> svy_size)</span>
-<span id="cb13-155"><a href="#cb13-155"></a>std_error</span>
-<span id="cb13-156"><a href="#cb13-156"></a><span class="in">```</span></span>
-<span id="cb13-157"><a href="#cb13-157"></a></span>
-<span id="cb13-158"><a href="#cb13-158"></a>This means that the 95% confidence interval should be roughly 2 standard errors away from 0.33</span>
-<span id="cb13-159"><a href="#cb13-159"></a></span>
-<span id="cb13-162"><a href="#cb13-162"></a><span class="in">```{r}</span></span>
-<span id="cb13-163"><a href="#cb13-163"></a><span class="fl">0.33</span> <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>std_error <span class="do">## "1.96" is roughly "2"!</span></span>
-<span id="cb13-164"><a href="#cb13-164"></a><span class="fl">0.33</span> <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>std_error</span>
-<span id="cb13-165"><a href="#cb13-165"></a><span class="in">```</span></span>
-<span id="cb13-166"><a href="#cb13-166"></a></span>
-<span id="cb13-167"><a href="#cb13-167"></a>In Steve's simulation, this is given by <span class="in">`ci95`</span>.</span>
-<span id="cb13-168"><a href="#cb13-168"></a></span>
-<span id="cb13-169"><a href="#cb13-169"></a>::: callout-note</span>
-<span id="cb13-170"><a href="#cb13-170"></a>Repeat Steve's simulation with different values of <span class="in">`svy_size`</span>. Is the 95% confidence interval still roughly 2 standard errors away from 0.33?</span>
-<span id="cb13-171"><a href="#cb13-171"></a></span>
-<span id="cb13-172"><a href="#cb13-172"></a>Do these results change your initial interpretation of the idea that "sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold" ?</span>
-<span id="cb13-173"><a href="#cb13-173"></a>:::</span>
+<span id="cb13-145"><a href="#cb13-145"></a>And the "true" population proportion is given by:</span>
+<span id="cb13-146"><a href="#cb13-146"></a></span>
+<span id="cb13-149"><a href="#cb13-149"></a><span class="in">```{r}</span></span>
+<span id="cb13-150"><a href="#cb13-150"></a>est_prop <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb13-151"><a href="#cb13-151"></a><span class="in">```</span></span>
+<span id="cb13-152"><a href="#cb13-152"></a></span>
+<span id="cb13-153"><a href="#cb13-153"></a>In class, we also calculated the standard error "analytically" using the following mathematical equation:</span>
+<span id="cb13-154"><a href="#cb13-154"></a></span>
+<span id="cb13-155"><a href="#cb13-155"></a>$$</span>
+<span id="cb13-156"><a href="#cb13-156"></a>\text{se}_x = \sqrt{\frac{p (1-p)}{n}}</span>
+<span id="cb13-157"><a href="#cb13-157"></a>$$</span>
+<span id="cb13-158"><a href="#cb13-158"></a></span>
+<span id="cb13-159"><a href="#cb13-159"></a>Or in code:</span>
+<span id="cb13-160"><a href="#cb13-160"></a></span>
+<span id="cb13-163"><a href="#cb13-163"></a><span class="in">```{r}</span></span>
+<span id="cb13-164"><a href="#cb13-164"></a>std_error <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">*</span> (<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">/</span> svy_size)</span>
+<span id="cb13-165"><a href="#cb13-165"></a>std_error</span>
+<span id="cb13-166"><a href="#cb13-166"></a><span class="in">```</span></span>
+<span id="cb13-167"><a href="#cb13-167"></a></span>
+<span id="cb13-168"><a href="#cb13-168"></a>This means that the 95% confidence interval should be roughly 2 standard errors away from 0.33</span>
+<span id="cb13-169"><a href="#cb13-169"></a></span>
+<span id="cb13-172"><a href="#cb13-172"></a><span class="in">```{r}</span></span>
+<span id="cb13-173"><a href="#cb13-173"></a><span class="fl">0.33</span> <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>std_error <span class="do">## "1.96" is roughly "2"!</span></span>
+<span id="cb13-174"><a href="#cb13-174"></a><span class="fl">0.33</span> <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>std_error</span>
+<span id="cb13-175"><a href="#cb13-175"></a><span class="in">```</span></span>
+<span id="cb13-176"><a href="#cb13-176"></a></span>
+<span id="cb13-177"><a href="#cb13-177"></a>In Steve's simulation, this is given by <span class="in">`ci95`</span>.</span>
+<span id="cb13-178"><a href="#cb13-178"></a></span>
+<span id="cb13-179"><a href="#cb13-179"></a>::: callout-note</span>
+<span id="cb13-180"><a href="#cb13-180"></a>Repeat Steve's simulation with different values of <span class="in">`svy_size`</span>. Is the 95% confidence interval still roughly 2 standard errors away from 0.33?</span>
+<span id="cb13-181"><a href="#cb13-181"></a></span>
+<span id="cb13-182"><a href="#cb13-182"></a>Do these results change your initial interpretation of the idea that "sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold" ?</span>
+<span id="cb13-183"><a href="#cb13-183"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
