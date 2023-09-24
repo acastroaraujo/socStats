@@ -1,19 +1,5 @@
 ---
-title: "Solutions: Week 2"
-author: "andrés"
-date: last-modified
-format:
-  html:
-    theme: cosmo
-    monofont: Fira Code
-    fontsize: 1em
-    toc: true
-    code-fold: show
-    code-line-numbers: true
-    code-tools: true
-    fig-align: "center"
-    embed-resources: true
-    mainfont: Optima
+title: "Solutions 2"
 editor: visual
 ---
 

@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./sec-solutions.html" rel="next">
 <link href="./week3.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -184,6 +184,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./week4.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Week 4</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sec-solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Solutions 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
   </div>
 </li>
       </ul>
@@ -369,7 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Let <span class="math inline">\(x = x_1 + \dots + x_{20}\)</span>, the sum of 20 independent uniform(0, 1) random variables. In R, create 1000 simulations of <span class="math inline">\(x\)</span> and plot the histogram of their means.</p>
+<p>Let <span class="math inline">\(x = x_1 + \dots + x_{20}\)</span>, the sum of 20 independent uniform(0, 1) random variables. In R, create 1000 simulations of <span class="math inline">\(x\)</span> and plot their histogram.</p>
 </div>
 </div>
 </div>
@@ -386,7 +421,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">sum</span>(<span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 8.089165</code></pre>
+<pre><code>[1] 10.36507</code></pre>
 </div>
 </div>
 <p>The simulation you create will have 1000 instances of a value like this.</p>
@@ -778,8 +813,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./sec-solutions.html" class="pagination-link">
+        <span class="nav-page-text">Solutions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -868,7 +903,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-87"><a href="#cb13-87"></a>**Central Limit Theorem**</span>
 <span id="cb13-88"><a href="#cb13-88"></a></span>
 <span id="cb13-89"><a href="#cb13-89"></a>::: callout-note</span>
-<span id="cb13-90"><a href="#cb13-90"></a>Let $x = x_1 + \dots + x_{20}$, the sum of 20 independent uniform(0, 1) random variables. In R, create 1000 simulations of $x$ and plot the histogram of their means.</span>
+<span id="cb13-90"><a href="#cb13-90"></a>Let $x = x_1 + \dots + x_{20}$, the sum of 20 independent uniform(0, 1) random variables. In R, create 1000 simulations of $x$ and plot their histogram.</span>
 <span id="cb13-91"><a href="#cb13-91"></a>:::</span>
 <span id="cb13-92"><a href="#cb13-92"></a></span>
 <span id="cb13-93"><a href="#cb13-93"></a>::: callout-tip</span>
