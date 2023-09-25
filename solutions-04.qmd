@@ -65,6 +65,12 @@ quantile(x, probs = c(0.005, 0.995))
 
 ## Exercise
 
+```{r}
+mean(x > -2.576 & x < 2.576)
+```
+
+## Exercise
+
 Let $x = x_1 + \dots + x_{20}$, the sum of 20 independent uniform(0, 1) random variables. In R, create 1000 simulations of $x$ and plot their histogram.
 
 ```{r}

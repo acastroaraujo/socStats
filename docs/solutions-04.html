@@ -244,7 +244,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">8.3</span> Exercise</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">8.4</span> Exercise</a></li>
   <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4"><span class="header-section-number">8.5</span> Exercise</a></li>
-  <li><a href="#extra" id="toc-extra" class="nav-link" data-scroll-target="#extra"><span class="header-section-number">8.6</span> <strong>Extra</strong></a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5"><span class="header-section-number">8.6</span> Exercise</a></li>
+  <li><a href="#extra" id="toc-extra" class="nav-link" data-scroll-target="#extra"><span class="header-section-number">8.7</span> <strong>Extra</strong></a></li>
   </ul>
 </nav>
     </div>
@@ -290,7 +291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">mean</span>(x <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">&amp;</span> x <span class="sc">&lt;=</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.68498</code></pre>
+<pre><code>[1] 0.68277</code></pre>
 </div>
 </div>
 <p>The probability that <span class="math inline">\(x\)</span> is within two standard deviations <span class="math inline">\(2\sigma\)</span> away from the mean is roughly 95%.</p>
@@ -300,7 +301,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">mean</span>(x <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">&amp;</span> x <span class="sc">&lt;=</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.95539</code></pre>
+<pre><code>[1] 0.95483</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -321,7 +322,7 @@ Warning
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>     2.5%     97.5% 
--1.955397  1.956256 </code></pre>
+-1.957089  1.956044 </code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
@@ -342,8 +343,8 @@ Warning
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">quantile</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>           0%           25%           50%           75%          100% 
--4.8795838435 -0.6695851352  0.0001649382  0.6686857020  4.1235503329 </code></pre>
+<pre><code>          0%          25%          50%          75%         100% 
+-4.600188668 -0.677650951 -0.004541977  0.674231122  4.262262328 </code></pre>
 </div>
 </div>
 <p>The <code>quantile()</code> function calculates the 25<sup>th</sup>, 50<sup>th</sup>, and 75<sup>th</sup> percentiles of a vector of numbers.</p>
@@ -354,14 +355,14 @@ Warning
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">min</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -4.879584</code></pre>
+<pre><code>[1] -4.600189</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">max</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4.12355</code></pre>
+<pre><code>[1] 4.262262</code></pre>
 </div>
 </div>
 <p>Hey! I hope you remember that the <em>median</em> is the same as the 50<sup>th</sup> percentile.</p>
@@ -371,7 +372,7 @@ Warning
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0001649382</code></pre>
+<pre><code>[1] -0.004541977</code></pre>
 </div>
 </div>
 </section>
@@ -384,45 +385,57 @@ Warning
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>     0.5%     99.5% 
--2.554854  2.556632 </code></pre>
+-2.566942  2.561872 </code></pre>
 </div>
 </div>
 </section>
 <section id="exercise-3" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">8.4</span> Exercise</h2>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">mean</span>(x <span class="sc">&gt;</span> <span class="sc">-</span><span class="fl">2.576</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="fl">2.576</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.99029</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-4" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">8.5</span> Exercise</h2>
 <p>Let <span class="math inline">\(x = x_1 + \dots + x_{20}\)</span>, the sum of 20 independent uniform(0, 1) random variables. In R, create 1000 simulations of <span class="math inline">\(x\)</span> and plot their histogram.</p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fl">1e3</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">sum</span>(<span class="fu">runif</span>(<span class="dv">20</span>))) <span class="sc">|&gt;</span> </span>
-<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">ungroup</span>() <span class="do">## this might save you trouble later on!</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a></span>
-<span id="cb21-6"><a href="#cb21-6"></a>d <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fl">1e3</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">sum</span>(<span class="fu">runif</span>(<span class="dv">20</span>))) <span class="sc">|&gt;</span> </span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">ungroup</span>() <span class="do">## this might save you trouble later on!</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a></span>
+<span id="cb23-6"><a href="#cb23-6"></a>d <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="solutions-04_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="solutions-04_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p><strong>Bonus</strong></p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">sd</span>(d<span class="sc">$</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">sd</span>(d<span class="sc">$</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.318354</code></pre>
+<pre><code>[1] 1.274413</code></pre>
 </div>
 </div>
 <p>The real standard error is:</p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">sqrt</span>(<span class="dv">20</span><span class="sc">/</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">sqrt</span>(<span class="dv">20</span><span class="sc">/</span><span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.290994</code></pre>
@@ -432,10 +445,10 @@ Warning
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">sd</span>(<span class="fu">runif</span>(<span class="dv">20</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">sd</span>(<span class="fu">runif</span>(<span class="dv">20</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.249974</code></pre>
+<pre><code>[1] 1.100416</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -454,25 +467,25 @@ Important
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>N <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>S <span class="ot">&lt;-</span> <span class="fl">1e3</span></span>
-<span id="cb29-3"><a href="#cb29-3"></a>x <span class="ot">&lt;-</span> <span class="fu">replicate</span>(S, <span class="fu">sum</span>(<span class="fu">runif</span>(N, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)))</span>
-<span id="cb29-4"><a href="#cb29-4"></a></span>
-<span id="cb29-5"><a href="#cb29-5"></a><span class="fu">tibble</span>(x) <span class="sc">|&gt;</span> </span>
-<span id="cb29-6"><a href="#cb29-6"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>N <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>S <span class="ot">&lt;-</span> <span class="fl">1e3</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>x <span class="ot">&lt;-</span> <span class="fu">replicate</span>(S, <span class="fu">sum</span>(<span class="fu">runif</span>(N, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)))</span>
+<span id="cb31-4"><a href="#cb31-4"></a></span>
+<span id="cb31-5"><a href="#cb31-5"></a><span class="fu">tibble</span>(x) <span class="sc">|&gt;</span> </span>
+<span id="cb31-6"><a href="#cb31-6"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="solutions-04_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<p><img src="solutions-04_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-4" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">8.5</span> Exercise</h2>
+<section id="exercise-5" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="exercise-5"><span class="header-section-number">8.6</span> Exercise</h2>
 <p>Many introductory statistics textbooks say that “sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold.” I’ve seen a lot of confusion with regards to this. For example, I’ve heard people say that if the sample size is 30 then the data is normally distributed. <em>Absolutely not!</em> It means that the sampling distribution will converge to a normal distribution. This means that sample sizes less than 30 will not produce “normal” sampling distributions, and we can verify this using simulations.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -491,21 +504,21 @@ Tip
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>svy_size <span class="ot">&lt;-</span> <span class="dv">15</span> <span class="do">## this is different!</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>est_prop <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a>num_sims <span class="ot">&lt;-</span> <span class="fl">10e3</span></span>
-<span id="cb31-4"><a href="#cb31-4"></a></span>
-<span id="cb31-5"><a href="#cb31-5"></a>sims <span class="ot">&lt;-</span> <span class="fu">replicate</span>(num_sims, <span class="fu">mean</span>(<span class="fu">rbinom</span>(svy_size, <span class="dv">1</span>, <span class="at">prob =</span> est_prop)))</span>
-<span id="cb31-6"><a href="#cb31-6"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">prop =</span> sims) <span class="sc">|&gt;</span> </span>
-<span id="cb31-7"><a href="#cb31-7"></a>  <span class="fu">rowid_to_column</span>(<span class="st">"sim_num"</span>)</span>
-<span id="cb31-8"><a href="#cb31-8"></a></span>
-<span id="cb31-9"><a href="#cb31-9"></a>d <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(prop), <span class="at">se =</span> <span class="fu">sd</span>(prop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>svy_size <span class="ot">&lt;-</span> <span class="dv">15</span> <span class="do">## this is different!</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>est_prop <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a>num_sims <span class="ot">&lt;-</span> <span class="fl">10e3</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a></span>
+<span id="cb33-5"><a href="#cb33-5"></a>sims <span class="ot">&lt;-</span> <span class="fu">replicate</span>(num_sims, <span class="fu">mean</span>(<span class="fu">rbinom</span>(svy_size, <span class="dv">1</span>, <span class="at">prob =</span> est_prop)))</span>
+<span id="cb33-6"><a href="#cb33-6"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">prop =</span> sims) <span class="sc">|&gt;</span> </span>
+<span id="cb33-7"><a href="#cb33-7"></a>  <span class="fu">rowid_to_column</span>(<span class="st">"sim_num"</span>)</span>
+<span id="cb33-8"><a href="#cb33-8"></a></span>
+<span id="cb33-9"><a href="#cb33-9"></a>d <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(prop), <span class="at">se =</span> <span class="fu">sd</span>(prop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
    mean    se
   &lt;dbl&gt; &lt;dbl&gt;
-1 0.333 0.121</code></pre>
+1 0.332 0.120</code></pre>
 </div>
 </div>
 <p>The “mean” value is still the same, but the standard error is bigger because our sample size is 15 instead of 2247. So far, so good.</p>
@@ -513,8 +526,8 @@ Tip
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>std_error <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">*</span> (<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">/</span> svy_size)</span>
-<span id="cb33-2"><a href="#cb33-2"></a>std_error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>std_error <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">*</span> (<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">/</span> svy_size)</span>
+<span id="cb35-2"><a href="#cb35-2"></a>std_error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1217161</code></pre>
@@ -524,20 +537,20 @@ Tip
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">sd</span>(d<span class="sc">$</span>prop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">sd</span>(d<span class="sc">$</span>prop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1213351</code></pre>
+<pre><code>[1] 0.1197762</code></pre>
 </div>
 </div>
 <p>Finally, I know that in any normal distribution approximately 68% of the values of should be within one standard deviation away from the mean.</p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>prop <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">-</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop) <span class="sc">&amp;</span> d<span class="sc">$</span>prop <span class="sc">&lt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">+</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>prop <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">-</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop) <span class="sc">&amp;</span> d<span class="sc">$</span>prop <span class="sc">&lt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">+</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5882</code></pre>
+<pre><code>[1] 0.5954</code></pre>
 </div>
 </div>
 <p>Oh no! The coverage is all wrong. This means that the sampling distribution we created does not have the properties of a normal distribution. This must be what people mean when they say that “sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold.”</p>
@@ -555,19 +568,19 @@ Tip
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>lower <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">-</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop)</span>
-<span id="cb39-2"><a href="#cb39-2"></a>upper <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">+</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop)</span>
-<span id="cb39-3"><a href="#cb39-3"></a><span class="fu">mean</span>(<span class="fu">between</span>(d<span class="sc">$</span>prop, lower, upper))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>lower <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">-</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop)</span>
+<span id="cb41-2"><a href="#cb41-2"></a>upper <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">+</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop)</span>
+<span id="cb41-3"><a href="#cb41-3"></a><span class="fu">mean</span>(<span class="fu">between</span>(d<span class="sc">$</span>prop, lower, upper))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5882</code></pre>
+<pre><code>[1] 0.5954</code></pre>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="extra" class="level2" data-number="8.6">
-<h2 data-number="8.6" class="anchored" data-anchor-id="extra"><span class="header-section-number">8.6</span> <strong>Extra</strong></h2>
+<section id="extra" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="extra"><span class="header-section-number">8.7</span> <strong>Extra</strong></h2>
 <p>Let’s plot how does the sample size affect the number of outcomes that fall within one standard deviations away from the mean.</p>
 <p>This is how I built my simulation.</p>
 <p>Step. 1 Do it once!</p>
@@ -575,32 +588,32 @@ Tip
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>true_value <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">300</span></span>
-<span id="cb41-3"><a href="#cb41-3"></a></span>
-<span id="cb41-4"><a href="#cb41-4"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(sample_size, <span class="dv">1</span>, <span class="at">prob =</span> true_value)</span>
-<span id="cb41-5"><a href="#cb41-5"></a>estimate <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
-<span id="cb41-6"><a href="#cb41-6"></a>estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>true_value <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">300</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a></span>
+<span id="cb43-4"><a href="#cb43-4"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(sample_size, <span class="dv">1</span>, <span class="at">prob =</span> true_value)</span>
+<span id="cb43-5"><a href="#cb43-5"></a>estimate <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb43-6"><a href="#cb43-6"></a>estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3433333</code></pre>
+<pre><code>[1] 0.33</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>std_error_estimate <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(estimate <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> estimate) <span class="sc">/</span> sample_size)</span>
-<span id="cb43-2"><a href="#cb43-2"></a>std_error_estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>std_error_estimate <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(estimate <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> estimate) <span class="sc">/</span> sample_size)</span>
+<span id="cb45-2"><a href="#cb45-2"></a>std_error_estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.02741384</code></pre>
+<pre><code>[1] 0.02714774</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="do">## Is the "true" value inside the estimated 95% confidence interval??</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a>lower <span class="ot">&lt;-</span> estimate <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
-<span id="cb45-3"><a href="#cb45-3"></a>upper <span class="ot">&lt;-</span> estimate <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
-<span id="cb45-4"><a href="#cb45-4"></a></span>
-<span id="cb45-5"><a href="#cb45-5"></a><span class="co"># true_value &gt; lower &amp; true_value &lt; upper</span></span>
-<span id="cb45-6"><a href="#cb45-6"></a><span class="fu">between</span>(true_value, lower, upper)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="do">## Is the "true" value inside the estimated 95% confidence interval??</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>lower <span class="ot">&lt;-</span> estimate <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
+<span id="cb47-3"><a href="#cb47-3"></a>upper <span class="ot">&lt;-</span> estimate <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
+<span id="cb47-4"><a href="#cb47-4"></a></span>
+<span id="cb47-5"><a href="#cb47-5"></a><span class="co"># true_value &gt; lower &amp; true_value &lt; upper</span></span>
+<span id="cb47-6"><a href="#cb47-6"></a><span class="fu">between</span>(true_value, lower, upper)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
@@ -611,61 +624,61 @@ Tip
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>true_value <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">300</span> <span class="do">## play around with this!</span></span>
-<span id="cb47-3"><a href="#cb47-3"></a>num_sims <span class="ot">&lt;-</span> <span class="fl">10e3</span></span>
-<span id="cb47-4"><a href="#cb47-4"></a></span>
-<span id="cb47-5"><a href="#cb47-5"></a>sims <span class="ot">&lt;-</span> <span class="fu">replicate</span>(num_sims, {</span>
-<span id="cb47-6"><a href="#cb47-6"></a>  </span>
-<span id="cb47-7"><a href="#cb47-7"></a>  x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(sample_size, <span class="dv">1</span>, <span class="at">prob =</span> true_value)</span>
-<span id="cb47-8"><a href="#cb47-8"></a>  estimate <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
-<span id="cb47-9"><a href="#cb47-9"></a>  std_error_estimate <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(estimate <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> estimate) <span class="sc">/</span> sample_size)</span>
-<span id="cb47-10"><a href="#cb47-10"></a>  <span class="do">## Is the "true" value inside the estimated 95% confidence interval??</span></span>
-<span id="cb47-11"><a href="#cb47-11"></a>  lower <span class="ot">&lt;-</span> estimate <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
-<span id="cb47-12"><a href="#cb47-12"></a>  upper <span class="ot">&lt;-</span> estimate <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
-<span id="cb47-13"><a href="#cb47-13"></a>  <span class="fu">between</span>(true_value, lower, upper)</span>
-<span id="cb47-14"><a href="#cb47-14"></a>  </span>
-<span id="cb47-15"><a href="#cb47-15"></a>})</span>
-<span id="cb47-16"><a href="#cb47-16"></a></span>
-<span id="cb47-17"><a href="#cb47-17"></a><span class="fu">mean</span>(sims)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>true_value <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">300</span> <span class="do">## play around with this!</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a>num_sims <span class="ot">&lt;-</span> <span class="fl">10e3</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a></span>
+<span id="cb49-5"><a href="#cb49-5"></a>sims <span class="ot">&lt;-</span> <span class="fu">replicate</span>(num_sims, {</span>
+<span id="cb49-6"><a href="#cb49-6"></a>  </span>
+<span id="cb49-7"><a href="#cb49-7"></a>  x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(sample_size, <span class="dv">1</span>, <span class="at">prob =</span> true_value)</span>
+<span id="cb49-8"><a href="#cb49-8"></a>  estimate <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb49-9"><a href="#cb49-9"></a>  std_error_estimate <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(estimate <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> estimate) <span class="sc">/</span> sample_size)</span>
+<span id="cb49-10"><a href="#cb49-10"></a>  <span class="do">## Is the "true" value inside the estimated 95% confidence interval??</span></span>
+<span id="cb49-11"><a href="#cb49-11"></a>  lower <span class="ot">&lt;-</span> estimate <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
+<span id="cb49-12"><a href="#cb49-12"></a>  upper <span class="ot">&lt;-</span> estimate <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
+<span id="cb49-13"><a href="#cb49-13"></a>  <span class="fu">between</span>(true_value, lower, upper)</span>
+<span id="cb49-14"><a href="#cb49-14"></a>  </span>
+<span id="cb49-15"><a href="#cb49-15"></a>})</span>
+<span id="cb49-16"><a href="#cb49-16"></a></span>
+<span id="cb49-17"><a href="#cb49-17"></a><span class="fu">mean</span>(sims)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9495</code></pre>
+<pre><code>[1] 0.9491</code></pre>
 </div>
 </div>
 <p>Step 3. Do it 10,000 times for different sample sizes.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>simulation <span class="ot">&lt;-</span> <span class="cf">function</span>(N, P, S) {</span>
-<span id="cb49-2"><a href="#cb49-2"></a>  </span>
-<span id="cb49-3"><a href="#cb49-3"></a>  out <span class="ot">&lt;-</span> <span class="fu">replicate</span>(S, <span class="at">expr =</span> {</span>
-<span id="cb49-4"><a href="#cb49-4"></a>  </span>
-<span id="cb49-5"><a href="#cb49-5"></a>    x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="at">prob =</span> P)</span>
-<span id="cb49-6"><a href="#cb49-6"></a>    estimate <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
-<span id="cb49-7"><a href="#cb49-7"></a>    std_error_estimate <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(estimate <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> estimate) <span class="sc">/</span> N)</span>
-<span id="cb49-8"><a href="#cb49-8"></a>    <span class="do">## Is the "true" value inside the estimated 95% confidence interval??</span></span>
-<span id="cb49-9"><a href="#cb49-9"></a>    lower <span class="ot">&lt;-</span> estimate <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
-<span id="cb49-10"><a href="#cb49-10"></a>    upper <span class="ot">&lt;-</span> estimate <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
-<span id="cb49-11"><a href="#cb49-11"></a>    dplyr<span class="sc">::</span><span class="fu">between</span>(P, lower, upper)</span>
-<span id="cb49-12"><a href="#cb49-12"></a>    </span>
-<span id="cb49-13"><a href="#cb49-13"></a>  })</span>
-<span id="cb49-14"><a href="#cb49-14"></a>  </span>
-<span id="cb49-15"><a href="#cb49-15"></a>  <span class="fu">return</span>(<span class="fu">mean</span>(out))</span>
-<span id="cb49-16"><a href="#cb49-16"></a>  </span>
-<span id="cb49-17"><a href="#cb49-17"></a>}</span>
-<span id="cb49-18"><a href="#cb49-18"></a></span>
-<span id="cb49-19"><a href="#cb49-19"></a>ss <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">5</span>, <span class="dv">150</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb49-20"><a href="#cb49-20"></a>out <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(ss, \(x) <span class="fu">simulation</span>(<span class="at">N =</span> x, <span class="at">P =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="at">S =</span> <span class="fl">5e3</span>), <span class="at">.progress =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb49-21"><a href="#cb49-21"></a></span>
-<span id="cb49-22"><a href="#cb49-22"></a><span class="fu">tibble</span>(<span class="at">sample =</span> ss, <span class="at">coverage =</span> out) <span class="sc">|&gt;</span> </span>
-<span id="cb49-23"><a href="#cb49-23"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sample, coverage)) <span class="sc">+</span> </span>
-<span id="cb49-24"><a href="#cb49-24"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin =</span> <span class="dv">0</span>, <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">xmax =</span> <span class="dv">30</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb49-25"><a href="#cb49-25"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.95</span>) <span class="sc">+</span> </span>
-<span id="cb49-26"><a href="#cb49-26"></a>  <span class="fu">geom_line</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>simulation <span class="ot">&lt;-</span> <span class="cf">function</span>(N, P, S) {</span>
+<span id="cb51-2"><a href="#cb51-2"></a>  </span>
+<span id="cb51-3"><a href="#cb51-3"></a>  out <span class="ot">&lt;-</span> <span class="fu">replicate</span>(S, <span class="at">expr =</span> {</span>
+<span id="cb51-4"><a href="#cb51-4"></a>  </span>
+<span id="cb51-5"><a href="#cb51-5"></a>    x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="at">prob =</span> P)</span>
+<span id="cb51-6"><a href="#cb51-6"></a>    estimate <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb51-7"><a href="#cb51-7"></a>    std_error_estimate <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(estimate <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> estimate) <span class="sc">/</span> N)</span>
+<span id="cb51-8"><a href="#cb51-8"></a>    <span class="do">## Is the "true" value inside the estimated 95% confidence interval??</span></span>
+<span id="cb51-9"><a href="#cb51-9"></a>    lower <span class="ot">&lt;-</span> estimate <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
+<span id="cb51-10"><a href="#cb51-10"></a>    upper <span class="ot">&lt;-</span> estimate <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
+<span id="cb51-11"><a href="#cb51-11"></a>    dplyr<span class="sc">::</span><span class="fu">between</span>(P, lower, upper)</span>
+<span id="cb51-12"><a href="#cb51-12"></a>    </span>
+<span id="cb51-13"><a href="#cb51-13"></a>  })</span>
+<span id="cb51-14"><a href="#cb51-14"></a>  </span>
+<span id="cb51-15"><a href="#cb51-15"></a>  <span class="fu">return</span>(<span class="fu">mean</span>(out))</span>
+<span id="cb51-16"><a href="#cb51-16"></a>  </span>
+<span id="cb51-17"><a href="#cb51-17"></a>}</span>
+<span id="cb51-18"><a href="#cb51-18"></a></span>
+<span id="cb51-19"><a href="#cb51-19"></a>ss <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">5</span>, <span class="dv">150</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb51-20"><a href="#cb51-20"></a>out <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(ss, \(x) <span class="fu">simulation</span>(<span class="at">N =</span> x, <span class="at">P =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="at">S =</span> <span class="fl">5e3</span>), <span class="at">.progress =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb51-21"><a href="#cb51-21"></a></span>
+<span id="cb51-22"><a href="#cb51-22"></a><span class="fu">tibble</span>(<span class="at">sample =</span> ss, <span class="at">coverage =</span> out) <span class="sc">|&gt;</span> </span>
+<span id="cb51-23"><a href="#cb51-23"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sample, coverage)) <span class="sc">+</span> </span>
+<span id="cb51-24"><a href="#cb51-24"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin =</span> <span class="dv">0</span>, <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">xmax =</span> <span class="dv">30</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb51-25"><a href="#cb51-25"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.95</span>) <span class="sc">+</span> </span>
+<span id="cb51-26"><a href="#cb51-26"></a>  <span class="fu">geom_line</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="solutions-04_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+<p><img src="solutions-04_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
@@ -971,259 +984,265 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb50" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb50-1"><a href="#cb50-1"></a><span class="co">---</span></span>
-<span id="cb50-2"><a href="#cb50-2"></a><span class="an">title:</span><span class="co"> "Solutions 4"</span></span>
-<span id="cb50-3"><a href="#cb50-3"></a><span class="co">---</span></span>
-<span id="cb50-4"><a href="#cb50-4"></a></span>
-<span id="cb50-7"><a href="#cb50-7"></a><span class="in">```{r}</span></span>
-<span id="cb50-8"><a href="#cb50-8"></a><span class="co">#| code-summary: "Packages and Setup"</span></span>
-<span id="cb50-9"><a href="#cb50-9"></a><span class="co">#| message: false</span></span>
-<span id="cb50-10"><a href="#cb50-10"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb50-11"><a href="#cb50-11"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Avenir Next Condensed"</span>))</span>
-<span id="cb50-12"><a href="#cb50-12"></a><span class="in">```</span></span>
-<span id="cb50-13"><a href="#cb50-13"></a></span>
-<span id="cb50-14"><a href="#cb50-14"></a><span class="fu">## Exercise</span></span>
-<span id="cb50-15"><a href="#cb50-15"></a></span>
-<span id="cb50-18"><a href="#cb50-18"></a><span class="in">```{r}</span></span>
-<span id="cb50-19"><a href="#cb50-19"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb50-20"><a href="#cb50-20"></a><span class="in">```</span></span>
-<span id="cb50-21"><a href="#cb50-21"></a></span>
-<span id="cb50-22"><a href="#cb50-22"></a>The probability that $x$ is within one standard deviation $\sigma$ away from the mean is roughly 68%.</span>
-<span id="cb50-23"><a href="#cb50-23"></a></span>
-<span id="cb50-26"><a href="#cb50-26"></a><span class="in">```{r}</span></span>
-<span id="cb50-27"><a href="#cb50-27"></a><span class="fu">mean</span>(x <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">&amp;</span> x <span class="sc">&lt;=</span> <span class="dv">1</span>)</span>
-<span id="cb50-28"><a href="#cb50-28"></a><span class="in">```</span></span>
-<span id="cb50-29"><a href="#cb50-29"></a></span>
-<span id="cb50-30"><a href="#cb50-30"></a>The probability that $x$ is within two standard deviations $2\sigma$ away from the mean is roughly 95%.</span>
-<span id="cb50-31"><a href="#cb50-31"></a></span>
-<span id="cb50-34"><a href="#cb50-34"></a><span class="in">```{r}</span></span>
-<span id="cb50-35"><a href="#cb50-35"></a><span class="fu">mean</span>(x <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">&amp;</span> x <span class="sc">&lt;=</span> <span class="dv">2</span>)</span>
-<span id="cb50-36"><a href="#cb50-36"></a><span class="in">```</span></span>
-<span id="cb50-37"><a href="#cb50-37"></a></span>
-<span id="cb50-38"><a href="#cb50-38"></a>::: callout-warning</span>
-<span id="cb50-39"><a href="#cb50-39"></a>The actual value is closer to 1.96 standard deviations away from the mean instead of "2."</span>
-<span id="cb50-40"><a href="#cb50-40"></a></span>
-<span id="cb50-43"><a href="#cb50-43"></a><span class="in">```{r}</span></span>
-<span id="cb50-44"><a href="#cb50-44"></a><span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span>
-<span id="cb50-45"><a href="#cb50-45"></a><span class="fu">qnorm</span>(<span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>), <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
-<span id="cb50-46"><a href="#cb50-46"></a><span class="in">```</span></span>
-<span id="cb50-47"><a href="#cb50-47"></a>:::</span>
-<span id="cb50-48"><a href="#cb50-48"></a></span>
-<span id="cb50-49"><a href="#cb50-49"></a><span class="fu">## Exercise</span></span>
-<span id="cb50-50"><a href="#cb50-50"></a></span>
-<span id="cb50-53"><a href="#cb50-53"></a><span class="in">```{r}</span></span>
-<span id="cb50-54"><a href="#cb50-54"></a><span class="fu">quantile</span>(x)</span>
-<span id="cb50-55"><a href="#cb50-55"></a><span class="in">```</span></span>
-<span id="cb50-56"><a href="#cb50-56"></a></span>
-<span id="cb50-57"><a href="#cb50-57"></a>The <span class="in">`quantile()`</span> function calculates the 25^th^, 50^th^, and 75^th^ percentiles of a vector of numbers.</span>
-<span id="cb50-58"><a href="#cb50-58"></a></span>
-<span id="cb50-59"><a href="#cb50-59"></a>It also includes the minimum and maximum values:</span>
-<span id="cb50-60"><a href="#cb50-60"></a></span>
-<span id="cb50-63"><a href="#cb50-63"></a><span class="in">```{r}</span></span>
-<span id="cb50-64"><a href="#cb50-64"></a><span class="fu">min</span>(x)</span>
-<span id="cb50-65"><a href="#cb50-65"></a><span class="fu">max</span>(x)</span>
-<span id="cb50-66"><a href="#cb50-66"></a><span class="in">```</span></span>
-<span id="cb50-67"><a href="#cb50-67"></a></span>
-<span id="cb50-68"><a href="#cb50-68"></a>Hey! I hope you remember that the *median* is the same as the 50^th^ percentile.</span>
-<span id="cb50-69"><a href="#cb50-69"></a></span>
-<span id="cb50-72"><a href="#cb50-72"></a><span class="in">```{r}</span></span>
-<span id="cb50-73"><a href="#cb50-73"></a><span class="fu">median</span>(x)</span>
-<span id="cb50-74"><a href="#cb50-74"></a><span class="in">```</span></span>
-<span id="cb50-75"><a href="#cb50-75"></a></span>
-<span id="cb50-76"><a href="#cb50-76"></a><span class="fu">## Exercise</span></span>
-<span id="cb50-77"><a href="#cb50-77"></a></span>
-<span id="cb50-80"><a href="#cb50-80"></a><span class="in">```{r}</span></span>
-<span id="cb50-81"><a href="#cb50-81"></a><span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.005</span>, <span class="fl">0.995</span>))</span>
-<span id="cb50-82"><a href="#cb50-82"></a><span class="in">```</span></span>
-<span id="cb50-83"><a href="#cb50-83"></a></span>
-<span id="cb50-84"><a href="#cb50-84"></a><span class="fu">## Exercise</span></span>
-<span id="cb50-85"><a href="#cb50-85"></a></span>
-<span id="cb50-86"><a href="#cb50-86"></a>Let $x = x_1 + \dots + x_{20}$, the sum of 20 independent uniform(0, 1) random variables. In R, create 1000 simulations of $x$ and plot their histogram.</span>
-<span id="cb50-87"><a href="#cb50-87"></a></span>
-<span id="cb50-90"><a href="#cb50-90"></a><span class="in">```{r}</span></span>
-<span id="cb50-91"><a href="#cb50-91"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fl">1e3</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb50-92"><a href="#cb50-92"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb50-93"><a href="#cb50-93"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">sum</span>(<span class="fu">runif</span>(<span class="dv">20</span>))) <span class="sc">|&gt;</span> </span>
-<span id="cb50-94"><a href="#cb50-94"></a>  <span class="fu">ungroup</span>() <span class="do">## this might save you trouble later on!</span></span>
-<span id="cb50-95"><a href="#cb50-95"></a></span>
-<span id="cb50-96"><a href="#cb50-96"></a>d <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
-<span id="cb50-97"><a href="#cb50-97"></a><span class="in">```</span></span>
-<span id="cb50-98"><a href="#cb50-98"></a></span>
-<span id="cb50-99"><a href="#cb50-99"></a>**Bonus**</span>
-<span id="cb50-100"><a href="#cb50-100"></a></span>
-<span id="cb50-103"><a href="#cb50-103"></a><span class="in">```{r}</span></span>
-<span id="cb50-104"><a href="#cb50-104"></a><span class="fu">sd</span>(d<span class="sc">$</span>x)</span>
-<span id="cb50-105"><a href="#cb50-105"></a><span class="in">```</span></span>
-<span id="cb50-106"><a href="#cb50-106"></a></span>
-<span id="cb50-107"><a href="#cb50-107"></a>The real standard error is:</span>
-<span id="cb50-108"><a href="#cb50-108"></a></span>
-<span id="cb50-111"><a href="#cb50-111"></a><span class="in">```{r}</span></span>
-<span id="cb50-112"><a href="#cb50-112"></a><span class="fu">sqrt</span>(<span class="dv">20</span><span class="sc">/</span><span class="dv">12</span>)</span>
-<span id="cb50-113"><a href="#cb50-113"></a><span class="in">```</span></span>
-<span id="cb50-114"><a href="#cb50-114"></a></span>
-<span id="cb50-115"><a href="#cb50-115"></a>An estimate of the standard error for one sample:</span>
-<span id="cb50-116"><a href="#cb50-116"></a></span>
-<span id="cb50-119"><a href="#cb50-119"></a><span class="in">```{r}</span></span>
-<span id="cb50-120"><a href="#cb50-120"></a><span class="fu">sd</span>(<span class="fu">runif</span>(<span class="dv">20</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">20</span>)</span>
-<span id="cb50-121"><a href="#cb50-121"></a><span class="in">```</span></span>
-<span id="cb50-122"><a href="#cb50-122"></a></span>
-<span id="cb50-123"><a href="#cb50-123"></a>::: callout-important</span>
-<span id="cb50-124"><a href="#cb50-124"></a>**Note**</span>
-<span id="cb50-125"><a href="#cb50-125"></a></span>
-<span id="cb50-126"><a href="#cb50-126"></a>There is no "uniquely correct" way of simulating data.</span>
-<span id="cb50-127"><a href="#cb50-127"></a></span>
-<span id="cb50-128"><a href="#cb50-128"></a>For example, this is the way I would usually do it:</span>
-<span id="cb50-129"><a href="#cb50-129"></a></span>
-<span id="cb50-132"><a href="#cb50-132"></a><span class="in">```{r}</span></span>
-<span id="cb50-133"><a href="#cb50-133"></a>N <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb50-134"><a href="#cb50-134"></a>S <span class="ot">&lt;-</span> <span class="fl">1e3</span></span>
-<span id="cb50-135"><a href="#cb50-135"></a>x <span class="ot">&lt;-</span> <span class="fu">replicate</span>(S, <span class="fu">sum</span>(<span class="fu">runif</span>(N, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)))</span>
-<span id="cb50-136"><a href="#cb50-136"></a></span>
-<span id="cb50-137"><a href="#cb50-137"></a><span class="fu">tibble</span>(x) <span class="sc">|&gt;</span> </span>
-<span id="cb50-138"><a href="#cb50-138"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
-<span id="cb50-139"><a href="#cb50-139"></a><span class="in">```</span></span>
-<span id="cb50-140"><a href="#cb50-140"></a>:::</span>
-<span id="cb50-141"><a href="#cb50-141"></a></span>
-<span id="cb50-142"><a href="#cb50-142"></a><span class="fu">## Exercise</span></span>
-<span id="cb50-143"><a href="#cb50-143"></a></span>
-<span id="cb50-144"><a href="#cb50-144"></a>Many introductory statistics textbooks say that "sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold." I've seen a lot of confusion with regards to this. For example, I've heard people say that if the sample size is 30 then the data is normally distributed. *Absolutely not!* It means that the sampling distribution will converge to a normal distribution. This means that sample sizes less than 30 will not produce "normal" sampling distributions, and we can verify this using simulations.</span>
-<span id="cb50-145"><a href="#cb50-145"></a></span>
-<span id="cb50-146"><a href="#cb50-146"></a>::: callout-tip</span>
-<span id="cb50-147"><a href="#cb50-147"></a>This relevant for calculating "statistical significance," which we'll cover on week 5.</span>
-<span id="cb50-148"><a href="#cb50-148"></a>:::</span>
-<span id="cb50-149"><a href="#cb50-149"></a></span>
-<span id="cb50-150"><a href="#cb50-150"></a>The following code picks up follows Steve's simulation that we did in class:</span>
-<span id="cb50-151"><a href="#cb50-151"></a></span>
-<span id="cb50-154"><a href="#cb50-154"></a><span class="in">```{r}</span></span>
-<span id="cb50-155"><a href="#cb50-155"></a>svy_size <span class="ot">&lt;-</span> <span class="dv">15</span> <span class="do">## this is different!</span></span>
-<span id="cb50-156"><a href="#cb50-156"></a>est_prop <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb50-157"><a href="#cb50-157"></a>num_sims <span class="ot">&lt;-</span> <span class="fl">10e3</span></span>
-<span id="cb50-158"><a href="#cb50-158"></a></span>
-<span id="cb50-159"><a href="#cb50-159"></a>sims <span class="ot">&lt;-</span> <span class="fu">replicate</span>(num_sims, <span class="fu">mean</span>(<span class="fu">rbinom</span>(svy_size, <span class="dv">1</span>, <span class="at">prob =</span> est_prop)))</span>
-<span id="cb50-160"><a href="#cb50-160"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">prop =</span> sims) <span class="sc">|&gt;</span> </span>
-<span id="cb50-161"><a href="#cb50-161"></a>  <span class="fu">rowid_to_column</span>(<span class="st">"sim_num"</span>)</span>
-<span id="cb50-162"><a href="#cb50-162"></a></span>
-<span id="cb50-163"><a href="#cb50-163"></a>d <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(prop), <span class="at">se =</span> <span class="fu">sd</span>(prop))</span>
-<span id="cb50-164"><a href="#cb50-164"></a><span class="in">```</span></span>
-<span id="cb50-165"><a href="#cb50-165"></a></span>
-<span id="cb50-166"><a href="#cb50-166"></a>The "mean" value is still the same, but the standard error is bigger because our sample size is <span class="in">`r svy_size`</span> instead of 2247. So far, so good.</span>
-<span id="cb50-167"><a href="#cb50-167"></a></span>
-<span id="cb50-168"><a href="#cb50-168"></a>Now lets calculate the standard error:</span>
-<span id="cb50-169"><a href="#cb50-169"></a></span>
-<span id="cb50-172"><a href="#cb50-172"></a><span class="in">```{r}</span></span>
-<span id="cb50-173"><a href="#cb50-173"></a>std_error <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">*</span> (<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">/</span> svy_size)</span>
-<span id="cb50-174"><a href="#cb50-174"></a>std_error</span>
-<span id="cb50-175"><a href="#cb50-175"></a><span class="in">```</span></span>
-<span id="cb50-176"><a href="#cb50-176"></a></span>
-<span id="cb50-177"><a href="#cb50-177"></a>Hey, this is pretty much the same as the standard error we calculated in the simulation!</span>
-<span id="cb50-178"><a href="#cb50-178"></a></span>
-<span id="cb50-181"><a href="#cb50-181"></a><span class="in">```{r}</span></span>
-<span id="cb50-182"><a href="#cb50-182"></a><span class="fu">sd</span>(d<span class="sc">$</span>prop)</span>
-<span id="cb50-183"><a href="#cb50-183"></a><span class="in">```</span></span>
-<span id="cb50-184"><a href="#cb50-184"></a></span>
-<span id="cb50-185"><a href="#cb50-185"></a>Finally, I know that in any normal distribution approximately 68% of the values of should be within one standard deviation away from the mean.</span>
-<span id="cb50-186"><a href="#cb50-186"></a></span>
-<span id="cb50-189"><a href="#cb50-189"></a><span class="in">```{r}</span></span>
-<span id="cb50-190"><a href="#cb50-190"></a><span class="fu">mean</span>(d<span class="sc">$</span>prop <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">-</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop) <span class="sc">&amp;</span> d<span class="sc">$</span>prop <span class="sc">&lt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">+</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop))</span>
-<span id="cb50-191"><a href="#cb50-191"></a><span class="in">```</span></span>
-<span id="cb50-192"><a href="#cb50-192"></a></span>
-<span id="cb50-193"><a href="#cb50-193"></a>Oh no! The coverage is all wrong. This means that the sampling distribution we created does not have the properties of a normal distribution. This must be what people mean when they say that "sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold."</span>
-<span id="cb50-194"><a href="#cb50-194"></a></span>
-<span id="cb50-195"><a href="#cb50-195"></a>::: callout-tip</span>
-<span id="cb50-196"><a href="#cb50-196"></a>Btw, that previous line of code is a little bit clunky. The <span class="in">`dplyr`</span> package has a useful function called <span class="in">`between()`</span> which *may* be easier to understand.</span>
-<span id="cb50-197"><a href="#cb50-197"></a></span>
-<span id="cb50-200"><a href="#cb50-200"></a><span class="in">```{r}</span></span>
-<span id="cb50-201"><a href="#cb50-201"></a>lower <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">-</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop)</span>
-<span id="cb50-202"><a href="#cb50-202"></a>upper <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">+</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop)</span>
-<span id="cb50-203"><a href="#cb50-203"></a><span class="fu">mean</span>(<span class="fu">between</span>(d<span class="sc">$</span>prop, lower, upper))</span>
-<span id="cb50-204"><a href="#cb50-204"></a><span class="in">```</span></span>
-<span id="cb50-205"><a href="#cb50-205"></a>:::</span>
-<span id="cb50-206"><a href="#cb50-206"></a></span>
-<span id="cb50-207"><a href="#cb50-207"></a><span class="fu">## **Extra**</span></span>
-<span id="cb50-208"><a href="#cb50-208"></a></span>
-<span id="cb50-209"><a href="#cb50-209"></a>Let's plot how does the sample size affect the number of outcomes that fall within one standard deviations away from the mean.</span>
-<span id="cb50-210"><a href="#cb50-210"></a></span>
-<span id="cb50-211"><a href="#cb50-211"></a>This is how I built my simulation.</span>
-<span id="cb50-212"><a href="#cb50-212"></a></span>
-<span id="cb50-213"><a href="#cb50-213"></a>Step. 1 Do it once!</span>
-<span id="cb50-214"><a href="#cb50-214"></a></span>
-<span id="cb50-215"><a href="#cb50-215"></a>**Is the "true" value inside the estimated 95% confidence interval?**</span>
-<span id="cb50-216"><a href="#cb50-216"></a></span>
-<span id="cb50-219"><a href="#cb50-219"></a><span class="in">```{r}</span></span>
-<span id="cb50-220"><a href="#cb50-220"></a>true_value <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb50-221"><a href="#cb50-221"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">300</span></span>
-<span id="cb50-222"><a href="#cb50-222"></a></span>
-<span id="cb50-223"><a href="#cb50-223"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(sample_size, <span class="dv">1</span>, <span class="at">prob =</span> true_value)</span>
-<span id="cb50-224"><a href="#cb50-224"></a>estimate <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
-<span id="cb50-225"><a href="#cb50-225"></a>estimate</span>
-<span id="cb50-226"><a href="#cb50-226"></a>std_error_estimate <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(estimate <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> estimate) <span class="sc">/</span> sample_size)</span>
-<span id="cb50-227"><a href="#cb50-227"></a>std_error_estimate</span>
-<span id="cb50-228"><a href="#cb50-228"></a></span>
-<span id="cb50-229"><a href="#cb50-229"></a><span class="do">## Is the "true" value inside the estimated 95% confidence interval??</span></span>
-<span id="cb50-230"><a href="#cb50-230"></a>lower <span class="ot">&lt;-</span> estimate <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
-<span id="cb50-231"><a href="#cb50-231"></a>upper <span class="ot">&lt;-</span> estimate <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
-<span id="cb50-232"><a href="#cb50-232"></a></span>
-<span id="cb50-233"><a href="#cb50-233"></a><span class="co"># true_value &gt; lower &amp; true_value &lt; upper</span></span>
-<span id="cb50-234"><a href="#cb50-234"></a><span class="fu">between</span>(true_value, lower, upper)</span>
-<span id="cb50-235"><a href="#cb50-235"></a><span class="in">```</span></span>
-<span id="cb50-236"><a href="#cb50-236"></a></span>
-<span id="cb50-237"><a href="#cb50-237"></a>Step 2. Do it 10,000 times!</span>
-<span id="cb50-238"><a href="#cb50-238"></a></span>
-<span id="cb50-239"><a href="#cb50-239"></a>**What percentage of the time is the "true" value inside the 95% confidence interval?**</span>
-<span id="cb50-240"><a href="#cb50-240"></a></span>
-<span id="cb50-243"><a href="#cb50-243"></a><span class="in">```{r}</span></span>
-<span id="cb50-244"><a href="#cb50-244"></a>true_value <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb50-245"><a href="#cb50-245"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">300</span> <span class="do">## play around with this!</span></span>
-<span id="cb50-246"><a href="#cb50-246"></a>num_sims <span class="ot">&lt;-</span> <span class="fl">10e3</span></span>
-<span id="cb50-247"><a href="#cb50-247"></a></span>
-<span id="cb50-248"><a href="#cb50-248"></a>sims <span class="ot">&lt;-</span> <span class="fu">replicate</span>(num_sims, {</span>
-<span id="cb50-249"><a href="#cb50-249"></a>  </span>
-<span id="cb50-250"><a href="#cb50-250"></a>  x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(sample_size, <span class="dv">1</span>, <span class="at">prob =</span> true_value)</span>
-<span id="cb50-251"><a href="#cb50-251"></a>  estimate <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
-<span id="cb50-252"><a href="#cb50-252"></a>  std_error_estimate <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(estimate <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> estimate) <span class="sc">/</span> sample_size)</span>
-<span id="cb50-253"><a href="#cb50-253"></a>  <span class="do">## Is the "true" value inside the estimated 95% confidence interval??</span></span>
-<span id="cb50-254"><a href="#cb50-254"></a>  lower <span class="ot">&lt;-</span> estimate <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
-<span id="cb50-255"><a href="#cb50-255"></a>  upper <span class="ot">&lt;-</span> estimate <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
-<span id="cb50-256"><a href="#cb50-256"></a>  <span class="fu">between</span>(true_value, lower, upper)</span>
-<span id="cb50-257"><a href="#cb50-257"></a>  </span>
-<span id="cb50-258"><a href="#cb50-258"></a>})</span>
-<span id="cb50-259"><a href="#cb50-259"></a></span>
-<span id="cb50-260"><a href="#cb50-260"></a><span class="fu">mean</span>(sims)</span>
-<span id="cb50-261"><a href="#cb50-261"></a><span class="in">```</span></span>
-<span id="cb50-262"><a href="#cb50-262"></a></span>
-<span id="cb50-263"><a href="#cb50-263"></a>Step 3. Do it 10,000 times for different sample sizes.</span>
-<span id="cb50-264"><a href="#cb50-264"></a></span>
-<span id="cb50-267"><a href="#cb50-267"></a><span class="in">```{r}</span></span>
-<span id="cb50-268"><a href="#cb50-268"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb50-269"><a href="#cb50-269"></a><span class="co">#| message: false</span></span>
-<span id="cb50-270"><a href="#cb50-270"></a></span>
-<span id="cb50-271"><a href="#cb50-271"></a>simulation <span class="ot">&lt;-</span> <span class="cf">function</span>(N, P, S) {</span>
-<span id="cb50-272"><a href="#cb50-272"></a>  </span>
-<span id="cb50-273"><a href="#cb50-273"></a>  out <span class="ot">&lt;-</span> <span class="fu">replicate</span>(S, <span class="at">expr =</span> {</span>
-<span id="cb50-274"><a href="#cb50-274"></a>  </span>
-<span id="cb50-275"><a href="#cb50-275"></a>    x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="at">prob =</span> P)</span>
-<span id="cb50-276"><a href="#cb50-276"></a>    estimate <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
-<span id="cb50-277"><a href="#cb50-277"></a>    std_error_estimate <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(estimate <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> estimate) <span class="sc">/</span> N)</span>
-<span id="cb50-278"><a href="#cb50-278"></a>    <span class="do">## Is the "true" value inside the estimated 95% confidence interval??</span></span>
-<span id="cb50-279"><a href="#cb50-279"></a>    lower <span class="ot">&lt;-</span> estimate <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
-<span id="cb50-280"><a href="#cb50-280"></a>    upper <span class="ot">&lt;-</span> estimate <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
-<span id="cb50-281"><a href="#cb50-281"></a>    dplyr<span class="sc">::</span><span class="fu">between</span>(P, lower, upper)</span>
-<span id="cb50-282"><a href="#cb50-282"></a>    </span>
-<span id="cb50-283"><a href="#cb50-283"></a>  })</span>
-<span id="cb50-284"><a href="#cb50-284"></a>  </span>
-<span id="cb50-285"><a href="#cb50-285"></a>  <span class="fu">return</span>(<span class="fu">mean</span>(out))</span>
-<span id="cb50-286"><a href="#cb50-286"></a>  </span>
-<span id="cb50-287"><a href="#cb50-287"></a>}</span>
-<span id="cb50-288"><a href="#cb50-288"></a></span>
-<span id="cb50-289"><a href="#cb50-289"></a>ss <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">5</span>, <span class="dv">150</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
-<span id="cb50-290"><a href="#cb50-290"></a>out <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(ss, \(x) <span class="fu">simulation</span>(<span class="at">N =</span> x, <span class="at">P =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="at">S =</span> <span class="fl">5e3</span>), <span class="at">.progress =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb50-291"><a href="#cb50-291"></a></span>
-<span id="cb50-292"><a href="#cb50-292"></a><span class="fu">tibble</span>(<span class="at">sample =</span> ss, <span class="at">coverage =</span> out) <span class="sc">|&gt;</span> </span>
-<span id="cb50-293"><a href="#cb50-293"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sample, coverage)) <span class="sc">+</span> </span>
-<span id="cb50-294"><a href="#cb50-294"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin =</span> <span class="dv">0</span>, <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">xmax =</span> <span class="dv">30</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb50-295"><a href="#cb50-295"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.95</span>) <span class="sc">+</span> </span>
-<span id="cb50-296"><a href="#cb50-296"></a>  <span class="fu">geom_line</span>() </span>
-<span id="cb50-297"><a href="#cb50-297"></a><span class="in">```</span></span>
+<div class="sourceCode" id="cb52" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb52-1"><a href="#cb52-1"></a><span class="co">---</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a><span class="an">title:</span><span class="co"> "Solutions 4"</span></span>
+<span id="cb52-3"><a href="#cb52-3"></a><span class="co">---</span></span>
+<span id="cb52-4"><a href="#cb52-4"></a></span>
+<span id="cb52-7"><a href="#cb52-7"></a><span class="in">```{r}</span></span>
+<span id="cb52-8"><a href="#cb52-8"></a><span class="co">#| code-summary: "Packages and Setup"</span></span>
+<span id="cb52-9"><a href="#cb52-9"></a><span class="co">#| message: false</span></span>
+<span id="cb52-10"><a href="#cb52-10"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb52-11"><a href="#cb52-11"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Avenir Next Condensed"</span>))</span>
+<span id="cb52-12"><a href="#cb52-12"></a><span class="in">```</span></span>
+<span id="cb52-13"><a href="#cb52-13"></a></span>
+<span id="cb52-14"><a href="#cb52-14"></a><span class="fu">## Exercise</span></span>
+<span id="cb52-15"><a href="#cb52-15"></a></span>
+<span id="cb52-18"><a href="#cb52-18"></a><span class="in">```{r}</span></span>
+<span id="cb52-19"><a href="#cb52-19"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100000</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb52-20"><a href="#cb52-20"></a><span class="in">```</span></span>
+<span id="cb52-21"><a href="#cb52-21"></a></span>
+<span id="cb52-22"><a href="#cb52-22"></a>The probability that $x$ is within one standard deviation $\sigma$ away from the mean is roughly 68%.</span>
+<span id="cb52-23"><a href="#cb52-23"></a></span>
+<span id="cb52-26"><a href="#cb52-26"></a><span class="in">```{r}</span></span>
+<span id="cb52-27"><a href="#cb52-27"></a><span class="fu">mean</span>(x <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">&amp;</span> x <span class="sc">&lt;=</span> <span class="dv">1</span>)</span>
+<span id="cb52-28"><a href="#cb52-28"></a><span class="in">```</span></span>
+<span id="cb52-29"><a href="#cb52-29"></a></span>
+<span id="cb52-30"><a href="#cb52-30"></a>The probability that $x$ is within two standard deviations $2\sigma$ away from the mean is roughly 95%.</span>
+<span id="cb52-31"><a href="#cb52-31"></a></span>
+<span id="cb52-34"><a href="#cb52-34"></a><span class="in">```{r}</span></span>
+<span id="cb52-35"><a href="#cb52-35"></a><span class="fu">mean</span>(x <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">&amp;</span> x <span class="sc">&lt;=</span> <span class="dv">2</span>)</span>
+<span id="cb52-36"><a href="#cb52-36"></a><span class="in">```</span></span>
+<span id="cb52-37"><a href="#cb52-37"></a></span>
+<span id="cb52-38"><a href="#cb52-38"></a>::: callout-warning</span>
+<span id="cb52-39"><a href="#cb52-39"></a>The actual value is closer to 1.96 standard deviations away from the mean instead of "2."</span>
+<span id="cb52-40"><a href="#cb52-40"></a></span>
+<span id="cb52-43"><a href="#cb52-43"></a><span class="in">```{r}</span></span>
+<span id="cb52-44"><a href="#cb52-44"></a><span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span>
+<span id="cb52-45"><a href="#cb52-45"></a><span class="fu">qnorm</span>(<span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>), <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb52-46"><a href="#cb52-46"></a><span class="in">```</span></span>
+<span id="cb52-47"><a href="#cb52-47"></a>:::</span>
+<span id="cb52-48"><a href="#cb52-48"></a></span>
+<span id="cb52-49"><a href="#cb52-49"></a><span class="fu">## Exercise</span></span>
+<span id="cb52-50"><a href="#cb52-50"></a></span>
+<span id="cb52-53"><a href="#cb52-53"></a><span class="in">```{r}</span></span>
+<span id="cb52-54"><a href="#cb52-54"></a><span class="fu">quantile</span>(x)</span>
+<span id="cb52-55"><a href="#cb52-55"></a><span class="in">```</span></span>
+<span id="cb52-56"><a href="#cb52-56"></a></span>
+<span id="cb52-57"><a href="#cb52-57"></a>The <span class="in">`quantile()`</span> function calculates the 25^th^, 50^th^, and 75^th^ percentiles of a vector of numbers.</span>
+<span id="cb52-58"><a href="#cb52-58"></a></span>
+<span id="cb52-59"><a href="#cb52-59"></a>It also includes the minimum and maximum values:</span>
+<span id="cb52-60"><a href="#cb52-60"></a></span>
+<span id="cb52-63"><a href="#cb52-63"></a><span class="in">```{r}</span></span>
+<span id="cb52-64"><a href="#cb52-64"></a><span class="fu">min</span>(x)</span>
+<span id="cb52-65"><a href="#cb52-65"></a><span class="fu">max</span>(x)</span>
+<span id="cb52-66"><a href="#cb52-66"></a><span class="in">```</span></span>
+<span id="cb52-67"><a href="#cb52-67"></a></span>
+<span id="cb52-68"><a href="#cb52-68"></a>Hey! I hope you remember that the *median* is the same as the 50^th^ percentile.</span>
+<span id="cb52-69"><a href="#cb52-69"></a></span>
+<span id="cb52-72"><a href="#cb52-72"></a><span class="in">```{r}</span></span>
+<span id="cb52-73"><a href="#cb52-73"></a><span class="fu">median</span>(x)</span>
+<span id="cb52-74"><a href="#cb52-74"></a><span class="in">```</span></span>
+<span id="cb52-75"><a href="#cb52-75"></a></span>
+<span id="cb52-76"><a href="#cb52-76"></a><span class="fu">## Exercise</span></span>
+<span id="cb52-77"><a href="#cb52-77"></a></span>
+<span id="cb52-80"><a href="#cb52-80"></a><span class="in">```{r}</span></span>
+<span id="cb52-81"><a href="#cb52-81"></a><span class="fu">quantile</span>(x, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.005</span>, <span class="fl">0.995</span>))</span>
+<span id="cb52-82"><a href="#cb52-82"></a><span class="in">```</span></span>
+<span id="cb52-83"><a href="#cb52-83"></a></span>
+<span id="cb52-84"><a href="#cb52-84"></a><span class="fu">## Exercise</span></span>
+<span id="cb52-85"><a href="#cb52-85"></a></span>
+<span id="cb52-88"><a href="#cb52-88"></a><span class="in">```{r}</span></span>
+<span id="cb52-89"><a href="#cb52-89"></a><span class="fu">mean</span>(x <span class="sc">&gt;</span> <span class="sc">-</span><span class="fl">2.576</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="fl">2.576</span>)</span>
+<span id="cb52-90"><a href="#cb52-90"></a><span class="in">```</span></span>
+<span id="cb52-91"><a href="#cb52-91"></a></span>
+<span id="cb52-92"><a href="#cb52-92"></a><span class="fu">## Exercise</span></span>
+<span id="cb52-93"><a href="#cb52-93"></a></span>
+<span id="cb52-94"><a href="#cb52-94"></a>Let $x = x_1 + \dots + x_{20}$, the sum of 20 independent uniform(0, 1) random variables. In R, create 1000 simulations of $x$ and plot their histogram.</span>
+<span id="cb52-95"><a href="#cb52-95"></a></span>
+<span id="cb52-98"><a href="#cb52-98"></a><span class="in">```{r}</span></span>
+<span id="cb52-99"><a href="#cb52-99"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fl">1e3</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb52-100"><a href="#cb52-100"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb52-101"><a href="#cb52-101"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">sum</span>(<span class="fu">runif</span>(<span class="dv">20</span>))) <span class="sc">|&gt;</span> </span>
+<span id="cb52-102"><a href="#cb52-102"></a>  <span class="fu">ungroup</span>() <span class="do">## this might save you trouble later on!</span></span>
+<span id="cb52-103"><a href="#cb52-103"></a></span>
+<span id="cb52-104"><a href="#cb52-104"></a>d <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
+<span id="cb52-105"><a href="#cb52-105"></a><span class="in">```</span></span>
+<span id="cb52-106"><a href="#cb52-106"></a></span>
+<span id="cb52-107"><a href="#cb52-107"></a>**Bonus**</span>
+<span id="cb52-108"><a href="#cb52-108"></a></span>
+<span id="cb52-111"><a href="#cb52-111"></a><span class="in">```{r}</span></span>
+<span id="cb52-112"><a href="#cb52-112"></a><span class="fu">sd</span>(d<span class="sc">$</span>x)</span>
+<span id="cb52-113"><a href="#cb52-113"></a><span class="in">```</span></span>
+<span id="cb52-114"><a href="#cb52-114"></a></span>
+<span id="cb52-115"><a href="#cb52-115"></a>The real standard error is:</span>
+<span id="cb52-116"><a href="#cb52-116"></a></span>
+<span id="cb52-119"><a href="#cb52-119"></a><span class="in">```{r}</span></span>
+<span id="cb52-120"><a href="#cb52-120"></a><span class="fu">sqrt</span>(<span class="dv">20</span><span class="sc">/</span><span class="dv">12</span>)</span>
+<span id="cb52-121"><a href="#cb52-121"></a><span class="in">```</span></span>
+<span id="cb52-122"><a href="#cb52-122"></a></span>
+<span id="cb52-123"><a href="#cb52-123"></a>An estimate of the standard error for one sample:</span>
+<span id="cb52-124"><a href="#cb52-124"></a></span>
+<span id="cb52-127"><a href="#cb52-127"></a><span class="in">```{r}</span></span>
+<span id="cb52-128"><a href="#cb52-128"></a><span class="fu">sd</span>(<span class="fu">runif</span>(<span class="dv">20</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">20</span>)</span>
+<span id="cb52-129"><a href="#cb52-129"></a><span class="in">```</span></span>
+<span id="cb52-130"><a href="#cb52-130"></a></span>
+<span id="cb52-131"><a href="#cb52-131"></a>::: callout-important</span>
+<span id="cb52-132"><a href="#cb52-132"></a>**Note**</span>
+<span id="cb52-133"><a href="#cb52-133"></a></span>
+<span id="cb52-134"><a href="#cb52-134"></a>There is no "uniquely correct" way of simulating data.</span>
+<span id="cb52-135"><a href="#cb52-135"></a></span>
+<span id="cb52-136"><a href="#cb52-136"></a>For example, this is the way I would usually do it:</span>
+<span id="cb52-137"><a href="#cb52-137"></a></span>
+<span id="cb52-140"><a href="#cb52-140"></a><span class="in">```{r}</span></span>
+<span id="cb52-141"><a href="#cb52-141"></a>N <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb52-142"><a href="#cb52-142"></a>S <span class="ot">&lt;-</span> <span class="fl">1e3</span></span>
+<span id="cb52-143"><a href="#cb52-143"></a>x <span class="ot">&lt;-</span> <span class="fu">replicate</span>(S, <span class="fu">sum</span>(<span class="fu">runif</span>(N, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)))</span>
+<span id="cb52-144"><a href="#cb52-144"></a></span>
+<span id="cb52-145"><a href="#cb52-145"></a><span class="fu">tibble</span>(x) <span class="sc">|&gt;</span> </span>
+<span id="cb52-146"><a href="#cb52-146"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span>
+<span id="cb52-147"><a href="#cb52-147"></a><span class="in">```</span></span>
+<span id="cb52-148"><a href="#cb52-148"></a>:::</span>
+<span id="cb52-149"><a href="#cb52-149"></a></span>
+<span id="cb52-150"><a href="#cb52-150"></a><span class="fu">## Exercise</span></span>
+<span id="cb52-151"><a href="#cb52-151"></a></span>
+<span id="cb52-152"><a href="#cb52-152"></a>Many introductory statistics textbooks say that "sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold." I've seen a lot of confusion with regards to this. For example, I've heard people say that if the sample size is 30 then the data is normally distributed. *Absolutely not!* It means that the sampling distribution will converge to a normal distribution. This means that sample sizes less than 30 will not produce "normal" sampling distributions, and we can verify this using simulations.</span>
+<span id="cb52-153"><a href="#cb52-153"></a></span>
+<span id="cb52-154"><a href="#cb52-154"></a>::: callout-tip</span>
+<span id="cb52-155"><a href="#cb52-155"></a>This relevant for calculating "statistical significance," which we'll cover on week 5.</span>
+<span id="cb52-156"><a href="#cb52-156"></a>:::</span>
+<span id="cb52-157"><a href="#cb52-157"></a></span>
+<span id="cb52-158"><a href="#cb52-158"></a>The following code picks up follows Steve's simulation that we did in class:</span>
+<span id="cb52-159"><a href="#cb52-159"></a></span>
+<span id="cb52-162"><a href="#cb52-162"></a><span class="in">```{r}</span></span>
+<span id="cb52-163"><a href="#cb52-163"></a>svy_size <span class="ot">&lt;-</span> <span class="dv">15</span> <span class="do">## this is different!</span></span>
+<span id="cb52-164"><a href="#cb52-164"></a>est_prop <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb52-165"><a href="#cb52-165"></a>num_sims <span class="ot">&lt;-</span> <span class="fl">10e3</span></span>
+<span id="cb52-166"><a href="#cb52-166"></a></span>
+<span id="cb52-167"><a href="#cb52-167"></a>sims <span class="ot">&lt;-</span> <span class="fu">replicate</span>(num_sims, <span class="fu">mean</span>(<span class="fu">rbinom</span>(svy_size, <span class="dv">1</span>, <span class="at">prob =</span> est_prop)))</span>
+<span id="cb52-168"><a href="#cb52-168"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">prop =</span> sims) <span class="sc">|&gt;</span> </span>
+<span id="cb52-169"><a href="#cb52-169"></a>  <span class="fu">rowid_to_column</span>(<span class="st">"sim_num"</span>)</span>
+<span id="cb52-170"><a href="#cb52-170"></a></span>
+<span id="cb52-171"><a href="#cb52-171"></a>d <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">mean =</span> <span class="fu">mean</span>(prop), <span class="at">se =</span> <span class="fu">sd</span>(prop))</span>
+<span id="cb52-172"><a href="#cb52-172"></a><span class="in">```</span></span>
+<span id="cb52-173"><a href="#cb52-173"></a></span>
+<span id="cb52-174"><a href="#cb52-174"></a>The "mean" value is still the same, but the standard error is bigger because our sample size is <span class="in">`r svy_size`</span> instead of 2247. So far, so good.</span>
+<span id="cb52-175"><a href="#cb52-175"></a></span>
+<span id="cb52-176"><a href="#cb52-176"></a>Now lets calculate the standard error:</span>
+<span id="cb52-177"><a href="#cb52-177"></a></span>
+<span id="cb52-180"><a href="#cb52-180"></a><span class="in">```{r}</span></span>
+<span id="cb52-181"><a href="#cb52-181"></a>std_error <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">*</span> (<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">/</span> svy_size)</span>
+<span id="cb52-182"><a href="#cb52-182"></a>std_error</span>
+<span id="cb52-183"><a href="#cb52-183"></a><span class="in">```</span></span>
+<span id="cb52-184"><a href="#cb52-184"></a></span>
+<span id="cb52-185"><a href="#cb52-185"></a>Hey, this is pretty much the same as the standard error we calculated in the simulation!</span>
+<span id="cb52-186"><a href="#cb52-186"></a></span>
+<span id="cb52-189"><a href="#cb52-189"></a><span class="in">```{r}</span></span>
+<span id="cb52-190"><a href="#cb52-190"></a><span class="fu">sd</span>(d<span class="sc">$</span>prop)</span>
+<span id="cb52-191"><a href="#cb52-191"></a><span class="in">```</span></span>
+<span id="cb52-192"><a href="#cb52-192"></a></span>
+<span id="cb52-193"><a href="#cb52-193"></a>Finally, I know that in any normal distribution approximately 68% of the values of should be within one standard deviation away from the mean.</span>
+<span id="cb52-194"><a href="#cb52-194"></a></span>
+<span id="cb52-197"><a href="#cb52-197"></a><span class="in">```{r}</span></span>
+<span id="cb52-198"><a href="#cb52-198"></a><span class="fu">mean</span>(d<span class="sc">$</span>prop <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">-</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop) <span class="sc">&amp;</span> d<span class="sc">$</span>prop <span class="sc">&lt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">+</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop))</span>
+<span id="cb52-199"><a href="#cb52-199"></a><span class="in">```</span></span>
+<span id="cb52-200"><a href="#cb52-200"></a></span>
+<span id="cb52-201"><a href="#cb52-201"></a>Oh no! The coverage is all wrong. This means that the sampling distribution we created does not have the properties of a normal distribution. This must be what people mean when they say that "sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold."</span>
+<span id="cb52-202"><a href="#cb52-202"></a></span>
+<span id="cb52-203"><a href="#cb52-203"></a>::: callout-tip</span>
+<span id="cb52-204"><a href="#cb52-204"></a>Btw, that previous line of code is a little bit clunky. The <span class="in">`dplyr`</span> package has a useful function called <span class="in">`between()`</span> which *may* be easier to understand.</span>
+<span id="cb52-205"><a href="#cb52-205"></a></span>
+<span id="cb52-208"><a href="#cb52-208"></a><span class="in">```{r}</span></span>
+<span id="cb52-209"><a href="#cb52-209"></a>lower <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">-</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop)</span>
+<span id="cb52-210"><a href="#cb52-210"></a>upper <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">+</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop)</span>
+<span id="cb52-211"><a href="#cb52-211"></a><span class="fu">mean</span>(<span class="fu">between</span>(d<span class="sc">$</span>prop, lower, upper))</span>
+<span id="cb52-212"><a href="#cb52-212"></a><span class="in">```</span></span>
+<span id="cb52-213"><a href="#cb52-213"></a>:::</span>
+<span id="cb52-214"><a href="#cb52-214"></a></span>
+<span id="cb52-215"><a href="#cb52-215"></a><span class="fu">## **Extra**</span></span>
+<span id="cb52-216"><a href="#cb52-216"></a></span>
+<span id="cb52-217"><a href="#cb52-217"></a>Let's plot how does the sample size affect the number of outcomes that fall within one standard deviations away from the mean.</span>
+<span id="cb52-218"><a href="#cb52-218"></a></span>
+<span id="cb52-219"><a href="#cb52-219"></a>This is how I built my simulation.</span>
+<span id="cb52-220"><a href="#cb52-220"></a></span>
+<span id="cb52-221"><a href="#cb52-221"></a>Step. 1 Do it once!</span>
+<span id="cb52-222"><a href="#cb52-222"></a></span>
+<span id="cb52-223"><a href="#cb52-223"></a>**Is the "true" value inside the estimated 95% confidence interval?**</span>
+<span id="cb52-224"><a href="#cb52-224"></a></span>
+<span id="cb52-227"><a href="#cb52-227"></a><span class="in">```{r}</span></span>
+<span id="cb52-228"><a href="#cb52-228"></a>true_value <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb52-229"><a href="#cb52-229"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">300</span></span>
+<span id="cb52-230"><a href="#cb52-230"></a></span>
+<span id="cb52-231"><a href="#cb52-231"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(sample_size, <span class="dv">1</span>, <span class="at">prob =</span> true_value)</span>
+<span id="cb52-232"><a href="#cb52-232"></a>estimate <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb52-233"><a href="#cb52-233"></a>estimate</span>
+<span id="cb52-234"><a href="#cb52-234"></a>std_error_estimate <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(estimate <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> estimate) <span class="sc">/</span> sample_size)</span>
+<span id="cb52-235"><a href="#cb52-235"></a>std_error_estimate</span>
+<span id="cb52-236"><a href="#cb52-236"></a></span>
+<span id="cb52-237"><a href="#cb52-237"></a><span class="do">## Is the "true" value inside the estimated 95% confidence interval??</span></span>
+<span id="cb52-238"><a href="#cb52-238"></a>lower <span class="ot">&lt;-</span> estimate <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
+<span id="cb52-239"><a href="#cb52-239"></a>upper <span class="ot">&lt;-</span> estimate <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
+<span id="cb52-240"><a href="#cb52-240"></a></span>
+<span id="cb52-241"><a href="#cb52-241"></a><span class="co"># true_value &gt; lower &amp; true_value &lt; upper</span></span>
+<span id="cb52-242"><a href="#cb52-242"></a><span class="fu">between</span>(true_value, lower, upper)</span>
+<span id="cb52-243"><a href="#cb52-243"></a><span class="in">```</span></span>
+<span id="cb52-244"><a href="#cb52-244"></a></span>
+<span id="cb52-245"><a href="#cb52-245"></a>Step 2. Do it 10,000 times!</span>
+<span id="cb52-246"><a href="#cb52-246"></a></span>
+<span id="cb52-247"><a href="#cb52-247"></a>**What percentage of the time is the "true" value inside the 95% confidence interval?**</span>
+<span id="cb52-248"><a href="#cb52-248"></a></span>
+<span id="cb52-251"><a href="#cb52-251"></a><span class="in">```{r}</span></span>
+<span id="cb52-252"><a href="#cb52-252"></a>true_value <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb52-253"><a href="#cb52-253"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">300</span> <span class="do">## play around with this!</span></span>
+<span id="cb52-254"><a href="#cb52-254"></a>num_sims <span class="ot">&lt;-</span> <span class="fl">10e3</span></span>
+<span id="cb52-255"><a href="#cb52-255"></a></span>
+<span id="cb52-256"><a href="#cb52-256"></a>sims <span class="ot">&lt;-</span> <span class="fu">replicate</span>(num_sims, {</span>
+<span id="cb52-257"><a href="#cb52-257"></a>  </span>
+<span id="cb52-258"><a href="#cb52-258"></a>  x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(sample_size, <span class="dv">1</span>, <span class="at">prob =</span> true_value)</span>
+<span id="cb52-259"><a href="#cb52-259"></a>  estimate <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb52-260"><a href="#cb52-260"></a>  std_error_estimate <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(estimate <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> estimate) <span class="sc">/</span> sample_size)</span>
+<span id="cb52-261"><a href="#cb52-261"></a>  <span class="do">## Is the "true" value inside the estimated 95% confidence interval??</span></span>
+<span id="cb52-262"><a href="#cb52-262"></a>  lower <span class="ot">&lt;-</span> estimate <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
+<span id="cb52-263"><a href="#cb52-263"></a>  upper <span class="ot">&lt;-</span> estimate <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
+<span id="cb52-264"><a href="#cb52-264"></a>  <span class="fu">between</span>(true_value, lower, upper)</span>
+<span id="cb52-265"><a href="#cb52-265"></a>  </span>
+<span id="cb52-266"><a href="#cb52-266"></a>})</span>
+<span id="cb52-267"><a href="#cb52-267"></a></span>
+<span id="cb52-268"><a href="#cb52-268"></a><span class="fu">mean</span>(sims)</span>
+<span id="cb52-269"><a href="#cb52-269"></a><span class="in">```</span></span>
+<span id="cb52-270"><a href="#cb52-270"></a></span>
+<span id="cb52-271"><a href="#cb52-271"></a>Step 3. Do it 10,000 times for different sample sizes.</span>
+<span id="cb52-272"><a href="#cb52-272"></a></span>
+<span id="cb52-275"><a href="#cb52-275"></a><span class="in">```{r}</span></span>
+<span id="cb52-276"><a href="#cb52-276"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb52-277"><a href="#cb52-277"></a><span class="co">#| message: false</span></span>
+<span id="cb52-278"><a href="#cb52-278"></a></span>
+<span id="cb52-279"><a href="#cb52-279"></a>simulation <span class="ot">&lt;-</span> <span class="cf">function</span>(N, P, S) {</span>
+<span id="cb52-280"><a href="#cb52-280"></a>  </span>
+<span id="cb52-281"><a href="#cb52-281"></a>  out <span class="ot">&lt;-</span> <span class="fu">replicate</span>(S, <span class="at">expr =</span> {</span>
+<span id="cb52-282"><a href="#cb52-282"></a>  </span>
+<span id="cb52-283"><a href="#cb52-283"></a>    x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(N, <span class="dv">1</span>, <span class="at">prob =</span> P)</span>
+<span id="cb52-284"><a href="#cb52-284"></a>    estimate <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb52-285"><a href="#cb52-285"></a>    std_error_estimate <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(estimate <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> estimate) <span class="sc">/</span> N)</span>
+<span id="cb52-286"><a href="#cb52-286"></a>    <span class="do">## Is the "true" value inside the estimated 95% confidence interval??</span></span>
+<span id="cb52-287"><a href="#cb52-287"></a>    lower <span class="ot">&lt;-</span> estimate <span class="sc">-</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
+<span id="cb52-288"><a href="#cb52-288"></a>    upper <span class="ot">&lt;-</span> estimate <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> std_error_estimate</span>
+<span id="cb52-289"><a href="#cb52-289"></a>    dplyr<span class="sc">::</span><span class="fu">between</span>(P, lower, upper)</span>
+<span id="cb52-290"><a href="#cb52-290"></a>    </span>
+<span id="cb52-291"><a href="#cb52-291"></a>  })</span>
+<span id="cb52-292"><a href="#cb52-292"></a>  </span>
+<span id="cb52-293"><a href="#cb52-293"></a>  <span class="fu">return</span>(<span class="fu">mean</span>(out))</span>
+<span id="cb52-294"><a href="#cb52-294"></a>  </span>
+<span id="cb52-295"><a href="#cb52-295"></a>}</span>
+<span id="cb52-296"><a href="#cb52-296"></a></span>
+<span id="cb52-297"><a href="#cb52-297"></a>ss <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">5</span>, <span class="dv">150</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
+<span id="cb52-298"><a href="#cb52-298"></a>out <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(ss, \(x) <span class="fu">simulation</span>(<span class="at">N =</span> x, <span class="at">P =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="at">S =</span> <span class="fl">5e3</span>), <span class="at">.progress =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb52-299"><a href="#cb52-299"></a></span>
+<span id="cb52-300"><a href="#cb52-300"></a><span class="fu">tibble</span>(<span class="at">sample =</span> ss, <span class="at">coverage =</span> out) <span class="sc">|&gt;</span> </span>
+<span id="cb52-301"><a href="#cb52-301"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sample, coverage)) <span class="sc">+</span> </span>
+<span id="cb52-302"><a href="#cb52-302"></a>  <span class="fu">geom_rect</span>(<span class="at">xmin =</span> <span class="dv">0</span>, <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">xmax =</span> <span class="dv">30</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb52-303"><a href="#cb52-303"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.95</span>) <span class="sc">+</span> </span>
+<span id="cb52-304"><a href="#cb52-304"></a>  <span class="fu">geom_line</span>() </span>
+<span id="cb52-305"><a href="#cb52-305"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
