@@ -128,7 +128,7 @@ mtcars[mtcars$mpg > 23, ]
 
 First, R searched for an object called `year` and didn't find anyting.
 
-Second, R searched for `year` and found a function with the same name in the `lubridate` package. 
+Second, R searched for `year` and found a function with the same name in the `lubridate` package.
 
 ## `dplyr`
 
@@ -136,7 +136,6 @@ Second, R searched for `year` and found a function with the same name in the `lu
 library(tidyverse)
 library(palmerpenguins)
 ```
-
 
 ### Exercise
 
@@ -156,4 +155,3 @@ penguins |>
 penguins |> 
   filter(species == "Gentoo", island == "Biscoe", body_mass_g >= 5000, body_mass_g <= 5500)
 ```
-

@@ -1,3 +1,253 @@
 ---
-title: "Solutions 1"
+title: "Solutions 4"
 ---
+
+```{r}
+#| code-summary: "Packages and Setup"
+#| message: false
+library(tidyverse)
+theme_set(theme_light(base_family = "Avenir Next Condensed"))
+```
+
+## Exercise
+
+```{r}
+x <- rnorm(100000, mean = 0, sd = 1)
+```
+
+The probability that $x$ is within one standard deviation $\sigma$ away from the mean is roughly 68%.
+
+```{r}
+mean(x >= -1 & x <= 1)
+```
+
+The probability that $x$ is within two standard deviations $2\sigma$ away from the mean is roughly 95%.
+
+```{r}
+mean(x >= -2 & x <= 2)
+```
+
+::: callout-warning
+The actual value is closer to 1.96 standard deviations away from the mean instead of "2."
+
+```{r}
+quantile(x, probs = c(0.025, 0.975))
+qnorm(c(0.025, 0.975), mean = 0, sd = 1)
+```
+:::
+
+## Exercise
+
+```{r}
+quantile(x)
+```
+
+The `quantile()` function calculates the 25^th^, 50^th^, and 75^th^ percentiles of a vector of numbers.
+
+It also includes the minimum and maximum values:
+
+```{r}
+min(x)
+max(x)
+```
+
+Hey! I hope you remember that the *median* is the same as the 50^th^ percentile.
+
+```{r}
+median(x)
+```
+
+## Exercise
+
+```{r}
+quantile(x, probs = c(0.005, 0.995))
+```
+
+## Exercise
+
+Let $x = x_1 + \dots + x_{20}$, the sum of 20 independent uniform(0, 1) random variables. In R, create 1000 simulations of $x$ and plot their histogram.
+
+```{r}
+d <- tibble(id = 1:1e3) |> 
+  rowwise() |> 
+  mutate(x = sum(runif(20))) |> 
+  ungroup() ## this might save you trouble later on!
+
+d |> ggplot(aes(x)) + geom_histogram(color = "white")
+```
+
+**Bonus**
+
+```{r}
+sd(d$x)
+```
+
+The real standard error is:
+
+```{r}
+sqrt(20/12)
+```
+
+An estimate of the standard error for one sample:
+
+```{r}
+sd(runif(20, min = 0, max = 1)) * sqrt(20)
+```
+
+::: callout-important
+**Note**
+
+There is no "uniquely correct" way of simulating data.
+
+For example, this is the way I would usually do it:
+
+```{r}
+N <- 20
+S <- 1e3
+x <- replicate(S, sum(runif(N, min = 0, max = 1)))
+
+tibble(x) |> 
+  ggplot(aes(x)) + geom_histogram(color = "white")
+```
+:::
+
+## Exercise
+
+Many introductory statistics textbooks say that "sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold." I've seen a lot of confusion with regards to this. For example, I've heard people say that if the sample size is 30 then the data is normally distributed. *Absolutely not!* It means that the sampling distribution will converge to a normal distribution. This means that sample sizes less than 30 will not produce "normal" sampling distributions, and we can verify this using simulations.
+
+::: callout-tip
+This relevant for calculating "statistical significance," which we'll cover on week 5.
+:::
+
+The following code picks up follows Steve's simulation that we did in class:
+
+```{r}
+svy_size <- 15 ## this is different!
+est_prop <- 1/3
+num_sims <- 10e3
+
+sims <- replicate(num_sims, mean(rbinom(svy_size, 1, prob = est_prop)))
+d <- tibble(prop = sims) |> 
+  rowid_to_column("sim_num")
+
+d |> summarize(mean = mean(prop), se = sd(prop))
+```
+
+The "mean" value is still the same, but the standard error is bigger because our sample size is `r svy_size` instead of 2247. So far, so good.
+
+Now lets calculate the standard error:
+
+```{r}
+std_error <- sqrt((1/3) * (2/3) / svy_size)
+std_error
+```
+
+Hey, this is pretty much the same as the standard error we calculated in the simulation!
+
+```{r}
+sd(d$prop)
+```
+
+Finally, I know that in any normal distribution approximately 68% of the values of should be within one standard deviation away from the mean.
+
+```{r}
+mean(d$prop > 1/3 - sd(d$prop) & d$prop < 1/3 + sd(d$prop))
+```
+
+Oh no! The coverage is all wrong. This means that the sampling distribution we created does not have the properties of a normal distribution. This must be what people mean when they say that "sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold."
+
+::: callout-tip
+Btw, that previous line of code is a little bit clunky. The `dplyr` package has a useful function called `between()` which *may* be easier to understand.
+
+```{r}
+lower <- 1/3 - sd(d$prop)
+upper <- 1/3 + sd(d$prop)
+mean(between(d$prop, lower, upper))
+```
+:::
+
+## **Extra**
+
+Let's plot how does the sample size affect the number of outcomes that fall within one standard deviations away from the mean.
+
+This is how I built my simulation.
+
+Step. 1 Do it once!
+
+**Is the "true" value inside the estimated 95% confidence interval?**
+
+```{r}
+true_value <- 1/3
+sample_size <- 300
+
+x <- rbinom(sample_size, 1, prob = true_value)
+estimate <- mean(x)
+estimate
+std_error_estimate <- sqrt(estimate * (1 - estimate) / sample_size)
+std_error_estimate
+
+## Is the "true" value inside the estimated 95% confidence interval??
+lower <- estimate - 2 * std_error_estimate
+upper <- estimate + 2 * std_error_estimate
+
+# true_value > lower & true_value < upper
+between(true_value, lower, upper)
+```
+
+Step 2. Do it 10,000 times!
+
+**What percentage of the time is the "true" value inside the 95% confidence interval?**
+
+```{r}
+true_value <- 1/3
+sample_size <- 300 ## play around with this!
+num_sims <- 10e3
+
+sims <- replicate(num_sims, {
+  
+  x <- rbinom(sample_size, 1, prob = true_value)
+  estimate <- mean(x)
+  std_error_estimate <- sqrt(estimate * (1 - estimate) / sample_size)
+  ## Is the "true" value inside the estimated 95% confidence interval??
+  lower <- estimate - 2 * std_error_estimate
+  upper <- estimate + 2 * std_error_estimate
+  between(true_value, lower, upper)
+  
+})
+
+mean(sims)
+```
+
+Step 3. Do it 10,000 times for different sample sizes.
+
+```{r}
+#| code-fold: true
+#| message: false
+
+simulation <- function(N, P, S) {
+  
+  out <- replicate(S, expr = {
+  
+    x <- rbinom(N, 1, prob = P)
+    estimate <- mean(x)
+    std_error_estimate <- sqrt(estimate * (1 - estimate) / N)
+    ## Is the "true" value inside the estimated 95% confidence interval??
+    lower <- estimate - 2 * std_error_estimate
+    upper <- estimate + 2 * std_error_estimate
+    dplyr::between(P, lower, upper)
+    
+  })
+  
+  return(mean(out))
+  
+}
+
+ss <- seq(5, 150, by = 1)
+out <- map_dbl(ss, \(x) simulation(N = x, P = 1/3, S = 5e3), .progress = TRUE)
+
+tibble(sample = ss, coverage = out) |> 
+  ggplot(aes(sample, coverage)) + 
+  geom_rect(xmin = 0, ymin = 0, xmax = 30, ymax = Inf, alpha = 1/5) +
+  geom_hline(yintercept = 0.95) + 
+  geom_line() 
+```

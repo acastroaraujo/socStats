@@ -213,6 +213,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 3</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Solutions 4</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -428,21 +434,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb29-2"><a href="#cb29-2"></a><span class="fu">sum</span>(x)  <span class="do">## number of TRUE values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 32</code></pre>
+<pre><code>[1] 39</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">mean</span>(x) <span class="do">## proportion of TRUE values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4266667</code></pre>
+<pre><code>[1] 0.52</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">sum</span>(x) <span class="sc">/</span> <span class="fu">length</span>(x) <span class="do">## verifying the mean function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4266667</code></pre>
+<pre><code>[1] 0.52</code></pre>
 </div>
 </div>
 </section>
@@ -1087,7 +1093,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb56-154"><a href="#cb56-154"></a></span>
 <span id="cb56-155"><a href="#cb56-155"></a>First, R searched for an object called <span class="in">`year`</span> and didn't find anyting.</span>
 <span id="cb56-156"><a href="#cb56-156"></a></span>
-<span id="cb56-157"><a href="#cb56-157"></a>Second, R searched for <span class="in">`year`</span> and found a function with the same name in the <span class="in">`lubridate`</span> package. </span>
+<span id="cb56-157"><a href="#cb56-157"></a>Second, R searched for <span class="in">`year`</span> and found a function with the same name in the <span class="in">`lubridate`</span> package.</span>
 <span id="cb56-158"><a href="#cb56-158"></a></span>
 <span id="cb56-159"><a href="#cb56-159"></a><span class="fu">## `dplyr`</span></span>
 <span id="cb56-160"><a href="#cb56-160"></a></span>
@@ -1096,25 +1102,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb56-165"><a href="#cb56-165"></a><span class="fu">library</span>(palmerpenguins)</span>
 <span id="cb56-166"><a href="#cb56-166"></a><span class="in">```</span></span>
 <span id="cb56-167"><a href="#cb56-167"></a></span>
-<span id="cb56-168"><a href="#cb56-168"></a></span>
-<span id="cb56-169"><a href="#cb56-169"></a><span class="fu">### Exercise</span></span>
-<span id="cb56-170"><a href="#cb56-170"></a></span>
-<span id="cb56-173"><a href="#cb56-173"></a><span class="in">```{r}</span></span>
-<span id="cb56-174"><a href="#cb56-174"></a>i <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="fu">nrow</span>(penguins), <span class="at">by =</span> <span class="dv">2</span>)</span>
-<span id="cb56-175"><a href="#cb56-175"></a></span>
-<span id="cb56-176"><a href="#cb56-176"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb56-177"><a href="#cb56-177"></a>  <span class="fu">slice</span>(i)</span>
-<span id="cb56-178"><a href="#cb56-178"></a></span>
-<span id="cb56-179"><a href="#cb56-179"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb56-180"><a href="#cb56-180"></a>  <span class="fu">slice</span>(<span class="fu">seq</span>(<span class="dv">3</span>, <span class="fu">nrow</span>(penguins), <span class="at">by =</span> <span class="dv">3</span>))</span>
-<span id="cb56-181"><a href="#cb56-181"></a><span class="in">```</span></span>
-<span id="cb56-182"><a href="#cb56-182"></a></span>
-<span id="cb56-183"><a href="#cb56-183"></a><span class="fu">### Exercise</span></span>
-<span id="cb56-184"><a href="#cb56-184"></a></span>
-<span id="cb56-187"><a href="#cb56-187"></a><span class="in">```{r}</span></span>
-<span id="cb56-188"><a href="#cb56-188"></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb56-189"><a href="#cb56-189"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>, island <span class="sc">==</span> <span class="st">"Biscoe"</span>, body_mass_g <span class="sc">&gt;=</span> <span class="dv">5000</span>, body_mass_g <span class="sc">&lt;=</span> <span class="dv">5500</span>)</span>
-<span id="cb56-190"><a href="#cb56-190"></a><span class="in">```</span></span>
+<span id="cb56-168"><a href="#cb56-168"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-169"><a href="#cb56-169"></a></span>
+<span id="cb56-172"><a href="#cb56-172"></a><span class="in">```{r}</span></span>
+<span id="cb56-173"><a href="#cb56-173"></a>i <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="fu">nrow</span>(penguins), <span class="at">by =</span> <span class="dv">2</span>)</span>
+<span id="cb56-174"><a href="#cb56-174"></a></span>
+<span id="cb56-175"><a href="#cb56-175"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb56-176"><a href="#cb56-176"></a>  <span class="fu">slice</span>(i)</span>
+<span id="cb56-177"><a href="#cb56-177"></a></span>
+<span id="cb56-178"><a href="#cb56-178"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb56-179"><a href="#cb56-179"></a>  <span class="fu">slice</span>(<span class="fu">seq</span>(<span class="dv">3</span>, <span class="fu">nrow</span>(penguins), <span class="at">by =</span> <span class="dv">3</span>))</span>
+<span id="cb56-180"><a href="#cb56-180"></a><span class="in">```</span></span>
+<span id="cb56-181"><a href="#cb56-181"></a></span>
+<span id="cb56-182"><a href="#cb56-182"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-183"><a href="#cb56-183"></a></span>
+<span id="cb56-186"><a href="#cb56-186"></a><span class="in">```{r}</span></span>
+<span id="cb56-187"><a href="#cb56-187"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb56-188"><a href="#cb56-188"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>, island <span class="sc">==</span> <span class="st">"Biscoe"</span>, body_mass_g <span class="sc">&gt;=</span> <span class="dv">5000</span>, body_mass_g <span class="sc">&lt;=</span> <span class="dv">5500</span>)</span>
+<span id="cb56-189"><a href="#cb56-189"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
