@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">mean</span>(x <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">&amp;</span> x <span class="sc">&lt;=</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.68522</code></pre>
+<pre><code>[1] 0.68498</code></pre>
 </div>
 </div>
 <p>The probability that <span class="math inline">\(x\)</span> is within two standard deviations <span class="math inline">\(2\sigma\)</span> away from the mean is roughly 95%.</p>
@@ -300,7 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">mean</span>(x <span class="sc">&gt;=</span> <span class="sc">-</span><span class="dv">2</span> <span class="sc">&amp;</span> x <span class="sc">&lt;=</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.95465</code></pre>
+<pre><code>[1] 0.95539</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -321,7 +321,7 @@ Warning
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>     2.5%     97.5% 
--1.941851  1.967660 </code></pre>
+-1.955397  1.956256 </code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
@@ -342,8 +342,8 @@ Warning
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">quantile</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>          0%          25%          50%          75%         100% 
--4.208950902 -0.665662855  0.002613868  0.675248501  4.286448894 </code></pre>
+<pre><code>           0%           25%           50%           75%          100% 
+-4.8795838435 -0.6695851352  0.0001649382  0.6686857020  4.1235503329 </code></pre>
 </div>
 </div>
 <p>The <code>quantile()</code> function calculates the 25<sup>th</sup>, 50<sup>th</sup>, and 75<sup>th</sup> percentiles of a vector of numbers.</p>
@@ -354,14 +354,14 @@ Warning
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">min</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -4.208951</code></pre>
+<pre><code>[1] -4.879584</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">max</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 4.286449</code></pre>
+<pre><code>[1] 4.12355</code></pre>
 </div>
 </div>
 <p>Hey! I hope you remember that the <em>median</em> is the same as the 50<sup>th</sup> percentile.</p>
@@ -371,7 +371,7 @@ Warning
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">median</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.002613868</code></pre>
+<pre><code>[1] 0.0001649382</code></pre>
 </div>
 </div>
 </section>
@@ -384,7 +384,7 @@ Warning
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>     0.5%     99.5% 
--2.581507  2.585648 </code></pre>
+-2.554854  2.556632 </code></pre>
 </div>
 </div>
 </section>
@@ -415,7 +415,7 @@ Warning
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">sd</span>(d<span class="sc">$</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.309177</code></pre>
+<pre><code>[1] 1.318354</code></pre>
 </div>
 </div>
 <p>The real standard error is:</p>
@@ -435,7 +435,7 @@ Warning
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">sd</span>(<span class="fu">runif</span>(<span class="dv">20</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>)) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.232108</code></pre>
+<pre><code>[1] 1.249974</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -505,7 +505,7 @@ Tip
 <pre><code># A tibble: 1 × 2
    mean    se
   &lt;dbl&gt; &lt;dbl&gt;
-1 0.334 0.122</code></pre>
+1 0.333 0.121</code></pre>
 </div>
 </div>
 <p>The “mean” value is still the same, but the standard error is bigger because our sample size is 15 instead of 2247. So far, so good.</p>
@@ -527,7 +527,7 @@ Tip
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">sd</span>(d<span class="sc">$</span>prop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1218177</code></pre>
+<pre><code>[1] 0.1213351</code></pre>
 </div>
 </div>
 <p>Finally, I know that in any normal distribution approximately 68% of the values of should be within one standard deviation away from the mean.</p>
@@ -537,7 +537,7 @@ Tip
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">mean</span>(d<span class="sc">$</span>prop <span class="sc">&gt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">-</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop) <span class="sc">&amp;</span> d<span class="sc">$</span>prop <span class="sc">&lt;</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span> <span class="sc">+</span> <span class="fu">sd</span>(d<span class="sc">$</span>prop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5862</code></pre>
+<pre><code>[1] 0.5882</code></pre>
 </div>
 </div>
 <p>Oh no! The coverage is all wrong. This means that the sampling distribution we created does not have the properties of a normal distribution. This must be what people mean when they say that “sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold.”</p>
@@ -560,7 +560,7 @@ Tip
 <span id="cb39-3"><a href="#cb39-3"></a><span class="fu">mean</span>(<span class="fu">between</span>(d<span class="sc">$</span>prop, lower, upper))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5862</code></pre>
+<pre><code>[1] 0.5882</code></pre>
 </div>
 </div>
 </div>
@@ -583,7 +583,7 @@ Tip
 <span id="cb41-6"><a href="#cb41-6"></a>estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3533333</code></pre>
+<pre><code>[1] 0.3433333</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
@@ -591,7 +591,7 @@ Tip
 <span id="cb43-2"><a href="#cb43-2"></a>std_error_estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.02759764</code></pre>
+<pre><code>[1] 0.02741384</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
@@ -630,7 +630,7 @@ Tip
 <span id="cb47-17"><a href="#cb47-17"></a><span class="fu">mean</span>(sims)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9496</code></pre>
+<pre><code>[1] 0.9495</code></pre>
 </div>
 </div>
 <p>Step 3. Do it 10,000 times for different sample sizes.</p>
