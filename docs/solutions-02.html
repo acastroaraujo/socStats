@@ -210,13 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./solutions-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./solutions-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 3</span></span></a>
   </div>
 </li>
       </ul>
@@ -295,6 +289,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(nycflights13)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p><strong>Note. I just realized that there where publicly available solutions to these exercises here:</strong></p>
+<p><a href="https://mine-cetinkaya-rundel.github.io/r4ds-solutions/data-transform.html" class="uri">https://mine-cetinkaya-rundel.github.io/r4ds-solutions/data-transform.html</a></p>
 <section id="rows" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="rows"><span class="header-section-number">6.1</span> Rows</h2>
 <section id="section" class="level3" data-number="6.1.1">
@@ -1682,7 +1678,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./solutions-03.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 1</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 3</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1698,435 +1694,439 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb93-12"><a href="#cb93-12"></a><span class="fu">library</span>(nycflights13)</span>
 <span id="cb93-13"><a href="#cb93-13"></a><span class="in">```</span></span>
 <span id="cb93-14"><a href="#cb93-14"></a></span>
-<span id="cb93-15"><a href="#cb93-15"></a><span class="fu">## Rows</span></span>
+<span id="cb93-15"><a href="#cb93-15"></a>**Note. I just realized that there where publicly available solutions to these exercises here:**</span>
 <span id="cb93-16"><a href="#cb93-16"></a></span>
-<span id="cb93-17"><a href="#cb93-17"></a><span class="fu">### 4.2.5.1</span></span>
+<span id="cb93-17"><a href="#cb93-17"></a><span class="ot">&lt;https://mine-cetinkaya-rundel.github.io/r4ds-solutions/data-transform.html&gt;</span></span>
 <span id="cb93-18"><a href="#cb93-18"></a></span>
-<span id="cb93-19"><a href="#cb93-19"></a><span class="at">&gt; In a single pipeline for each condition, find all flights that meet the condition:</span></span>
+<span id="cb93-19"><a href="#cb93-19"></a><span class="fu">## Rows</span></span>
 <span id="cb93-20"><a href="#cb93-20"></a></span>
-<span id="cb93-21"><a href="#cb93-21"></a>*Had an arrival delay of two or more hours*</span>
+<span id="cb93-21"><a href="#cb93-21"></a><span class="fu">### 4.2.5.1</span></span>
 <span id="cb93-22"><a href="#cb93-22"></a></span>
-<span id="cb93-25"><a href="#cb93-25"></a><span class="in">```{r}</span></span>
-<span id="cb93-26"><a href="#cb93-26"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-27"><a href="#cb93-27"></a>  <span class="fu">filter</span>(arr_delay <span class="sc">&gt;=</span> <span class="dv">120</span>)</span>
-<span id="cb93-28"><a href="#cb93-28"></a><span class="in">```</span></span>
-<span id="cb93-29"><a href="#cb93-29"></a></span>
-<span id="cb93-30"><a href="#cb93-30"></a>*Flew to Houston (`IAH` or `HOU`)*</span>
-<span id="cb93-31"><a href="#cb93-31"></a></span>
-<span id="cb93-34"><a href="#cb93-34"></a><span class="in">```{r}</span></span>
-<span id="cb93-35"><a href="#cb93-35"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-36"><a href="#cb93-36"></a>  <span class="fu">filter</span>(dest <span class="sc">==</span> <span class="st">"IAH"</span> <span class="sc">|</span> dest <span class="sc">==</span> <span class="st">"HOU"</span>)</span>
-<span id="cb93-37"><a href="#cb93-37"></a><span class="in">```</span></span>
-<span id="cb93-38"><a href="#cb93-38"></a></span>
-<span id="cb93-39"><a href="#cb93-39"></a>*Were operated by United, American, or Delta*</span>
-<span id="cb93-40"><a href="#cb93-40"></a></span>
-<span id="cb93-43"><a href="#cb93-43"></a><span class="in">```{r}</span></span>
-<span id="cb93-44"><a href="#cb93-44"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-45"><a href="#cb93-45"></a>  <span class="do">## hint: check the nycflights13::airlines dataset</span></span>
-<span id="cb93-46"><a href="#cb93-46"></a>  <span class="fu">filter</span>(carrier <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"UA"</span>, <span class="st">"AA"</span>, <span class="st">"DL"</span>))</span>
-<span id="cb93-47"><a href="#cb93-47"></a><span class="in">```</span></span>
-<span id="cb93-48"><a href="#cb93-48"></a></span>
-<span id="cb93-49"><a href="#cb93-49"></a>*Departed in summer (July, August, and September)*</span>
-<span id="cb93-50"><a href="#cb93-50"></a></span>
-<span id="cb93-53"><a href="#cb93-53"></a><span class="in">```{r}</span></span>
-<span id="cb93-54"><a href="#cb93-54"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-55"><a href="#cb93-55"></a>  <span class="fu">filter</span>(month <span class="sc">%in%</span> <span class="dv">7</span><span class="sc">:</span><span class="dv">9</span>)</span>
-<span id="cb93-56"><a href="#cb93-56"></a><span class="in">```</span></span>
-<span id="cb93-57"><a href="#cb93-57"></a></span>
-<span id="cb93-58"><a href="#cb93-58"></a>*Arrived more than two hours late, but didn't leave late*</span>
-<span id="cb93-59"><a href="#cb93-59"></a></span>
-<span id="cb93-62"><a href="#cb93-62"></a><span class="in">```{r}</span></span>
-<span id="cb93-63"><a href="#cb93-63"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-64"><a href="#cb93-64"></a>  <span class="do">## I will also accept dep_delay &lt;= 0</span></span>
-<span id="cb93-65"><a href="#cb93-65"></a>  <span class="fu">filter</span>(arr_delay <span class="sc">&gt;</span> <span class="dv">120</span> <span class="sc">&amp;</span> dep_delay <span class="sc">&lt;=</span> <span class="dv">5</span>)</span>
-<span id="cb93-66"><a href="#cb93-66"></a><span class="in">```</span></span>
-<span id="cb93-67"><a href="#cb93-67"></a></span>
-<span id="cb93-68"><a href="#cb93-68"></a>*Were delayed by at least an hour, but made up over 30 minutes in flight*</span>
-<span id="cb93-69"><a href="#cb93-69"></a></span>
-<span id="cb93-72"><a href="#cb93-72"></a><span class="in">```{r}</span></span>
-<span id="cb93-73"><a href="#cb93-73"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-74"><a href="#cb93-74"></a>  <span class="co"># this also works:</span></span>
-<span id="cb93-75"><a href="#cb93-75"></a>  <span class="co"># filter(dep_delay &gt;= 60 &amp; dep_delay - arr_delay &gt; 30)</span></span>
-<span id="cb93-76"><a href="#cb93-76"></a>  <span class="fu">filter</span>(dep_delay <span class="sc">&gt;=</span> <span class="dv">60</span>, dep_delay <span class="sc">-</span> arr_delay <span class="sc">&gt;</span> <span class="dv">30</span>)</span>
-<span id="cb93-77"><a href="#cb93-77"></a><span class="in">```</span></span>
-<span id="cb93-78"><a href="#cb93-78"></a></span>
-<span id="cb93-79"><a href="#cb93-79"></a><span class="fu">### 4.2.5.2</span></span>
-<span id="cb93-80"><a href="#cb93-80"></a></span>
-<span id="cb93-81"><a href="#cb93-81"></a><span class="at">&gt; Sort </span><span class="in">`flights`</span><span class="at"> to find the flights with longest departure delays. Find the flights that left earliest in the morning.</span></span>
+<span id="cb93-23"><a href="#cb93-23"></a><span class="at">&gt; In a single pipeline for each condition, find all flights that meet the condition:</span></span>
+<span id="cb93-24"><a href="#cb93-24"></a></span>
+<span id="cb93-25"><a href="#cb93-25"></a>*Had an arrival delay of two or more hours*</span>
+<span id="cb93-26"><a href="#cb93-26"></a></span>
+<span id="cb93-29"><a href="#cb93-29"></a><span class="in">```{r}</span></span>
+<span id="cb93-30"><a href="#cb93-30"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-31"><a href="#cb93-31"></a>  <span class="fu">filter</span>(arr_delay <span class="sc">&gt;=</span> <span class="dv">120</span>)</span>
+<span id="cb93-32"><a href="#cb93-32"></a><span class="in">```</span></span>
+<span id="cb93-33"><a href="#cb93-33"></a></span>
+<span id="cb93-34"><a href="#cb93-34"></a>*Flew to Houston (`IAH` or `HOU`)*</span>
+<span id="cb93-35"><a href="#cb93-35"></a></span>
+<span id="cb93-38"><a href="#cb93-38"></a><span class="in">```{r}</span></span>
+<span id="cb93-39"><a href="#cb93-39"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-40"><a href="#cb93-40"></a>  <span class="fu">filter</span>(dest <span class="sc">==</span> <span class="st">"IAH"</span> <span class="sc">|</span> dest <span class="sc">==</span> <span class="st">"HOU"</span>)</span>
+<span id="cb93-41"><a href="#cb93-41"></a><span class="in">```</span></span>
+<span id="cb93-42"><a href="#cb93-42"></a></span>
+<span id="cb93-43"><a href="#cb93-43"></a>*Were operated by United, American, or Delta*</span>
+<span id="cb93-44"><a href="#cb93-44"></a></span>
+<span id="cb93-47"><a href="#cb93-47"></a><span class="in">```{r}</span></span>
+<span id="cb93-48"><a href="#cb93-48"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-49"><a href="#cb93-49"></a>  <span class="do">## hint: check the nycflights13::airlines dataset</span></span>
+<span id="cb93-50"><a href="#cb93-50"></a>  <span class="fu">filter</span>(carrier <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"UA"</span>, <span class="st">"AA"</span>, <span class="st">"DL"</span>))</span>
+<span id="cb93-51"><a href="#cb93-51"></a><span class="in">```</span></span>
+<span id="cb93-52"><a href="#cb93-52"></a></span>
+<span id="cb93-53"><a href="#cb93-53"></a>*Departed in summer (July, August, and September)*</span>
+<span id="cb93-54"><a href="#cb93-54"></a></span>
+<span id="cb93-57"><a href="#cb93-57"></a><span class="in">```{r}</span></span>
+<span id="cb93-58"><a href="#cb93-58"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-59"><a href="#cb93-59"></a>  <span class="fu">filter</span>(month <span class="sc">%in%</span> <span class="dv">7</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb93-60"><a href="#cb93-60"></a><span class="in">```</span></span>
+<span id="cb93-61"><a href="#cb93-61"></a></span>
+<span id="cb93-62"><a href="#cb93-62"></a>*Arrived more than two hours late, but didn't leave late*</span>
+<span id="cb93-63"><a href="#cb93-63"></a></span>
+<span id="cb93-66"><a href="#cb93-66"></a><span class="in">```{r}</span></span>
+<span id="cb93-67"><a href="#cb93-67"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-68"><a href="#cb93-68"></a>  <span class="do">## I will also accept dep_delay &lt;= 0</span></span>
+<span id="cb93-69"><a href="#cb93-69"></a>  <span class="fu">filter</span>(arr_delay <span class="sc">&gt;</span> <span class="dv">120</span> <span class="sc">&amp;</span> dep_delay <span class="sc">&lt;=</span> <span class="dv">5</span>)</span>
+<span id="cb93-70"><a href="#cb93-70"></a><span class="in">```</span></span>
+<span id="cb93-71"><a href="#cb93-71"></a></span>
+<span id="cb93-72"><a href="#cb93-72"></a>*Were delayed by at least an hour, but made up over 30 minutes in flight*</span>
+<span id="cb93-73"><a href="#cb93-73"></a></span>
+<span id="cb93-76"><a href="#cb93-76"></a><span class="in">```{r}</span></span>
+<span id="cb93-77"><a href="#cb93-77"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-78"><a href="#cb93-78"></a>  <span class="co"># this also works:</span></span>
+<span id="cb93-79"><a href="#cb93-79"></a>  <span class="co"># filter(dep_delay &gt;= 60 &amp; dep_delay - arr_delay &gt; 30)</span></span>
+<span id="cb93-80"><a href="#cb93-80"></a>  <span class="fu">filter</span>(dep_delay <span class="sc">&gt;=</span> <span class="dv">60</span>, dep_delay <span class="sc">-</span> arr_delay <span class="sc">&gt;</span> <span class="dv">30</span>)</span>
+<span id="cb93-81"><a href="#cb93-81"></a><span class="in">```</span></span>
 <span id="cb93-82"><a href="#cb93-82"></a></span>
-<span id="cb93-85"><a href="#cb93-85"></a><span class="in">```{r}</span></span>
-<span id="cb93-86"><a href="#cb93-86"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-87"><a href="#cb93-87"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(dep_delay))</span>
-<span id="cb93-88"><a href="#cb93-88"></a></span>
-<span id="cb93-89"><a href="#cb93-89"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-90"><a href="#cb93-90"></a>  <span class="fu">arrange</span>(dep_time)</span>
-<span id="cb93-91"><a href="#cb93-91"></a><span class="in">```</span></span>
+<span id="cb93-83"><a href="#cb93-83"></a><span class="fu">### 4.2.5.2</span></span>
+<span id="cb93-84"><a href="#cb93-84"></a></span>
+<span id="cb93-85"><a href="#cb93-85"></a><span class="at">&gt; Sort </span><span class="in">`flights`</span><span class="at"> to find the flights with longest departure delays. Find the flights that left earliest in the morning.</span></span>
+<span id="cb93-86"><a href="#cb93-86"></a></span>
+<span id="cb93-89"><a href="#cb93-89"></a><span class="in">```{r}</span></span>
+<span id="cb93-90"><a href="#cb93-90"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-91"><a href="#cb93-91"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(dep_delay))</span>
 <span id="cb93-92"><a href="#cb93-92"></a></span>
-<span id="cb93-93"><a href="#cb93-93"></a><span class="fu">### 4.2.5.3</span></span>
-<span id="cb93-94"><a href="#cb93-94"></a></span>
-<span id="cb93-95"><a href="#cb93-95"></a><span class="at">&gt; Sort </span><span class="in">`flights`</span><span class="at"> to find the fastest flights. (Hint: Try including a math calculation inside of your function.)</span></span>
+<span id="cb93-93"><a href="#cb93-93"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-94"><a href="#cb93-94"></a>  <span class="fu">arrange</span>(dep_time)</span>
+<span id="cb93-95"><a href="#cb93-95"></a><span class="in">```</span></span>
 <span id="cb93-96"><a href="#cb93-96"></a></span>
-<span id="cb93-97"><a href="#cb93-97"></a>The fastest flights will travel the longest distances in the least amount of time. Thus, I will have to calculate km/h. (Miles per hour is fine too I guess).</span>
+<span id="cb93-97"><a href="#cb93-97"></a><span class="fu">### 4.2.5.3</span></span>
 <span id="cb93-98"><a href="#cb93-98"></a></span>
-<span id="cb93-101"><a href="#cb93-101"></a><span class="in">```{r}</span></span>
-<span id="cb93-102"><a href="#cb93-102"></a>to_kmh <span class="ot">&lt;-</span> <span class="cf">function</span>(distance, minutes) {</span>
-<span id="cb93-103"><a href="#cb93-103"></a>  (distance <span class="sc">*</span> <span class="fl">1.60934</span>) <span class="sc">/</span> (minutes <span class="sc">/</span> <span class="dv">60</span>)</span>
-<span id="cb93-104"><a href="#cb93-104"></a>}</span>
-<span id="cb93-105"><a href="#cb93-105"></a></span>
-<span id="cb93-106"><a href="#cb93-106"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-107"><a href="#cb93-107"></a>  <span class="fu">mutate</span>(<span class="at">speed =</span> <span class="fu">to_kmh</span>(distance, air_time)) <span class="sc">|&gt;</span></span>
-<span id="cb93-108"><a href="#cb93-108"></a>  <span class="fu">relocate</span>(speed) <span class="sc">|&gt;</span> </span>
-<span id="cb93-109"><a href="#cb93-109"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(speed))</span>
-<span id="cb93-110"><a href="#cb93-110"></a><span class="in">```</span></span>
-<span id="cb93-111"><a href="#cb93-111"></a></span>
-<span id="cb93-112"><a href="#cb93-112"></a><span class="fu">### 4.2.5.4</span></span>
-<span id="cb93-113"><a href="#cb93-113"></a></span>
-<span id="cb93-114"><a href="#cb93-114"></a><span class="at">&gt; Was there a flight on every day of 2013?</span></span>
+<span id="cb93-99"><a href="#cb93-99"></a><span class="at">&gt; Sort </span><span class="in">`flights`</span><span class="at"> to find the fastest flights. (Hint: Try including a math calculation inside of your function.)</span></span>
+<span id="cb93-100"><a href="#cb93-100"></a></span>
+<span id="cb93-101"><a href="#cb93-101"></a>The fastest flights will travel the longest distances in the least amount of time. Thus, I will have to calculate km/h. (Miles per hour is fine too I guess).</span>
+<span id="cb93-102"><a href="#cb93-102"></a></span>
+<span id="cb93-105"><a href="#cb93-105"></a><span class="in">```{r}</span></span>
+<span id="cb93-106"><a href="#cb93-106"></a>to_kmh <span class="ot">&lt;-</span> <span class="cf">function</span>(distance, minutes) {</span>
+<span id="cb93-107"><a href="#cb93-107"></a>  (distance <span class="sc">*</span> <span class="fl">1.60934</span>) <span class="sc">/</span> (minutes <span class="sc">/</span> <span class="dv">60</span>)</span>
+<span id="cb93-108"><a href="#cb93-108"></a>}</span>
+<span id="cb93-109"><a href="#cb93-109"></a></span>
+<span id="cb93-110"><a href="#cb93-110"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-111"><a href="#cb93-111"></a>  <span class="fu">mutate</span>(<span class="at">speed =</span> <span class="fu">to_kmh</span>(distance, air_time)) <span class="sc">|&gt;</span></span>
+<span id="cb93-112"><a href="#cb93-112"></a>  <span class="fu">relocate</span>(speed) <span class="sc">|&gt;</span> </span>
+<span id="cb93-113"><a href="#cb93-113"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(speed))</span>
+<span id="cb93-114"><a href="#cb93-114"></a><span class="in">```</span></span>
 <span id="cb93-115"><a href="#cb93-115"></a></span>
-<span id="cb93-118"><a href="#cb93-118"></a><span class="in">```{r}</span></span>
-<span id="cb93-119"><a href="#cb93-119"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-120"><a href="#cb93-120"></a>  <span class="fu">distinct</span>(month, day) <span class="sc">|&gt;</span> </span>
-<span id="cb93-121"><a href="#cb93-121"></a>  <span class="fu">summarize</span>(<span class="at">num_days =</span> <span class="fu">n</span>())</span>
-<span id="cb93-122"><a href="#cb93-122"></a><span class="in">```</span></span>
-<span id="cb93-123"><a href="#cb93-123"></a></span>
-<span id="cb93-124"><a href="#cb93-124"></a>Yes!</span>
-<span id="cb93-125"><a href="#cb93-125"></a></span>
-<span id="cb93-126"><a href="#cb93-126"></a><span class="fu">### 4.2.5.5</span></span>
+<span id="cb93-116"><a href="#cb93-116"></a><span class="fu">### 4.2.5.4</span></span>
+<span id="cb93-117"><a href="#cb93-117"></a></span>
+<span id="cb93-118"><a href="#cb93-118"></a><span class="at">&gt; Was there a flight on every day of 2013?</span></span>
+<span id="cb93-119"><a href="#cb93-119"></a></span>
+<span id="cb93-122"><a href="#cb93-122"></a><span class="in">```{r}</span></span>
+<span id="cb93-123"><a href="#cb93-123"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-124"><a href="#cb93-124"></a>  <span class="fu">distinct</span>(month, day) <span class="sc">|&gt;</span> </span>
+<span id="cb93-125"><a href="#cb93-125"></a>  <span class="fu">summarize</span>(<span class="at">num_days =</span> <span class="fu">n</span>())</span>
+<span id="cb93-126"><a href="#cb93-126"></a><span class="in">```</span></span>
 <span id="cb93-127"><a href="#cb93-127"></a></span>
-<span id="cb93-128"><a href="#cb93-128"></a><span class="at">&gt; Which flights traveled the farthest distance? Which traveled the least distance?</span></span>
+<span id="cb93-128"><a href="#cb93-128"></a>Yes!</span>
 <span id="cb93-129"><a href="#cb93-129"></a></span>
-<span id="cb93-132"><a href="#cb93-132"></a><span class="in">```{r}</span></span>
-<span id="cb93-133"><a href="#cb93-133"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-134"><a href="#cb93-134"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(distance))</span>
-<span id="cb93-135"><a href="#cb93-135"></a></span>
-<span id="cb93-136"><a href="#cb93-136"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-137"><a href="#cb93-137"></a>  <span class="fu">arrange</span>(distance)</span>
-<span id="cb93-138"><a href="#cb93-138"></a><span class="in">```</span></span>
+<span id="cb93-130"><a href="#cb93-130"></a><span class="fu">### 4.2.5.5</span></span>
+<span id="cb93-131"><a href="#cb93-131"></a></span>
+<span id="cb93-132"><a href="#cb93-132"></a><span class="at">&gt; Which flights traveled the farthest distance? Which traveled the least distance?</span></span>
+<span id="cb93-133"><a href="#cb93-133"></a></span>
+<span id="cb93-136"><a href="#cb93-136"></a><span class="in">```{r}</span></span>
+<span id="cb93-137"><a href="#cb93-137"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-138"><a href="#cb93-138"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(distance))</span>
 <span id="cb93-139"><a href="#cb93-139"></a></span>
-<span id="cb93-140"><a href="#cb93-140"></a><span class="fu">### 4.2.5.6</span></span>
-<span id="cb93-141"><a href="#cb93-141"></a></span>
-<span id="cb93-142"><a href="#cb93-142"></a><span class="at">&gt; Does it matter what order you used </span><span class="co">[</span><span class="ot">`filter()`</span><span class="co">](https://dplyr.tidyverse.org/reference/filter.html)</span><span class="at"> and </span><span class="co">[</span><span class="ot">`arrange()`</span><span class="co">](https://dplyr.tidyverse.org/reference/arrange.html)</span><span class="at"> if you're using both? Why/why not? Think about the results and how much work the functions would have to do.</span></span>
+<span id="cb93-140"><a href="#cb93-140"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-141"><a href="#cb93-141"></a>  <span class="fu">arrange</span>(distance)</span>
+<span id="cb93-142"><a href="#cb93-142"></a><span class="in">```</span></span>
 <span id="cb93-143"><a href="#cb93-143"></a></span>
-<span id="cb93-144"><a href="#cb93-144"></a>No, it doesn't matter. Filter does logical subsetting, and it doesn't matter if we re-arrange the data before or after subsetting.</span>
+<span id="cb93-144"><a href="#cb93-144"></a><span class="fu">### 4.2.5.6</span></span>
 <span id="cb93-145"><a href="#cb93-145"></a></span>
-<span id="cb93-146"><a href="#cb93-146"></a><span class="fu">## Columns</span></span>
+<span id="cb93-146"><a href="#cb93-146"></a><span class="at">&gt; Does it matter what order you used </span><span class="co">[</span><span class="ot">`filter()`</span><span class="co">](https://dplyr.tidyverse.org/reference/filter.html)</span><span class="at"> and </span><span class="co">[</span><span class="ot">`arrange()`</span><span class="co">](https://dplyr.tidyverse.org/reference/arrange.html)</span><span class="at"> if you're using both? Why/why not? Think about the results and how much work the functions would have to do.</span></span>
 <span id="cb93-147"><a href="#cb93-147"></a></span>
-<span id="cb93-148"><a href="#cb93-148"></a><span class="fu">### 4.3.5.1</span></span>
+<span id="cb93-148"><a href="#cb93-148"></a>No, it doesn't matter. Filter does logical subsetting, and it doesn't matter if we re-arrange the data before or after subsetting.</span>
 <span id="cb93-149"><a href="#cb93-149"></a></span>
-<span id="cb93-150"><a href="#cb93-150"></a><span class="at">&gt; Compare </span><span class="in">`dep_time`</span><span class="at">, </span><span class="in">`sched_dep_time`</span><span class="at">, and </span><span class="in">`dep_delay`</span><span class="at">. How would you expect those three numbers to be related?</span></span>
+<span id="cb93-150"><a href="#cb93-150"></a><span class="fu">## Columns</span></span>
 <span id="cb93-151"><a href="#cb93-151"></a></span>
-<span id="cb93-152"><a href="#cb93-152"></a><span class="in">`sched_dep_time`</span> = <span class="in">`dep_time`</span> - <span class="in">`dep_delay`</span></span>
+<span id="cb93-152"><a href="#cb93-152"></a><span class="fu">### 4.3.5.1</span></span>
 <span id="cb93-153"><a href="#cb93-153"></a></span>
-<span id="cb93-154"><a href="#cb93-154"></a><span class="fu">### 4.3.5.2</span></span>
+<span id="cb93-154"><a href="#cb93-154"></a><span class="at">&gt; Compare </span><span class="in">`dep_time`</span><span class="at">, </span><span class="in">`sched_dep_time`</span><span class="at">, and </span><span class="in">`dep_delay`</span><span class="at">. How would you expect those three numbers to be related?</span></span>
 <span id="cb93-155"><a href="#cb93-155"></a></span>
-<span id="cb93-156"><a href="#cb93-156"></a><span class="at">&gt; Brainstorm as many ways as possible to select </span><span class="in">`dep_time`</span><span class="at">, </span><span class="in">`dep_delay`</span><span class="at">, </span><span class="in">`arr_time`</span><span class="at">, and </span><span class="in">`arr_delay`</span><span class="at"> from </span><span class="in">`flights`</span><span class="at">.</span></span>
+<span id="cb93-156"><a href="#cb93-156"></a><span class="in">`sched_dep_time`</span> = <span class="in">`dep_time`</span> - <span class="in">`dep_delay`</span></span>
 <span id="cb93-157"><a href="#cb93-157"></a></span>
-<span id="cb93-160"><a href="#cb93-160"></a><span class="in">```{r}</span></span>
-<span id="cb93-161"><a href="#cb93-161"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-162"><a href="#cb93-162"></a>  <span class="fu">select</span>(dep_time, dep_delay, arr_time, arr_delay)</span>
-<span id="cb93-163"><a href="#cb93-163"></a></span>
-<span id="cb93-164"><a href="#cb93-164"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-165"><a href="#cb93-165"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"dep_"</span>), <span class="fu">starts_with</span>(<span class="st">"arr_"</span>))</span>
-<span id="cb93-166"><a href="#cb93-166"></a></span>
-<span id="cb93-167"><a href="#cb93-167"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-168"><a href="#cb93-168"></a>  <span class="fu">select</span>(dep_time<span class="sc">:</span>arr_delay) <span class="sc">|&gt;</span> </span>
-<span id="cb93-169"><a href="#cb93-169"></a>  <span class="do">## or ! instead of -</span></span>
-<span id="cb93-170"><a href="#cb93-170"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>))</span>
-<span id="cb93-171"><a href="#cb93-171"></a></span>
-<span id="cb93-172"><a href="#cb93-172"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-173"><a href="#cb93-173"></a>  <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">"(^arr|^dep)_(time$|delay$)"</span>))</span>
-<span id="cb93-174"><a href="#cb93-174"></a><span class="in">```</span></span>
+<span id="cb93-158"><a href="#cb93-158"></a><span class="fu">### 4.3.5.2</span></span>
+<span id="cb93-159"><a href="#cb93-159"></a></span>
+<span id="cb93-160"><a href="#cb93-160"></a><span class="at">&gt; Brainstorm as many ways as possible to select </span><span class="in">`dep_time`</span><span class="at">, </span><span class="in">`dep_delay`</span><span class="at">, </span><span class="in">`arr_time`</span><span class="at">, and </span><span class="in">`arr_delay`</span><span class="at"> from </span><span class="in">`flights`</span><span class="at">.</span></span>
+<span id="cb93-161"><a href="#cb93-161"></a></span>
+<span id="cb93-164"><a href="#cb93-164"></a><span class="in">```{r}</span></span>
+<span id="cb93-165"><a href="#cb93-165"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-166"><a href="#cb93-166"></a>  <span class="fu">select</span>(dep_time, dep_delay, arr_time, arr_delay)</span>
+<span id="cb93-167"><a href="#cb93-167"></a></span>
+<span id="cb93-168"><a href="#cb93-168"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-169"><a href="#cb93-169"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"dep_"</span>), <span class="fu">starts_with</span>(<span class="st">"arr_"</span>))</span>
+<span id="cb93-170"><a href="#cb93-170"></a></span>
+<span id="cb93-171"><a href="#cb93-171"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-172"><a href="#cb93-172"></a>  <span class="fu">select</span>(dep_time<span class="sc">:</span>arr_delay) <span class="sc">|&gt;</span> </span>
+<span id="cb93-173"><a href="#cb93-173"></a>  <span class="do">## or ! instead of -</span></span>
+<span id="cb93-174"><a href="#cb93-174"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>))</span>
 <span id="cb93-175"><a href="#cb93-175"></a></span>
-<span id="cb93-176"><a href="#cb93-176"></a><span class="fu">### 4.3.5.3</span></span>
-<span id="cb93-177"><a href="#cb93-177"></a></span>
-<span id="cb93-178"><a href="#cb93-178"></a><span class="at">&gt; What happens if you specify the name of the same variable multiple times in a </span><span class="co">[</span><span class="ot">`select()`</span><span class="co">](https://dplyr.tidyverse.org/reference/select.html)</span><span class="at"> call?</span></span>
+<span id="cb93-176"><a href="#cb93-176"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-177"><a href="#cb93-177"></a>  <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">"(^arr|^dep)_(time$|delay$)"</span>))</span>
+<span id="cb93-178"><a href="#cb93-178"></a><span class="in">```</span></span>
 <span id="cb93-179"><a href="#cb93-179"></a></span>
-<span id="cb93-180"><a href="#cb93-180"></a>You only get the variable once!</span>
+<span id="cb93-180"><a href="#cb93-180"></a><span class="fu">### 4.3.5.3</span></span>
 <span id="cb93-181"><a href="#cb93-181"></a></span>
-<span id="cb93-184"><a href="#cb93-184"></a><span class="in">```{r}</span></span>
-<span id="cb93-185"><a href="#cb93-185"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-186"><a href="#cb93-186"></a>  <span class="fu">select</span>(day, day, day)</span>
-<span id="cb93-187"><a href="#cb93-187"></a><span class="in">```</span></span>
-<span id="cb93-188"><a href="#cb93-188"></a></span>
-<span id="cb93-189"><a href="#cb93-189"></a>Note that this is different from "base" subsetting with character vectors.</span>
-<span id="cb93-190"><a href="#cb93-190"></a></span>
-<span id="cb93-193"><a href="#cb93-193"></a><span class="in">```{r}</span></span>
-<span id="cb93-194"><a href="#cb93-194"></a>flights[, <span class="fu">c</span>(<span class="st">"day"</span>, <span class="st">"day"</span>, <span class="st">"day"</span>)]</span>
-<span id="cb93-195"><a href="#cb93-195"></a><span class="in">```</span></span>
-<span id="cb93-196"><a href="#cb93-196"></a></span>
-<span id="cb93-197"><a href="#cb93-197"></a><span class="fu">### 4.3.5.4</span></span>
-<span id="cb93-198"><a href="#cb93-198"></a></span>
-<span id="cb93-199"><a href="#cb93-199"></a><span class="at">&gt; What does the </span><span class="co">[</span><span class="ot">`any_of()`</span><span class="co">](https://tidyselect.r-lib.org/reference/all_of.html)</span><span class="at"> function do? Why might it be helpful in conjunction with this vector?</span></span>
-<span id="cb93-200"><a href="#cb93-200"></a><span class="at">&gt;</span></span>
-<span id="cb93-201"><a href="#cb93-201"></a><span class="at">&gt; ```{r}</span></span>
-<span id="cb93-202"><a href="#cb93-202"></a><span class="at">&gt; variables &lt;- c("year", "month", "day", "dep_delay", "arr_delay")</span></span>
-<span id="cb93-203"><a href="#cb93-203"></a><span class="at">&gt; ```</span></span>
-<span id="cb93-204"><a href="#cb93-204"></a></span>
-<span id="cb93-205"><a href="#cb93-205"></a>It allows you to specify the name of variables for subsetting outside the dplyr pipeline.</span>
-<span id="cb93-206"><a href="#cb93-206"></a></span>
-<span id="cb93-209"><a href="#cb93-209"></a><span class="in">```{r}</span></span>
-<span id="cb93-210"><a href="#cb93-210"></a>variables <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"dep_delay"</span>, <span class="st">"arr_delay"</span>)</span>
-<span id="cb93-211"><a href="#cb93-211"></a></span>
-<span id="cb93-212"><a href="#cb93-212"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-213"><a href="#cb93-213"></a>  <span class="fu">select</span>(<span class="fu">any_of</span>(variables))</span>
-<span id="cb93-214"><a href="#cb93-214"></a><span class="in">```</span></span>
+<span id="cb93-182"><a href="#cb93-182"></a><span class="at">&gt; What happens if you specify the name of the same variable multiple times in a </span><span class="co">[</span><span class="ot">`select()`</span><span class="co">](https://dplyr.tidyverse.org/reference/select.html)</span><span class="at"> call?</span></span>
+<span id="cb93-183"><a href="#cb93-183"></a></span>
+<span id="cb93-184"><a href="#cb93-184"></a>You only get the variable once!</span>
+<span id="cb93-185"><a href="#cb93-185"></a></span>
+<span id="cb93-188"><a href="#cb93-188"></a><span class="in">```{r}</span></span>
+<span id="cb93-189"><a href="#cb93-189"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-190"><a href="#cb93-190"></a>  <span class="fu">select</span>(day, day, day)</span>
+<span id="cb93-191"><a href="#cb93-191"></a><span class="in">```</span></span>
+<span id="cb93-192"><a href="#cb93-192"></a></span>
+<span id="cb93-193"><a href="#cb93-193"></a>Note that this is different from "base" subsetting with character vectors.</span>
+<span id="cb93-194"><a href="#cb93-194"></a></span>
+<span id="cb93-197"><a href="#cb93-197"></a><span class="in">```{r}</span></span>
+<span id="cb93-198"><a href="#cb93-198"></a>flights[, <span class="fu">c</span>(<span class="st">"day"</span>, <span class="st">"day"</span>, <span class="st">"day"</span>)]</span>
+<span id="cb93-199"><a href="#cb93-199"></a><span class="in">```</span></span>
+<span id="cb93-200"><a href="#cb93-200"></a></span>
+<span id="cb93-201"><a href="#cb93-201"></a><span class="fu">### 4.3.5.4</span></span>
+<span id="cb93-202"><a href="#cb93-202"></a></span>
+<span id="cb93-203"><a href="#cb93-203"></a><span class="at">&gt; What does the </span><span class="co">[</span><span class="ot">`any_of()`</span><span class="co">](https://tidyselect.r-lib.org/reference/all_of.html)</span><span class="at"> function do? Why might it be helpful in conjunction with this vector?</span></span>
+<span id="cb93-204"><a href="#cb93-204"></a><span class="at">&gt;</span></span>
+<span id="cb93-205"><a href="#cb93-205"></a><span class="at">&gt; ```{r}</span></span>
+<span id="cb93-206"><a href="#cb93-206"></a><span class="at">&gt; variables &lt;- c("year", "month", "day", "dep_delay", "arr_delay")</span></span>
+<span id="cb93-207"><a href="#cb93-207"></a><span class="at">&gt; ```</span></span>
+<span id="cb93-208"><a href="#cb93-208"></a></span>
+<span id="cb93-209"><a href="#cb93-209"></a>It allows you to specify the name of variables for subsetting outside the dplyr pipeline.</span>
+<span id="cb93-210"><a href="#cb93-210"></a></span>
+<span id="cb93-213"><a href="#cb93-213"></a><span class="in">```{r}</span></span>
+<span id="cb93-214"><a href="#cb93-214"></a>variables <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"dep_delay"</span>, <span class="st">"arr_delay"</span>)</span>
 <span id="cb93-215"><a href="#cb93-215"></a></span>
-<span id="cb93-216"><a href="#cb93-216"></a><span class="fu">### 4.3.5.5</span></span>
-<span id="cb93-217"><a href="#cb93-217"></a></span>
-<span id="cb93-218"><a href="#cb93-218"></a><span class="at">&gt; Does the result of running the following code surprise you? How do the select helpers deal with upper and lower case by default? How can you change that default?</span></span>
+<span id="cb93-216"><a href="#cb93-216"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-217"><a href="#cb93-217"></a>  <span class="fu">select</span>(<span class="fu">any_of</span>(variables))</span>
+<span id="cb93-218"><a href="#cb93-218"></a><span class="in">```</span></span>
 <span id="cb93-219"><a href="#cb93-219"></a></span>
-<span id="cb93-222"><a href="#cb93-222"></a><span class="in">```{r}</span></span>
-<span id="cb93-223"><a href="#cb93-223"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-224"><a href="#cb93-224"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"TIME"</span>))</span>
-<span id="cb93-225"><a href="#cb93-225"></a><span class="in">```</span></span>
-<span id="cb93-226"><a href="#cb93-226"></a></span>
-<span id="cb93-227"><a href="#cb93-227"></a>Yes, it's surprising to me. The selection helpers have the argument <span class="in">`ignore.case = TRUE`</span> as a default.</span>
-<span id="cb93-228"><a href="#cb93-228"></a></span>
-<span id="cb93-231"><a href="#cb93-231"></a><span class="in">```{r}</span></span>
-<span id="cb93-232"><a href="#cb93-232"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-233"><a href="#cb93-233"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"TIME"</span>, <span class="at">ignore.case =</span> <span class="cn">FALSE</span>))</span>
-<span id="cb93-234"><a href="#cb93-234"></a><span class="in">```</span></span>
-<span id="cb93-235"><a href="#cb93-235"></a></span>
-<span id="cb93-236"><a href="#cb93-236"></a><span class="fu">### 4.3.5.6</span></span>
-<span id="cb93-237"><a href="#cb93-237"></a></span>
-<span id="cb93-238"><a href="#cb93-238"></a><span class="at">&gt; Rename </span><span class="in">`air_time`</span><span class="at"> to </span><span class="in">`air_time_min`</span><span class="at"> to indicate units of measurement and move it to the beginning of the data frame.</span></span>
+<span id="cb93-220"><a href="#cb93-220"></a><span class="fu">### 4.3.5.5</span></span>
+<span id="cb93-221"><a href="#cb93-221"></a></span>
+<span id="cb93-222"><a href="#cb93-222"></a><span class="at">&gt; Does the result of running the following code surprise you? How do the select helpers deal with upper and lower case by default? How can you change that default?</span></span>
+<span id="cb93-223"><a href="#cb93-223"></a></span>
+<span id="cb93-226"><a href="#cb93-226"></a><span class="in">```{r}</span></span>
+<span id="cb93-227"><a href="#cb93-227"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-228"><a href="#cb93-228"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"TIME"</span>))</span>
+<span id="cb93-229"><a href="#cb93-229"></a><span class="in">```</span></span>
+<span id="cb93-230"><a href="#cb93-230"></a></span>
+<span id="cb93-231"><a href="#cb93-231"></a>Yes, it's surprising to me. The selection helpers have the argument <span class="in">`ignore.case = TRUE`</span> as a default.</span>
+<span id="cb93-232"><a href="#cb93-232"></a></span>
+<span id="cb93-235"><a href="#cb93-235"></a><span class="in">```{r}</span></span>
+<span id="cb93-236"><a href="#cb93-236"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-237"><a href="#cb93-237"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">"TIME"</span>, <span class="at">ignore.case =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb93-238"><a href="#cb93-238"></a><span class="in">```</span></span>
 <span id="cb93-239"><a href="#cb93-239"></a></span>
-<span id="cb93-242"><a href="#cb93-242"></a><span class="in">```{r}</span></span>
-<span id="cb93-243"><a href="#cb93-243"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-244"><a href="#cb93-244"></a>  <span class="fu">rename</span>(<span class="at">air_time_min =</span> air_time) <span class="sc">|&gt;</span> </span>
-<span id="cb93-245"><a href="#cb93-245"></a>  <span class="fu">relocate</span>(air_time_min)</span>
-<span id="cb93-246"><a href="#cb93-246"></a><span class="in">```</span></span>
-<span id="cb93-247"><a href="#cb93-247"></a></span>
-<span id="cb93-248"><a href="#cb93-248"></a><span class="fu">### 4.3.5.7</span></span>
-<span id="cb93-249"><a href="#cb93-249"></a></span>
-<span id="cb93-250"><a href="#cb93-250"></a><span class="at">&gt; Why doesn't the following work, and what does the error mean?</span></span>
+<span id="cb93-240"><a href="#cb93-240"></a><span class="fu">### 4.3.5.6</span></span>
+<span id="cb93-241"><a href="#cb93-241"></a></span>
+<span id="cb93-242"><a href="#cb93-242"></a><span class="at">&gt; Rename </span><span class="in">`air_time`</span><span class="at"> to </span><span class="in">`air_time_min`</span><span class="at"> to indicate units of measurement and move it to the beginning of the data frame.</span></span>
+<span id="cb93-243"><a href="#cb93-243"></a></span>
+<span id="cb93-246"><a href="#cb93-246"></a><span class="in">```{r}</span></span>
+<span id="cb93-247"><a href="#cb93-247"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-248"><a href="#cb93-248"></a>  <span class="fu">rename</span>(<span class="at">air_time_min =</span> air_time) <span class="sc">|&gt;</span> </span>
+<span id="cb93-249"><a href="#cb93-249"></a>  <span class="fu">relocate</span>(air_time_min)</span>
+<span id="cb93-250"><a href="#cb93-250"></a><span class="in">```</span></span>
 <span id="cb93-251"><a href="#cb93-251"></a></span>
-<span id="cb93-254"><a href="#cb93-254"></a><span class="in">```{r}</span></span>
-<span id="cb93-255"><a href="#cb93-255"></a><span class="co">#| error: true</span></span>
-<span id="cb93-256"><a href="#cb93-256"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-257"><a href="#cb93-257"></a>  <span class="fu">select</span>(tailnum) <span class="sc">|&gt;</span> </span>
-<span id="cb93-258"><a href="#cb93-258"></a>  <span class="fu">arrange</span>(arr_delay)</span>
-<span id="cb93-259"><a href="#cb93-259"></a><span class="in">```</span></span>
-<span id="cb93-260"><a href="#cb93-260"></a></span>
-<span id="cb93-261"><a href="#cb93-261"></a>Line #2 drops every variable in the data frame except <span class="in">`tailnum`</span>. Thus, there's no <span class="in">`arr_delay`</span> object for <span class="in">`arrange()`</span> to work with.</span>
-<span id="cb93-262"><a href="#cb93-262"></a></span>
-<span id="cb93-263"><a href="#cb93-263"></a><span class="fu">## Groups</span></span>
+<span id="cb93-252"><a href="#cb93-252"></a><span class="fu">### 4.3.5.7</span></span>
+<span id="cb93-253"><a href="#cb93-253"></a></span>
+<span id="cb93-254"><a href="#cb93-254"></a><span class="at">&gt; Why doesn't the following work, and what does the error mean?</span></span>
+<span id="cb93-255"><a href="#cb93-255"></a></span>
+<span id="cb93-258"><a href="#cb93-258"></a><span class="in">```{r}</span></span>
+<span id="cb93-259"><a href="#cb93-259"></a><span class="co">#| error: true</span></span>
+<span id="cb93-260"><a href="#cb93-260"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-261"><a href="#cb93-261"></a>  <span class="fu">select</span>(tailnum) <span class="sc">|&gt;</span> </span>
+<span id="cb93-262"><a href="#cb93-262"></a>  <span class="fu">arrange</span>(arr_delay)</span>
+<span id="cb93-263"><a href="#cb93-263"></a><span class="in">```</span></span>
 <span id="cb93-264"><a href="#cb93-264"></a></span>
-<span id="cb93-265"><a href="#cb93-265"></a><span class="fu">### 4.5.7.1</span></span>
+<span id="cb93-265"><a href="#cb93-265"></a>Line #2 drops every variable in the data frame except <span class="in">`tailnum`</span>. Thus, there's no <span class="in">`arr_delay`</span> object for <span class="in">`arrange()`</span> to work with.</span>
 <span id="cb93-266"><a href="#cb93-266"></a></span>
-<span id="cb93-267"><a href="#cb93-267"></a><span class="at">&gt; Which carrier has the worst average delays? Challenge: can you disentangle the effects of bad airports vs. bad carriers? Why/why not? (Hint: think about flights \|</span><span class="sc">\&gt;</span><span class="at"> group_by(carrier, dest) \|</span><span class="sc">\&gt;</span><span class="at"> summarize(n()))</span></span>
+<span id="cb93-267"><a href="#cb93-267"></a><span class="fu">## Groups</span></span>
 <span id="cb93-268"><a href="#cb93-268"></a></span>
-<span id="cb93-271"><a href="#cb93-271"></a><span class="in">```{r}</span></span>
-<span id="cb93-272"><a href="#cb93-272"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-273"><a href="#cb93-273"></a>  <span class="fu">group_by</span>(carrier) <span class="sc">|&gt;</span> </span>
-<span id="cb93-274"><a href="#cb93-274"></a>  <span class="fu">summarize</span>(<span class="at">avg_dep_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb93-275"><a href="#cb93-275"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_dep_delay))</span>
-<span id="cb93-276"><a href="#cb93-276"></a></span>
-<span id="cb93-277"><a href="#cb93-277"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-278"><a href="#cb93-278"></a>  <span class="fu">filter</span>(carrier <span class="sc">==</span> <span class="st">"F9"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb93-279"><a href="#cb93-279"></a>  <span class="fu">count</span>(carrier, dest, origin) </span>
+<span id="cb93-269"><a href="#cb93-269"></a><span class="fu">### 4.5.7.1</span></span>
+<span id="cb93-270"><a href="#cb93-270"></a></span>
+<span id="cb93-271"><a href="#cb93-271"></a><span class="at">&gt; Which carrier has the worst average delays? Challenge: can you disentangle the effects of bad airports vs. bad carriers? Why/why not? (Hint: think about flights \|</span><span class="sc">\&gt;</span><span class="at"> group_by(carrier, dest) \|</span><span class="sc">\&gt;</span><span class="at"> summarize(n()))</span></span>
+<span id="cb93-272"><a href="#cb93-272"></a></span>
+<span id="cb93-275"><a href="#cb93-275"></a><span class="in">```{r}</span></span>
+<span id="cb93-276"><a href="#cb93-276"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-277"><a href="#cb93-277"></a>  <span class="fu">group_by</span>(carrier) <span class="sc">|&gt;</span> </span>
+<span id="cb93-278"><a href="#cb93-278"></a>  <span class="fu">summarize</span>(<span class="at">avg_dep_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb93-279"><a href="#cb93-279"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_dep_delay))</span>
 <span id="cb93-280"><a href="#cb93-280"></a></span>
 <span id="cb93-281"><a href="#cb93-281"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-282"><a href="#cb93-282"></a>  <span class="fu">count</span>(carrier, dest) <span class="sc">|&gt;</span> </span>
-<span id="cb93-283"><a href="#cb93-283"></a>  <span class="fu">filter</span>(dest <span class="sc">==</span> <span class="st">"DEN"</span>)</span>
+<span id="cb93-282"><a href="#cb93-282"></a>  <span class="fu">filter</span>(carrier <span class="sc">==</span> <span class="st">"F9"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb93-283"><a href="#cb93-283"></a>  <span class="fu">count</span>(carrier, dest, origin) </span>
 <span id="cb93-284"><a href="#cb93-284"></a></span>
 <span id="cb93-285"><a href="#cb93-285"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-286"><a href="#cb93-286"></a>  <span class="fu">group_by</span>(carrier, dest, origin) <span class="sc">|&gt;</span> </span>
-<span id="cb93-287"><a href="#cb93-287"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">avg_dd =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb93-288"><a href="#cb93-288"></a>  <span class="fu">filter</span>(dest <span class="sc">==</span> <span class="st">"DEN"</span> <span class="sc">|</span> carrier <span class="sc">==</span> <span class="st">"F9"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb93-289"><a href="#cb93-289"></a>  <span class="fu">arrange</span>(avg_dd)</span>
-<span id="cb93-290"><a href="#cb93-290"></a>  </span>
-<span id="cb93-291"><a href="#cb93-291"></a><span class="in">```</span></span>
-<span id="cb93-292"><a href="#cb93-292"></a></span>
-<span id="cb93-293"><a href="#cb93-293"></a>Frontier Airlines (F9) is headquartered in Denver and this dataset only records flights from LGA to DEN. This means there's no variance in F9 accross airports. We might be able to disentangle the effect of airport and carrier, but we will have to make assumptions.</span>
-<span id="cb93-294"><a href="#cb93-294"></a></span>
-<span id="cb93-295"><a href="#cb93-295"></a><span class="fu">### 4.5.7.2</span></span>
+<span id="cb93-286"><a href="#cb93-286"></a>  <span class="fu">count</span>(carrier, dest) <span class="sc">|&gt;</span> </span>
+<span id="cb93-287"><a href="#cb93-287"></a>  <span class="fu">filter</span>(dest <span class="sc">==</span> <span class="st">"DEN"</span>)</span>
+<span id="cb93-288"><a href="#cb93-288"></a></span>
+<span id="cb93-289"><a href="#cb93-289"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-290"><a href="#cb93-290"></a>  <span class="fu">group_by</span>(carrier, dest, origin) <span class="sc">|&gt;</span> </span>
+<span id="cb93-291"><a href="#cb93-291"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">avg_dd =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb93-292"><a href="#cb93-292"></a>  <span class="fu">filter</span>(dest <span class="sc">==</span> <span class="st">"DEN"</span> <span class="sc">|</span> carrier <span class="sc">==</span> <span class="st">"F9"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb93-293"><a href="#cb93-293"></a>  <span class="fu">arrange</span>(avg_dd)</span>
+<span id="cb93-294"><a href="#cb93-294"></a>  </span>
+<span id="cb93-295"><a href="#cb93-295"></a><span class="in">```</span></span>
 <span id="cb93-296"><a href="#cb93-296"></a></span>
-<span id="cb93-297"><a href="#cb93-297"></a><span class="at">&gt; Find the flights that are most delayed upon departure from each destination.</span></span>
+<span id="cb93-297"><a href="#cb93-297"></a>Frontier Airlines (F9) is headquartered in Denver and this dataset only records flights from LGA to DEN. This means there's no variance in F9 accross airports. We might be able to disentangle the effect of airport and carrier, but we will have to make assumptions.</span>
 <span id="cb93-298"><a href="#cb93-298"></a></span>
-<span id="cb93-301"><a href="#cb93-301"></a><span class="in">```{r}</span></span>
-<span id="cb93-302"><a href="#cb93-302"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-303"><a href="#cb93-303"></a>  <span class="fu">group_by</span>(dest) <span class="sc">|&gt;</span> </span>
-<span id="cb93-304"><a href="#cb93-304"></a>  <span class="fu">slice_max</span>(dep_delay) <span class="sc">|&gt;</span> </span>
-<span id="cb93-305"><a href="#cb93-305"></a>  <span class="fu">relocate</span>(dest, carrier, dep_delay) <span class="sc">|&gt;</span> </span>
-<span id="cb93-306"><a href="#cb93-306"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(dep_delay))</span>
-<span id="cb93-307"><a href="#cb93-307"></a><span class="in">```</span></span>
-<span id="cb93-308"><a href="#cb93-308"></a></span>
-<span id="cb93-309"><a href="#cb93-309"></a><span class="fu">### 4.5.7.3</span></span>
-<span id="cb93-310"><a href="#cb93-310"></a></span>
-<span id="cb93-311"><a href="#cb93-311"></a><span class="at">&gt; How do delays vary over the course of the day. Illustrate your answer with a plot.</span></span>
+<span id="cb93-299"><a href="#cb93-299"></a><span class="fu">### 4.5.7.2</span></span>
+<span id="cb93-300"><a href="#cb93-300"></a></span>
+<span id="cb93-301"><a href="#cb93-301"></a><span class="at">&gt; Find the flights that are most delayed upon departure from each destination.</span></span>
+<span id="cb93-302"><a href="#cb93-302"></a></span>
+<span id="cb93-305"><a href="#cb93-305"></a><span class="in">```{r}</span></span>
+<span id="cb93-306"><a href="#cb93-306"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-307"><a href="#cb93-307"></a>  <span class="fu">group_by</span>(dest) <span class="sc">|&gt;</span> </span>
+<span id="cb93-308"><a href="#cb93-308"></a>  <span class="fu">slice_max</span>(dep_delay) <span class="sc">|&gt;</span> </span>
+<span id="cb93-309"><a href="#cb93-309"></a>  <span class="fu">relocate</span>(dest, carrier, dep_delay) <span class="sc">|&gt;</span> </span>
+<span id="cb93-310"><a href="#cb93-310"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(dep_delay))</span>
+<span id="cb93-311"><a href="#cb93-311"></a><span class="in">```</span></span>
 <span id="cb93-312"><a href="#cb93-312"></a></span>
-<span id="cb93-315"><a href="#cb93-315"></a><span class="in">```{r}</span></span>
-<span id="cb93-316"><a href="#cb93-316"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-317"><a href="#cb93-317"></a>  <span class="fu">group_by</span>(hour) <span class="sc">|&gt;</span> </span>
-<span id="cb93-318"><a href="#cb93-318"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(dep_delay)) <span class="sc">|&gt;</span> </span>
-<span id="cb93-319"><a href="#cb93-319"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb93-320"><a href="#cb93-320"></a>    <span class="at">avg =</span> <span class="fu">mean</span>(dep_delay),</span>
-<span id="cb93-321"><a href="#cb93-321"></a>    <span class="at">se =</span> <span class="fu">sd</span>(dep_delay) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>())</span>
-<span id="cb93-322"><a href="#cb93-322"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb93-323"><a href="#cb93-323"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(hour, avg)) <span class="sc">+</span> </span>
-<span id="cb93-324"><a href="#cb93-324"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> avg <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>se, <span class="at">ymax =</span> avg <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>se), <span class="at">size =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb93-325"><a href="#cb93-325"></a>  <span class="fu">theme_light</span>()</span>
-<span id="cb93-326"><a href="#cb93-326"></a><span class="in">```</span></span>
-<span id="cb93-327"><a href="#cb93-327"></a></span>
-<span id="cb93-328"><a href="#cb93-328"></a><span class="fu">### 4.5.7.4</span></span>
-<span id="cb93-329"><a href="#cb93-329"></a></span>
-<span id="cb93-330"><a href="#cb93-330"></a><span class="at">&gt; What happens if you supply a negative </span><span class="in">`n`</span><span class="at"> to </span><span class="co">[</span><span class="ot">`slice_min()`</span><span class="co">](https://dplyr.tidyverse.org/reference/slice.html)</span><span class="at"> and friends?</span></span>
+<span id="cb93-313"><a href="#cb93-313"></a><span class="fu">### 4.5.7.3</span></span>
+<span id="cb93-314"><a href="#cb93-314"></a></span>
+<span id="cb93-315"><a href="#cb93-315"></a><span class="at">&gt; How do delays vary over the course of the day. Illustrate your answer with a plot.</span></span>
+<span id="cb93-316"><a href="#cb93-316"></a></span>
+<span id="cb93-319"><a href="#cb93-319"></a><span class="in">```{r}</span></span>
+<span id="cb93-320"><a href="#cb93-320"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-321"><a href="#cb93-321"></a>  <span class="fu">group_by</span>(hour) <span class="sc">|&gt;</span> </span>
+<span id="cb93-322"><a href="#cb93-322"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(dep_delay)) <span class="sc">|&gt;</span> </span>
+<span id="cb93-323"><a href="#cb93-323"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb93-324"><a href="#cb93-324"></a>    <span class="at">avg =</span> <span class="fu">mean</span>(dep_delay),</span>
+<span id="cb93-325"><a href="#cb93-325"></a>    <span class="at">se =</span> <span class="fu">sd</span>(dep_delay) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">n</span>())</span>
+<span id="cb93-326"><a href="#cb93-326"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb93-327"><a href="#cb93-327"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(hour, avg)) <span class="sc">+</span> </span>
+<span id="cb93-328"><a href="#cb93-328"></a>  <span class="fu">geom_pointrange</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> avg <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>se, <span class="at">ymax =</span> avg <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>se), <span class="at">size =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb93-329"><a href="#cb93-329"></a>  <span class="fu">theme_light</span>()</span>
+<span id="cb93-330"><a href="#cb93-330"></a><span class="in">```</span></span>
 <span id="cb93-331"><a href="#cb93-331"></a></span>
-<span id="cb93-332"><a href="#cb93-332"></a>The documentation for this behavior is not great and I can't think of a single example in which I'd use those functions that way instead of using <span class="in">`arrange()`</span>.</span>
+<span id="cb93-332"><a href="#cb93-332"></a><span class="fu">### 4.5.7.4</span></span>
 <span id="cb93-333"><a href="#cb93-333"></a></span>
-<span id="cb93-336"><a href="#cb93-336"></a><span class="in">```{r}</span></span>
-<span id="cb93-337"><a href="#cb93-337"></a>A <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-338"><a href="#cb93-338"></a>  <span class="fu">slice_min</span>(dep_delay, <span class="at">n =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb93-339"><a href="#cb93-339"></a></span>
-<span id="cb93-340"><a href="#cb93-340"></a>B <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-341"><a href="#cb93-341"></a>  <span class="fu">arrange</span>(dep_delay)</span>
-<span id="cb93-342"><a href="#cb93-342"></a></span>
-<span id="cb93-343"><a href="#cb93-343"></a><span class="fu">identical</span>(A, B)</span>
-<span id="cb93-344"><a href="#cb93-344"></a></span>
-<span id="cb93-345"><a href="#cb93-345"></a>C <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-346"><a href="#cb93-346"></a>  <span class="fu">slice_max</span>(dep_delay, <span class="at">n =</span> <span class="sc">-</span><span class="dv">1</span>) </span>
-<span id="cb93-347"><a href="#cb93-347"></a></span>
-<span id="cb93-348"><a href="#cb93-348"></a>D <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-349"><a href="#cb93-349"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(dep_delay))</span>
-<span id="cb93-350"><a href="#cb93-350"></a></span>
-<span id="cb93-351"><a href="#cb93-351"></a><span class="fu">identical</span>(C, D)</span>
-<span id="cb93-352"><a href="#cb93-352"></a><span class="in">```</span></span>
-<span id="cb93-353"><a href="#cb93-353"></a></span>
-<span id="cb93-354"><a href="#cb93-354"></a><span class="fu">### 4.5.7.5</span></span>
-<span id="cb93-355"><a href="#cb93-355"></a></span>
-<span id="cb93-356"><a href="#cb93-356"></a><span class="at">&gt; Explain what </span><span class="co">[</span><span class="ot">`count()`</span><span class="co">](https://dplyr.tidyverse.org/reference/count.html)</span><span class="at"> does in terms of the dplyr verbs you just learned. What does the </span><span class="in">`sort`</span><span class="at"> argument to </span><span class="co">[</span><span class="ot">`count()`</span><span class="co">](https://dplyr.tidyverse.org/reference/count.html)</span><span class="at"> do?</span></span>
+<span id="cb93-334"><a href="#cb93-334"></a><span class="at">&gt; What happens if you supply a negative </span><span class="in">`n`</span><span class="at"> to </span><span class="co">[</span><span class="ot">`slice_min()`</span><span class="co">](https://dplyr.tidyverse.org/reference/slice.html)</span><span class="at"> and friends?</span></span>
+<span id="cb93-335"><a href="#cb93-335"></a></span>
+<span id="cb93-336"><a href="#cb93-336"></a>The documentation for this behavior is not great and I can't think of a single example in which I'd use those functions that way instead of using <span class="in">`arrange()`</span>.</span>
+<span id="cb93-337"><a href="#cb93-337"></a></span>
+<span id="cb93-340"><a href="#cb93-340"></a><span class="in">```{r}</span></span>
+<span id="cb93-341"><a href="#cb93-341"></a>A <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-342"><a href="#cb93-342"></a>  <span class="fu">slice_min</span>(dep_delay, <span class="at">n =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb93-343"><a href="#cb93-343"></a></span>
+<span id="cb93-344"><a href="#cb93-344"></a>B <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-345"><a href="#cb93-345"></a>  <span class="fu">arrange</span>(dep_delay)</span>
+<span id="cb93-346"><a href="#cb93-346"></a></span>
+<span id="cb93-347"><a href="#cb93-347"></a><span class="fu">identical</span>(A, B)</span>
+<span id="cb93-348"><a href="#cb93-348"></a></span>
+<span id="cb93-349"><a href="#cb93-349"></a>C <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-350"><a href="#cb93-350"></a>  <span class="fu">slice_max</span>(dep_delay, <span class="at">n =</span> <span class="sc">-</span><span class="dv">1</span>) </span>
+<span id="cb93-351"><a href="#cb93-351"></a></span>
+<span id="cb93-352"><a href="#cb93-352"></a>D <span class="ot">&lt;-</span> flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-353"><a href="#cb93-353"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(dep_delay))</span>
+<span id="cb93-354"><a href="#cb93-354"></a></span>
+<span id="cb93-355"><a href="#cb93-355"></a><span class="fu">identical</span>(C, D)</span>
+<span id="cb93-356"><a href="#cb93-356"></a><span class="in">```</span></span>
 <span id="cb93-357"><a href="#cb93-357"></a></span>
-<span id="cb93-358"><a href="#cb93-358"></a>Count is a short-hand for <span class="in">`group_by`</span> + <span class="in">`summarize`</span>. The <span class="in">`sort`</span> argument accomplishes the same as <span class="in">`arrange`</span>.</span>
+<span id="cb93-358"><a href="#cb93-358"></a><span class="fu">### 4.5.7.5</span></span>
 <span id="cb93-359"><a href="#cb93-359"></a></span>
-<span id="cb93-362"><a href="#cb93-362"></a><span class="in">```{r}</span></span>
-<span id="cb93-363"><a href="#cb93-363"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-364"><a href="#cb93-364"></a>  <span class="fu">group_by</span>(origin) <span class="sc">|&gt;</span> </span>
-<span id="cb93-365"><a href="#cb93-365"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> </span>
-<span id="cb93-366"><a href="#cb93-366"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span>
-<span id="cb93-367"><a href="#cb93-367"></a></span>
-<span id="cb93-368"><a href="#cb93-368"></a>flights <span class="sc">|&gt;</span> </span>
-<span id="cb93-369"><a href="#cb93-369"></a>  <span class="fu">count</span>(origin, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb93-370"><a href="#cb93-370"></a><span class="in">```</span></span>
+<span id="cb93-360"><a href="#cb93-360"></a><span class="at">&gt; Explain what </span><span class="co">[</span><span class="ot">`count()`</span><span class="co">](https://dplyr.tidyverse.org/reference/count.html)</span><span class="at"> does in terms of the dplyr verbs you just learned. What does the </span><span class="in">`sort`</span><span class="at"> argument to </span><span class="co">[</span><span class="ot">`count()`</span><span class="co">](https://dplyr.tidyverse.org/reference/count.html)</span><span class="at"> do?</span></span>
+<span id="cb93-361"><a href="#cb93-361"></a></span>
+<span id="cb93-362"><a href="#cb93-362"></a>Count is a short-hand for <span class="in">`group_by`</span> + <span class="in">`summarize`</span>. The <span class="in">`sort`</span> argument accomplishes the same as <span class="in">`arrange`</span>.</span>
+<span id="cb93-363"><a href="#cb93-363"></a></span>
+<span id="cb93-366"><a href="#cb93-366"></a><span class="in">```{r}</span></span>
+<span id="cb93-367"><a href="#cb93-367"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-368"><a href="#cb93-368"></a>  <span class="fu">group_by</span>(origin) <span class="sc">|&gt;</span> </span>
+<span id="cb93-369"><a href="#cb93-369"></a>  <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb93-370"><a href="#cb93-370"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span>
 <span id="cb93-371"><a href="#cb93-371"></a></span>
-<span id="cb93-372"><a href="#cb93-372"></a><span class="fu">### 4.5.7.6</span></span>
-<span id="cb93-373"><a href="#cb93-373"></a></span>
-<span id="cb93-374"><a href="#cb93-374"></a><span class="at">&gt; Suppose we have the following tiny data frame:</span></span>
-<span id="cb93-375"><a href="#cb93-375"></a><span class="at">&gt;</span></span>
-<span id="cb93-376"><a href="#cb93-376"></a><span class="at">&gt; ```{r}</span></span>
-<span id="cb93-377"><a href="#cb93-377"></a><span class="at">&gt; df &lt;- tibble(</span></span>
-<span id="cb93-378"><a href="#cb93-378"></a><span class="at">&gt;   x = 1:5,</span></span>
-<span id="cb93-379"><a href="#cb93-379"></a><span class="at">&gt;   y = c("a", "b", "a", "a", "b"),</span></span>
-<span id="cb93-380"><a href="#cb93-380"></a><span class="at">&gt;   z = c("K", "K", "L", "L", "K")</span></span>
-<span id="cb93-381"><a href="#cb93-381"></a><span class="at">&gt; )</span></span>
-<span id="cb93-382"><a href="#cb93-382"></a><span class="at">&gt; ```</span></span>
-<span id="cb93-383"><a href="#cb93-383"></a><span class="at">&gt;</span></span>
-<span id="cb93-384"><a href="#cb93-384"></a><span class="at">&gt; Write down what you think the output will look like, then check if you were correct, and describe what </span><span class="co">[</span><span class="ot">`group_by()`</span><span class="co">](https://dplyr.tidyverse.org/reference/group_by.html)</span><span class="at"> does.</span></span>
-<span id="cb93-385"><a href="#cb93-385"></a><span class="at">&gt;</span></span>
-<span id="cb93-386"><a href="#cb93-386"></a><span class="at">&gt; ```{r}</span></span>
-<span id="cb93-387"><a href="#cb93-387"></a><span class="at">&gt; #| eval: false</span></span>
-<span id="cb93-388"><a href="#cb93-388"></a><span class="at">&gt; df |&gt;</span></span>
-<span id="cb93-389"><a href="#cb93-389"></a><span class="at">&gt;   group_by(y)</span></span>
-<span id="cb93-390"><a href="#cb93-390"></a><span class="at">&gt; ```</span></span>
-<span id="cb93-391"><a href="#cb93-391"></a></span>
-<span id="cb93-392"><a href="#cb93-392"></a>*two groups?*</span>
-<span id="cb93-393"><a href="#cb93-393"></a></span>
-<span id="cb93-396"><a href="#cb93-396"></a><span class="in">```{r}</span></span>
-<span id="cb93-397"><a href="#cb93-397"></a>df <span class="sc">|&gt;</span> <span class="fu">group_by</span>(y)</span>
-<span id="cb93-398"><a href="#cb93-398"></a><span class="in">```</span></span>
-<span id="cb93-399"><a href="#cb93-399"></a></span>
-<span id="cb93-400"><a href="#cb93-400"></a><span class="at">&gt; Write down what you think the output will look like, then check if you were correct, and describe what </span><span class="in">`arrange()`</span><span class="at"> does. Also comment on how it's different from the </span><span class="in">`group_by()`</span><span class="at"> in part (a)?</span></span>
-<span id="cb93-401"><a href="#cb93-401"></a><span class="at">&gt;</span></span>
-<span id="cb93-402"><a href="#cb93-402"></a><span class="at">&gt; ```{r}</span></span>
-<span id="cb93-403"><a href="#cb93-403"></a><span class="at">&gt; #| eval: false</span></span>
-<span id="cb93-404"><a href="#cb93-404"></a><span class="at">&gt; df |&gt;</span></span>
-<span id="cb93-405"><a href="#cb93-405"></a><span class="at">&gt;   arrange(y)</span></span>
-<span id="cb93-406"><a href="#cb93-406"></a><span class="at">&gt; ```</span></span>
-<span id="cb93-407"><a href="#cb93-407"></a></span>
-<span id="cb93-408"><a href="#cb93-408"></a>*I assume that y will be a, a, a, b, b and that x will be 1, 3, 4, 2, 5*</span>
-<span id="cb93-409"><a href="#cb93-409"></a></span>
-<span id="cb93-412"><a href="#cb93-412"></a><span class="in">```{r}</span></span>
-<span id="cb93-413"><a href="#cb93-413"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb93-414"><a href="#cb93-414"></a>  <span class="fu">arrange</span>(y)</span>
-<span id="cb93-415"><a href="#cb93-415"></a><span class="in">```</span></span>
-<span id="cb93-416"><a href="#cb93-416"></a></span>
-<span id="cb93-417"><a href="#cb93-417"></a><span class="at">&gt; Write down what you think the output will look like, then check if you were correct, and describe what the pipeline does.</span></span>
-<span id="cb93-418"><a href="#cb93-418"></a><span class="at">&gt;</span></span>
-<span id="cb93-419"><a href="#cb93-419"></a><span class="at">&gt; ```{r}</span></span>
-<span id="cb93-420"><a href="#cb93-420"></a><span class="at">&gt; #| eval: false</span></span>
-<span id="cb93-421"><a href="#cb93-421"></a><span class="at">&gt; &gt;</span></span>
-<span id="cb93-422"><a href="#cb93-422"></a><span class="at">&gt; df |&gt;</span></span>
-<span id="cb93-423"><a href="#cb93-423"></a><span class="at">&gt;   group_by(y) |&gt;</span></span>
-<span id="cb93-424"><a href="#cb93-424"></a><span class="at">&gt;   summarize(mean_x = mean(x))</span></span>
-<span id="cb93-425"><a href="#cb93-425"></a><span class="at">&gt; ```</span></span>
-<span id="cb93-426"><a href="#cb93-426"></a></span>
-<span id="cb93-427"><a href="#cb93-427"></a>I assume the new data frame will have two columns (<span class="in">`x`</span>, <span class="in">`y`</span>) and two rows (<span class="in">`y = 2.67`</span>, <span class="in">`y = 3.5`</span>)</span>
-<span id="cb93-428"><a href="#cb93-428"></a></span>
-<span id="cb93-431"><a href="#cb93-431"></a><span class="in">```{r}</span></span>
-<span id="cb93-432"><a href="#cb93-432"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb93-433"><a href="#cb93-433"></a>  <span class="fu">group_by</span>(y) <span class="sc">|&gt;</span></span>
-<span id="cb93-434"><a href="#cb93-434"></a>  <span class="fu">summarize</span>(<span class="at">mean_x =</span> <span class="fu">mean</span>(x))</span>
-<span id="cb93-435"><a href="#cb93-435"></a><span class="in">```</span></span>
-<span id="cb93-436"><a href="#cb93-436"></a></span>
-<span id="cb93-437"><a href="#cb93-437"></a><span class="at">&gt; Write down what you think the output will look like, then check if you were correct, and describe what the pipeline does. Then, comment on what the message says.</span></span>
-<span id="cb93-438"><a href="#cb93-438"></a><span class="at">&gt;</span></span>
-<span id="cb93-439"><a href="#cb93-439"></a><span class="at">&gt; ```{r}</span></span>
-<span id="cb93-440"><a href="#cb93-440"></a><span class="at">&gt; #| eval: false</span></span>
-<span id="cb93-441"><a href="#cb93-441"></a><span class="at">&gt; &gt;</span></span>
-<span id="cb93-442"><a href="#cb93-442"></a><span class="at">&gt; df |&gt;</span></span>
-<span id="cb93-443"><a href="#cb93-443"></a><span class="at">&gt;   group_by(y, z) |&gt;</span></span>
-<span id="cb93-444"><a href="#cb93-444"></a><span class="at">&gt;   summarize(mean_x = mean(x))</span></span>
-<span id="cb93-445"><a href="#cb93-445"></a><span class="at">&gt; ```</span></span>
-<span id="cb93-446"><a href="#cb93-446"></a></span>
-<span id="cb93-447"><a href="#cb93-447"></a>I assume there will be 3 columns (<span class="in">`x`</span>, <span class="in">`y`</span>, <span class="in">`z`</span>) and three rows (<span class="in">`x = c(1, 3.5, 3.5)`</span>).</span>
-<span id="cb93-448"><a href="#cb93-448"></a></span>
-<span id="cb93-451"><a href="#cb93-451"></a><span class="in">```{r}</span></span>
-<span id="cb93-452"><a href="#cb93-452"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb93-453"><a href="#cb93-453"></a>  <span class="fu">group_by</span>(y, z) <span class="sc">|&gt;</span></span>
-<span id="cb93-454"><a href="#cb93-454"></a>  <span class="fu">summarize</span>(<span class="at">mean_x =</span> <span class="fu">mean</span>(x))</span>
-<span id="cb93-455"><a href="#cb93-455"></a><span class="in">```</span></span>
-<span id="cb93-456"><a href="#cb93-456"></a></span>
-<span id="cb93-457"><a href="#cb93-457"></a><span class="at">&gt; Write down what you think the output will look like, then check if you were correct, and describe what the pipeline does. How is the output different from the one in part (d).</span></span>
-<span id="cb93-458"><a href="#cb93-458"></a><span class="at">&gt;</span></span>
-<span id="cb93-459"><a href="#cb93-459"></a><span class="at">&gt; ```{r}</span></span>
-<span id="cb93-460"><a href="#cb93-460"></a><span class="at">&gt; df |&gt;</span></span>
-<span id="cb93-461"><a href="#cb93-461"></a><span class="at">&gt;   group_by(y, z) |&gt;</span></span>
-<span id="cb93-462"><a href="#cb93-462"></a><span class="at">&gt;   summarize(mean_x = mean(x), .groups = "drop")</span></span>
-<span id="cb93-463"><a href="#cb93-463"></a><span class="at">&gt; ```</span></span>
-<span id="cb93-464"><a href="#cb93-464"></a></span>
-<span id="cb93-465"><a href="#cb93-465"></a>I assume the same answer, except the output won't be "grouped."</span>
-<span id="cb93-466"><a href="#cb93-466"></a></span>
-<span id="cb93-469"><a href="#cb93-469"></a><span class="in">```{r}</span></span>
-<span id="cb93-470"><a href="#cb93-470"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb93-471"><a href="#cb93-471"></a>  <span class="fu">group_by</span>(y, z) <span class="sc">|&gt;</span></span>
-<span id="cb93-472"><a href="#cb93-472"></a>  <span class="fu">summarize</span>(<span class="at">mean_x =</span> <span class="fu">mean</span>(x), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
-<span id="cb93-473"><a href="#cb93-473"></a><span class="in">```</span></span>
-<span id="cb93-474"><a href="#cb93-474"></a></span>
-<span id="cb93-475"><a href="#cb93-475"></a><span class="at">&gt; Write down what you think the outputs will look like, then check if you were correct, and describe what each pipeline does. How are the outputs of the two pipelines different?</span></span>
-<span id="cb93-476"><a href="#cb93-476"></a><span class="at">&gt;</span></span>
-<span id="cb93-477"><a href="#cb93-477"></a><span class="at">&gt; ```{r}</span></span>
-<span id="cb93-478"><a href="#cb93-478"></a><span class="at">&gt; #| eval: false</span></span>
-<span id="cb93-479"><a href="#cb93-479"></a><span class="at">&gt; &gt;</span></span>
-<span id="cb93-480"><a href="#cb93-480"></a><span class="at">&gt; df |&gt;</span></span>
-<span id="cb93-481"><a href="#cb93-481"></a><span class="at">&gt;   group_by(y, z) |&gt;</span></span>
-<span id="cb93-482"><a href="#cb93-482"></a><span class="at">&gt;   summarize(mean_x = mean(x))</span></span>
+<span id="cb93-372"><a href="#cb93-372"></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb93-373"><a href="#cb93-373"></a>  <span class="fu">count</span>(origin, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb93-374"><a href="#cb93-374"></a><span class="in">```</span></span>
+<span id="cb93-375"><a href="#cb93-375"></a></span>
+<span id="cb93-376"><a href="#cb93-376"></a><span class="fu">### 4.5.7.6</span></span>
+<span id="cb93-377"><a href="#cb93-377"></a></span>
+<span id="cb93-378"><a href="#cb93-378"></a><span class="at">&gt; Suppose we have the following tiny data frame:</span></span>
+<span id="cb93-379"><a href="#cb93-379"></a><span class="at">&gt;</span></span>
+<span id="cb93-380"><a href="#cb93-380"></a><span class="at">&gt; ```{r}</span></span>
+<span id="cb93-381"><a href="#cb93-381"></a><span class="at">&gt; df &lt;- tibble(</span></span>
+<span id="cb93-382"><a href="#cb93-382"></a><span class="at">&gt;   x = 1:5,</span></span>
+<span id="cb93-383"><a href="#cb93-383"></a><span class="at">&gt;   y = c("a", "b", "a", "a", "b"),</span></span>
+<span id="cb93-384"><a href="#cb93-384"></a><span class="at">&gt;   z = c("K", "K", "L", "L", "K")</span></span>
+<span id="cb93-385"><a href="#cb93-385"></a><span class="at">&gt; )</span></span>
+<span id="cb93-386"><a href="#cb93-386"></a><span class="at">&gt; ```</span></span>
+<span id="cb93-387"><a href="#cb93-387"></a><span class="at">&gt;</span></span>
+<span id="cb93-388"><a href="#cb93-388"></a><span class="at">&gt; Write down what you think the output will look like, then check if you were correct, and describe what </span><span class="co">[</span><span class="ot">`group_by()`</span><span class="co">](https://dplyr.tidyverse.org/reference/group_by.html)</span><span class="at"> does.</span></span>
+<span id="cb93-389"><a href="#cb93-389"></a><span class="at">&gt;</span></span>
+<span id="cb93-390"><a href="#cb93-390"></a><span class="at">&gt; ```{r}</span></span>
+<span id="cb93-391"><a href="#cb93-391"></a><span class="at">&gt; #| eval: false</span></span>
+<span id="cb93-392"><a href="#cb93-392"></a><span class="at">&gt; df |&gt;</span></span>
+<span id="cb93-393"><a href="#cb93-393"></a><span class="at">&gt;   group_by(y)</span></span>
+<span id="cb93-394"><a href="#cb93-394"></a><span class="at">&gt; ```</span></span>
+<span id="cb93-395"><a href="#cb93-395"></a></span>
+<span id="cb93-396"><a href="#cb93-396"></a>*two groups?*</span>
+<span id="cb93-397"><a href="#cb93-397"></a></span>
+<span id="cb93-400"><a href="#cb93-400"></a><span class="in">```{r}</span></span>
+<span id="cb93-401"><a href="#cb93-401"></a>df <span class="sc">|&gt;</span> <span class="fu">group_by</span>(y)</span>
+<span id="cb93-402"><a href="#cb93-402"></a><span class="in">```</span></span>
+<span id="cb93-403"><a href="#cb93-403"></a></span>
+<span id="cb93-404"><a href="#cb93-404"></a><span class="at">&gt; Write down what you think the output will look like, then check if you were correct, and describe what </span><span class="in">`arrange()`</span><span class="at"> does. Also comment on how it's different from the </span><span class="in">`group_by()`</span><span class="at"> in part (a)?</span></span>
+<span id="cb93-405"><a href="#cb93-405"></a><span class="at">&gt;</span></span>
+<span id="cb93-406"><a href="#cb93-406"></a><span class="at">&gt; ```{r}</span></span>
+<span id="cb93-407"><a href="#cb93-407"></a><span class="at">&gt; #| eval: false</span></span>
+<span id="cb93-408"><a href="#cb93-408"></a><span class="at">&gt; df |&gt;</span></span>
+<span id="cb93-409"><a href="#cb93-409"></a><span class="at">&gt;   arrange(y)</span></span>
+<span id="cb93-410"><a href="#cb93-410"></a><span class="at">&gt; ```</span></span>
+<span id="cb93-411"><a href="#cb93-411"></a></span>
+<span id="cb93-412"><a href="#cb93-412"></a>*I assume that y will be a, a, a, b, b and that x will be 1, 3, 4, 2, 5*</span>
+<span id="cb93-413"><a href="#cb93-413"></a></span>
+<span id="cb93-416"><a href="#cb93-416"></a><span class="in">```{r}</span></span>
+<span id="cb93-417"><a href="#cb93-417"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb93-418"><a href="#cb93-418"></a>  <span class="fu">arrange</span>(y)</span>
+<span id="cb93-419"><a href="#cb93-419"></a><span class="in">```</span></span>
+<span id="cb93-420"><a href="#cb93-420"></a></span>
+<span id="cb93-421"><a href="#cb93-421"></a><span class="at">&gt; Write down what you think the output will look like, then check if you were correct, and describe what the pipeline does.</span></span>
+<span id="cb93-422"><a href="#cb93-422"></a><span class="at">&gt;</span></span>
+<span id="cb93-423"><a href="#cb93-423"></a><span class="at">&gt; ```{r}</span></span>
+<span id="cb93-424"><a href="#cb93-424"></a><span class="at">&gt; #| eval: false</span></span>
+<span id="cb93-425"><a href="#cb93-425"></a><span class="at">&gt; &gt;</span></span>
+<span id="cb93-426"><a href="#cb93-426"></a><span class="at">&gt; df |&gt;</span></span>
+<span id="cb93-427"><a href="#cb93-427"></a><span class="at">&gt;   group_by(y) |&gt;</span></span>
+<span id="cb93-428"><a href="#cb93-428"></a><span class="at">&gt;   summarize(mean_x = mean(x))</span></span>
+<span id="cb93-429"><a href="#cb93-429"></a><span class="at">&gt; ```</span></span>
+<span id="cb93-430"><a href="#cb93-430"></a></span>
+<span id="cb93-431"><a href="#cb93-431"></a>I assume the new data frame will have two columns (<span class="in">`x`</span>, <span class="in">`y`</span>) and two rows (<span class="in">`y = 2.67`</span>, <span class="in">`y = 3.5`</span>)</span>
+<span id="cb93-432"><a href="#cb93-432"></a></span>
+<span id="cb93-435"><a href="#cb93-435"></a><span class="in">```{r}</span></span>
+<span id="cb93-436"><a href="#cb93-436"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb93-437"><a href="#cb93-437"></a>  <span class="fu">group_by</span>(y) <span class="sc">|&gt;</span></span>
+<span id="cb93-438"><a href="#cb93-438"></a>  <span class="fu">summarize</span>(<span class="at">mean_x =</span> <span class="fu">mean</span>(x))</span>
+<span id="cb93-439"><a href="#cb93-439"></a><span class="in">```</span></span>
+<span id="cb93-440"><a href="#cb93-440"></a></span>
+<span id="cb93-441"><a href="#cb93-441"></a><span class="at">&gt; Write down what you think the output will look like, then check if you were correct, and describe what the pipeline does. Then, comment on what the message says.</span></span>
+<span id="cb93-442"><a href="#cb93-442"></a><span class="at">&gt;</span></span>
+<span id="cb93-443"><a href="#cb93-443"></a><span class="at">&gt; ```{r}</span></span>
+<span id="cb93-444"><a href="#cb93-444"></a><span class="at">&gt; #| eval: false</span></span>
+<span id="cb93-445"><a href="#cb93-445"></a><span class="at">&gt; &gt;</span></span>
+<span id="cb93-446"><a href="#cb93-446"></a><span class="at">&gt; df |&gt;</span></span>
+<span id="cb93-447"><a href="#cb93-447"></a><span class="at">&gt;   group_by(y, z) |&gt;</span></span>
+<span id="cb93-448"><a href="#cb93-448"></a><span class="at">&gt;   summarize(mean_x = mean(x))</span></span>
+<span id="cb93-449"><a href="#cb93-449"></a><span class="at">&gt; ```</span></span>
+<span id="cb93-450"><a href="#cb93-450"></a></span>
+<span id="cb93-451"><a href="#cb93-451"></a>I assume there will be 3 columns (<span class="in">`x`</span>, <span class="in">`y`</span>, <span class="in">`z`</span>) and three rows (<span class="in">`x = c(1, 3.5, 3.5)`</span>).</span>
+<span id="cb93-452"><a href="#cb93-452"></a></span>
+<span id="cb93-455"><a href="#cb93-455"></a><span class="in">```{r}</span></span>
+<span id="cb93-456"><a href="#cb93-456"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb93-457"><a href="#cb93-457"></a>  <span class="fu">group_by</span>(y, z) <span class="sc">|&gt;</span></span>
+<span id="cb93-458"><a href="#cb93-458"></a>  <span class="fu">summarize</span>(<span class="at">mean_x =</span> <span class="fu">mean</span>(x))</span>
+<span id="cb93-459"><a href="#cb93-459"></a><span class="in">```</span></span>
+<span id="cb93-460"><a href="#cb93-460"></a></span>
+<span id="cb93-461"><a href="#cb93-461"></a><span class="at">&gt; Write down what you think the output will look like, then check if you were correct, and describe what the pipeline does. How is the output different from the one in part (d).</span></span>
+<span id="cb93-462"><a href="#cb93-462"></a><span class="at">&gt;</span></span>
+<span id="cb93-463"><a href="#cb93-463"></a><span class="at">&gt; ```{r}</span></span>
+<span id="cb93-464"><a href="#cb93-464"></a><span class="at">&gt; df |&gt;</span></span>
+<span id="cb93-465"><a href="#cb93-465"></a><span class="at">&gt;   group_by(y, z) |&gt;</span></span>
+<span id="cb93-466"><a href="#cb93-466"></a><span class="at">&gt;   summarize(mean_x = mean(x), .groups = "drop")</span></span>
+<span id="cb93-467"><a href="#cb93-467"></a><span class="at">&gt; ```</span></span>
+<span id="cb93-468"><a href="#cb93-468"></a></span>
+<span id="cb93-469"><a href="#cb93-469"></a>I assume the same answer, except the output won't be "grouped."</span>
+<span id="cb93-470"><a href="#cb93-470"></a></span>
+<span id="cb93-473"><a href="#cb93-473"></a><span class="in">```{r}</span></span>
+<span id="cb93-474"><a href="#cb93-474"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb93-475"><a href="#cb93-475"></a>  <span class="fu">group_by</span>(y, z) <span class="sc">|&gt;</span></span>
+<span id="cb93-476"><a href="#cb93-476"></a>  <span class="fu">summarize</span>(<span class="at">mean_x =</span> <span class="fu">mean</span>(x), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb93-477"><a href="#cb93-477"></a><span class="in">```</span></span>
+<span id="cb93-478"><a href="#cb93-478"></a></span>
+<span id="cb93-479"><a href="#cb93-479"></a><span class="at">&gt; Write down what you think the outputs will look like, then check if you were correct, and describe what each pipeline does. How are the outputs of the two pipelines different?</span></span>
+<span id="cb93-480"><a href="#cb93-480"></a><span class="at">&gt;</span></span>
+<span id="cb93-481"><a href="#cb93-481"></a><span class="at">&gt; ```{r}</span></span>
+<span id="cb93-482"><a href="#cb93-482"></a><span class="at">&gt; #| eval: false</span></span>
 <span id="cb93-483"><a href="#cb93-483"></a><span class="at">&gt; &gt;</span></span>
 <span id="cb93-484"><a href="#cb93-484"></a><span class="at">&gt; df |&gt;</span></span>
 <span id="cb93-485"><a href="#cb93-485"></a><span class="at">&gt;   group_by(y, z) |&gt;</span></span>
-<span id="cb93-486"><a href="#cb93-486"></a><span class="at">&gt;   mutate(mean_x = mean(x))</span></span>
-<span id="cb93-487"><a href="#cb93-487"></a><span class="at">&gt; ```</span></span>
-<span id="cb93-488"><a href="#cb93-488"></a></span>
-<span id="cb93-489"><a href="#cb93-489"></a>The results will be similar, except that the first pipeline will have 3 rows and the second one will have 5 rows.</span>
-<span id="cb93-490"><a href="#cb93-490"></a></span>
-<span id="cb93-493"><a href="#cb93-493"></a><span class="in">```{r}</span></span>
-<span id="cb93-494"><a href="#cb93-494"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb93-495"><a href="#cb93-495"></a>  <span class="fu">group_by</span>(y, z) <span class="sc">|&gt;</span></span>
-<span id="cb93-496"><a href="#cb93-496"></a>  <span class="fu">summarize</span>(<span class="at">mean_x =</span> <span class="fu">mean</span>(x))</span>
-<span id="cb93-497"><a href="#cb93-497"></a></span>
+<span id="cb93-486"><a href="#cb93-486"></a><span class="at">&gt;   summarize(mean_x = mean(x))</span></span>
+<span id="cb93-487"><a href="#cb93-487"></a><span class="at">&gt; &gt;</span></span>
+<span id="cb93-488"><a href="#cb93-488"></a><span class="at">&gt; df |&gt;</span></span>
+<span id="cb93-489"><a href="#cb93-489"></a><span class="at">&gt;   group_by(y, z) |&gt;</span></span>
+<span id="cb93-490"><a href="#cb93-490"></a><span class="at">&gt;   mutate(mean_x = mean(x))</span></span>
+<span id="cb93-491"><a href="#cb93-491"></a><span class="at">&gt; ```</span></span>
+<span id="cb93-492"><a href="#cb93-492"></a></span>
+<span id="cb93-493"><a href="#cb93-493"></a>The results will be similar, except that the first pipeline will have 3 rows and the second one will have 5 rows.</span>
+<span id="cb93-494"><a href="#cb93-494"></a></span>
+<span id="cb93-497"><a href="#cb93-497"></a><span class="in">```{r}</span></span>
 <span id="cb93-498"><a href="#cb93-498"></a>df <span class="sc">|&gt;</span></span>
 <span id="cb93-499"><a href="#cb93-499"></a>  <span class="fu">group_by</span>(y, z) <span class="sc">|&gt;</span></span>
-<span id="cb93-500"><a href="#cb93-500"></a>  <span class="fu">mutate</span>(<span class="at">mean_x =</span> <span class="fu">mean</span>(x))</span>
-<span id="cb93-501"><a href="#cb93-501"></a><span class="in">```</span></span>
+<span id="cb93-500"><a href="#cb93-500"></a>  <span class="fu">summarize</span>(<span class="at">mean_x =</span> <span class="fu">mean</span>(x))</span>
+<span id="cb93-501"><a href="#cb93-501"></a></span>
+<span id="cb93-502"><a href="#cb93-502"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb93-503"><a href="#cb93-503"></a>  <span class="fu">group_by</span>(y, z) <span class="sc">|&gt;</span></span>
+<span id="cb93-504"><a href="#cb93-504"></a>  <span class="fu">mutate</span>(<span class="at">mean_x =</span> <span class="fu">mean</span>(x))</span>
+<span id="cb93-505"><a href="#cb93-505"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

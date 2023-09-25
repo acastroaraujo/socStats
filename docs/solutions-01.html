@@ -210,13 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./solutions-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./solutions-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 3</span></span></a>
   </div>
 </li>
       </ul>
@@ -233,14 +227,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#data-structures" id="toc-data-structures" class="nav-link active" data-scroll-target="#data-structures"><span class="header-section-number">5.1</span> Data Structures</a>
+  <ul class="collapse">
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">5.1.1</span> Exercise</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">5.1.2</span> Exercise</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">5.1.3</span> Exercise</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">5.1.4</span> Exercise</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4"><span class="header-section-number">5.1.5</span> Exercise</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5"><span class="header-section-number">5.1.6</span> Exercise</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6"><span class="header-section-number">5.1.7</span> Exercise</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7"><span class="header-section-number">5.1.8</span> Exercise</a></li>
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8"><span class="header-section-number">5.1.9</span> Exercise</a></li>
+  </ul></li>
+  <li><a href="#search" id="toc-search" class="nav-link" data-scroll-target="#search"><span class="header-section-number">5.2</span> Search</a>
+  <ul class="collapse">
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9"><span class="header-section-number">5.2.1</span> Exercise</a></li>
+  </ul></li>
+  <li><a href="#dplyr" id="toc-dplyr" class="nav-link" data-scroll-target="#dplyr"><span class="header-section-number">5.3</span> <code>dplyr</code></a>
+  <ul class="collapse">
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10"><span class="header-section-number">5.3.1</span> Exercise</a></li>
+  <li><a href="#exercise-11" id="toc-exercise-11" class="nav-link" data-scroll-target="#exercise-11"><span class="header-section-number">5.3.2</span> Exercise</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Solutions 1</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Solutions 1</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -255,10 +275,390 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<section id="data-structures" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="data-structures"><span class="header-section-number">5.1</span> Data Structures</h2>
+<section id="exercise" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">5.1.1</span> Exercise</h3>
+<p><code>mtcars</code> is a data frame. You can verify this by looking at its class:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">class</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "data.frame"</code></pre>
+</div>
+</div>
+<p>A “data frame” is basically a <strong>list</strong> of atomic vectors each of which <em>have the same <code>length()</code></em>—i.e., the number of rows in the dataset. This is why <code>typeof(mtcars)</code> produces “list.”</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">typeof</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "list"</code></pre>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">nrow</span>(mtcars) <span class="do">## number of observations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ncol</span>(mtcars) <span class="do">## number of columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">length</span>(mtcars) <span class="do">## not number of observations, but number of columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">dim</span>(mtcars) <span class="do">## number of rows and columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32 11</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">rownames</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"         
+ [4] "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"            
+ [7] "Duster 360"          "Merc 240D"           "Merc 230"           
+[10] "Merc 280"            "Merc 280C"           "Merc 450SE"         
+[13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood" 
+[16] "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"           
+[19] "Honda Civic"         "Toyota Corolla"      "Toyota Corona"      
+[22] "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
+[25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"      
+[28] "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
+[31] "Maserati Bora"       "Volvo 142E"         </code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">colnames</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "mpg"  "cyl"  "disp" "hp"   "drat" "wt"   "qsec" "vs"   "am"   "gear"
+[11] "carb"</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-1" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">5.1.2</span> Exercise</h3>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>T <span class="ot">&lt;-</span> <span class="dv">123</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 123</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="cn">TRUE</span> <span class="ot">&lt;-</span> <span class="dv">123</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-error">
+<pre><code>Error in TRUE &lt;- 123: invalid (do_set) left-hand side to assignment</code></pre>
+</div>
+</div>
+<p>You can assign any value to <code>T</code>, but R won’t let you modify <code>TRUE</code> because it is a “reserved keyword.” Other reserved keywords include: <code>function</code>, <code>for</code>, <code>FALSE</code>, <code>Inf</code>, <code>NULL</code>, <code>NA</code>, among others.</p>
+</section>
+<section id="exercise-2" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">5.1.3</span> Exercise</h3>
+<p>Test your knowledge of the vector coercion rules by predicting the output of the following uses of <code>c()</code>:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">FALSE</span>) <span class="do">## numeric (or "double")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 0</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">c</span>(<span class="st">"a"</span>, <span class="dv">1</span>) <span class="do">## character</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a" "1"</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, 1L) <span class="do">## numeric (or "integer")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 1</code></pre>
+</div>
+</div>
+<p>Yup.</p>
+</section>
+<section id="exercise-3" class="level3" data-number="5.1.4">
+<h3 data-number="5.1.4" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">5.1.4</span> Exercise</h3>
+<p><code>as.integer()</code> coerces <code>TRUE</code> to 1 and <code>FALSE</code> to 0.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">as.integer</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 0</code></pre>
+</div>
+</div>
+<p>This is the most common (and useful) form of coercion you’ll see.</p>
+</section>
+<section id="exercise-4" class="level3" data-number="5.1.5">
+<h3 data-number="5.1.5" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">5.1.5</span> Exercise</h3>
+<p>Implicit coercion of logicals to numericals.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">sum</span>(x)  <span class="do">## number of TRUE values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">mean</span>(x) <span class="do">## proportion of TRUE values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4266667</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">sum</span>(x) <span class="sc">/</span> <span class="fu">length</span>(x) <span class="do">## verifying the mean function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4266667</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-5" class="level3" data-number="5.1.6">
+<h3 data-number="5.1.6" class="anchored" data-anchor-id="exercise-5"><span class="header-section-number">5.1.6</span> Exercise</h3>
+<p>The difference between <code>mtcars["mpg"]</code> and <code>mtcars[["mpg"]]</code> is that the first <em>selects</em> a column in a data frame, while the second <em>extracts</em> the column. <code>mtcars[["mpg"]]</code> is equivalent to <code>mtcars$mpg</code>.</p>
+</section>
+<section id="exercise-6" class="level3" data-number="5.1.7">
+<h3 data-number="5.1.7" class="anchored" data-anchor-id="exercise-6"><span class="header-section-number">5.1.7</span> Exercise</h3>
+<p><code>letters</code> is a built-in object in R that contains the 26 letters of English alphabet.</p>
+<p>Using the <code>[</code> operator, do the following:</p>
+<p>Extract the 17<sup>th</sup> value of <code>letters</code></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>letters[<span class="dv">17</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "q"</code></pre>
+</div>
+</div>
+<p>Create a sequence of even numbers from <code>2</code> to <code>26</code> and use that to subset <code>letters</code></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>letters[<span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">26</span>, <span class="at">by =</span> <span class="dv">2</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "b" "d" "f" "h" "j" "l" "n" "p" "r" "t" "v" "x" "z"</code></pre>
+</div>
+</div>
+<p>Use <code>8:12</code> to subset <code>letters</code>.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>letters[<span class="dv">8</span><span class="sc">:</span><span class="dv">12</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "h" "i" "j" "k" "l"</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-7" class="level3" data-number="5.1.8">
+<h3 data-number="5.1.8" class="anchored" data-anchor-id="exercise-7"><span class="header-section-number">5.1.8</span> Exercise</h3>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>letters[<span class="dv">18</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a>letters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" NA  "s"
+[20] "t" "u" "v" "w" "x" "y" "z"</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-8" class="level3" data-number="5.1.9">
+<h3 data-number="5.1.9" class="anchored" data-anchor-id="exercise-8"><span class="header-section-number">5.1.9</span> Exercise</h3>
+<p>Subset <code>mtcars</code> so that we only see the observations for which <code>cyl == 4</code>.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>mtcars[mtcars<span class="sc">$</span>cyl <span class="sc">==</span> <span class="dv">4</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Toyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+</div>
+</div>
+<p>Subset <code>mtcars</code> so that we only see the observations for which <code>mpg</code> is greater than <code>23</code>.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>mtcars[mtcars<span class="sc">$</span>mpg <span class="sc">&gt;</span> <span class="dv">23</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="search" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="search"><span class="header-section-number">5.2</span> Search</h2>
+<section id="exercise-9" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="exercise-9"><span class="header-section-number">5.2.1</span> Exercise</h3>
+<blockquote class="blockquote">
+<p>Using what I told you earlier about the <code>search()</code> function, explain why you get two different errors. What is going on? What is R doing when you type <code>table(year)</code>? (You might want to type <code>search()</code> into the console again). In what package does R find the <code>year</code> object?</p>
+</blockquote>
+<p>First, R searched for an object called <code>year</code> and didn’t find anyting.</p>
+<p>Second, R searched for <code>year</code> and found a function with the same name in the <code>lubridate</code> package.</p>
+</section>
+</section>
+<section id="dplyr" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="dplyr"><span class="header-section-number">5.3</span> <code>dplyr</code></h2>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.3     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.3     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="exercise-10" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="exercise-10"><span class="header-section-number">5.3.1</span> Exercise</h3>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>i <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="fu">nrow</span>(penguins), <span class="at">by =</span> <span class="dv">2</span>)</span>
+<span id="cb50-2"><a href="#cb50-2"></a></span>
+<span id="cb50-3"><a href="#cb50-3"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb50-4"><a href="#cb50-4"></a>  <span class="fu">slice</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 172 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.5          17.4               186        3800
+ 2 Adelie  Torgersen           NA            NA                  NA          NA
+ 3 Adelie  Torgersen           39.3          20.6               190        3650
+ 4 Adelie  Torgersen           39.2          19.6               195        4675
+ 5 Adelie  Torgersen           42            20.2               190        4250
+ 6 Adelie  Torgersen           37.8          17.3               180        3700
+ 7 Adelie  Torgersen           38.6          21.2               191        3800
+ 8 Adelie  Torgersen           36.6          17.8               185        3700
+ 9 Adelie  Torgersen           42.5          20.7               197        4500
+10 Adelie  Torgersen           46            21.5               194        4200
+# ℹ 162 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">slice</span>(<span class="fu">seq</span>(<span class="dv">3</span>, <span class="fu">nrow</span>(penguins), <span class="at">by =</span> <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 114 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           40.3          18                 195        3250
+ 2 Adelie  Torgersen           39.3          20.6               190        3650
+ 3 Adelie  Torgersen           34.1          18.1               193        3475
+ 4 Adelie  Torgersen           37.8          17.3               180        3700
+ 5 Adelie  Torgersen           34.6          21.1               198        4400
+ 6 Adelie  Torgersen           42.5          20.7               197        4500
+ 7 Adelie  Biscoe              37.8          18.3               174        3400
+ 8 Adelie  Biscoe              38.2          18.1               185        3950
+ 9 Adelie  Biscoe              40.6          18.6               183        3550
+10 Adelie  Biscoe              40.5          18.9               180        3950
+# ℹ 104 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-11" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="exercise-11"><span class="header-section-number">5.3.2</span> Exercise</h3>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb54-2"><a href="#cb54-2"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>, island <span class="sc">==</span> <span class="st">"Biscoe"</span>, body_mass_g <span class="sc">&gt;=</span> <span class="dv">5000</span>, body_mass_g <span class="sc">&lt;=</span> <span class="dv">5500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 39 × 8
+   species island bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Gentoo  Biscoe           47.6          14.5               215        5400
+ 2 Gentoo  Biscoe           46.7          15.3               219        5200
+ 3 Gentoo  Biscoe           46.8          15.4               215        5150
+ 4 Gentoo  Biscoe           48.7          15.1               222        5350
+ 5 Gentoo  Biscoe           45.1          14.5               215        5000
+ 6 Gentoo  Biscoe           46.3          15.8               215        5050
+ 7 Gentoo  Biscoe           42.9          13.1               215        5000
+ 8 Gentoo  Biscoe           46.1          15.1               215        5100
+ 9 Gentoo  Biscoe           47.3          15.3               222        5250
+10 Gentoo  Biscoe           45.1          14.5               207        5050
+# ℹ 29 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
 
 
 <!-- -->
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -557,9 +957,165 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Solutions 1"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb56" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb56-1"><a href="#cb56-1"></a><span class="co">---</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a><span class="an">title:</span><span class="co"> "Solutions 1"</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a><span class="co">---</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a></span>
+<span id="cb56-5"><a href="#cb56-5"></a><span class="fu">## Data Structures</span></span>
+<span id="cb56-6"><a href="#cb56-6"></a></span>
+<span id="cb56-7"><a href="#cb56-7"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-8"><a href="#cb56-8"></a></span>
+<span id="cb56-9"><a href="#cb56-9"></a><span class="in">`mtcars`</span> is a data frame. You can verify this by looking at its class:</span>
+<span id="cb56-10"><a href="#cb56-10"></a></span>
+<span id="cb56-13"><a href="#cb56-13"></a><span class="in">```{r}</span></span>
+<span id="cb56-14"><a href="#cb56-14"></a><span class="fu">class</span>(mtcars)</span>
+<span id="cb56-15"><a href="#cb56-15"></a><span class="in">```</span></span>
+<span id="cb56-16"><a href="#cb56-16"></a></span>
+<span id="cb56-17"><a href="#cb56-17"></a>A "data frame" is basically a **list** of atomic vectors each of which *have the same `length()`*---i.e., the number of rows in the dataset. This is why <span class="in">`typeof(mtcars)`</span> produces "list."</span>
+<span id="cb56-18"><a href="#cb56-18"></a></span>
+<span id="cb56-21"><a href="#cb56-21"></a><span class="in">```{r}</span></span>
+<span id="cb56-22"><a href="#cb56-22"></a><span class="fu">typeof</span>(mtcars)</span>
+<span id="cb56-23"><a href="#cb56-23"></a><span class="in">```</span></span>
+<span id="cb56-24"><a href="#cb56-24"></a></span>
+<span id="cb56-27"><a href="#cb56-27"></a><span class="in">```{r}</span></span>
+<span id="cb56-28"><a href="#cb56-28"></a><span class="fu">nrow</span>(mtcars) <span class="do">## number of observations</span></span>
+<span id="cb56-29"><a href="#cb56-29"></a><span class="fu">ncol</span>(mtcars) <span class="do">## number of columns</span></span>
+<span id="cb56-30"><a href="#cb56-30"></a><span class="fu">length</span>(mtcars) <span class="do">## not number of observations, but number of columns</span></span>
+<span id="cb56-31"><a href="#cb56-31"></a><span class="fu">dim</span>(mtcars) <span class="do">## number of rows and columns</span></span>
+<span id="cb56-32"><a href="#cb56-32"></a><span class="fu">rownames</span>(mtcars)</span>
+<span id="cb56-33"><a href="#cb56-33"></a><span class="fu">colnames</span>(mtcars)</span>
+<span id="cb56-34"><a href="#cb56-34"></a><span class="in">```</span></span>
+<span id="cb56-35"><a href="#cb56-35"></a></span>
+<span id="cb56-36"><a href="#cb56-36"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-37"><a href="#cb56-37"></a></span>
+<span id="cb56-40"><a href="#cb56-40"></a><span class="in">```{r}</span></span>
+<span id="cb56-41"><a href="#cb56-41"></a><span class="co">#| error: true</span></span>
+<span id="cb56-42"><a href="#cb56-42"></a>T <span class="ot">&lt;-</span> <span class="dv">123</span></span>
+<span id="cb56-43"><a href="#cb56-43"></a>T</span>
+<span id="cb56-44"><a href="#cb56-44"></a><span class="cn">TRUE</span> <span class="ot">&lt;-</span> <span class="dv">123</span></span>
+<span id="cb56-45"><a href="#cb56-45"></a><span class="in">```</span></span>
+<span id="cb56-46"><a href="#cb56-46"></a></span>
+<span id="cb56-47"><a href="#cb56-47"></a>You can assign any value to <span class="in">`T`</span>, but R won't let you modify <span class="in">`TRUE`</span> because it is a "reserved keyword." Other reserved keywords include: <span class="in">`function`</span>, <span class="in">`for`</span>, <span class="in">`FALSE`</span>, <span class="in">`Inf`</span>, <span class="in">`NULL`</span>, <span class="in">`NA`</span>, among others.</span>
+<span id="cb56-48"><a href="#cb56-48"></a></span>
+<span id="cb56-49"><a href="#cb56-49"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-50"><a href="#cb56-50"></a></span>
+<span id="cb56-51"><a href="#cb56-51"></a>Test your knowledge of the vector coercion rules by predicting the output of the following uses of <span class="in">`c()`</span>:</span>
+<span id="cb56-52"><a href="#cb56-52"></a></span>
+<span id="cb56-55"><a href="#cb56-55"></a><span class="in">```{r}</span></span>
+<span id="cb56-56"><a href="#cb56-56"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">FALSE</span>) <span class="do">## numeric (or "double")</span></span>
+<span id="cb56-57"><a href="#cb56-57"></a><span class="fu">c</span>(<span class="st">"a"</span>, <span class="dv">1</span>) <span class="do">## character</span></span>
+<span id="cb56-58"><a href="#cb56-58"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, 1L) <span class="do">## numeric (or "integer")</span></span>
+<span id="cb56-59"><a href="#cb56-59"></a><span class="in">```</span></span>
+<span id="cb56-60"><a href="#cb56-60"></a></span>
+<span id="cb56-61"><a href="#cb56-61"></a>Yup.</span>
+<span id="cb56-62"><a href="#cb56-62"></a></span>
+<span id="cb56-63"><a href="#cb56-63"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-64"><a href="#cb56-64"></a></span>
+<span id="cb56-65"><a href="#cb56-65"></a><span class="in">`as.integer()`</span> coerces <span class="in">`TRUE`</span> to 1 and <span class="in">`FALSE`</span> to 0.</span>
+<span id="cb56-66"><a href="#cb56-66"></a></span>
+<span id="cb56-69"><a href="#cb56-69"></a><span class="in">```{r}</span></span>
+<span id="cb56-70"><a href="#cb56-70"></a><span class="fu">as.integer</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span>
+<span id="cb56-71"><a href="#cb56-71"></a><span class="in">```</span></span>
+<span id="cb56-72"><a href="#cb56-72"></a></span>
+<span id="cb56-73"><a href="#cb56-73"></a>This is the most common (and useful) form of coercion you'll see.</span>
+<span id="cb56-74"><a href="#cb56-74"></a></span>
+<span id="cb56-75"><a href="#cb56-75"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-76"><a href="#cb56-76"></a></span>
+<span id="cb56-77"><a href="#cb56-77"></a>Implicit coercion of logicals to numericals.</span>
+<span id="cb56-78"><a href="#cb56-78"></a></span>
+<span id="cb56-81"><a href="#cb56-81"></a><span class="in">```{r}</span></span>
+<span id="cb56-82"><a href="#cb56-82"></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="at">size =</span> <span class="dv">75</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb56-83"><a href="#cb56-83"></a><span class="fu">sum</span>(x)  <span class="do">## number of TRUE values</span></span>
+<span id="cb56-84"><a href="#cb56-84"></a><span class="fu">mean</span>(x) <span class="do">## proportion of TRUE values</span></span>
+<span id="cb56-85"><a href="#cb56-85"></a><span class="fu">sum</span>(x) <span class="sc">/</span> <span class="fu">length</span>(x) <span class="do">## verifying the mean function</span></span>
+<span id="cb56-86"><a href="#cb56-86"></a><span class="in">```</span></span>
+<span id="cb56-87"><a href="#cb56-87"></a></span>
+<span id="cb56-88"><a href="#cb56-88"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-89"><a href="#cb56-89"></a></span>
+<span id="cb56-90"><a href="#cb56-90"></a>The difference between <span class="in">`mtcars["mpg"]`</span> and <span class="in">`mtcars[["mpg"]]`</span> is that the first *selects* a column in a data frame, while the second *extracts* the column. <span class="in">`mtcars[["mpg"]]`</span> is equivalent to <span class="in">`mtcars$mpg`</span>.</span>
+<span id="cb56-91"><a href="#cb56-91"></a></span>
+<span id="cb56-92"><a href="#cb56-92"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-93"><a href="#cb56-93"></a></span>
+<span id="cb56-94"><a href="#cb56-94"></a><span class="in">`letters`</span> is a built-in object in R that contains the 26 letters of English alphabet.</span>
+<span id="cb56-95"><a href="#cb56-95"></a></span>
+<span id="cb56-96"><a href="#cb56-96"></a>Using the <span class="in">`[`</span> operator, do the following:</span>
+<span id="cb56-97"><a href="#cb56-97"></a></span>
+<span id="cb56-98"><a href="#cb56-98"></a>Extract the 17^th^ value of <span class="in">`letters`</span></span>
+<span id="cb56-99"><a href="#cb56-99"></a></span>
+<span id="cb56-102"><a href="#cb56-102"></a><span class="in">```{r}</span></span>
+<span id="cb56-103"><a href="#cb56-103"></a>letters[<span class="dv">17</span>]</span>
+<span id="cb56-104"><a href="#cb56-104"></a><span class="in">```</span></span>
+<span id="cb56-105"><a href="#cb56-105"></a></span>
+<span id="cb56-106"><a href="#cb56-106"></a>Create a sequence of even numbers from <span class="in">`2`</span> to <span class="in">`26`</span> and use that to subset <span class="in">`letters`</span></span>
+<span id="cb56-107"><a href="#cb56-107"></a></span>
+<span id="cb56-110"><a href="#cb56-110"></a><span class="in">```{r}</span></span>
+<span id="cb56-111"><a href="#cb56-111"></a>letters[<span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">26</span>, <span class="at">by =</span> <span class="dv">2</span>)]</span>
+<span id="cb56-112"><a href="#cb56-112"></a><span class="in">```</span></span>
+<span id="cb56-113"><a href="#cb56-113"></a></span>
+<span id="cb56-114"><a href="#cb56-114"></a>Use <span class="in">`8:12`</span> to subset <span class="in">`letters`</span>.</span>
+<span id="cb56-115"><a href="#cb56-115"></a></span>
+<span id="cb56-118"><a href="#cb56-118"></a><span class="in">```{r}</span></span>
+<span id="cb56-119"><a href="#cb56-119"></a>letters[<span class="dv">8</span><span class="sc">:</span><span class="dv">12</span>]</span>
+<span id="cb56-120"><a href="#cb56-120"></a><span class="in">```</span></span>
+<span id="cb56-121"><a href="#cb56-121"></a></span>
+<span id="cb56-122"><a href="#cb56-122"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-123"><a href="#cb56-123"></a></span>
+<span id="cb56-126"><a href="#cb56-126"></a><span class="in">```{r}</span></span>
+<span id="cb56-127"><a href="#cb56-127"></a>letters[<span class="dv">18</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb56-128"><a href="#cb56-128"></a>letters</span>
+<span id="cb56-129"><a href="#cb56-129"></a><span class="in">```</span></span>
+<span id="cb56-130"><a href="#cb56-130"></a></span>
+<span id="cb56-131"><a href="#cb56-131"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-132"><a href="#cb56-132"></a></span>
+<span id="cb56-133"><a href="#cb56-133"></a>Subset <span class="in">`mtcars`</span> so that we only see the observations for which <span class="in">`cyl == 4`</span>.</span>
+<span id="cb56-134"><a href="#cb56-134"></a></span>
+<span id="cb56-137"><a href="#cb56-137"></a><span class="in">```{r}</span></span>
+<span id="cb56-138"><a href="#cb56-138"></a>mtcars[mtcars<span class="sc">$</span>cyl <span class="sc">==</span> <span class="dv">4</span>, ]</span>
+<span id="cb56-139"><a href="#cb56-139"></a><span class="in">```</span></span>
+<span id="cb56-140"><a href="#cb56-140"></a></span>
+<span id="cb56-141"><a href="#cb56-141"></a>Subset <span class="in">`mtcars`</span> so that we only see the observations for which <span class="in">`mpg`</span> is greater than <span class="in">`23`</span>.</span>
+<span id="cb56-142"><a href="#cb56-142"></a></span>
+<span id="cb56-145"><a href="#cb56-145"></a><span class="in">```{r}</span></span>
+<span id="cb56-146"><a href="#cb56-146"></a>mtcars[mtcars<span class="sc">$</span>mpg <span class="sc">&gt;</span> <span class="dv">23</span>, ]</span>
+<span id="cb56-147"><a href="#cb56-147"></a><span class="in">```</span></span>
+<span id="cb56-148"><a href="#cb56-148"></a></span>
+<span id="cb56-149"><a href="#cb56-149"></a><span class="fu">## Search</span></span>
+<span id="cb56-150"><a href="#cb56-150"></a></span>
+<span id="cb56-151"><a href="#cb56-151"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-152"><a href="#cb56-152"></a></span>
+<span id="cb56-153"><a href="#cb56-153"></a><span class="at">&gt; Using what I told you earlier about the </span><span class="in">`search()`</span><span class="at"> function, explain why you get two different errors. What is going on? What is R doing when you type </span><span class="in">`table(year)`</span><span class="at">? (You might want to type </span><span class="in">`search()`</span><span class="at"> into the console again). In what package does R find the </span><span class="in">`year`</span><span class="at"> object?</span></span>
+<span id="cb56-154"><a href="#cb56-154"></a></span>
+<span id="cb56-155"><a href="#cb56-155"></a>First, R searched for an object called <span class="in">`year`</span> and didn't find anyting.</span>
+<span id="cb56-156"><a href="#cb56-156"></a></span>
+<span id="cb56-157"><a href="#cb56-157"></a>Second, R searched for <span class="in">`year`</span> and found a function with the same name in the <span class="in">`lubridate`</span> package. </span>
+<span id="cb56-158"><a href="#cb56-158"></a></span>
+<span id="cb56-159"><a href="#cb56-159"></a><span class="fu">## `dplyr`</span></span>
+<span id="cb56-160"><a href="#cb56-160"></a></span>
+<span id="cb56-163"><a href="#cb56-163"></a><span class="in">```{r}</span></span>
+<span id="cb56-164"><a href="#cb56-164"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb56-165"><a href="#cb56-165"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb56-166"><a href="#cb56-166"></a><span class="in">```</span></span>
+<span id="cb56-167"><a href="#cb56-167"></a></span>
+<span id="cb56-168"><a href="#cb56-168"></a></span>
+<span id="cb56-169"><a href="#cb56-169"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-170"><a href="#cb56-170"></a></span>
+<span id="cb56-173"><a href="#cb56-173"></a><span class="in">```{r}</span></span>
+<span id="cb56-174"><a href="#cb56-174"></a>i <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">2</span>, <span class="fu">nrow</span>(penguins), <span class="at">by =</span> <span class="dv">2</span>)</span>
+<span id="cb56-175"><a href="#cb56-175"></a></span>
+<span id="cb56-176"><a href="#cb56-176"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb56-177"><a href="#cb56-177"></a>  <span class="fu">slice</span>(i)</span>
+<span id="cb56-178"><a href="#cb56-178"></a></span>
+<span id="cb56-179"><a href="#cb56-179"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb56-180"><a href="#cb56-180"></a>  <span class="fu">slice</span>(<span class="fu">seq</span>(<span class="dv">3</span>, <span class="fu">nrow</span>(penguins), <span class="at">by =</span> <span class="dv">3</span>))</span>
+<span id="cb56-181"><a href="#cb56-181"></a><span class="in">```</span></span>
+<span id="cb56-182"><a href="#cb56-182"></a></span>
+<span id="cb56-183"><a href="#cb56-183"></a><span class="fu">### Exercise</span></span>
+<span id="cb56-184"><a href="#cb56-184"></a></span>
+<span id="cb56-187"><a href="#cb56-187"></a><span class="in">```{r}</span></span>
+<span id="cb56-188"><a href="#cb56-188"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb56-189"><a href="#cb56-189"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>, island <span class="sc">==</span> <span class="st">"Biscoe"</span>, body_mass_g <span class="sc">&gt;=</span> <span class="dv">5000</span>, body_mass_g <span class="sc">&lt;=</span> <span class="dv">5500</span>)</span>
+<span id="cb56-190"><a href="#cb56-190"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

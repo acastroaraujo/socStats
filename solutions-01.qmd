@@ -1,3 +1,159 @@
 ---
 title: "Solutions 1"
 ---
+
+## Data Structures
+
+### Exercise
+
+`mtcars` is a data frame. You can verify this by looking at its class:
+
+```{r}
+class(mtcars)
+```
+
+A "data frame" is basically a **list** of atomic vectors each of which *have the same `length()`*---i.e., the number of rows in the dataset. This is why `typeof(mtcars)` produces "list."
+
+```{r}
+typeof(mtcars)
+```
+
+```{r}
+nrow(mtcars) ## number of observations
+ncol(mtcars) ## number of columns
+length(mtcars) ## not number of observations, but number of columns
+dim(mtcars) ## number of rows and columns
+rownames(mtcars)
+colnames(mtcars)
+```
+
+### Exercise
+
+```{r}
+#| error: true
+T <- 123
+T
+TRUE <- 123
+```
+
+You can assign any value to `T`, but R won't let you modify `TRUE` because it is a "reserved keyword." Other reserved keywords include: `function`, `for`, `FALSE`, `Inf`, `NULL`, `NA`, among others.
+
+### Exercise
+
+Test your knowledge of the vector coercion rules by predicting the output of the following uses of `c()`:
+
+```{r}
+c(1, FALSE) ## numeric (or "double")
+c("a", 1) ## character
+c(TRUE, 1L) ## numeric (or "integer")
+```
+
+Yup.
+
+### Exercise
+
+`as.integer()` coerces `TRUE` to 1 and `FALSE` to 0.
+
+```{r}
+as.integer(c(TRUE, FALSE))
+```
+
+This is the most common (and useful) form of coercion you'll see.
+
+### Exercise
+
+Implicit coercion of logicals to numericals.
+
+```{r}
+x <- sample(c(TRUE, FALSE), size = 75, replace = TRUE)
+sum(x)  ## number of TRUE values
+mean(x) ## proportion of TRUE values
+sum(x) / length(x) ## verifying the mean function
+```
+
+### Exercise
+
+The difference between `mtcars["mpg"]` and `mtcars[["mpg"]]` is that the first *selects* a column in a data frame, while the second *extracts* the column. `mtcars[["mpg"]]` is equivalent to `mtcars$mpg`.
+
+### Exercise
+
+`letters` is a built-in object in R that contains the 26 letters of English alphabet.
+
+Using the `[` operator, do the following:
+
+Extract the 17^th^ value of `letters`
+
+```{r}
+letters[17]
+```
+
+Create a sequence of even numbers from `2` to `26` and use that to subset `letters`
+
+```{r}
+letters[seq(2, 26, by = 2)]
+```
+
+Use `8:12` to subset `letters`.
+
+```{r}
+letters[8:12]
+```
+
+### Exercise
+
+```{r}
+letters[18] <- NA
+letters
+```
+
+### Exercise
+
+Subset `mtcars` so that we only see the observations for which `cyl == 4`.
+
+```{r}
+mtcars[mtcars$cyl == 4, ]
+```
+
+Subset `mtcars` so that we only see the observations for which `mpg` is greater than `23`.
+
+```{r}
+mtcars[mtcars$mpg > 23, ]
+```
+
+## Search
+
+### Exercise
+
+> Using what I told you earlier about the `search()` function, explain why you get two different errors. What is going on? What is R doing when you type `table(year)`? (You might want to type `search()` into the console again). In what package does R find the `year` object?
+
+First, R searched for an object called `year` and didn't find anyting.
+
+Second, R searched for `year` and found a function with the same name in the `lubridate` package. 
+
+## `dplyr`
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+
+### Exercise
+
+```{r}
+i <- seq(2, nrow(penguins), by = 2)
+
+penguins |> 
+  slice(i)
+
+penguins |> 
+  slice(seq(3, nrow(penguins), by = 3))
+```
+
+### Exercise
+
+```{r}
+penguins |> 
+  filter(species == "Gentoo", island == "Biscoe", body_mass_g >= 5000, body_mass_g <= 5500)
+```
+

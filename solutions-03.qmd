@@ -1,3 +1,248 @@
 ---
-title: "Solutions 1"
+title: "Solutions 3"
+callout-appearance: simple
+callout-icon: false
 ---
+
+```{r}
+#| code-summary: "Packages and Setup"
+#| message: false
+library(tidyverse)
+theme_set(theme_light(base_family = "Avenir Next Condensed"))
+```
+
+## ggplot
+
+### Exercise
+
+Modify the code below to make the points larger squares and slightly transparent. See `?geom_point` for more information on the point layer.
+
+```{r}
+ggplot(faithful) + 
+  geom_point(aes(x = eruptions, y = waiting), shape = 15, size = 10, alpha = 1/5)
+```
+
+### Exercise
+
+Color the two visible clusters in the histogram with different colors.
+
+```{r}
+faithful |> 
+  ggplot() + 
+  geom_histogram(aes(x = eruptions, fill = eruptions > 3.2))
+```
+
+### Exercise
+
+Add a line that separates the two point distributions. See `?geom_abline` for how to draw straight lines from a slope and intercept.
+
+```{r}
+ggplot(faithful) + 
+  geom_point(aes(x = eruptions, y = waiting)) + 
+  geom_abline(intercept = 125, slope = -20)
+```
+
+### Exercise
+
+Use `RColorBrewer::display.brewer.all()` to see all the different palettes from Color Brewer and pick your favorite. Modify the code below to use it.
+
+```{r}
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy, fill = class), shape = 21) + 
+  scale_fill_brewer(type = 'qual', palette = "Spectral")
+```
+
+### Exercise
+
+Modify the code below to create a bubble chart (scatterplot with size mapped to a continuous variable) showing `cyl` with size. Make sure that only the present amount of cylinders (4, 5, 6, and 8) are present in the legend.
+
+```{r}
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy, color = class, size = cyl)) + 
+  scale_color_brewer(type = 'qual') + 
+  scale_size_area(breaks = c(4, 5, 6, 8)) ## ensures 0 is mapped to 0 size
+```
+
+### Exercise
+
+Modify the code below so that color is no longer mapped to the discrete `class` variable, but to the continuous `cty` variable. What happens to the guide?
+
+```{r}
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy, color = cty, size = cty)) + 
+  scale_size_area() 
+```
+
+The type of guide can be controlled with the `guide` argument in the scale, or with the `guides()` function. Continuous colors have a gradient color bar by default, but setting it to `legend` will turn it back to the standard look. What happens when multiple aesthetics are mapped to the same variable and uses the guide type?
+
+```{r}
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy, color = cty, size = cty)) + 
+  scale_size_area() + 
+  guides(color = "legend")
+```
+
+### Exercise
+
+One of the great things about facets is that they share the axes between the different panels. Sometimes this is undesirable though, and the behavior can be changed with the `scales` argument. Experiment with the different possible settings in the plot below:
+
+```{r}
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) + 
+  facet_wrap(~ drv, scales = "fixed") ## default
+
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) + 
+  facet_wrap(~ drv, scales = "free")
+
+
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) + 
+  facet_wrap(~ drv, scales = "free_x")
+
+
+ggplot(mpg) + 
+  geom_point(aes(x = displ, y = hwy)) + 
+  facet_wrap(~ drv, scales = "free_y")
+```
+
+### Exercise
+
+Themes can be overwhelming, especially as you often try to optimize for beauty while you learn. To remove the last part of the equation, the exercise is to take the plot given below and make it as hideous as possible using the theme function. Go absolutely crazy, but take note of the effect as you change different settings.
+
+```{r}
+mpg |> 
+  ggplot(aes(y = class, fill = drv)) + 
+  geom_bar() + 
+  facet_wrap(~year) + 
+  labs(
+    title = "Number of car models per class",
+    caption = "source: http://fueleconomy.gov",
+    x = 'Number of cars',
+    y = NULL
+  ) +
+  theme(
+    text = element_text("Comic Sans MS", color = "orange"),
+    axis.text = element_text(color = "white", size = 20),
+    panel.background = element_rect("yellow"),
+    legend.background = element_rect(
+      fill = "yellow", linetype = "dotted", color = "white", linewidth = 2),
+    strip.text = element_text(face = 'bold', hjust = 0, angle = 180),
+    plot.background = element_rect("black")
+  )
+```
+
+## Simulation
+
+```{r}
+url <- "https://raw.githubusercontent.com/acastroaraujo/socStats/main/simulation_function_week3.R"
+source(url)
+
+
+sims <- simulation_votes(dem_prob_pop = 0.52, sample_size = 300, num_sims = 500)
+
+results <- sims |> 
+  group_by(id) |> 
+  summarize(dem_prop = mean(vote == "Dem"))
+
+glimpse(results)
+```
+
+### Exercise
+
+In the simulation above, what is the average `dem_prop`? What is the standard deviation of `dem_prop`? How does this change for different values of `sample_size`?
+
+```{r}
+mean(results$dem_prop)
+```
+
+This is almost the same as `dem_prob_pop`!
+
+```{r}
+sd(results$dem_prop)
+```
+
+Now I will increase the sample size by a factor of 2.
+
+```{r}
+sims <- simulation_votes(dem_prob_pop = 0.52, sample_size = 600, num_sims = 500)
+
+results <- sims |> 
+  group_by(id) |> 
+  summarize(dem_prop = mean(vote == "Dem"))
+
+mean(results$dem_prop)
+sd(results$dem_prop)
+```
+
+The mean is still pretty much the same, but the standard deviation is now much smaller. (Decreasing the sample size will produce larger standard deviations.)
+
+### Exercise
+
+Create five different simulations with different values of `sample_size` (e.g., 50, 200, 500, 1000, 2000). Put them together into a single dataset and then visualize the results using boxplots. What is going on?
+
+```{r}
+ss <- c(50, 200, 500, 1000, 2000)
+output_list <- lapply(ss, \(ss) simulation_votes(0.52, ss, num_sims = 500)) 
+
+bind_rows(output_list) |> 
+  group_by(id, sample_size) |> 
+  summarize(dem_prop = mean(vote == "Dem")) |> 
+  ggplot(aes(sample_size, dem_prop)) + 
+  geom_boxplot()
+
+bind_rows(output_list) |> 
+  mutate(sample_size = as.numeric(sample_size)) |> 
+  group_by(id, sample_size) |> 
+  summarize(dem_prop = mean(vote == "Dem")) |> 
+  ggplot(aes(sample_size, dem_prop, group = sample_size)) + 
+  geom_boxplot()
+```
+
+### Exercise
+
+Create five different simulations with different values of `dem_prob_pop` (e.g., 0.49, 0.52, 0.55, 0.58). Put them together into a single dataset and then visualize the results using boxplots. What is going on?
+
+```{r}
+p <- c(.49, .52, .55, .58, .63)
+output_list <- lapply(p, \(x) simulation_votes(x, sample_size = 300, num_sims = 500)) 
+
+
+bind_rows(output_list) |> 
+  group_by(id, dem_prob_pop) |> 
+  summarize(dem_prop = mean(vote == "Dem")) |> 
+  ggplot(aes(dem_prob_pop, dem_prop)) + 
+  geom_boxplot()
+
+```
+
+### Extra
+
+Mega simulation pretty graph.
+
+```{r}
+#| fig-height: 9
+#| message: false
+
+grid <- tidyr::expand_grid(p, ss)
+
+out <- map2(grid$p, grid$ss, function(dem_prob, sample_size) {
+  simulation_votes(dem_prob, sample_size, num_sims = 500)
+})
+
+df <- bind_rows(out) |> 
+  group_by(dem_prob_pop, sample_size, id) |> 
+  summarize(prop = mean(vote == "Dem"))
+
+df$dem_prob_pop <- factor(df$dem_prob_pop, levels = p)
+df$sample_size <- factor(df$sample_size, levels = ss)
+
+df |> 
+  mutate(strip_label = paste("\"True\" Value:", dem_prob_pop)) |> 
+  ggplot(aes(prop, sample_size)) + 
+  geom_boxplot() + 
+  labs(y = "Sample Size", x = "Observed Proportions") + 
+  facet_wrap(~ strip_label, ncol = 1) + 
+  theme_light(base_family = "Optima") + 
+  theme(strip.background = element_rect(fill = "steelblue")) 
+```

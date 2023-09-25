@@ -10,6 +10,10 @@ library(tidyverse)
 library(nycflights13)
 ```
 
+**Note. I just realized that there where publicly available solutions to these exercises here:**
+
+<https://mine-cetinkaya-rundel.github.io/r4ds-solutions/data-transform.html>
+
 ## Rows
 
 ### 4.2.5.1

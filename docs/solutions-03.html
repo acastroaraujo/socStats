@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Social Statistics I (Exercises) - 7&nbsp; Solutions 1</title>
+<title>Social Statistics I (Exercises) - 7&nbsp; Solutions 3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./solutions-04.html" rel="next">
+<link href="./references.html" rel="next">
 <link href="./solutions-02.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -109,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec-solutions.html">Solutions</a></li><li class="breadcrumb-item"><a href="./solutions-03.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 1</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec-solutions.html">Solutions</a></li><li class="breadcrumb-item"><a href="./solutions-03.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 3</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -210,13 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./solutions-03.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./solutions-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 3</span></span></a>
   </div>
 </li>
       </ul>
@@ -233,14 +227,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#ggplot" id="toc-ggplot" class="nav-link active" data-scroll-target="#ggplot"><span class="header-section-number">7.1</span> ggplot</a>
+  <ul class="collapse">
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">7.1.1</span> Exercise</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">7.1.2</span> Exercise</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">7.1.3</span> Exercise</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">7.1.4</span> Exercise</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4"><span class="header-section-number">7.1.5</span> Exercise</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5"><span class="header-section-number">7.1.6</span> Exercise</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6"><span class="header-section-number">7.1.7</span> Exercise</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7"><span class="header-section-number">7.1.8</span> Exercise</a></li>
+  </ul></li>
+  <li><a href="#simulation" id="toc-simulation" class="nav-link" data-scroll-target="#simulation"><span class="header-section-number">7.2</span> Simulation</a>
+  <ul class="collapse">
+  <li><a href="#exercise-8" id="toc-exercise-8" class="nav-link" data-scroll-target="#exercise-8"><span class="header-section-number">7.2.1</span> Exercise</a></li>
+  <li><a href="#exercise-9" id="toc-exercise-9" class="nav-link" data-scroll-target="#exercise-9"><span class="header-section-number">7.2.2</span> Exercise</a></li>
+  <li><a href="#exercise-10" id="toc-exercise-10" class="nav-link" data-scroll-target="#exercise-10"><span class="header-section-number">7.2.3</span> Exercise</a></li>
+  <li><a href="#extra" id="toc-extra" class="nav-link" data-scroll-target="#extra"><span class="header-section-number">7.2.4</span> Extra</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 1</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 3</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -255,10 +272,369 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<div class="cell">
+<details open="">
+<summary>Packages and Setup</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Avenir Next Condensed"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="ggplot" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="ggplot"><span class="header-section-number">7.1</span> ggplot</h2>
+<section id="exercise" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">7.1.1</span> Exercise</h3>
+<p>Modify the code below to make the points larger squares and slightly transparent. See <code>?geom_point</code> for more information on the point layer.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">ggplot</span>(faithful) <span class="sc">+</span> </span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> eruptions, <span class="at">y =</span> waiting), <span class="at">shape =</span> <span class="dv">15</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercise-1" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">7.1.2</span> Exercise</h3>
+<p>Color the two visible clusters in the histogram with different colors.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>faithful <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> eruptions, <span class="at">fill =</span> eruptions <span class="sc">&gt;</span> <span class="fl">3.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercise-2" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">7.1.3</span> Exercise</h3>
+<p>Add a line that separates the two point distributions. See <code>?geom_abline</code> for how to draw straight lines from a slope and intercept.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(faithful) <span class="sc">+</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> eruptions, <span class="at">y =</span> waiting)) <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">125</span>, <span class="at">slope =</span> <span class="sc">-</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercise-3" class="level3" data-number="7.1.4">
+<h3 data-number="7.1.4" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">7.1.4</span> Exercise</h3>
+<p>Use <code>RColorBrewer::display.brewer.all()</code> to see all the different palettes from Color Brewer and pick your favorite. Modify the code below to use it.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">fill =</span> class), <span class="at">shape =</span> <span class="dv">21</span>) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">type =</span> <span class="st">'qual'</span>, <span class="at">palette =</span> <span class="st">"Spectral"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercise-4" class="level3" data-number="7.1.5">
+<h3 data-number="7.1.5" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">7.1.5</span> Exercise</h3>
+<p>Modify the code below to create a bubble chart (scatterplot with size mapped to a continuous variable) showing <code>cyl</code> with size. Make sure that only the present amount of cylinders (4, 5, 6, and 8) are present in the legend.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class, <span class="at">size =</span> cyl)) <span class="sc">+</span> </span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">type =</span> <span class="st">'qual'</span>) <span class="sc">+</span> </span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">scale_size_area</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>)) <span class="do">## ensures 0 is mapped to 0 size</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercise-5" class="level3" data-number="7.1.6">
+<h3 data-number="7.1.6" class="anchored" data-anchor-id="exercise-5"><span class="header-section-number">7.1.6</span> Exercise</h3>
+<p>Modify the code below so that color is no longer mapped to the discrete <code>class</code> variable, but to the continuous <code>cty</code> variable. What happens to the guide?</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> cty, <span class="at">size =</span> cty)) <span class="sc">+</span> </span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">scale_size_area</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The type of guide can be controlled with the <code>guide</code> argument in the scale, or with the <code>guides()</code> function. Continuous colors have a gradient color bar by default, but setting it to <code>legend</code> will turn it back to the standard look. What happens when multiple aesthetics are mapped to the same variable and uses the guide type?</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> cty, <span class="at">size =</span> cty)) <span class="sc">+</span> </span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">scale_size_area</span>() <span class="sc">+</span> </span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"legend"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercise-6" class="level3" data-number="7.1.7">
+<h3 data-number="7.1.7" class="anchored" data-anchor-id="exercise-6"><span class="header-section-number">7.1.7</span> Exercise</h3>
+<p>One of the great things about facets is that they share the axes between the different panels. Sometimes this is undesirable though, and the behavior can be changed with the <code>scales</code> argument. Experiment with the different possible settings in the plot below:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> drv, <span class="at">scales =</span> <span class="st">"fixed"</span>) <span class="do">## default</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> drv, <span class="at">scales =</span> <span class="st">"free"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> drv, <span class="at">scales =</span> <span class="st">"free_x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid" width="672"></p>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> drv, <span class="at">scales =</span> <span class="st">"free_y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-9-4.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercise-7" class="level3" data-number="7.1.8">
+<h3 data-number="7.1.8" class="anchored" data-anchor-id="exercise-7"><span class="header-section-number">7.1.8</span> Exercise</h3>
+<p>Themes can be overwhelming, especially as you often try to optimize for beauty while you learn. To remove the last part of the equation, the exercise is to take the plot given below and make it as hideous as possible using the theme function. Go absolutely crazy, but take note of the effect as you change different settings.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>mpg <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> class, <span class="at">fill =</span> drv)) <span class="sc">+</span> </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year) <span class="sc">+</span> </span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">labs</span>(</span>
+<span id="cb14-6"><a href="#cb14-6"></a>    <span class="at">title =</span> <span class="st">"Number of car models per class"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7"></a>    <span class="at">caption =</span> <span class="st">"source: http://fueleconomy.gov"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8"></a>    <span class="at">x =</span> <span class="st">'Number of cars'</span>,</span>
+<span id="cb14-9"><a href="#cb14-9"></a>    <span class="at">y =</span> <span class="cn">NULL</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a>  ) <span class="sc">+</span></span>
+<span id="cb14-11"><a href="#cb14-11"></a>  <span class="fu">theme</span>(</span>
+<span id="cb14-12"><a href="#cb14-12"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="st">"Comic Sans MS"</span>, <span class="at">color =</span> <span class="st">"orange"</span>),</span>
+<span id="cb14-13"><a href="#cb14-13"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb14-14"><a href="#cb14-14"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"yellow"</span>),</span>
+<span id="cb14-15"><a href="#cb14-15"></a>    <span class="at">legend.background =</span> <span class="fu">element_rect</span>(</span>
+<span id="cb14-16"><a href="#cb14-16"></a>      <span class="at">fill =</span> <span class="st">"yellow"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>),</span>
+<span id="cb14-17"><a href="#cb14-17"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">'bold'</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">angle =</span> <span class="dv">180</span>),</span>
+<span id="cb14-18"><a href="#cb14-18"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="st">"black"</span>)</span>
+<span id="cb14-19"><a href="#cb14-19"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="simulation" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="simulation"><span class="header-section-number">7.2</span> Simulation</h2>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/acastroaraujo/socStats/main/simulation_function_week3.R"</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">source</span>(url)</span>
+<span id="cb15-3"><a href="#cb15-3"></a></span>
+<span id="cb15-4"><a href="#cb15-4"></a></span>
+<span id="cb15-5"><a href="#cb15-5"></a>sims <span class="ot">&lt;-</span> <span class="fu">simulation_votes</span>(<span class="at">dem_prob_pop =</span> <span class="fl">0.52</span>, <span class="at">sample_size =</span> <span class="dv">300</span>, <span class="at">num_sims =</span> <span class="dv">500</span>)</span>
+<span id="cb15-6"><a href="#cb15-6"></a></span>
+<span id="cb15-7"><a href="#cb15-7"></a>results <span class="ot">&lt;-</span> sims <span class="sc">|&gt;</span> </span>
+<span id="cb15-8"><a href="#cb15-8"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span> </span>
+<span id="cb15-9"><a href="#cb15-9"></a>  <span class="fu">summarize</span>(<span class="at">dem_prop =</span> <span class="fu">mean</span>(vote <span class="sc">==</span> <span class="st">"Dem"</span>))</span>
+<span id="cb15-10"><a href="#cb15-10"></a></span>
+<span id="cb15-11"><a href="#cb15-11"></a><span class="fu">glimpse</span>(results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 500
+Columns: 2
+$ id       &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18…
+$ dem_prop &lt;dbl&gt; 0.5300000, 0.5533333, 0.4933333, 0.5500000, 0.5366667, 0.5166…</code></pre>
+</div>
+</div>
+<section id="exercise-8" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="exercise-8"><span class="header-section-number">7.2.1</span> Exercise</h3>
+<p>In the simulation above, what is the average <code>dem_prop</code>? What is the standard deviation of <code>dem_prop</code>? How does this change for different values of <code>sample_size</code>?</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">mean</span>(results<span class="sc">$</span>dem_prop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.52048</code></pre>
+</div>
+</div>
+<p>This is almost the same as <code>dem_prob_pop</code>!</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">sd</span>(results<span class="sc">$</span>dem_prop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.02904462</code></pre>
+</div>
+</div>
+<p>Now I will increase the sample size by a factor of 2.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">simulation_votes</span>(<span class="at">dem_prob_pop =</span> <span class="fl">0.52</span>, <span class="at">sample_size =</span> <span class="dv">600</span>, <span class="at">num_sims =</span> <span class="dv">500</span>)</span>
+<span id="cb21-2"><a href="#cb21-2"></a></span>
+<span id="cb21-3"><a href="#cb21-3"></a>results <span class="ot">&lt;-</span> sims <span class="sc">|&gt;</span> </span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span> </span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">summarize</span>(<span class="at">dem_prop =</span> <span class="fu">mean</span>(vote <span class="sc">==</span> <span class="st">"Dem"</span>))</span>
+<span id="cb21-6"><a href="#cb21-6"></a></span>
+<span id="cb21-7"><a href="#cb21-7"></a><span class="fu">mean</span>(results<span class="sc">$</span>dem_prop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5209533</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">sd</span>(results<span class="sc">$</span>dem_prop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01998279</code></pre>
+</div>
+</div>
+<p>The mean is still pretty much the same, but the standard deviation is now much smaller. (Decreasing the sample size will produce larger standard deviations.)</p>
+</section>
+<section id="exercise-9" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="exercise-9"><span class="header-section-number">7.2.2</span> Exercise</h3>
+<p>Create five different simulations with different values of <code>sample_size</code> (e.g., 50, 200, 500, 1000, 2000). Put them together into a single dataset and then visualize the results using boxplots. What is going on?</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>ss <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">200</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">2000</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a>output_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(ss, \(ss) <span class="fu">simulation_votes</span>(<span class="fl">0.52</span>, ss, <span class="at">num_sims =</span> <span class="dv">500</span>)) </span>
+<span id="cb25-3"><a href="#cb25-3"></a></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="fu">bind_rows</span>(output_list) <span class="sc">|&gt;</span> </span>
+<span id="cb25-5"><a href="#cb25-5"></a>  <span class="fu">group_by</span>(id, sample_size) <span class="sc">|&gt;</span> </span>
+<span id="cb25-6"><a href="#cb25-6"></a>  <span class="fu">summarize</span>(<span class="at">dem_prop =</span> <span class="fu">mean</span>(vote <span class="sc">==</span> <span class="st">"Dem"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb25-7"><a href="#cb25-7"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sample_size, dem_prop)) <span class="sc">+</span> </span>
+<span id="cb25-8"><a href="#cb25-8"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'id'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">bind_rows</span>(output_list) <span class="sc">|&gt;</span> </span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">mutate</span>(<span class="at">sample_size =</span> <span class="fu">as.numeric</span>(sample_size)) <span class="sc">|&gt;</span> </span>
+<span id="cb27-3"><a href="#cb27-3"></a>  <span class="fu">group_by</span>(id, sample_size) <span class="sc">|&gt;</span> </span>
+<span id="cb27-4"><a href="#cb27-4"></a>  <span class="fu">summarize</span>(<span class="at">dem_prop =</span> <span class="fu">mean</span>(vote <span class="sc">==</span> <span class="st">"Dem"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sample_size, dem_prop, <span class="at">group =</span> sample_size)) <span class="sc">+</span> </span>
+<span id="cb27-6"><a href="#cb27-6"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'id'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-15-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercise-10" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="exercise-10"><span class="header-section-number">7.2.3</span> Exercise</h3>
+<p>Create five different simulations with different values of <code>dem_prob_pop</code> (e.g., 0.49, 0.52, 0.55, 0.58). Put them together into a single dataset and then visualize the results using boxplots. What is going on?</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(.<span class="dv">49</span>, .<span class="dv">52</span>, .<span class="dv">55</span>, .<span class="dv">58</span>, .<span class="dv">63</span>)</span>
+<span id="cb29-2"><a href="#cb29-2"></a>output_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(p, \(x) <span class="fu">simulation_votes</span>(x, <span class="at">sample_size =</span> <span class="dv">300</span>, <span class="at">num_sims =</span> <span class="dv">500</span>)) </span>
+<span id="cb29-3"><a href="#cb29-3"></a></span>
+<span id="cb29-4"><a href="#cb29-4"></a></span>
+<span id="cb29-5"><a href="#cb29-5"></a><span class="fu">bind_rows</span>(output_list) <span class="sc">|&gt;</span> </span>
+<span id="cb29-6"><a href="#cb29-6"></a>  <span class="fu">group_by</span>(id, dem_prob_pop) <span class="sc">|&gt;</span> </span>
+<span id="cb29-7"><a href="#cb29-7"></a>  <span class="fu">summarize</span>(<span class="at">dem_prop =</span> <span class="fu">mean</span>(vote <span class="sc">==</span> <span class="st">"Dem"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb29-8"><a href="#cb29-8"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(dem_prob_pop, dem_prop)) <span class="sc">+</span> </span>
+<span id="cb29-9"><a href="#cb29-9"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'id'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="extra" class="level3" data-number="7.2.4">
+<h3 data-number="7.2.4" class="anchored" data-anchor-id="extra"><span class="header-section-number">7.2.4</span> Extra</h3>
+<p>Mega simulation pretty graph.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>grid <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">expand_grid</span>(p, ss)</span>
+<span id="cb31-2"><a href="#cb31-2"></a></span>
+<span id="cb31-3"><a href="#cb31-3"></a>out <span class="ot">&lt;-</span> <span class="fu">map2</span>(grid<span class="sc">$</span>p, grid<span class="sc">$</span>ss, <span class="cf">function</span>(dem_prob, sample_size) {</span>
+<span id="cb31-4"><a href="#cb31-4"></a>  <span class="fu">simulation_votes</span>(dem_prob, sample_size, <span class="at">num_sims =</span> <span class="dv">500</span>)</span>
+<span id="cb31-5"><a href="#cb31-5"></a>})</span>
+<span id="cb31-6"><a href="#cb31-6"></a></span>
+<span id="cb31-7"><a href="#cb31-7"></a>df <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(out) <span class="sc">|&gt;</span> </span>
+<span id="cb31-8"><a href="#cb31-8"></a>  <span class="fu">group_by</span>(dem_prob_pop, sample_size, id) <span class="sc">|&gt;</span> </span>
+<span id="cb31-9"><a href="#cb31-9"></a>  <span class="fu">summarize</span>(<span class="at">prop =</span> <span class="fu">mean</span>(vote <span class="sc">==</span> <span class="st">"Dem"</span>))</span>
+<span id="cb31-10"><a href="#cb31-10"></a></span>
+<span id="cb31-11"><a href="#cb31-11"></a>df<span class="sc">$</span>dem_prob_pop <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>dem_prob_pop, <span class="at">levels =</span> p)</span>
+<span id="cb31-12"><a href="#cb31-12"></a>df<span class="sc">$</span>sample_size <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>sample_size, <span class="at">levels =</span> ss)</span>
+<span id="cb31-13"><a href="#cb31-13"></a></span>
+<span id="cb31-14"><a href="#cb31-14"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb31-15"><a href="#cb31-15"></a>  <span class="fu">mutate</span>(<span class="at">strip_label =</span> <span class="fu">paste</span>(<span class="st">"</span><span class="sc">\"</span><span class="st">True</span><span class="sc">\"</span><span class="st"> Value:"</span>, dem_prob_pop)) <span class="sc">|&gt;</span> </span>
+<span id="cb31-16"><a href="#cb31-16"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(prop, sample_size)) <span class="sc">+</span> </span>
+<span id="cb31-17"><a href="#cb31-17"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb31-18"><a href="#cb31-18"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Sample Size"</span>, <span class="at">x =</span> <span class="st">"Observed Proportions"</span>) <span class="sc">+</span> </span>
+<span id="cb31-19"><a href="#cb31-19"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> strip_label, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb31-20"><a href="#cb31-20"></a>  <span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Optima"</span>) <span class="sc">+</span> </span>
+<span id="cb31-21"><a href="#cb31-21"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-03_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
 <!-- -->
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -552,14 +928,260 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./solutions-04.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Solutions 1</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Solutions 1"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1"></a><span class="co">---</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="an">title:</span><span class="co"> "Solutions 3"</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="an">callout-appearance:</span><span class="co"> simple</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="an">callout-icon:</span><span class="co"> false</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a><span class="co">---</span></span>
+<span id="cb32-6"><a href="#cb32-6"></a></span>
+<span id="cb32-9"><a href="#cb32-9"></a><span class="in">```{r}</span></span>
+<span id="cb32-10"><a href="#cb32-10"></a><span class="co">#| code-summary: "Packages and Setup"</span></span>
+<span id="cb32-11"><a href="#cb32-11"></a><span class="co">#| message: false</span></span>
+<span id="cb32-12"><a href="#cb32-12"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb32-13"><a href="#cb32-13"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Avenir Next Condensed"</span>))</span>
+<span id="cb32-14"><a href="#cb32-14"></a><span class="in">```</span></span>
+<span id="cb32-15"><a href="#cb32-15"></a></span>
+<span id="cb32-16"><a href="#cb32-16"></a><span class="fu">## ggplot</span></span>
+<span id="cb32-17"><a href="#cb32-17"></a></span>
+<span id="cb32-18"><a href="#cb32-18"></a><span class="fu">### Exercise</span></span>
+<span id="cb32-19"><a href="#cb32-19"></a></span>
+<span id="cb32-20"><a href="#cb32-20"></a>Modify the code below to make the points larger squares and slightly transparent. See <span class="in">`?geom_point`</span> for more information on the point layer.</span>
+<span id="cb32-21"><a href="#cb32-21"></a></span>
+<span id="cb32-24"><a href="#cb32-24"></a><span class="in">```{r}</span></span>
+<span id="cb32-25"><a href="#cb32-25"></a><span class="fu">ggplot</span>(faithful) <span class="sc">+</span> </span>
+<span id="cb32-26"><a href="#cb32-26"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> eruptions, <span class="at">y =</span> waiting), <span class="at">shape =</span> <span class="dv">15</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>)</span>
+<span id="cb32-27"><a href="#cb32-27"></a><span class="in">```</span></span>
+<span id="cb32-28"><a href="#cb32-28"></a></span>
+<span id="cb32-29"><a href="#cb32-29"></a><span class="fu">### Exercise</span></span>
+<span id="cb32-30"><a href="#cb32-30"></a></span>
+<span id="cb32-31"><a href="#cb32-31"></a>Color the two visible clusters in the histogram with different colors.</span>
+<span id="cb32-32"><a href="#cb32-32"></a></span>
+<span id="cb32-35"><a href="#cb32-35"></a><span class="in">```{r}</span></span>
+<span id="cb32-36"><a href="#cb32-36"></a>faithful <span class="sc">|&gt;</span> </span>
+<span id="cb32-37"><a href="#cb32-37"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb32-38"><a href="#cb32-38"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> eruptions, <span class="at">fill =</span> eruptions <span class="sc">&gt;</span> <span class="fl">3.2</span>))</span>
+<span id="cb32-39"><a href="#cb32-39"></a><span class="in">```</span></span>
+<span id="cb32-40"><a href="#cb32-40"></a></span>
+<span id="cb32-41"><a href="#cb32-41"></a><span class="fu">### Exercise</span></span>
+<span id="cb32-42"><a href="#cb32-42"></a></span>
+<span id="cb32-43"><a href="#cb32-43"></a>Add a line that separates the two point distributions. See <span class="in">`?geom_abline`</span> for how to draw straight lines from a slope and intercept.</span>
+<span id="cb32-44"><a href="#cb32-44"></a></span>
+<span id="cb32-47"><a href="#cb32-47"></a><span class="in">```{r}</span></span>
+<span id="cb32-48"><a href="#cb32-48"></a><span class="fu">ggplot</span>(faithful) <span class="sc">+</span> </span>
+<span id="cb32-49"><a href="#cb32-49"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> eruptions, <span class="at">y =</span> waiting)) <span class="sc">+</span> </span>
+<span id="cb32-50"><a href="#cb32-50"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">125</span>, <span class="at">slope =</span> <span class="sc">-</span><span class="dv">20</span>)</span>
+<span id="cb32-51"><a href="#cb32-51"></a><span class="in">```</span></span>
+<span id="cb32-52"><a href="#cb32-52"></a></span>
+<span id="cb32-53"><a href="#cb32-53"></a><span class="fu">### Exercise</span></span>
+<span id="cb32-54"><a href="#cb32-54"></a></span>
+<span id="cb32-55"><a href="#cb32-55"></a>Use <span class="in">`RColorBrewer::display.brewer.all()`</span> to see all the different palettes from Color Brewer and pick your favorite. Modify the code below to use it.</span>
+<span id="cb32-56"><a href="#cb32-56"></a></span>
+<span id="cb32-59"><a href="#cb32-59"></a><span class="in">```{r}</span></span>
+<span id="cb32-60"><a href="#cb32-60"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb32-61"><a href="#cb32-61"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">fill =</span> class), <span class="at">shape =</span> <span class="dv">21</span>) <span class="sc">+</span> </span>
+<span id="cb32-62"><a href="#cb32-62"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">type =</span> <span class="st">'qual'</span>, <span class="at">palette =</span> <span class="st">"Spectral"</span>)</span>
+<span id="cb32-63"><a href="#cb32-63"></a><span class="in">```</span></span>
+<span id="cb32-64"><a href="#cb32-64"></a></span>
+<span id="cb32-65"><a href="#cb32-65"></a><span class="fu">### Exercise</span></span>
+<span id="cb32-66"><a href="#cb32-66"></a></span>
+<span id="cb32-67"><a href="#cb32-67"></a>Modify the code below to create a bubble chart (scatterplot with size mapped to a continuous variable) showing <span class="in">`cyl`</span> with size. Make sure that only the present amount of cylinders (4, 5, 6, and 8) are present in the legend.</span>
+<span id="cb32-68"><a href="#cb32-68"></a></span>
+<span id="cb32-71"><a href="#cb32-71"></a><span class="in">```{r}</span></span>
+<span id="cb32-72"><a href="#cb32-72"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb32-73"><a href="#cb32-73"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class, <span class="at">size =</span> cyl)) <span class="sc">+</span> </span>
+<span id="cb32-74"><a href="#cb32-74"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">type =</span> <span class="st">'qual'</span>) <span class="sc">+</span> </span>
+<span id="cb32-75"><a href="#cb32-75"></a>  <span class="fu">scale_size_area</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>)) <span class="do">## ensures 0 is mapped to 0 size</span></span>
+<span id="cb32-76"><a href="#cb32-76"></a><span class="in">```</span></span>
+<span id="cb32-77"><a href="#cb32-77"></a></span>
+<span id="cb32-78"><a href="#cb32-78"></a><span class="fu">### Exercise</span></span>
+<span id="cb32-79"><a href="#cb32-79"></a></span>
+<span id="cb32-80"><a href="#cb32-80"></a>Modify the code below so that color is no longer mapped to the discrete <span class="in">`class`</span> variable, but to the continuous <span class="in">`cty`</span> variable. What happens to the guide?</span>
+<span id="cb32-81"><a href="#cb32-81"></a></span>
+<span id="cb32-84"><a href="#cb32-84"></a><span class="in">```{r}</span></span>
+<span id="cb32-85"><a href="#cb32-85"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb32-86"><a href="#cb32-86"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> cty, <span class="at">size =</span> cty)) <span class="sc">+</span> </span>
+<span id="cb32-87"><a href="#cb32-87"></a>  <span class="fu">scale_size_area</span>() </span>
+<span id="cb32-88"><a href="#cb32-88"></a><span class="in">```</span></span>
+<span id="cb32-89"><a href="#cb32-89"></a></span>
+<span id="cb32-90"><a href="#cb32-90"></a>The type of guide can be controlled with the <span class="in">`guide`</span> argument in the scale, or with the <span class="in">`guides()`</span> function. Continuous colors have a gradient color bar by default, but setting it to <span class="in">`legend`</span> will turn it back to the standard look. What happens when multiple aesthetics are mapped to the same variable and uses the guide type?</span>
+<span id="cb32-91"><a href="#cb32-91"></a></span>
+<span id="cb32-94"><a href="#cb32-94"></a><span class="in">```{r}</span></span>
+<span id="cb32-95"><a href="#cb32-95"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb32-96"><a href="#cb32-96"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> cty, <span class="at">size =</span> cty)) <span class="sc">+</span> </span>
+<span id="cb32-97"><a href="#cb32-97"></a>  <span class="fu">scale_size_area</span>() <span class="sc">+</span> </span>
+<span id="cb32-98"><a href="#cb32-98"></a>  <span class="fu">guides</span>(<span class="at">color =</span> <span class="st">"legend"</span>)</span>
+<span id="cb32-99"><a href="#cb32-99"></a><span class="in">```</span></span>
+<span id="cb32-100"><a href="#cb32-100"></a></span>
+<span id="cb32-101"><a href="#cb32-101"></a><span class="fu">### Exercise</span></span>
+<span id="cb32-102"><a href="#cb32-102"></a></span>
+<span id="cb32-103"><a href="#cb32-103"></a>One of the great things about facets is that they share the axes between the different panels. Sometimes this is undesirable though, and the behavior can be changed with the <span class="in">`scales`</span> argument. Experiment with the different possible settings in the plot below:</span>
+<span id="cb32-104"><a href="#cb32-104"></a></span>
+<span id="cb32-107"><a href="#cb32-107"></a><span class="in">```{r}</span></span>
+<span id="cb32-108"><a href="#cb32-108"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb32-109"><a href="#cb32-109"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb32-110"><a href="#cb32-110"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> drv, <span class="at">scales =</span> <span class="st">"fixed"</span>) <span class="do">## default</span></span>
+<span id="cb32-111"><a href="#cb32-111"></a></span>
+<span id="cb32-112"><a href="#cb32-112"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb32-113"><a href="#cb32-113"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb32-114"><a href="#cb32-114"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> drv, <span class="at">scales =</span> <span class="st">"free"</span>)</span>
+<span id="cb32-115"><a href="#cb32-115"></a></span>
+<span id="cb32-116"><a href="#cb32-116"></a></span>
+<span id="cb32-117"><a href="#cb32-117"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb32-118"><a href="#cb32-118"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb32-119"><a href="#cb32-119"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> drv, <span class="at">scales =</span> <span class="st">"free_x"</span>)</span>
+<span id="cb32-120"><a href="#cb32-120"></a></span>
+<span id="cb32-121"><a href="#cb32-121"></a></span>
+<span id="cb32-122"><a href="#cb32-122"></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span> </span>
+<span id="cb32-123"><a href="#cb32-123"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb32-124"><a href="#cb32-124"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> drv, <span class="at">scales =</span> <span class="st">"free_y"</span>)</span>
+<span id="cb32-125"><a href="#cb32-125"></a><span class="in">```</span></span>
+<span id="cb32-126"><a href="#cb32-126"></a></span>
+<span id="cb32-127"><a href="#cb32-127"></a><span class="fu">### Exercise</span></span>
+<span id="cb32-128"><a href="#cb32-128"></a></span>
+<span id="cb32-129"><a href="#cb32-129"></a>Themes can be overwhelming, especially as you often try to optimize for beauty while you learn. To remove the last part of the equation, the exercise is to take the plot given below and make it as hideous as possible using the theme function. Go absolutely crazy, but take note of the effect as you change different settings.</span>
+<span id="cb32-130"><a href="#cb32-130"></a></span>
+<span id="cb32-133"><a href="#cb32-133"></a><span class="in">```{r}</span></span>
+<span id="cb32-134"><a href="#cb32-134"></a>mpg <span class="sc">|&gt;</span> </span>
+<span id="cb32-135"><a href="#cb32-135"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> class, <span class="at">fill =</span> drv)) <span class="sc">+</span> </span>
+<span id="cb32-136"><a href="#cb32-136"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
+<span id="cb32-137"><a href="#cb32-137"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year) <span class="sc">+</span> </span>
+<span id="cb32-138"><a href="#cb32-138"></a>  <span class="fu">labs</span>(</span>
+<span id="cb32-139"><a href="#cb32-139"></a>    <span class="at">title =</span> <span class="st">"Number of car models per class"</span>,</span>
+<span id="cb32-140"><a href="#cb32-140"></a>    <span class="at">caption =</span> <span class="st">"source: http://fueleconomy.gov"</span>,</span>
+<span id="cb32-141"><a href="#cb32-141"></a>    <span class="at">x =</span> <span class="st">'Number of cars'</span>,</span>
+<span id="cb32-142"><a href="#cb32-142"></a>    <span class="at">y =</span> <span class="cn">NULL</span></span>
+<span id="cb32-143"><a href="#cb32-143"></a>  ) <span class="sc">+</span></span>
+<span id="cb32-144"><a href="#cb32-144"></a>  <span class="fu">theme</span>(</span>
+<span id="cb32-145"><a href="#cb32-145"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="st">"Comic Sans MS"</span>, <span class="at">color =</span> <span class="st">"orange"</span>),</span>
+<span id="cb32-146"><a href="#cb32-146"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">20</span>),</span>
+<span id="cb32-147"><a href="#cb32-147"></a>    <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="st">"yellow"</span>),</span>
+<span id="cb32-148"><a href="#cb32-148"></a>    <span class="at">legend.background =</span> <span class="fu">element_rect</span>(</span>
+<span id="cb32-149"><a href="#cb32-149"></a>      <span class="at">fill =</span> <span class="st">"yellow"</span>, <span class="at">linetype =</span> <span class="st">"dotted"</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="dv">2</span>),</span>
+<span id="cb32-150"><a href="#cb32-150"></a>    <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">'bold'</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">angle =</span> <span class="dv">180</span>),</span>
+<span id="cb32-151"><a href="#cb32-151"></a>    <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="st">"black"</span>)</span>
+<span id="cb32-152"><a href="#cb32-152"></a>  )</span>
+<span id="cb32-153"><a href="#cb32-153"></a><span class="in">```</span></span>
+<span id="cb32-154"><a href="#cb32-154"></a></span>
+<span id="cb32-155"><a href="#cb32-155"></a><span class="fu">## Simulation</span></span>
+<span id="cb32-156"><a href="#cb32-156"></a></span>
+<span id="cb32-159"><a href="#cb32-159"></a><span class="in">```{r}</span></span>
+<span id="cb32-160"><a href="#cb32-160"></a>url <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/acastroaraujo/socStats/main/simulation_function_week3.R"</span></span>
+<span id="cb32-161"><a href="#cb32-161"></a><span class="fu">source</span>(url)</span>
+<span id="cb32-162"><a href="#cb32-162"></a></span>
+<span id="cb32-163"><a href="#cb32-163"></a></span>
+<span id="cb32-164"><a href="#cb32-164"></a>sims <span class="ot">&lt;-</span> <span class="fu">simulation_votes</span>(<span class="at">dem_prob_pop =</span> <span class="fl">0.52</span>, <span class="at">sample_size =</span> <span class="dv">300</span>, <span class="at">num_sims =</span> <span class="dv">500</span>)</span>
+<span id="cb32-165"><a href="#cb32-165"></a></span>
+<span id="cb32-166"><a href="#cb32-166"></a>results <span class="ot">&lt;-</span> sims <span class="sc">|&gt;</span> </span>
+<span id="cb32-167"><a href="#cb32-167"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span> </span>
+<span id="cb32-168"><a href="#cb32-168"></a>  <span class="fu">summarize</span>(<span class="at">dem_prop =</span> <span class="fu">mean</span>(vote <span class="sc">==</span> <span class="st">"Dem"</span>))</span>
+<span id="cb32-169"><a href="#cb32-169"></a></span>
+<span id="cb32-170"><a href="#cb32-170"></a><span class="fu">glimpse</span>(results)</span>
+<span id="cb32-171"><a href="#cb32-171"></a><span class="in">```</span></span>
+<span id="cb32-172"><a href="#cb32-172"></a></span>
+<span id="cb32-173"><a href="#cb32-173"></a><span class="fu">### Exercise</span></span>
+<span id="cb32-174"><a href="#cb32-174"></a></span>
+<span id="cb32-175"><a href="#cb32-175"></a>In the simulation above, what is the average <span class="in">`dem_prop`</span>? What is the standard deviation of <span class="in">`dem_prop`</span>? How does this change for different values of <span class="in">`sample_size`</span>?</span>
+<span id="cb32-176"><a href="#cb32-176"></a></span>
+<span id="cb32-179"><a href="#cb32-179"></a><span class="in">```{r}</span></span>
+<span id="cb32-180"><a href="#cb32-180"></a><span class="fu">mean</span>(results<span class="sc">$</span>dem_prop)</span>
+<span id="cb32-181"><a href="#cb32-181"></a><span class="in">```</span></span>
+<span id="cb32-182"><a href="#cb32-182"></a></span>
+<span id="cb32-183"><a href="#cb32-183"></a>This is almost the same as <span class="in">`dem_prob_pop`</span>!</span>
+<span id="cb32-184"><a href="#cb32-184"></a></span>
+<span id="cb32-187"><a href="#cb32-187"></a><span class="in">```{r}</span></span>
+<span id="cb32-188"><a href="#cb32-188"></a><span class="fu">sd</span>(results<span class="sc">$</span>dem_prop)</span>
+<span id="cb32-189"><a href="#cb32-189"></a><span class="in">```</span></span>
+<span id="cb32-190"><a href="#cb32-190"></a></span>
+<span id="cb32-191"><a href="#cb32-191"></a>Now I will increase the sample size by a factor of 2.</span>
+<span id="cb32-192"><a href="#cb32-192"></a></span>
+<span id="cb32-195"><a href="#cb32-195"></a><span class="in">```{r}</span></span>
+<span id="cb32-196"><a href="#cb32-196"></a>sims <span class="ot">&lt;-</span> <span class="fu">simulation_votes</span>(<span class="at">dem_prob_pop =</span> <span class="fl">0.52</span>, <span class="at">sample_size =</span> <span class="dv">600</span>, <span class="at">num_sims =</span> <span class="dv">500</span>)</span>
+<span id="cb32-197"><a href="#cb32-197"></a></span>
+<span id="cb32-198"><a href="#cb32-198"></a>results <span class="ot">&lt;-</span> sims <span class="sc">|&gt;</span> </span>
+<span id="cb32-199"><a href="#cb32-199"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span> </span>
+<span id="cb32-200"><a href="#cb32-200"></a>  <span class="fu">summarize</span>(<span class="at">dem_prop =</span> <span class="fu">mean</span>(vote <span class="sc">==</span> <span class="st">"Dem"</span>))</span>
+<span id="cb32-201"><a href="#cb32-201"></a></span>
+<span id="cb32-202"><a href="#cb32-202"></a><span class="fu">mean</span>(results<span class="sc">$</span>dem_prop)</span>
+<span id="cb32-203"><a href="#cb32-203"></a><span class="fu">sd</span>(results<span class="sc">$</span>dem_prop)</span>
+<span id="cb32-204"><a href="#cb32-204"></a><span class="in">```</span></span>
+<span id="cb32-205"><a href="#cb32-205"></a></span>
+<span id="cb32-206"><a href="#cb32-206"></a>The mean is still pretty much the same, but the standard deviation is now much smaller. (Decreasing the sample size will produce larger standard deviations.)</span>
+<span id="cb32-207"><a href="#cb32-207"></a></span>
+<span id="cb32-208"><a href="#cb32-208"></a><span class="fu">### Exercise</span></span>
+<span id="cb32-209"><a href="#cb32-209"></a></span>
+<span id="cb32-210"><a href="#cb32-210"></a>Create five different simulations with different values of <span class="in">`sample_size`</span> (e.g., 50, 200, 500, 1000, 2000). Put them together into a single dataset and then visualize the results using boxplots. What is going on?</span>
+<span id="cb32-211"><a href="#cb32-211"></a></span>
+<span id="cb32-214"><a href="#cb32-214"></a><span class="in">```{r}</span></span>
+<span id="cb32-215"><a href="#cb32-215"></a>ss <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">200</span>, <span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">2000</span>)</span>
+<span id="cb32-216"><a href="#cb32-216"></a>output_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(ss, \(ss) <span class="fu">simulation_votes</span>(<span class="fl">0.52</span>, ss, <span class="at">num_sims =</span> <span class="dv">500</span>)) </span>
+<span id="cb32-217"><a href="#cb32-217"></a></span>
+<span id="cb32-218"><a href="#cb32-218"></a><span class="fu">bind_rows</span>(output_list) <span class="sc">|&gt;</span> </span>
+<span id="cb32-219"><a href="#cb32-219"></a>  <span class="fu">group_by</span>(id, sample_size) <span class="sc">|&gt;</span> </span>
+<span id="cb32-220"><a href="#cb32-220"></a>  <span class="fu">summarize</span>(<span class="at">dem_prop =</span> <span class="fu">mean</span>(vote <span class="sc">==</span> <span class="st">"Dem"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb32-221"><a href="#cb32-221"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sample_size, dem_prop)) <span class="sc">+</span> </span>
+<span id="cb32-222"><a href="#cb32-222"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb32-223"><a href="#cb32-223"></a></span>
+<span id="cb32-224"><a href="#cb32-224"></a><span class="fu">bind_rows</span>(output_list) <span class="sc">|&gt;</span> </span>
+<span id="cb32-225"><a href="#cb32-225"></a>  <span class="fu">mutate</span>(<span class="at">sample_size =</span> <span class="fu">as.numeric</span>(sample_size)) <span class="sc">|&gt;</span> </span>
+<span id="cb32-226"><a href="#cb32-226"></a>  <span class="fu">group_by</span>(id, sample_size) <span class="sc">|&gt;</span> </span>
+<span id="cb32-227"><a href="#cb32-227"></a>  <span class="fu">summarize</span>(<span class="at">dem_prop =</span> <span class="fu">mean</span>(vote <span class="sc">==</span> <span class="st">"Dem"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb32-228"><a href="#cb32-228"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sample_size, dem_prop, <span class="at">group =</span> sample_size)) <span class="sc">+</span> </span>
+<span id="cb32-229"><a href="#cb32-229"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb32-230"><a href="#cb32-230"></a><span class="in">```</span></span>
+<span id="cb32-231"><a href="#cb32-231"></a></span>
+<span id="cb32-232"><a href="#cb32-232"></a><span class="fu">### Exercise</span></span>
+<span id="cb32-233"><a href="#cb32-233"></a></span>
+<span id="cb32-234"><a href="#cb32-234"></a>Create five different simulations with different values of <span class="in">`dem_prob_pop`</span> (e.g., 0.49, 0.52, 0.55, 0.58). Put them together into a single dataset and then visualize the results using boxplots. What is going on?</span>
+<span id="cb32-235"><a href="#cb32-235"></a></span>
+<span id="cb32-238"><a href="#cb32-238"></a><span class="in">```{r}</span></span>
+<span id="cb32-239"><a href="#cb32-239"></a>p <span class="ot">&lt;-</span> <span class="fu">c</span>(.<span class="dv">49</span>, .<span class="dv">52</span>, .<span class="dv">55</span>, .<span class="dv">58</span>, .<span class="dv">63</span>)</span>
+<span id="cb32-240"><a href="#cb32-240"></a>output_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(p, \(x) <span class="fu">simulation_votes</span>(x, <span class="at">sample_size =</span> <span class="dv">300</span>, <span class="at">num_sims =</span> <span class="dv">500</span>)) </span>
+<span id="cb32-241"><a href="#cb32-241"></a></span>
+<span id="cb32-242"><a href="#cb32-242"></a></span>
+<span id="cb32-243"><a href="#cb32-243"></a><span class="fu">bind_rows</span>(output_list) <span class="sc">|&gt;</span> </span>
+<span id="cb32-244"><a href="#cb32-244"></a>  <span class="fu">group_by</span>(id, dem_prob_pop) <span class="sc">|&gt;</span> </span>
+<span id="cb32-245"><a href="#cb32-245"></a>  <span class="fu">summarize</span>(<span class="at">dem_prop =</span> <span class="fu">mean</span>(vote <span class="sc">==</span> <span class="st">"Dem"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb32-246"><a href="#cb32-246"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(dem_prob_pop, dem_prop)) <span class="sc">+</span> </span>
+<span id="cb32-247"><a href="#cb32-247"></a>  <span class="fu">geom_boxplot</span>()</span>
+<span id="cb32-248"><a href="#cb32-248"></a></span>
+<span id="cb32-249"><a href="#cb32-249"></a><span class="in">```</span></span>
+<span id="cb32-250"><a href="#cb32-250"></a></span>
+<span id="cb32-251"><a href="#cb32-251"></a><span class="fu">### Extra</span></span>
+<span id="cb32-252"><a href="#cb32-252"></a></span>
+<span id="cb32-253"><a href="#cb32-253"></a>Mega simulation pretty graph.</span>
+<span id="cb32-254"><a href="#cb32-254"></a></span>
+<span id="cb32-257"><a href="#cb32-257"></a><span class="in">```{r}</span></span>
+<span id="cb32-258"><a href="#cb32-258"></a><span class="co">#| fig-height: 9</span></span>
+<span id="cb32-259"><a href="#cb32-259"></a><span class="co">#| message: false</span></span>
+<span id="cb32-260"><a href="#cb32-260"></a></span>
+<span id="cb32-261"><a href="#cb32-261"></a>grid <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">expand_grid</span>(p, ss)</span>
+<span id="cb32-262"><a href="#cb32-262"></a></span>
+<span id="cb32-263"><a href="#cb32-263"></a>out <span class="ot">&lt;-</span> <span class="fu">map2</span>(grid<span class="sc">$</span>p, grid<span class="sc">$</span>ss, <span class="cf">function</span>(dem_prob, sample_size) {</span>
+<span id="cb32-264"><a href="#cb32-264"></a>  <span class="fu">simulation_votes</span>(dem_prob, sample_size, <span class="at">num_sims =</span> <span class="dv">500</span>)</span>
+<span id="cb32-265"><a href="#cb32-265"></a>})</span>
+<span id="cb32-266"><a href="#cb32-266"></a></span>
+<span id="cb32-267"><a href="#cb32-267"></a>df <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(out) <span class="sc">|&gt;</span> </span>
+<span id="cb32-268"><a href="#cb32-268"></a>  <span class="fu">group_by</span>(dem_prob_pop, sample_size, id) <span class="sc">|&gt;</span> </span>
+<span id="cb32-269"><a href="#cb32-269"></a>  <span class="fu">summarize</span>(<span class="at">prop =</span> <span class="fu">mean</span>(vote <span class="sc">==</span> <span class="st">"Dem"</span>))</span>
+<span id="cb32-270"><a href="#cb32-270"></a></span>
+<span id="cb32-271"><a href="#cb32-271"></a>df<span class="sc">$</span>dem_prob_pop <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>dem_prob_pop, <span class="at">levels =</span> p)</span>
+<span id="cb32-272"><a href="#cb32-272"></a>df<span class="sc">$</span>sample_size <span class="ot">&lt;-</span> <span class="fu">factor</span>(df<span class="sc">$</span>sample_size, <span class="at">levels =</span> ss)</span>
+<span id="cb32-273"><a href="#cb32-273"></a></span>
+<span id="cb32-274"><a href="#cb32-274"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb32-275"><a href="#cb32-275"></a>  <span class="fu">mutate</span>(<span class="at">strip_label =</span> <span class="fu">paste</span>(<span class="st">"</span><span class="sc">\"</span><span class="st">True</span><span class="sc">\"</span><span class="st"> Value:"</span>, dem_prob_pop)) <span class="sc">|&gt;</span> </span>
+<span id="cb32-276"><a href="#cb32-276"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(prop, sample_size)) <span class="sc">+</span> </span>
+<span id="cb32-277"><a href="#cb32-277"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb32-278"><a href="#cb32-278"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Sample Size"</span>, <span class="at">x =</span> <span class="st">"Observed Proportions"</span>) <span class="sc">+</span> </span>
+<span id="cb32-279"><a href="#cb32-279"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> strip_label, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span> </span>
+<span id="cb32-280"><a href="#cb32-280"></a>  <span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Optima"</span>) <span class="sc">+</span> </span>
+<span id="cb32-281"><a href="#cb32-281"></a>  <span class="fu">theme</span>(<span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>)) </span>
+<span id="cb32-282"><a href="#cb32-282"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
