@@ -1,0 +1,298 @@
+---
+title: "Week 5"
+callout-appearance: simple
+callout-icon: false
+---
+
+The purpose of this week's homework is to fully understand the binomial probability distribution. We will build up to it from scratch using some 🌟 math 🌟 . We will then revisit some of the things we've done in class.
+
+R has four built-in forms of working with probability distributions.
+
+See `?distributions` for a list of common distributions contained in R.
+
+To work with a **binomial distribution** we have the following functions:
+
+-   `dbinom()`: probability (mass)[^week5-1] function
+
+-   `pbinom()`: cumulative probability distribution
+
+-   `rbinom()`: draw `n` samples from `dbinom()`
+
+-   `qbinom()`: quantile distribution; this is the *inverse* of `pbinom()`.
+
+    What does "inverse" mean here? We'll get to that, but it basically means that---all else equal---the output of input to `pbinom()` corresponds to the output of `qbinom()` (and vice versa).
+
+    ```{r}
+    input <- 350
+    output <- pbinom(input, size = 1000, prob = 0.345623)
+    qbinom(output, size = 1000, prob = 0.345623)
+    ```
+
+[^week5-1]: We will get to the meaning of this "mass" word here in a future exercise when we work with *continuous* random variables. A *continuous* random can take an infinite number of possible values. Since the number of outcomes is *uncountable*, we need to take a different approach to how we compute its probability distribution. For now, we can safely ignore this technicality.
+
+## Probability Primer
+
+*Keep track of the **bold words***.
+
+A **random variable** assigns some number to each outcome of a random **event**.
+
+Suppose we flip a coin exactly one time. Then the set of all outcomes---or **sample space---**is given by the following *set*:
+
+$$
+\Omega = \{H, T\}
+$$
+
+<aside>An **event** is a well-defined *subset* of $\Omega$.</aside>
+
+If we assume that the coin is fair---i.e., that both events are equally likely---then we get the following probabilities.
+
+$$
+\begin{align}
+\Pr(H) = \frac{1}{2}, && \Pr(T) = \frac{1}{2}
+\end{align}
+$$
+
+A **probability measure** assigns a number between 0 and 1 to every event in the sample space ( $\Omega$ ). Moreover, the sum of all probabilities must equal one. *Those are the rules!*
+
+Going back to the notion of a **random variable**, if we are recording the number of "heads," then $H$ gets assigned 1 and $T$ gets assigned to 0.
+
+$$
+\begin{align}
+X\Big(\{H\}\Big) = 1, && X\Big(\{T\}\Big) = 0
+\end{align}
+$$
+
+## Bernoulli distribution
+
+These are the building blocks of what's known as a *Bernoulli* **probability distribution***,* which takes the following form:
+
+$$
+\Pr(X = x) = \begin{cases} 
+    p &\text{if} \ x = 1 \\\\
+    1 - p &\text{if} \ x = 0 \\\\
+    0 &\text{if} \ x = \text{anything else}
+\end{cases}
+$$ {#eq-bernouilli-pmf}
+
+*Note. If we flip a fair coin, we are basically saying that* $X$ *will follow a Bernouilli distribution with* $p = 0.5$*.*
+
+::: callout-tip
+You should be able to define in your own words the following terms: **random variable**, **sample space**, and **event.**
+:::
+
+The **cumulative distribution function** returns the probability that an outcome is *less than or equal* to $x$. It looks exactly like this:
+
+$$
+\Pr(X \leq x) = \begin{cases} 
+    0 &\text{if} \ x < 0 \\\\
+    1 - p &\text{if} \ x = 0 \\\\
+    1 &\text{if} \ x = 1 \\\\
+    1 &\text{if} \ x > 1
+\end{cases}
+$$ {#eq-bernouilli-cdf}
+
+### Exercise
+
+The Bernoulli distribution is a special case of the **binomial distribution**. If we set the argument `size = 1`, we basically have a Bernouilli distribution.
+
+Suppose that $p = 2/3$.
+
+::: callout-note
+Use `dbinom()` to verify the results in @eq-bernouilli-pmf.
+
+Use `pbinom()` to verify the results in @eq-bernouilli-cdf.
+
+Use `rbinom()` to generate 100 samples from the Bernouilli distribution with `prob = 2/3`. Plot the results in `ggplot` using `geom_bar`.
+:::
+
+## Binomial distribution
+
+The binomial distribution comes from adding $n$ Bernouilli distributions. Thus, it has two parameters: $n$ and $p$. This "$n$" corresponds to the `size` argument in the R functions we've been working with.
+
+### Exercise {#sec-four-coins-1}
+
+Suppose we flip a fair coin exactly four times.
+
+::: callout-note
+Draw the sample space $\Omega$ for this "experiment."
+
+*Note. You can* *pencil and paper and insert a photo of the image if you want to. But I encourage you to play around with the* $\LaTeX$ *formulas.*
+:::
+
+::: callout-tip
+Hint: There's this little thing in combinatorics called the *multiplication rule.* The number of ways in which we can flip four coins is $2 \times 2 \times 2 \times 2 = 16$. Thus, your sample space should consist of 16 events.
+:::
+
+### Exercise {#sec-four-coins-2}
+
+Turn the previous sample space into a random variable that counts the number of heads ( $H$ ) in each event.
+
+::: callout-note
+How many possible ways are there to get $X = 0$, $X = 1$, $X = 2$, $X = 3$, and $X = 4$?
+
+What is the probability that $X = 2$?
+
+Verify this by using the correct R function to calculate the probability that $X = 2$?
+
+Use the correct R function to calculate the probability that $X \leq 1$?
+:::
+
+### Exercise
+
+::: callout-note
+Use `rbinom()` to generate 1000 samples from the Binomial distribution with `size = 5` and `prob = 2/3`. Plot the results in `ggplot` using `geom_bar`.
+
+Estimate the probability that $X$ is an even number using the **`mean()`** function on those 1000 values.
+:::
+
+::: callout-tip
+You can calculate (almost) the same number by adding up the following values:
+
+```{r}
+dbinom(c(2, 4), size = 5, prob = 2/3)
+```
+:::
+
+### Unfair Coins and Independence
+
+So far, you've seen that it's easy to calculate probabilities by hand when we have fair coins---i.e., when $p=1/2$. It's just addition and division.
+
+But what happens when $p \neq 0.5$?
+
+If we assume that these coin flips are **independent**---i.e., that getting $H$ during the first flip doesn't affect the chances of getting $H$ during the second flip---then we have a very convenient of calculating *joint probabilities.*
+
+We say that two events $A$ and $B$ are **independent** if and only if $\Pr(A \cap B) = \Pr(A) \times \Pr(B)$.
+
+In terms of fair coin flipes, we would have that the probability of getting a sequence of $HTHH$ is the same as:
+
+$$
+\Pr(HTHH) = \Pr(H)\Pr(T)\Pr(H)\Pr(H) = \frac{1}{16}
+$$
+
+This same procedure holds if the coin is unfair.
+
+For example:
+
+If $\Pr(H) = \frac{1}{3}$, then
+
+$$
+\Pr(HTHH) = \frac{1}{3} \cdot \frac{2}{3} \cdot \frac{1}{3} \cdot \frac{1}{3} = \frac{2}{81}
+$$
+
+### Exercise
+
+::: callout-note
+Revisit what you did @sec-four-coins-1 and @sec-four-coins-2.
+
+What is the probability that $X = 2$ when $p = 1/3$ and $n = 4$?
+
+Verify this by using the correct R function to calculate the probability that $X = 2$?
+:::
+
+### Binomial distribution, the formula
+
+Looking back at what you've done, you should be able to understand that the formula for a probability distribution with $n=4$ has a sample space with 16 events, and that there are five possible outcomes $X = \{0, 1, 2, 3, 4 \}$.
+
+The probability distribution for a **Binomial** **probability distribution**, with parameters $p$ and $n = 4$ takes the following form:
+
+$$
+\Pr(X = x) = \begin{cases} 
+    1 \ (1 - p)^4 &\text{if} \ x = 0 \\
+    4 \ p(1 - p)^3 &\text{if} \ x = 1 \\ 
+    6 \ p^2(1-p)^2 &\text{if} \ x = 2 \\
+    4 \ p^1(1-p)^3 &\text{if} \ x = 3 \\
+    1 \ p^4 &\text{if} \ x = 4 \\
+    0 &\text{if} \ x = \text{anything else}
+\end{cases}
+$$
+
+The 1s, 4s, and and 6s come from counting the number of ways in which $X$ can equal one of these numbers. You should have gotten these results in @sec-four-coins-2. If you didn't, go back because you did something wrong!
+
+However, this is not how you'll see binomial distributions written out in the wild. We need new notation in order to write **any** binomial distribution, which we get by using the so-called binomial coefficient:
+
+$$
+{n \choose x} = \frac{n!}{x! (n - x)!}
+$$
+
+<aside>You might remember some of this from the GRE.</aside>
+
+So the probability (mass) function of **any** *binomial distribution* is then this:
+
+$$
+\Pr(X = x) = {n \choose x} p^x (1-p)^{n-x}
+$$ {#eq-binomial-pmf}
+
+And the cumulative distribution function is as follows:
+
+$$
+\Pr(X \leq x) = \sum_{i = 0}^x {n \choose x} p^x (1-p)^{n-x}
+$$ {#eq-binomial-cdf}
+
+### Exercise
+
+Suppose that $p = 2/3$ and $n = 15$
+
+::: callout-note
+Use `dbinom()` to verify the results in @eq-binomial-pmf.
+
+Use `pbinom()` to verify the results in @eq-binomial-cdf.
+:::
+
+::: callout-tip
+Hint: You should strive to verify these results using R. There's a function called `choose()` which calculates the binomial coefficient.
+:::
+
+::: callout-tip
+Hint: Note that because `pbinom` is just adding different pieces of `dbinom` together, the following two lines of code are equivalent:
+
+```{r}
+pbinom(q = seq(-1, 6), size = 5, prob = 0.75)
+cumsum(dbinom(x = seq(-1, 6), size = 5, prob = 0.75))
+```
+:::
+
+## Likelihoods
+
+Likelihood are similar to a probabilities, except that we think of them as a function of parameters ( $X$ is "fixed"); in the previous exercises, we assumed fixed parameters and tried to answer questions about $X$. Now we do the opposite.
+
+This introduces one weird implication:
+
+Suppose we have a binomial distribution with $p = 0.5$ and $n = 55$. Then, summing over all possible values of $X$ should add up to $1$.
+
+```{r}
+x <- 0:55
+sum(dbinom(x, size = 55, prob = 1/2))
+```
+
+This *does not* happen if we take the same formula as a function of the parameter $p$ with $X = 22$.
+
+```{r}
+p <- seq(0, 1, by = 0.001)
+sum(dbinom(x = 22, size = 55, prob = p))
+```
+
+Furthermore, we didn't even sum over all the possible values of $p$. The vector `p` (in this example) is of length 1001, but $p$ can actually take an infinite range of values! This is why Steve did the the whole "normalizing" thing in last [week's class](https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-10.R) in order to turn the likelihoods into a *probability distribution* for $p$.
+
+> *---What? Did you just give me probability* $p$ it's own probability distribution?
+>
+> ---Yes.
+
+### Exercise
+
+Let's revisit Steve's grid approximation code.
+
+I'll give you a start.
+
+```{r}
+#| message: false
+
+library(tidyverse)
+grid <- tibble(prob = seq(0, 1, by = 0.001))
+grid$like <- dbinom(21, 47, grid$prob) ## MAKE SURE YOU USE THESE VALUES
+```
+
+::: callout-note
+Following Steve's code, calculate `clike_raw` and `clike_normalized`.
+
+Looking at this data frame, what probability would you assign to `prob` having a value equal to or greater than 0.588?
+:::

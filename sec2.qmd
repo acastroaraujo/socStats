@@ -24,11 +24,7 @@ $$
 X \sim \text{Binomial}(n = 3, \ p = 0.5)
 $$ {#eq-binomial-three-coins}
 
-<aside>
-
-**This notation *should* make sense eventually!**
-
-</aside>
+<aside>**This notation *should* make sense eventually!**</aside>
 
 In R, we can simulate this process using the following function:
 
@@ -50,11 +46,7 @@ HHH \\ HHT \\ HTT \\ TTT \\ TTH \\ THH \\ THT \\ HTH
 \end{Bmatrix}
 $$
 
-<aside>
-
-This sample space is a *set* has 8 outcomes.
-
-</aside>
+<aside>This sample space is a *set* has 8 outcomes.</aside>
 
 In this example we are recording the number of "heads." This is our random variable. A **random variable** $X$ *assigns* *some number to the underlying sample space.*
 

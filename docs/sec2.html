@@ -205,6 +205,12 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Week 4</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Week 5</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -219,25 +225,25 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./solutions-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./solutions-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Solutions 2</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./solutions-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 3</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Solutions 3</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./solutions-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Solutions 4</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Solutions 4</span></span></a>
   </div>
 </li>
       </ul>
@@ -301,7 +307,7 @@ div.csl-indent {
 X \sim \text{Binomial}(n = 3, \ p = 0.5)
 \tag{1}\]</span></span></p>
 <aside>
-<p><strong>This notation <em>should</em> make sense eventually!</strong></p>
+<strong>This notation <em>should</em> make sense eventually!</strong>
 </aside>
 <p>In R, we can simulate this process using the following function:</p>
 <ul>
@@ -314,7 +320,7 @@ X \sim \text{Binomial}(n = 3, \ p = 0.5)
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 1 1 3 1 1 2 1 2 1 2</code></pre>
+<pre><code> [1] 1 2 1 1 1 2 2 2 1 0</code></pre>
 </div>
 </div></li>
 </ul>
@@ -326,7 +332,7 @@ HHH \\ HHT \\ HTT \\ TTT \\ TTH \\ THH \\ THT \\ HTH
 \end{Bmatrix}
 \]</span></p>
 <aside>
-<p>This sample space is a <em>set</em> has 8 outcomes.</p>
+This sample space is a <em>set</em> has 8 outcomes.
 </aside>
 <p>In this example we are recording the number of “heads.” This is our random variable. A <strong>random variable</strong> <span class="math inline">\(X\)</span> <em>assigns</em> <em>some number to the underlying sample space.</em></p>
 <p>And so we have the following:</p>
@@ -694,73 +700,65 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb5-24"><a href="#cb5-24"></a>X \sim \text{Binomial}(n = 3, \ p = 0.5)</span>
 <span id="cb5-25"><a href="#cb5-25"></a>$$ {#eq-binomial-three-coins}</span>
 <span id="cb5-26"><a href="#cb5-26"></a></span>
-<span id="cb5-27"><a href="#cb5-27"></a><span class="kw">&lt;aside&gt;</span></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="kw">&lt;aside&gt;</span>**This notation *should* make sense eventually!**<span class="kw">&lt;/aside&gt;</span></span>
 <span id="cb5-28"><a href="#cb5-28"></a></span>
-<span id="cb5-29"><a href="#cb5-29"></a>**This notation *should* make sense eventually!**</span>
+<span id="cb5-29"><a href="#cb5-29"></a>In R, we can simulate this process using the following function:</span>
 <span id="cb5-30"><a href="#cb5-30"></a></span>
-<span id="cb5-31"><a href="#cb5-31"></a><span class="kw">&lt;/aside&gt;</span></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="ss">-   </span><span class="in">`rbinom(n, size, prob)`</span>: draw <span class="in">`n`</span> samples from the binomial distribution with some $n$ (<span class="in">`size`</span>) and some $p$ (<span class="in">`prob`</span>). Yes, this transition from $n$ to <span class="in">`size`</span> is confusing!</span>
 <span id="cb5-32"><a href="#cb5-32"></a></span>
-<span id="cb5-33"><a href="#cb5-33"></a>In R, we can simulate this process using the following function:</span>
+<span id="cb5-33"><a href="#cb5-33"></a>    When $n = 1$ (or <span class="in">`size = 1`</span>), we usually call this a "Bernoulli distribution."</span>
 <span id="cb5-34"><a href="#cb5-34"></a></span>
-<span id="cb5-35"><a href="#cb5-35"></a><span class="ss">-   </span><span class="in">`rbinom(n, size, prob)`</span>: draw <span class="in">`n`</span> samples from the binomial distribution with some $n$ (<span class="in">`size`</span>) and some $p$ (<span class="in">`prob`</span>). Yes, this transition from $n$ to <span class="in">`size`</span> is confusing!</span>
-<span id="cb5-36"><a href="#cb5-36"></a></span>
-<span id="cb5-37"><a href="#cb5-37"></a>    When $n = 1$ (or <span class="in">`size = 1`</span>), we usually call this a "Bernoulli distribution."</span>
-<span id="cb5-38"><a href="#cb5-38"></a></span>
-<span id="cb5-39"><a href="#cb5-39"></a>    <span class="in">```{r}</span></span>
-<span id="cb5-40"><a href="#cb5-40"></a>    <span class="do">## 10 random draws from the DGP:</span></span>
-<span id="cb5-41"><a href="#cb5-41"></a>    <span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span>
-<span id="cb5-42"><a href="#cb5-42"></a>    <span class="in">```</span></span>
-<span id="cb5-43"><a href="#cb5-43"></a></span>
-<span id="cb5-44"><a href="#cb5-44"></a>The **sample space** $\Omega$ for this three coin flip DGP---the set of all possible outcomes---is as follows:</span>
-<span id="cb5-45"><a href="#cb5-45"></a></span>
-<span id="cb5-46"><a href="#cb5-46"></a>$$</span>
-<span id="cb5-47"><a href="#cb5-47"></a>\Omega = </span>
-<span id="cb5-48"><a href="#cb5-48"></a>\begin{Bmatrix}</span>
-<span id="cb5-49"><a href="#cb5-49"></a>HHH <span class="sc">\\</span> HHT <span class="sc">\\</span> HTT <span class="sc">\\</span> TTT <span class="sc">\\</span> TTH <span class="sc">\\</span> THH <span class="sc">\\</span> THT <span class="sc">\\</span> HTH</span>
-<span id="cb5-50"><a href="#cb5-50"></a>\end{Bmatrix}</span>
-<span id="cb5-51"><a href="#cb5-51"></a>$$</span>
+<span id="cb5-35"><a href="#cb5-35"></a>    <span class="in">```{r}</span></span>
+<span id="cb5-36"><a href="#cb5-36"></a>    <span class="do">## 10 random draws from the DGP:</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a>    <span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb5-38"><a href="#cb5-38"></a>    <span class="in">```</span></span>
+<span id="cb5-39"><a href="#cb5-39"></a></span>
+<span id="cb5-40"><a href="#cb5-40"></a>The **sample space** $\Omega$ for this three coin flip DGP---the set of all possible outcomes---is as follows:</span>
+<span id="cb5-41"><a href="#cb5-41"></a></span>
+<span id="cb5-42"><a href="#cb5-42"></a>$$</span>
+<span id="cb5-43"><a href="#cb5-43"></a>\Omega = </span>
+<span id="cb5-44"><a href="#cb5-44"></a>\begin{Bmatrix}</span>
+<span id="cb5-45"><a href="#cb5-45"></a>HHH <span class="sc">\\</span> HHT <span class="sc">\\</span> HTT <span class="sc">\\</span> TTT <span class="sc">\\</span> TTH <span class="sc">\\</span> THH <span class="sc">\\</span> THT <span class="sc">\\</span> HTH</span>
+<span id="cb5-46"><a href="#cb5-46"></a>\end{Bmatrix}</span>
+<span id="cb5-47"><a href="#cb5-47"></a>$$</span>
+<span id="cb5-48"><a href="#cb5-48"></a></span>
+<span id="cb5-49"><a href="#cb5-49"></a><span class="kw">&lt;aside&gt;</span>This sample space is a *set* has 8 outcomes.<span class="kw">&lt;/aside&gt;</span></span>
+<span id="cb5-50"><a href="#cb5-50"></a></span>
+<span id="cb5-51"><a href="#cb5-51"></a>In this example we are recording the number of "heads." This is our random variable. A **random variable** $X$ *assigns* *some number to the underlying sample space.*</span>
 <span id="cb5-52"><a href="#cb5-52"></a></span>
-<span id="cb5-53"><a href="#cb5-53"></a><span class="kw">&lt;aside&gt;</span></span>
+<span id="cb5-53"><a href="#cb5-53"></a>And so we have the following:</span>
 <span id="cb5-54"><a href="#cb5-54"></a></span>
-<span id="cb5-55"><a href="#cb5-55"></a>This sample space is a *set* has 8 outcomes.</span>
-<span id="cb5-56"><a href="#cb5-56"></a></span>
-<span id="cb5-57"><a href="#cb5-57"></a><span class="kw">&lt;/aside&gt;</span></span>
-<span id="cb5-58"><a href="#cb5-58"></a></span>
-<span id="cb5-59"><a href="#cb5-59"></a>In this example we are recording the number of "heads." This is our random variable. A **random variable** $X$ *assigns* *some number to the underlying sample space.*</span>
-<span id="cb5-60"><a href="#cb5-60"></a></span>
-<span id="cb5-61"><a href="#cb5-61"></a>And so we have the following:</span>
-<span id="cb5-62"><a href="#cb5-62"></a></span>
-<span id="cb5-63"><a href="#cb5-63"></a>$$</span>
-<span id="cb5-64"><a href="#cb5-64"></a>\Omega = </span>
-<span id="cb5-65"><a href="#cb5-65"></a>\begin{Bmatrix}</span>
-<span id="cb5-66"><a href="#cb5-66"></a>HHH <span class="sc">\\</span> HHT <span class="sc">\\</span> HTH <span class="sc">\\</span> THH <span class="sc">\\</span> TTH <span class="sc">\\</span> THT <span class="sc">\\</span> HTT <span class="sc">\\</span> TTT</span>
-<span id="cb5-67"><a href="#cb5-67"></a>\end{Bmatrix}  \to</span>
-<span id="cb5-68"><a href="#cb5-68"></a>\begin{Bmatrix} </span>
-<span id="cb5-69"><a href="#cb5-69"></a>3 <span class="sc">\\</span> 2 <span class="sc">\\</span> 2 <span class="sc">\\</span> 2 <span class="sc">\\</span> 1 <span class="sc">\\</span> 1 <span class="sc">\\</span> 1 <span class="sc">\\</span> 0</span>
-<span id="cb5-70"><a href="#cb5-70"></a>\end{Bmatrix}</span>
-<span id="cb5-71"><a href="#cb5-71"></a>$$ {#eq-sample-space-three-coins}</span>
-<span id="cb5-72"><a href="#cb5-72"></a></span>
-<span id="cb5-73"><a href="#cb5-73"></a>Assigning a probability to these outcomes is relatively straightforward because the coin is fair ( $p = 0.5$ ), and so each of these outcomes is *equally likely*. Thus, the probability of each of the outcomes in $\Omega$ is $1/8$. Assigning probabilities get trickier when the coin is not fair, $p \neq 0.5$. *We will ignore this issue for now!*</span>
-<span id="cb5-74"><a href="#cb5-74"></a></span>
-<span id="cb5-75"><a href="#cb5-75"></a>Glaring intensely at @eq-sample-space-three-coins should convince you of the following statements:</span>
-<span id="cb5-76"><a href="#cb5-76"></a></span>
-<span id="cb5-77"><a href="#cb5-77"></a>$$</span>
-<span id="cb5-78"><a href="#cb5-78"></a>\begin{align}</span>
-<span id="cb5-79"><a href="#cb5-79"></a>\Pr(X = 3) &amp;= 1/8, <span class="sc">\\</span></span>
-<span id="cb5-80"><a href="#cb5-80"></a>\Pr(X = 2) &amp;= 3/8, <span class="sc">\\</span></span>
-<span id="cb5-81"><a href="#cb5-81"></a>\Pr(X = 1) &amp;= 3/8, <span class="sc">\\</span></span>
-<span id="cb5-82"><a href="#cb5-82"></a>\Pr(X = 0) &amp;= 1/8</span>
-<span id="cb5-83"><a href="#cb5-83"></a>\end{align}</span>
-<span id="cb5-84"><a href="#cb5-84"></a>$$</span>
-<span id="cb5-85"><a href="#cb5-85"></a></span>
-<span id="cb5-86"><a href="#cb5-86"></a>This is exactly what the <span class="in">`dbinom()`</span> does for us.</span>
-<span id="cb5-87"><a href="#cb5-87"></a></span>
-<span id="cb5-90"><a href="#cb5-90"></a><span class="in">```{r}</span></span>
-<span id="cb5-91"><a href="#cb5-91"></a>X <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>) <span class="do">## number of heads</span></span>
-<span id="cb5-92"><a href="#cb5-92"></a><span class="fu">dbinom</span>(X, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span>
-<span id="cb5-93"><a href="#cb5-93"></a><span class="in">```</span></span>
-<span id="cb5-94"><a href="#cb5-94"></a></span>
-<span id="cb5-95"><a href="#cb5-95"></a>*Note. Doing statistical inference simply means that we start with the recorded data and then ask questions about the potential DGPs, including the potential values of corresponding parameters!*</span>
+<span id="cb5-55"><a href="#cb5-55"></a>$$</span>
+<span id="cb5-56"><a href="#cb5-56"></a>\Omega = </span>
+<span id="cb5-57"><a href="#cb5-57"></a>\begin{Bmatrix}</span>
+<span id="cb5-58"><a href="#cb5-58"></a>HHH <span class="sc">\\</span> HHT <span class="sc">\\</span> HTH <span class="sc">\\</span> THH <span class="sc">\\</span> TTH <span class="sc">\\</span> THT <span class="sc">\\</span> HTT <span class="sc">\\</span> TTT</span>
+<span id="cb5-59"><a href="#cb5-59"></a>\end{Bmatrix}  \to</span>
+<span id="cb5-60"><a href="#cb5-60"></a>\begin{Bmatrix} </span>
+<span id="cb5-61"><a href="#cb5-61"></a>3 <span class="sc">\\</span> 2 <span class="sc">\\</span> 2 <span class="sc">\\</span> 2 <span class="sc">\\</span> 1 <span class="sc">\\</span> 1 <span class="sc">\\</span> 1 <span class="sc">\\</span> 0</span>
+<span id="cb5-62"><a href="#cb5-62"></a>\end{Bmatrix}</span>
+<span id="cb5-63"><a href="#cb5-63"></a>$$ {#eq-sample-space-three-coins}</span>
+<span id="cb5-64"><a href="#cb5-64"></a></span>
+<span id="cb5-65"><a href="#cb5-65"></a>Assigning a probability to these outcomes is relatively straightforward because the coin is fair ( $p = 0.5$ ), and so each of these outcomes is *equally likely*. Thus, the probability of each of the outcomes in $\Omega$ is $1/8$. Assigning probabilities get trickier when the coin is not fair, $p \neq 0.5$. *We will ignore this issue for now!*</span>
+<span id="cb5-66"><a href="#cb5-66"></a></span>
+<span id="cb5-67"><a href="#cb5-67"></a>Glaring intensely at @eq-sample-space-three-coins should convince you of the following statements:</span>
+<span id="cb5-68"><a href="#cb5-68"></a></span>
+<span id="cb5-69"><a href="#cb5-69"></a>$$</span>
+<span id="cb5-70"><a href="#cb5-70"></a>\begin{align}</span>
+<span id="cb5-71"><a href="#cb5-71"></a>\Pr(X = 3) &amp;= 1/8, <span class="sc">\\</span></span>
+<span id="cb5-72"><a href="#cb5-72"></a>\Pr(X = 2) &amp;= 3/8, <span class="sc">\\</span></span>
+<span id="cb5-73"><a href="#cb5-73"></a>\Pr(X = 1) &amp;= 3/8, <span class="sc">\\</span></span>
+<span id="cb5-74"><a href="#cb5-74"></a>\Pr(X = 0) &amp;= 1/8</span>
+<span id="cb5-75"><a href="#cb5-75"></a>\end{align}</span>
+<span id="cb5-76"><a href="#cb5-76"></a>$$</span>
+<span id="cb5-77"><a href="#cb5-77"></a></span>
+<span id="cb5-78"><a href="#cb5-78"></a>This is exactly what the <span class="in">`dbinom()`</span> does for us.</span>
+<span id="cb5-79"><a href="#cb5-79"></a></span>
+<span id="cb5-82"><a href="#cb5-82"></a><span class="in">```{r}</span></span>
+<span id="cb5-83"><a href="#cb5-83"></a>X <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">0</span>) <span class="do">## number of heads</span></span>
+<span id="cb5-84"><a href="#cb5-84"></a><span class="fu">dbinom</span>(X, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span>
+<span id="cb5-85"><a href="#cb5-85"></a><span class="in">```</span></span>
+<span id="cb5-86"><a href="#cb5-86"></a></span>
+<span id="cb5-87"><a href="#cb5-87"></a>*Note. Doing statistical inference simply means that we start with the recorded data and then ask questions about the potential DGPs, including the potential values of corresponding parameters!*</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

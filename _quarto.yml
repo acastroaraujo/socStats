@@ -16,6 +16,7 @@ book:
       chapters: 
         - week3.qmd
         - week4.qmd
+        - week5.qmd
     - part: sec-solutions.qmd
       chapters:
         - solutions-01.qmd
