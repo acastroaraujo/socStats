@@ -296,3 +296,12 @@ Following Steve's code, calculate `clike_raw` and `clike_normalized`.
 
 Looking at this data frame, what probability would you assign to `prob` having a value equal to or greater than 0.588?
 :::
+
+::: callout-tip
+Hint: You might want to look at something like this:
+
+```{r}
+#| eval: false
+grid |> filter(prob == 0.588) 
+```
+:::

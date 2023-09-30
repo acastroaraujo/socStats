@@ -631,6 +631,22 @@ You might remember some of this from the GRE.
 </div>
 </div>
 </div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Hint: You might want to look at something like this:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>grid <span class="sc">|&gt;</span> <span class="fu">filter</span>(prob <span class="sc">==</span> <span class="fl">0.588</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</div>
+</div>
+</div>
 
 
 <!-- -->
@@ -941,304 +957,313 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb14" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1"></a><span class="co">---</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="an">title:</span><span class="co"> "Week 5"</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="an">callout-appearance:</span><span class="co"> simple</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="an">callout-icon:</span><span class="co"> false</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="co">---</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a></span>
-<span id="cb14-7"><a href="#cb14-7"></a>The purpose of this week's homework is to fully understand the binomial probability distribution. We will build up to it from scratch using some 🌟 math 🌟 . We will then revisit some of the things we've done in class.</span>
-<span id="cb14-8"><a href="#cb14-8"></a></span>
-<span id="cb14-9"><a href="#cb14-9"></a>R has four built-in forms of working with probability distributions.</span>
-<span id="cb14-10"><a href="#cb14-10"></a></span>
-<span id="cb14-11"><a href="#cb14-11"></a>See <span class="in">`?distributions`</span> for a list of common distributions contained in R.</span>
-<span id="cb14-12"><a href="#cb14-12"></a></span>
-<span id="cb14-13"><a href="#cb14-13"></a>To work with a **binomial distribution** we have the following functions:</span>
-<span id="cb14-14"><a href="#cb14-14"></a></span>
-<span id="cb14-15"><a href="#cb14-15"></a><span class="ss">-   </span><span class="in">`dbinom()`</span>: probability (mass)<span class="ot">[^week5-1]</span> function</span>
-<span id="cb14-16"><a href="#cb14-16"></a></span>
-<span id="cb14-17"><a href="#cb14-17"></a><span class="ss">-   </span><span class="in">`pbinom()`</span>: cumulative probability distribution</span>
-<span id="cb14-18"><a href="#cb14-18"></a></span>
-<span id="cb14-19"><a href="#cb14-19"></a><span class="ss">-   </span><span class="in">`rbinom()`</span>: draw <span class="in">`n`</span> samples from <span class="in">`dbinom()`</span></span>
-<span id="cb14-20"><a href="#cb14-20"></a></span>
-<span id="cb14-21"><a href="#cb14-21"></a><span class="ss">-   </span><span class="in">`qbinom()`</span>: quantile distribution; this is the *inverse* of <span class="in">`pbinom()`</span>.</span>
-<span id="cb14-22"><a href="#cb14-22"></a></span>
-<span id="cb14-23"><a href="#cb14-23"></a>    What does "inverse" mean here? We'll get to that, but it basically means that---all else equal---the output of input to <span class="in">`pbinom()`</span> corresponds to the output of <span class="in">`qbinom()`</span> (and vice versa).</span>
-<span id="cb14-24"><a href="#cb14-24"></a></span>
-<span id="cb14-25"><a href="#cb14-25"></a>    <span class="in">```{r}</span></span>
-<span id="cb14-26"><a href="#cb14-26"></a>    input <span class="ot">&lt;-</span> <span class="dv">350</span></span>
-<span id="cb14-27"><a href="#cb14-27"></a>    output <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(input, <span class="at">size =</span> <span class="dv">1000</span>, <span class="at">prob =</span> <span class="fl">0.345623</span>)</span>
-<span id="cb14-28"><a href="#cb14-28"></a>    <span class="fu">qbinom</span>(output, <span class="at">size =</span> <span class="dv">1000</span>, <span class="at">prob =</span> <span class="fl">0.345623</span>)</span>
-<span id="cb14-29"><a href="#cb14-29"></a>    <span class="in">```</span></span>
-<span id="cb14-30"><a href="#cb14-30"></a></span>
-<span id="cb14-31"><a href="#cb14-31"></a><span class="ot">[^week5-1]: </span>We will get to the meaning of this "mass" word here in a future exercise when we work with *continuous* random variables. A *continuous* random can take an infinite number of possible values. Since the number of outcomes is *uncountable*, we need to take a different approach to how we compute its probability distribution. For now, we can safely ignore this technicality.</span>
-<span id="cb14-32"><a href="#cb14-32"></a></span>
-<span id="cb14-33"><a href="#cb14-33"></a><span class="fu">## Probability Primer</span></span>
-<span id="cb14-34"><a href="#cb14-34"></a></span>
-<span id="cb14-35"><a href="#cb14-35"></a>*Keep track of the **bold words***.</span>
-<span id="cb14-36"><a href="#cb14-36"></a></span>
-<span id="cb14-37"><a href="#cb14-37"></a>A **random variable** assigns some number to each outcome of a random **event**.</span>
-<span id="cb14-38"><a href="#cb14-38"></a></span>
-<span id="cb14-39"><a href="#cb14-39"></a>Suppose we flip a coin exactly one time. Then the set of all outcomes---or **sample space---**is given by the following *set*:</span>
-<span id="cb14-40"><a href="#cb14-40"></a></span>
-<span id="cb14-41"><a href="#cb14-41"></a>$$</span>
-<span id="cb14-42"><a href="#cb14-42"></a>\Omega = <span class="sc">\{</span>H, T<span class="sc">\}</span></span>
-<span id="cb14-43"><a href="#cb14-43"></a>$$</span>
-<span id="cb14-44"><a href="#cb14-44"></a></span>
-<span id="cb14-45"><a href="#cb14-45"></a><span class="kw">&lt;aside&gt;</span>An **event** is a well-defined *subset* of $\Omega$.<span class="kw">&lt;/aside&gt;</span></span>
-<span id="cb14-46"><a href="#cb14-46"></a></span>
-<span id="cb14-47"><a href="#cb14-47"></a>If we assume that the coin is fair---i.e., that both events are equally likely---then we get the following probabilities.</span>
-<span id="cb14-48"><a href="#cb14-48"></a></span>
-<span id="cb14-49"><a href="#cb14-49"></a>$$</span>
-<span id="cb14-50"><a href="#cb14-50"></a>\begin{align}</span>
-<span id="cb14-51"><a href="#cb14-51"></a>\Pr(H) = \frac{1}{2}, &amp;&amp; \Pr(T) = \frac{1}{2}</span>
-<span id="cb14-52"><a href="#cb14-52"></a>\end{align}</span>
-<span id="cb14-53"><a href="#cb14-53"></a>$$</span>
-<span id="cb14-54"><a href="#cb14-54"></a></span>
-<span id="cb14-55"><a href="#cb14-55"></a>A **probability measure** assigns a number between 0 and 1 to every event in the sample space ( $\Omega$ ). Moreover, the sum of all probabilities must equal one. *Those are the rules!*</span>
-<span id="cb14-56"><a href="#cb14-56"></a></span>
-<span id="cb14-57"><a href="#cb14-57"></a>Going back to the notion of a **random variable**, if we are recording the number of "heads," then $H$ gets assigned 1 and $T$ gets assigned to 0.</span>
-<span id="cb14-58"><a href="#cb14-58"></a></span>
-<span id="cb14-59"><a href="#cb14-59"></a>$$</span>
-<span id="cb14-60"><a href="#cb14-60"></a>\begin{align}</span>
-<span id="cb14-61"><a href="#cb14-61"></a>X\Big(<span class="sc">\{</span>H<span class="sc">\}</span>\Big) = 1, &amp;&amp; X\Big(<span class="sc">\{</span>T<span class="sc">\}</span>\Big) = 0</span>
-<span id="cb14-62"><a href="#cb14-62"></a>\end{align}</span>
-<span id="cb14-63"><a href="#cb14-63"></a>$$</span>
-<span id="cb14-64"><a href="#cb14-64"></a></span>
-<span id="cb14-65"><a href="#cb14-65"></a><span class="fu">## Bernoulli distribution</span></span>
-<span id="cb14-66"><a href="#cb14-66"></a></span>
-<span id="cb14-67"><a href="#cb14-67"></a>These are the building blocks of what's known as a *Bernoulli* **probability distribution***,* which takes the following form:</span>
-<span id="cb14-68"><a href="#cb14-68"></a></span>
-<span id="cb14-69"><a href="#cb14-69"></a>$$</span>
-<span id="cb14-70"><a href="#cb14-70"></a>\Pr(X = x) = \begin{cases} </span>
-<span id="cb14-71"><a href="#cb14-71"></a>    p &amp;\text{if} \ x = 1 <span class="sc">\\\\</span></span>
-<span id="cb14-72"><a href="#cb14-72"></a>    1 - p &amp;\text{if} \ x = 0 <span class="sc">\\\\</span></span>
-<span id="cb14-73"><a href="#cb14-73"></a>    0 &amp;\text{if} \ x = \text{anything else}</span>
-<span id="cb14-74"><a href="#cb14-74"></a>\end{cases}</span>
-<span id="cb14-75"><a href="#cb14-75"></a>$$ {#eq-bernouilli-pmf}</span>
-<span id="cb14-76"><a href="#cb14-76"></a></span>
-<span id="cb14-77"><a href="#cb14-77"></a>*Note. If we flip a fair coin, we are basically saying that* $X$ *will follow a Bernouilli distribution with* $p = 0.5$*.*</span>
-<span id="cb14-78"><a href="#cb14-78"></a></span>
-<span id="cb14-79"><a href="#cb14-79"></a>::: callout-tip</span>
-<span id="cb14-80"><a href="#cb14-80"></a>You should be able to define in your own words the following terms: **random variable**, **sample space**, and **event.**</span>
-<span id="cb14-81"><a href="#cb14-81"></a>:::</span>
-<span id="cb14-82"><a href="#cb14-82"></a></span>
-<span id="cb14-83"><a href="#cb14-83"></a>The **cumulative distribution function** returns the probability that an outcome is *less than or equal* to $x$. It looks exactly like this:</span>
-<span id="cb14-84"><a href="#cb14-84"></a></span>
-<span id="cb14-85"><a href="#cb14-85"></a>$$</span>
-<span id="cb14-86"><a href="#cb14-86"></a>\Pr(X \leq x) = \begin{cases} </span>
-<span id="cb14-87"><a href="#cb14-87"></a>    0 &amp;\text{if} \ x &lt; 0 <span class="sc">\\\\</span></span>
-<span id="cb14-88"><a href="#cb14-88"></a>    1 - p &amp;\text{if} \ x = 0 <span class="sc">\\\\</span></span>
-<span id="cb14-89"><a href="#cb14-89"></a>    1 &amp;\text{if} \ x = 1 <span class="sc">\\\\</span></span>
-<span id="cb14-90"><a href="#cb14-90"></a>    1 &amp;\text{if} \ x &gt; 1</span>
-<span id="cb14-91"><a href="#cb14-91"></a>\end{cases}</span>
-<span id="cb14-92"><a href="#cb14-92"></a>$$ {#eq-bernouilli-cdf}</span>
-<span id="cb14-93"><a href="#cb14-93"></a></span>
-<span id="cb14-94"><a href="#cb14-94"></a><span class="fu">### Exercise</span></span>
-<span id="cb14-95"><a href="#cb14-95"></a></span>
-<span id="cb14-96"><a href="#cb14-96"></a>The Bernoulli distribution is a special case of the **binomial distribution**. If we set the argument <span class="in">`size = 1`</span>, we basically have a Bernouilli distribution.</span>
-<span id="cb14-97"><a href="#cb14-97"></a></span>
-<span id="cb14-98"><a href="#cb14-98"></a>Suppose that $p = 2/3$.</span>
-<span id="cb14-99"><a href="#cb14-99"></a></span>
-<span id="cb14-100"><a href="#cb14-100"></a>::: callout-note</span>
-<span id="cb14-101"><a href="#cb14-101"></a>Use <span class="in">`dbinom()`</span> to verify the results in @eq-bernouilli-pmf.</span>
-<span id="cb14-102"><a href="#cb14-102"></a></span>
-<span id="cb14-103"><a href="#cb14-103"></a>Use <span class="in">`pbinom()`</span> to verify the results in @eq-bernouilli-cdf.</span>
-<span id="cb14-104"><a href="#cb14-104"></a></span>
-<span id="cb14-105"><a href="#cb14-105"></a>Use <span class="in">`rbinom()`</span> to generate 100 samples from the Bernouilli distribution with <span class="in">`prob = 2/3`</span>. Plot the results in <span class="in">`ggplot`</span> using <span class="in">`geom_bar`</span>.</span>
-<span id="cb14-106"><a href="#cb14-106"></a>:::</span>
-<span id="cb14-107"><a href="#cb14-107"></a></span>
-<span id="cb14-108"><a href="#cb14-108"></a><span class="fu">## Binomial distribution</span></span>
-<span id="cb14-109"><a href="#cb14-109"></a></span>
-<span id="cb14-110"><a href="#cb14-110"></a>The binomial distribution comes from adding $n$ Bernouilli distributions. Thus, it has two parameters: $n$ and $p$. This "$n$" corresponds to the <span class="in">`size`</span> argument in the R functions we've been working with.</span>
-<span id="cb14-111"><a href="#cb14-111"></a></span>
-<span id="cb14-112"><a href="#cb14-112"></a><span class="fu">### Exercise {#sec-four-coins-1}</span></span>
-<span id="cb14-113"><a href="#cb14-113"></a></span>
-<span id="cb14-114"><a href="#cb14-114"></a>Suppose we flip a fair coin exactly four times.</span>
-<span id="cb14-115"><a href="#cb14-115"></a></span>
-<span id="cb14-116"><a href="#cb14-116"></a>::: callout-note</span>
-<span id="cb14-117"><a href="#cb14-117"></a>Draw the sample space $\Omega$ for this "experiment."</span>
-<span id="cb14-118"><a href="#cb14-118"></a></span>
-<span id="cb14-119"><a href="#cb14-119"></a>*Note. You can* *pencil and paper and insert a photo of the image if you want to. But I encourage you to play around with the* $\LaTeX$ *formulas.*</span>
-<span id="cb14-120"><a href="#cb14-120"></a>:::</span>
-<span id="cb14-121"><a href="#cb14-121"></a></span>
-<span id="cb14-122"><a href="#cb14-122"></a>::: callout-tip</span>
-<span id="cb14-123"><a href="#cb14-123"></a>Hint: There's this little thing in combinatorics called the *multiplication rule.* The number of ways in which we can flip four coins is $2 \times 2 \times 2 \times 2 = 16$. Thus, your sample space should consist of 16 events.</span>
-<span id="cb14-124"><a href="#cb14-124"></a>:::</span>
-<span id="cb14-125"><a href="#cb14-125"></a></span>
-<span id="cb14-126"><a href="#cb14-126"></a><span class="fu">### Exercise {#sec-four-coins-2}</span></span>
-<span id="cb14-127"><a href="#cb14-127"></a></span>
-<span id="cb14-128"><a href="#cb14-128"></a>Turn the previous sample space into a random variable that counts the number of heads ( $H$ ) in each event.</span>
-<span id="cb14-129"><a href="#cb14-129"></a></span>
-<span id="cb14-130"><a href="#cb14-130"></a>::: callout-note</span>
-<span id="cb14-131"><a href="#cb14-131"></a>How many possible ways are there to get $X = 0$, $X = 1$, $X = 2$, $X = 3$, and $X = 4$?</span>
-<span id="cb14-132"><a href="#cb14-132"></a></span>
-<span id="cb14-133"><a href="#cb14-133"></a>What is the probability that $X = 2$?</span>
-<span id="cb14-134"><a href="#cb14-134"></a></span>
-<span id="cb14-135"><a href="#cb14-135"></a>Verify this by using the correct R function to calculate the probability that $X = 2$?</span>
-<span id="cb14-136"><a href="#cb14-136"></a></span>
-<span id="cb14-137"><a href="#cb14-137"></a>Use the correct R function to calculate the probability that $X \leq 1$?</span>
-<span id="cb14-138"><a href="#cb14-138"></a>:::</span>
-<span id="cb14-139"><a href="#cb14-139"></a></span>
-<span id="cb14-140"><a href="#cb14-140"></a><span class="fu">### Exercise</span></span>
-<span id="cb14-141"><a href="#cb14-141"></a></span>
-<span id="cb14-142"><a href="#cb14-142"></a>::: callout-note</span>
-<span id="cb14-143"><a href="#cb14-143"></a>Use <span class="in">`rbinom()`</span> to generate 1000 samples from the Binomial distribution with <span class="in">`size = 5`</span> and <span class="in">`prob = 2/3`</span>. Plot the results in <span class="in">`ggplot`</span> using <span class="in">`geom_bar`</span>.</span>
-<span id="cb14-144"><a href="#cb14-144"></a></span>
-<span id="cb14-145"><a href="#cb14-145"></a>Estimate the probability that $X$ is an even number using the **`mean()`** function on those 1000 values.</span>
-<span id="cb14-146"><a href="#cb14-146"></a>:::</span>
-<span id="cb14-147"><a href="#cb14-147"></a></span>
-<span id="cb14-148"><a href="#cb14-148"></a>::: callout-tip</span>
-<span id="cb14-149"><a href="#cb14-149"></a>You can calculate (almost) the same number by adding up the following values:</span>
-<span id="cb14-150"><a href="#cb14-150"></a></span>
-<span id="cb14-153"><a href="#cb14-153"></a><span class="in">```{r}</span></span>
-<span id="cb14-154"><a href="#cb14-154"></a><span class="fu">dbinom</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="at">size =</span> <span class="dv">5</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
-<span id="cb14-155"><a href="#cb14-155"></a><span class="in">```</span></span>
-<span id="cb14-156"><a href="#cb14-156"></a>:::</span>
-<span id="cb14-157"><a href="#cb14-157"></a></span>
-<span id="cb14-158"><a href="#cb14-158"></a><span class="fu">### Unfair Coins and Independence</span></span>
-<span id="cb14-159"><a href="#cb14-159"></a></span>
-<span id="cb14-160"><a href="#cb14-160"></a>So far, you've seen that it's easy to calculate probabilities by hand when we have fair coins---i.e., when $p=1/2$. It's just addition and division.</span>
-<span id="cb14-161"><a href="#cb14-161"></a></span>
-<span id="cb14-162"><a href="#cb14-162"></a>But what happens when $p \neq 0.5$?</span>
-<span id="cb14-163"><a href="#cb14-163"></a></span>
-<span id="cb14-164"><a href="#cb14-164"></a>If we assume that these coin flips are **independent**---i.e., that getting $H$ during the first flip doesn't affect the chances of getting $H$ during the second flip---then we have a very convenient of calculating *joint probabilities.*</span>
-<span id="cb14-165"><a href="#cb14-165"></a></span>
-<span id="cb14-166"><a href="#cb14-166"></a>We say that two events $A$ and $B$ are **independent** if and only if $\Pr(A \cap B) = \Pr(A) \times \Pr(B)$.</span>
-<span id="cb14-167"><a href="#cb14-167"></a></span>
-<span id="cb14-168"><a href="#cb14-168"></a>In terms of fair coin flipes, we would have that the probability of getting a sequence of $HTHH$ is the same as:</span>
-<span id="cb14-169"><a href="#cb14-169"></a></span>
-<span id="cb14-170"><a href="#cb14-170"></a>$$</span>
-<span id="cb14-171"><a href="#cb14-171"></a>\Pr(HTHH) = \Pr(H)\Pr(T)\Pr(H)\Pr(H) = \frac{1}{16}</span>
-<span id="cb14-172"><a href="#cb14-172"></a>$$</span>
-<span id="cb14-173"><a href="#cb14-173"></a></span>
-<span id="cb14-174"><a href="#cb14-174"></a>This same procedure holds if the coin is unfair.</span>
-<span id="cb14-175"><a href="#cb14-175"></a></span>
-<span id="cb14-176"><a href="#cb14-176"></a>For example:</span>
-<span id="cb14-177"><a href="#cb14-177"></a></span>
-<span id="cb14-178"><a href="#cb14-178"></a>If $\Pr(H) = \frac{1}{3}$, then</span>
-<span id="cb14-179"><a href="#cb14-179"></a></span>
-<span id="cb14-180"><a href="#cb14-180"></a>$$</span>
-<span id="cb14-181"><a href="#cb14-181"></a>\Pr(HTHH) = \frac{1}{3} \cdot \frac{2}{3} \cdot \frac{1}{3} \cdot \frac{1}{3} = \frac{2}{81}</span>
-<span id="cb14-182"><a href="#cb14-182"></a>$$</span>
-<span id="cb14-183"><a href="#cb14-183"></a></span>
-<span id="cb14-184"><a href="#cb14-184"></a><span class="fu">### Exercise</span></span>
-<span id="cb14-185"><a href="#cb14-185"></a></span>
-<span id="cb14-186"><a href="#cb14-186"></a>::: callout-note</span>
-<span id="cb14-187"><a href="#cb14-187"></a>Revisit what you did @sec-four-coins-1 and @sec-four-coins-2.</span>
-<span id="cb14-188"><a href="#cb14-188"></a></span>
-<span id="cb14-189"><a href="#cb14-189"></a>What is the probability that $X = 2$ when $p = 1/3$ and $n = 4$?</span>
-<span id="cb14-190"><a href="#cb14-190"></a></span>
-<span id="cb14-191"><a href="#cb14-191"></a>Verify this by using the correct R function to calculate the probability that $X = 2$?</span>
-<span id="cb14-192"><a href="#cb14-192"></a>:::</span>
-<span id="cb14-193"><a href="#cb14-193"></a></span>
-<span id="cb14-194"><a href="#cb14-194"></a><span class="fu">### Binomial distribution, the formula</span></span>
-<span id="cb14-195"><a href="#cb14-195"></a></span>
-<span id="cb14-196"><a href="#cb14-196"></a>Looking back at what you've done, you should be able to understand that the formula for a probability distribution with $n=4$ has a sample space with 16 events, and that there are five possible outcomes $X = <span class="sc">\{</span>0, 1, 2, 3, 4 <span class="sc">\}</span>$.</span>
-<span id="cb14-197"><a href="#cb14-197"></a></span>
-<span id="cb14-198"><a href="#cb14-198"></a>The probability distribution for a **Binomial** **probability distribution**, with parameters $p$ and $n = 4$ takes the following form:</span>
-<span id="cb14-199"><a href="#cb14-199"></a></span>
-<span id="cb14-200"><a href="#cb14-200"></a>$$</span>
-<span id="cb14-201"><a href="#cb14-201"></a>\Pr(X = x) = \begin{cases} </span>
-<span id="cb14-202"><a href="#cb14-202"></a>    1 \ (1 - p)^4 &amp;\text{if} \ x = 0 <span class="sc">\\</span></span>
-<span id="cb14-203"><a href="#cb14-203"></a>    4 \ p(1 - p)^3 &amp;\text{if} \ x = 1 <span class="sc">\\</span> </span>
-<span id="cb14-204"><a href="#cb14-204"></a>    6 \ p^2(1-p)^2 &amp;\text{if} \ x = 2 <span class="sc">\\</span></span>
-<span id="cb14-205"><a href="#cb14-205"></a>    4 \ p^1(1-p)^3 &amp;\text{if} \ x = 3 <span class="sc">\\</span></span>
-<span id="cb14-206"><a href="#cb14-206"></a>    1 \ p^4 &amp;\text{if} \ x = 4 <span class="sc">\\</span></span>
-<span id="cb14-207"><a href="#cb14-207"></a>    0 &amp;\text{if} \ x = \text{anything else}</span>
-<span id="cb14-208"><a href="#cb14-208"></a>\end{cases}</span>
-<span id="cb14-209"><a href="#cb14-209"></a>$$</span>
-<span id="cb14-210"><a href="#cb14-210"></a></span>
-<span id="cb14-211"><a href="#cb14-211"></a>The 1s, 4s, and and 6s come from counting the number of ways in which $X$ can equal one of these numbers. You should have gotten these results in @sec-four-coins-2. If you didn't, go back because you did something wrong!</span>
-<span id="cb14-212"><a href="#cb14-212"></a></span>
-<span id="cb14-213"><a href="#cb14-213"></a>However, this is not how you'll see binomial distributions written out in the wild. We need new notation in order to write **any** binomial distribution, which we get by using the so-called binomial coefficient:</span>
-<span id="cb14-214"><a href="#cb14-214"></a></span>
-<span id="cb14-215"><a href="#cb14-215"></a>$$</span>
-<span id="cb14-216"><a href="#cb14-216"></a>{n \choose x} = \frac{n!}{x! (n - x)!}</span>
-<span id="cb14-217"><a href="#cb14-217"></a>$$</span>
-<span id="cb14-218"><a href="#cb14-218"></a></span>
-<span id="cb14-219"><a href="#cb14-219"></a><span class="kw">&lt;aside&gt;</span>You might remember some of this from the GRE.<span class="kw">&lt;/aside&gt;</span></span>
-<span id="cb14-220"><a href="#cb14-220"></a></span>
-<span id="cb14-221"><a href="#cb14-221"></a>So the probability (mass) function of **any** *binomial distribution* is then this:</span>
-<span id="cb14-222"><a href="#cb14-222"></a></span>
-<span id="cb14-223"><a href="#cb14-223"></a>$$</span>
-<span id="cb14-224"><a href="#cb14-224"></a>\Pr(X = x) = {n \choose x} p^x (1-p)^{n-x}</span>
-<span id="cb14-225"><a href="#cb14-225"></a>$$ {#eq-binomial-pmf}</span>
-<span id="cb14-226"><a href="#cb14-226"></a></span>
-<span id="cb14-227"><a href="#cb14-227"></a>And the cumulative distribution function is as follows:</span>
-<span id="cb14-228"><a href="#cb14-228"></a></span>
-<span id="cb14-229"><a href="#cb14-229"></a>$$</span>
-<span id="cb14-230"><a href="#cb14-230"></a>\Pr(X \leq x) = \sum_{i = 0}^x {n \choose x} p^x (1-p)^{n-x}</span>
-<span id="cb14-231"><a href="#cb14-231"></a>$$ {#eq-binomial-cdf}</span>
-<span id="cb14-232"><a href="#cb14-232"></a></span>
-<span id="cb14-233"><a href="#cb14-233"></a><span class="fu">### Exercise</span></span>
-<span id="cb14-234"><a href="#cb14-234"></a></span>
-<span id="cb14-235"><a href="#cb14-235"></a>Suppose that $p = 2/3$ and $n = 15$</span>
-<span id="cb14-236"><a href="#cb14-236"></a></span>
-<span id="cb14-237"><a href="#cb14-237"></a>::: callout-note</span>
-<span id="cb14-238"><a href="#cb14-238"></a>Use <span class="in">`dbinom()`</span> to verify the results in @eq-binomial-pmf.</span>
-<span id="cb14-239"><a href="#cb14-239"></a></span>
-<span id="cb14-240"><a href="#cb14-240"></a>Use <span class="in">`pbinom()`</span> to verify the results in @eq-binomial-cdf.</span>
-<span id="cb14-241"><a href="#cb14-241"></a>:::</span>
-<span id="cb14-242"><a href="#cb14-242"></a></span>
-<span id="cb14-243"><a href="#cb14-243"></a>::: callout-tip</span>
-<span id="cb14-244"><a href="#cb14-244"></a>Hint: You should strive to verify these results using R. There's a function called <span class="in">`choose()`</span> which calculates the binomial coefficient.</span>
-<span id="cb14-245"><a href="#cb14-245"></a>:::</span>
-<span id="cb14-246"><a href="#cb14-246"></a></span>
-<span id="cb14-247"><a href="#cb14-247"></a>::: callout-tip</span>
-<span id="cb14-248"><a href="#cb14-248"></a>Hint: Note that because <span class="in">`pbinom`</span> is just adding different pieces of <span class="in">`dbinom`</span> together, the following two lines of code are equivalent:</span>
-<span id="cb14-249"><a href="#cb14-249"></a></span>
-<span id="cb14-252"><a href="#cb14-252"></a><span class="in">```{r}</span></span>
-<span id="cb14-253"><a href="#cb14-253"></a><span class="fu">pbinom</span>(<span class="at">q =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">6</span>), <span class="at">size =</span> <span class="dv">5</span>, <span class="at">prob =</span> <span class="fl">0.75</span>)</span>
-<span id="cb14-254"><a href="#cb14-254"></a><span class="fu">cumsum</span>(<span class="fu">dbinom</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">6</span>), <span class="at">size =</span> <span class="dv">5</span>, <span class="at">prob =</span> <span class="fl">0.75</span>))</span>
-<span id="cb14-255"><a href="#cb14-255"></a><span class="in">```</span></span>
-<span id="cb14-256"><a href="#cb14-256"></a>:::</span>
-<span id="cb14-257"><a href="#cb14-257"></a></span>
-<span id="cb14-258"><a href="#cb14-258"></a><span class="fu">## Likelihoods</span></span>
-<span id="cb14-259"><a href="#cb14-259"></a></span>
-<span id="cb14-260"><a href="#cb14-260"></a>Likelihood are similar to a probabilities, except that we think of them as a function of parameters ( $X$ is "fixed"); in the previous exercises, we assumed fixed parameters and tried to answer questions about $X$. Now we do the opposite.</span>
-<span id="cb14-261"><a href="#cb14-261"></a></span>
-<span id="cb14-262"><a href="#cb14-262"></a>This introduces one weird implication:</span>
-<span id="cb14-263"><a href="#cb14-263"></a></span>
-<span id="cb14-264"><a href="#cb14-264"></a>Suppose we have a binomial distribution with $p = 0.5$ and $n = 55$. Then, summing over all possible values of $X$ should add up to $1$.</span>
-<span id="cb14-265"><a href="#cb14-265"></a></span>
-<span id="cb14-268"><a href="#cb14-268"></a><span class="in">```{r}</span></span>
-<span id="cb14-269"><a href="#cb14-269"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">55</span></span>
-<span id="cb14-270"><a href="#cb14-270"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(x, <span class="at">size =</span> <span class="dv">55</span>, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>))</span>
-<span id="cb14-271"><a href="#cb14-271"></a><span class="in">```</span></span>
-<span id="cb14-272"><a href="#cb14-272"></a></span>
-<span id="cb14-273"><a href="#cb14-273"></a>This *does not* happen if we take the same formula as a function of the parameter $p$ with $X = 22$.</span>
-<span id="cb14-274"><a href="#cb14-274"></a></span>
-<span id="cb14-277"><a href="#cb14-277"></a><span class="in">```{r}</span></span>
-<span id="cb14-278"><a href="#cb14-278"></a>p <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.001</span>)</span>
-<span id="cb14-279"><a href="#cb14-279"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">22</span>, <span class="at">size =</span> <span class="dv">55</span>, <span class="at">prob =</span> p))</span>
-<span id="cb14-280"><a href="#cb14-280"></a><span class="in">```</span></span>
-<span id="cb14-281"><a href="#cb14-281"></a></span>
-<span id="cb14-282"><a href="#cb14-282"></a>Furthermore, we didn't even sum over all the possible values of $p$. The vector <span class="in">`p`</span> (in this example) is of length 1001, but $p$ can actually take an infinite range of values! This is why Steve did the the whole "normalizing" thing in last <span class="co">[</span><span class="ot">week's class</span><span class="co">](https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-10.R)</span> in order to turn the likelihoods into a *probability distribution* for $p$.</span>
-<span id="cb14-283"><a href="#cb14-283"></a></span>
-<span id="cb14-284"><a href="#cb14-284"></a><span class="at">&gt; *---What? Did you just give me probability* $p$ it's own probability distribution?</span></span>
-<span id="cb14-285"><a href="#cb14-285"></a><span class="at">&gt;</span></span>
-<span id="cb14-286"><a href="#cb14-286"></a><span class="at">&gt; ---Yes.</span></span>
-<span id="cb14-287"><a href="#cb14-287"></a></span>
-<span id="cb14-288"><a href="#cb14-288"></a><span class="fu">### Exercise</span></span>
-<span id="cb14-289"><a href="#cb14-289"></a></span>
-<span id="cb14-290"><a href="#cb14-290"></a>Let's revisit Steve's grid approximation code.</span>
-<span id="cb14-291"><a href="#cb14-291"></a></span>
-<span id="cb14-292"><a href="#cb14-292"></a>I'll give you a start.</span>
-<span id="cb14-293"><a href="#cb14-293"></a></span>
-<span id="cb14-296"><a href="#cb14-296"></a><span class="in">```{r}</span></span>
-<span id="cb14-297"><a href="#cb14-297"></a><span class="co">#| message: false</span></span>
-<span id="cb14-298"><a href="#cb14-298"></a></span>
-<span id="cb14-299"><a href="#cb14-299"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb14-300"><a href="#cb14-300"></a>grid <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">prob =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.001</span>))</span>
-<span id="cb14-301"><a href="#cb14-301"></a>grid<span class="sc">$</span>like <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">21</span>, <span class="dv">47</span>, grid<span class="sc">$</span>prob) <span class="do">## MAKE SURE YOU USE THESE VALUES</span></span>
-<span id="cb14-302"><a href="#cb14-302"></a><span class="in">```</span></span>
-<span id="cb14-303"><a href="#cb14-303"></a></span>
-<span id="cb14-304"><a href="#cb14-304"></a>::: callout-note</span>
-<span id="cb14-305"><a href="#cb14-305"></a>Following Steve's code, calculate <span class="in">`clike_raw`</span> and <span class="in">`clike_normalized`</span>.</span>
-<span id="cb14-306"><a href="#cb14-306"></a></span>
-<span id="cb14-307"><a href="#cb14-307"></a>Looking at this data frame, what probability would you assign to <span class="in">`prob`</span> having a value equal to or greater than 0.588?</span>
-<span id="cb14-308"><a href="#cb14-308"></a>:::</span>
+<div class="sourceCode" id="cb15" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">---</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="an">title:</span><span class="co"> "Week 5"</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="an">callout-appearance:</span><span class="co"> simple</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="an">callout-icon:</span><span class="co"> false</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="co">---</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a></span>
+<span id="cb15-7"><a href="#cb15-7"></a>The purpose of this week's homework is to fully understand the binomial probability distribution. We will build up to it from scratch using some 🌟 math 🌟 . We will then revisit some of the things we've done in class.</span>
+<span id="cb15-8"><a href="#cb15-8"></a></span>
+<span id="cb15-9"><a href="#cb15-9"></a>R has four built-in forms of working with probability distributions.</span>
+<span id="cb15-10"><a href="#cb15-10"></a></span>
+<span id="cb15-11"><a href="#cb15-11"></a>See <span class="in">`?distributions`</span> for a list of common distributions contained in R.</span>
+<span id="cb15-12"><a href="#cb15-12"></a></span>
+<span id="cb15-13"><a href="#cb15-13"></a>To work with a **binomial distribution** we have the following functions:</span>
+<span id="cb15-14"><a href="#cb15-14"></a></span>
+<span id="cb15-15"><a href="#cb15-15"></a><span class="ss">-   </span><span class="in">`dbinom()`</span>: probability (mass)<span class="ot">[^week5-1]</span> function</span>
+<span id="cb15-16"><a href="#cb15-16"></a></span>
+<span id="cb15-17"><a href="#cb15-17"></a><span class="ss">-   </span><span class="in">`pbinom()`</span>: cumulative probability distribution</span>
+<span id="cb15-18"><a href="#cb15-18"></a></span>
+<span id="cb15-19"><a href="#cb15-19"></a><span class="ss">-   </span><span class="in">`rbinom()`</span>: draw <span class="in">`n`</span> samples from <span class="in">`dbinom()`</span></span>
+<span id="cb15-20"><a href="#cb15-20"></a></span>
+<span id="cb15-21"><a href="#cb15-21"></a><span class="ss">-   </span><span class="in">`qbinom()`</span>: quantile distribution; this is the *inverse* of <span class="in">`pbinom()`</span>.</span>
+<span id="cb15-22"><a href="#cb15-22"></a></span>
+<span id="cb15-23"><a href="#cb15-23"></a>    What does "inverse" mean here? We'll get to that, but it basically means that---all else equal---the output of input to <span class="in">`pbinom()`</span> corresponds to the output of <span class="in">`qbinom()`</span> (and vice versa).</span>
+<span id="cb15-24"><a href="#cb15-24"></a></span>
+<span id="cb15-25"><a href="#cb15-25"></a>    <span class="in">```{r}</span></span>
+<span id="cb15-26"><a href="#cb15-26"></a>    input <span class="ot">&lt;-</span> <span class="dv">350</span></span>
+<span id="cb15-27"><a href="#cb15-27"></a>    output <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(input, <span class="at">size =</span> <span class="dv">1000</span>, <span class="at">prob =</span> <span class="fl">0.345623</span>)</span>
+<span id="cb15-28"><a href="#cb15-28"></a>    <span class="fu">qbinom</span>(output, <span class="at">size =</span> <span class="dv">1000</span>, <span class="at">prob =</span> <span class="fl">0.345623</span>)</span>
+<span id="cb15-29"><a href="#cb15-29"></a>    <span class="in">```</span></span>
+<span id="cb15-30"><a href="#cb15-30"></a></span>
+<span id="cb15-31"><a href="#cb15-31"></a><span class="ot">[^week5-1]: </span>We will get to the meaning of this "mass" word here in a future exercise when we work with *continuous* random variables. A *continuous* random can take an infinite number of possible values. Since the number of outcomes is *uncountable*, we need to take a different approach to how we compute its probability distribution. For now, we can safely ignore this technicality.</span>
+<span id="cb15-32"><a href="#cb15-32"></a></span>
+<span id="cb15-33"><a href="#cb15-33"></a><span class="fu">## Probability Primer</span></span>
+<span id="cb15-34"><a href="#cb15-34"></a></span>
+<span id="cb15-35"><a href="#cb15-35"></a>*Keep track of the **bold words***.</span>
+<span id="cb15-36"><a href="#cb15-36"></a></span>
+<span id="cb15-37"><a href="#cb15-37"></a>A **random variable** assigns some number to each outcome of a random **event**.</span>
+<span id="cb15-38"><a href="#cb15-38"></a></span>
+<span id="cb15-39"><a href="#cb15-39"></a>Suppose we flip a coin exactly one time. Then the set of all outcomes---or **sample space---**is given by the following *set*:</span>
+<span id="cb15-40"><a href="#cb15-40"></a></span>
+<span id="cb15-41"><a href="#cb15-41"></a>$$</span>
+<span id="cb15-42"><a href="#cb15-42"></a>\Omega = <span class="sc">\{</span>H, T<span class="sc">\}</span></span>
+<span id="cb15-43"><a href="#cb15-43"></a>$$</span>
+<span id="cb15-44"><a href="#cb15-44"></a></span>
+<span id="cb15-45"><a href="#cb15-45"></a><span class="kw">&lt;aside&gt;</span>An **event** is a well-defined *subset* of $\Omega$.<span class="kw">&lt;/aside&gt;</span></span>
+<span id="cb15-46"><a href="#cb15-46"></a></span>
+<span id="cb15-47"><a href="#cb15-47"></a>If we assume that the coin is fair---i.e., that both events are equally likely---then we get the following probabilities.</span>
+<span id="cb15-48"><a href="#cb15-48"></a></span>
+<span id="cb15-49"><a href="#cb15-49"></a>$$</span>
+<span id="cb15-50"><a href="#cb15-50"></a>\begin{align}</span>
+<span id="cb15-51"><a href="#cb15-51"></a>\Pr(H) = \frac{1}{2}, &amp;&amp; \Pr(T) = \frac{1}{2}</span>
+<span id="cb15-52"><a href="#cb15-52"></a>\end{align}</span>
+<span id="cb15-53"><a href="#cb15-53"></a>$$</span>
+<span id="cb15-54"><a href="#cb15-54"></a></span>
+<span id="cb15-55"><a href="#cb15-55"></a>A **probability measure** assigns a number between 0 and 1 to every event in the sample space ( $\Omega$ ). Moreover, the sum of all probabilities must equal one. *Those are the rules!*</span>
+<span id="cb15-56"><a href="#cb15-56"></a></span>
+<span id="cb15-57"><a href="#cb15-57"></a>Going back to the notion of a **random variable**, if we are recording the number of "heads," then $H$ gets assigned 1 and $T$ gets assigned to 0.</span>
+<span id="cb15-58"><a href="#cb15-58"></a></span>
+<span id="cb15-59"><a href="#cb15-59"></a>$$</span>
+<span id="cb15-60"><a href="#cb15-60"></a>\begin{align}</span>
+<span id="cb15-61"><a href="#cb15-61"></a>X\Big(<span class="sc">\{</span>H<span class="sc">\}</span>\Big) = 1, &amp;&amp; X\Big(<span class="sc">\{</span>T<span class="sc">\}</span>\Big) = 0</span>
+<span id="cb15-62"><a href="#cb15-62"></a>\end{align}</span>
+<span id="cb15-63"><a href="#cb15-63"></a>$$</span>
+<span id="cb15-64"><a href="#cb15-64"></a></span>
+<span id="cb15-65"><a href="#cb15-65"></a><span class="fu">## Bernoulli distribution</span></span>
+<span id="cb15-66"><a href="#cb15-66"></a></span>
+<span id="cb15-67"><a href="#cb15-67"></a>These are the building blocks of what's known as a *Bernoulli* **probability distribution***,* which takes the following form:</span>
+<span id="cb15-68"><a href="#cb15-68"></a></span>
+<span id="cb15-69"><a href="#cb15-69"></a>$$</span>
+<span id="cb15-70"><a href="#cb15-70"></a>\Pr(X = x) = \begin{cases} </span>
+<span id="cb15-71"><a href="#cb15-71"></a>    p &amp;\text{if} \ x = 1 <span class="sc">\\\\</span></span>
+<span id="cb15-72"><a href="#cb15-72"></a>    1 - p &amp;\text{if} \ x = 0 <span class="sc">\\\\</span></span>
+<span id="cb15-73"><a href="#cb15-73"></a>    0 &amp;\text{if} \ x = \text{anything else}</span>
+<span id="cb15-74"><a href="#cb15-74"></a>\end{cases}</span>
+<span id="cb15-75"><a href="#cb15-75"></a>$$ {#eq-bernouilli-pmf}</span>
+<span id="cb15-76"><a href="#cb15-76"></a></span>
+<span id="cb15-77"><a href="#cb15-77"></a>*Note. If we flip a fair coin, we are basically saying that* $X$ *will follow a Bernouilli distribution with* $p = 0.5$*.*</span>
+<span id="cb15-78"><a href="#cb15-78"></a></span>
+<span id="cb15-79"><a href="#cb15-79"></a>::: callout-tip</span>
+<span id="cb15-80"><a href="#cb15-80"></a>You should be able to define in your own words the following terms: **random variable**, **sample space**, and **event.**</span>
+<span id="cb15-81"><a href="#cb15-81"></a>:::</span>
+<span id="cb15-82"><a href="#cb15-82"></a></span>
+<span id="cb15-83"><a href="#cb15-83"></a>The **cumulative distribution function** returns the probability that an outcome is *less than or equal* to $x$. It looks exactly like this:</span>
+<span id="cb15-84"><a href="#cb15-84"></a></span>
+<span id="cb15-85"><a href="#cb15-85"></a>$$</span>
+<span id="cb15-86"><a href="#cb15-86"></a>\Pr(X \leq x) = \begin{cases} </span>
+<span id="cb15-87"><a href="#cb15-87"></a>    0 &amp;\text{if} \ x &lt; 0 <span class="sc">\\\\</span></span>
+<span id="cb15-88"><a href="#cb15-88"></a>    1 - p &amp;\text{if} \ x = 0 <span class="sc">\\\\</span></span>
+<span id="cb15-89"><a href="#cb15-89"></a>    1 &amp;\text{if} \ x = 1 <span class="sc">\\\\</span></span>
+<span id="cb15-90"><a href="#cb15-90"></a>    1 &amp;\text{if} \ x &gt; 1</span>
+<span id="cb15-91"><a href="#cb15-91"></a>\end{cases}</span>
+<span id="cb15-92"><a href="#cb15-92"></a>$$ {#eq-bernouilli-cdf}</span>
+<span id="cb15-93"><a href="#cb15-93"></a></span>
+<span id="cb15-94"><a href="#cb15-94"></a><span class="fu">### Exercise</span></span>
+<span id="cb15-95"><a href="#cb15-95"></a></span>
+<span id="cb15-96"><a href="#cb15-96"></a>The Bernoulli distribution is a special case of the **binomial distribution**. If we set the argument <span class="in">`size = 1`</span>, we basically have a Bernouilli distribution.</span>
+<span id="cb15-97"><a href="#cb15-97"></a></span>
+<span id="cb15-98"><a href="#cb15-98"></a>Suppose that $p = 2/3$.</span>
+<span id="cb15-99"><a href="#cb15-99"></a></span>
+<span id="cb15-100"><a href="#cb15-100"></a>::: callout-note</span>
+<span id="cb15-101"><a href="#cb15-101"></a>Use <span class="in">`dbinom()`</span> to verify the results in @eq-bernouilli-pmf.</span>
+<span id="cb15-102"><a href="#cb15-102"></a></span>
+<span id="cb15-103"><a href="#cb15-103"></a>Use <span class="in">`pbinom()`</span> to verify the results in @eq-bernouilli-cdf.</span>
+<span id="cb15-104"><a href="#cb15-104"></a></span>
+<span id="cb15-105"><a href="#cb15-105"></a>Use <span class="in">`rbinom()`</span> to generate 100 samples from the Bernouilli distribution with <span class="in">`prob = 2/3`</span>. Plot the results in <span class="in">`ggplot`</span> using <span class="in">`geom_bar`</span>.</span>
+<span id="cb15-106"><a href="#cb15-106"></a>:::</span>
+<span id="cb15-107"><a href="#cb15-107"></a></span>
+<span id="cb15-108"><a href="#cb15-108"></a><span class="fu">## Binomial distribution</span></span>
+<span id="cb15-109"><a href="#cb15-109"></a></span>
+<span id="cb15-110"><a href="#cb15-110"></a>The binomial distribution comes from adding $n$ Bernouilli distributions. Thus, it has two parameters: $n$ and $p$. This "$n$" corresponds to the <span class="in">`size`</span> argument in the R functions we've been working with.</span>
+<span id="cb15-111"><a href="#cb15-111"></a></span>
+<span id="cb15-112"><a href="#cb15-112"></a><span class="fu">### Exercise {#sec-four-coins-1}</span></span>
+<span id="cb15-113"><a href="#cb15-113"></a></span>
+<span id="cb15-114"><a href="#cb15-114"></a>Suppose we flip a fair coin exactly four times.</span>
+<span id="cb15-115"><a href="#cb15-115"></a></span>
+<span id="cb15-116"><a href="#cb15-116"></a>::: callout-note</span>
+<span id="cb15-117"><a href="#cb15-117"></a>Draw the sample space $\Omega$ for this "experiment."</span>
+<span id="cb15-118"><a href="#cb15-118"></a></span>
+<span id="cb15-119"><a href="#cb15-119"></a>*Note. You can* *pencil and paper and insert a photo of the image if you want to. But I encourage you to play around with the* $\LaTeX$ *formulas.*</span>
+<span id="cb15-120"><a href="#cb15-120"></a>:::</span>
+<span id="cb15-121"><a href="#cb15-121"></a></span>
+<span id="cb15-122"><a href="#cb15-122"></a>::: callout-tip</span>
+<span id="cb15-123"><a href="#cb15-123"></a>Hint: There's this little thing in combinatorics called the *multiplication rule.* The number of ways in which we can flip four coins is $2 \times 2 \times 2 \times 2 = 16$. Thus, your sample space should consist of 16 events.</span>
+<span id="cb15-124"><a href="#cb15-124"></a>:::</span>
+<span id="cb15-125"><a href="#cb15-125"></a></span>
+<span id="cb15-126"><a href="#cb15-126"></a><span class="fu">### Exercise {#sec-four-coins-2}</span></span>
+<span id="cb15-127"><a href="#cb15-127"></a></span>
+<span id="cb15-128"><a href="#cb15-128"></a>Turn the previous sample space into a random variable that counts the number of heads ( $H$ ) in each event.</span>
+<span id="cb15-129"><a href="#cb15-129"></a></span>
+<span id="cb15-130"><a href="#cb15-130"></a>::: callout-note</span>
+<span id="cb15-131"><a href="#cb15-131"></a>How many possible ways are there to get $X = 0$, $X = 1$, $X = 2$, $X = 3$, and $X = 4$?</span>
+<span id="cb15-132"><a href="#cb15-132"></a></span>
+<span id="cb15-133"><a href="#cb15-133"></a>What is the probability that $X = 2$?</span>
+<span id="cb15-134"><a href="#cb15-134"></a></span>
+<span id="cb15-135"><a href="#cb15-135"></a>Verify this by using the correct R function to calculate the probability that $X = 2$?</span>
+<span id="cb15-136"><a href="#cb15-136"></a></span>
+<span id="cb15-137"><a href="#cb15-137"></a>Use the correct R function to calculate the probability that $X \leq 1$?</span>
+<span id="cb15-138"><a href="#cb15-138"></a>:::</span>
+<span id="cb15-139"><a href="#cb15-139"></a></span>
+<span id="cb15-140"><a href="#cb15-140"></a><span class="fu">### Exercise</span></span>
+<span id="cb15-141"><a href="#cb15-141"></a></span>
+<span id="cb15-142"><a href="#cb15-142"></a>::: callout-note</span>
+<span id="cb15-143"><a href="#cb15-143"></a>Use <span class="in">`rbinom()`</span> to generate 1000 samples from the Binomial distribution with <span class="in">`size = 5`</span> and <span class="in">`prob = 2/3`</span>. Plot the results in <span class="in">`ggplot`</span> using <span class="in">`geom_bar`</span>.</span>
+<span id="cb15-144"><a href="#cb15-144"></a></span>
+<span id="cb15-145"><a href="#cb15-145"></a>Estimate the probability that $X$ is an even number using the **`mean()`** function on those 1000 values.</span>
+<span id="cb15-146"><a href="#cb15-146"></a>:::</span>
+<span id="cb15-147"><a href="#cb15-147"></a></span>
+<span id="cb15-148"><a href="#cb15-148"></a>::: callout-tip</span>
+<span id="cb15-149"><a href="#cb15-149"></a>You can calculate (almost) the same number by adding up the following values:</span>
+<span id="cb15-150"><a href="#cb15-150"></a></span>
+<span id="cb15-153"><a href="#cb15-153"></a><span class="in">```{r}</span></span>
+<span id="cb15-154"><a href="#cb15-154"></a><span class="fu">dbinom</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="at">size =</span> <span class="dv">5</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb15-155"><a href="#cb15-155"></a><span class="in">```</span></span>
+<span id="cb15-156"><a href="#cb15-156"></a>:::</span>
+<span id="cb15-157"><a href="#cb15-157"></a></span>
+<span id="cb15-158"><a href="#cb15-158"></a><span class="fu">### Unfair Coins and Independence</span></span>
+<span id="cb15-159"><a href="#cb15-159"></a></span>
+<span id="cb15-160"><a href="#cb15-160"></a>So far, you've seen that it's easy to calculate probabilities by hand when we have fair coins---i.e., when $p=1/2$. It's just addition and division.</span>
+<span id="cb15-161"><a href="#cb15-161"></a></span>
+<span id="cb15-162"><a href="#cb15-162"></a>But what happens when $p \neq 0.5$?</span>
+<span id="cb15-163"><a href="#cb15-163"></a></span>
+<span id="cb15-164"><a href="#cb15-164"></a>If we assume that these coin flips are **independent**---i.e., that getting $H$ during the first flip doesn't affect the chances of getting $H$ during the second flip---then we have a very convenient of calculating *joint probabilities.*</span>
+<span id="cb15-165"><a href="#cb15-165"></a></span>
+<span id="cb15-166"><a href="#cb15-166"></a>We say that two events $A$ and $B$ are **independent** if and only if $\Pr(A \cap B) = \Pr(A) \times \Pr(B)$.</span>
+<span id="cb15-167"><a href="#cb15-167"></a></span>
+<span id="cb15-168"><a href="#cb15-168"></a>In terms of fair coin flipes, we would have that the probability of getting a sequence of $HTHH$ is the same as:</span>
+<span id="cb15-169"><a href="#cb15-169"></a></span>
+<span id="cb15-170"><a href="#cb15-170"></a>$$</span>
+<span id="cb15-171"><a href="#cb15-171"></a>\Pr(HTHH) = \Pr(H)\Pr(T)\Pr(H)\Pr(H) = \frac{1}{16}</span>
+<span id="cb15-172"><a href="#cb15-172"></a>$$</span>
+<span id="cb15-173"><a href="#cb15-173"></a></span>
+<span id="cb15-174"><a href="#cb15-174"></a>This same procedure holds if the coin is unfair.</span>
+<span id="cb15-175"><a href="#cb15-175"></a></span>
+<span id="cb15-176"><a href="#cb15-176"></a>For example:</span>
+<span id="cb15-177"><a href="#cb15-177"></a></span>
+<span id="cb15-178"><a href="#cb15-178"></a>If $\Pr(H) = \frac{1}{3}$, then</span>
+<span id="cb15-179"><a href="#cb15-179"></a></span>
+<span id="cb15-180"><a href="#cb15-180"></a>$$</span>
+<span id="cb15-181"><a href="#cb15-181"></a>\Pr(HTHH) = \frac{1}{3} \cdot \frac{2}{3} \cdot \frac{1}{3} \cdot \frac{1}{3} = \frac{2}{81}</span>
+<span id="cb15-182"><a href="#cb15-182"></a>$$</span>
+<span id="cb15-183"><a href="#cb15-183"></a></span>
+<span id="cb15-184"><a href="#cb15-184"></a><span class="fu">### Exercise</span></span>
+<span id="cb15-185"><a href="#cb15-185"></a></span>
+<span id="cb15-186"><a href="#cb15-186"></a>::: callout-note</span>
+<span id="cb15-187"><a href="#cb15-187"></a>Revisit what you did @sec-four-coins-1 and @sec-four-coins-2.</span>
+<span id="cb15-188"><a href="#cb15-188"></a></span>
+<span id="cb15-189"><a href="#cb15-189"></a>What is the probability that $X = 2$ when $p = 1/3$ and $n = 4$?</span>
+<span id="cb15-190"><a href="#cb15-190"></a></span>
+<span id="cb15-191"><a href="#cb15-191"></a>Verify this by using the correct R function to calculate the probability that $X = 2$?</span>
+<span id="cb15-192"><a href="#cb15-192"></a>:::</span>
+<span id="cb15-193"><a href="#cb15-193"></a></span>
+<span id="cb15-194"><a href="#cb15-194"></a><span class="fu">### Binomial distribution, the formula</span></span>
+<span id="cb15-195"><a href="#cb15-195"></a></span>
+<span id="cb15-196"><a href="#cb15-196"></a>Looking back at what you've done, you should be able to understand that the formula for a probability distribution with $n=4$ has a sample space with 16 events, and that there are five possible outcomes $X = <span class="sc">\{</span>0, 1, 2, 3, 4 <span class="sc">\}</span>$.</span>
+<span id="cb15-197"><a href="#cb15-197"></a></span>
+<span id="cb15-198"><a href="#cb15-198"></a>The probability distribution for a **Binomial** **probability distribution**, with parameters $p$ and $n = 4$ takes the following form:</span>
+<span id="cb15-199"><a href="#cb15-199"></a></span>
+<span id="cb15-200"><a href="#cb15-200"></a>$$</span>
+<span id="cb15-201"><a href="#cb15-201"></a>\Pr(X = x) = \begin{cases} </span>
+<span id="cb15-202"><a href="#cb15-202"></a>    1 \ (1 - p)^4 &amp;\text{if} \ x = 0 <span class="sc">\\</span></span>
+<span id="cb15-203"><a href="#cb15-203"></a>    4 \ p(1 - p)^3 &amp;\text{if} \ x = 1 <span class="sc">\\</span> </span>
+<span id="cb15-204"><a href="#cb15-204"></a>    6 \ p^2(1-p)^2 &amp;\text{if} \ x = 2 <span class="sc">\\</span></span>
+<span id="cb15-205"><a href="#cb15-205"></a>    4 \ p^1(1-p)^3 &amp;\text{if} \ x = 3 <span class="sc">\\</span></span>
+<span id="cb15-206"><a href="#cb15-206"></a>    1 \ p^4 &amp;\text{if} \ x = 4 <span class="sc">\\</span></span>
+<span id="cb15-207"><a href="#cb15-207"></a>    0 &amp;\text{if} \ x = \text{anything else}</span>
+<span id="cb15-208"><a href="#cb15-208"></a>\end{cases}</span>
+<span id="cb15-209"><a href="#cb15-209"></a>$$</span>
+<span id="cb15-210"><a href="#cb15-210"></a></span>
+<span id="cb15-211"><a href="#cb15-211"></a>The 1s, 4s, and and 6s come from counting the number of ways in which $X$ can equal one of these numbers. You should have gotten these results in @sec-four-coins-2. If you didn't, go back because you did something wrong!</span>
+<span id="cb15-212"><a href="#cb15-212"></a></span>
+<span id="cb15-213"><a href="#cb15-213"></a>However, this is not how you'll see binomial distributions written out in the wild. We need new notation in order to write **any** binomial distribution, which we get by using the so-called binomial coefficient:</span>
+<span id="cb15-214"><a href="#cb15-214"></a></span>
+<span id="cb15-215"><a href="#cb15-215"></a>$$</span>
+<span id="cb15-216"><a href="#cb15-216"></a>{n \choose x} = \frac{n!}{x! (n - x)!}</span>
+<span id="cb15-217"><a href="#cb15-217"></a>$$</span>
+<span id="cb15-218"><a href="#cb15-218"></a></span>
+<span id="cb15-219"><a href="#cb15-219"></a><span class="kw">&lt;aside&gt;</span>You might remember some of this from the GRE.<span class="kw">&lt;/aside&gt;</span></span>
+<span id="cb15-220"><a href="#cb15-220"></a></span>
+<span id="cb15-221"><a href="#cb15-221"></a>So the probability (mass) function of **any** *binomial distribution* is then this:</span>
+<span id="cb15-222"><a href="#cb15-222"></a></span>
+<span id="cb15-223"><a href="#cb15-223"></a>$$</span>
+<span id="cb15-224"><a href="#cb15-224"></a>\Pr(X = x) = {n \choose x} p^x (1-p)^{n-x}</span>
+<span id="cb15-225"><a href="#cb15-225"></a>$$ {#eq-binomial-pmf}</span>
+<span id="cb15-226"><a href="#cb15-226"></a></span>
+<span id="cb15-227"><a href="#cb15-227"></a>And the cumulative distribution function is as follows:</span>
+<span id="cb15-228"><a href="#cb15-228"></a></span>
+<span id="cb15-229"><a href="#cb15-229"></a>$$</span>
+<span id="cb15-230"><a href="#cb15-230"></a>\Pr(X \leq x) = \sum_{i = 0}^x {n \choose x} p^x (1-p)^{n-x}</span>
+<span id="cb15-231"><a href="#cb15-231"></a>$$ {#eq-binomial-cdf}</span>
+<span id="cb15-232"><a href="#cb15-232"></a></span>
+<span id="cb15-233"><a href="#cb15-233"></a><span class="fu">### Exercise</span></span>
+<span id="cb15-234"><a href="#cb15-234"></a></span>
+<span id="cb15-235"><a href="#cb15-235"></a>Suppose that $p = 2/3$ and $n = 15$</span>
+<span id="cb15-236"><a href="#cb15-236"></a></span>
+<span id="cb15-237"><a href="#cb15-237"></a>::: callout-note</span>
+<span id="cb15-238"><a href="#cb15-238"></a>Use <span class="in">`dbinom()`</span> to verify the results in @eq-binomial-pmf.</span>
+<span id="cb15-239"><a href="#cb15-239"></a></span>
+<span id="cb15-240"><a href="#cb15-240"></a>Use <span class="in">`pbinom()`</span> to verify the results in @eq-binomial-cdf.</span>
+<span id="cb15-241"><a href="#cb15-241"></a>:::</span>
+<span id="cb15-242"><a href="#cb15-242"></a></span>
+<span id="cb15-243"><a href="#cb15-243"></a>::: callout-tip</span>
+<span id="cb15-244"><a href="#cb15-244"></a>Hint: You should strive to verify these results using R. There's a function called <span class="in">`choose()`</span> which calculates the binomial coefficient.</span>
+<span id="cb15-245"><a href="#cb15-245"></a>:::</span>
+<span id="cb15-246"><a href="#cb15-246"></a></span>
+<span id="cb15-247"><a href="#cb15-247"></a>::: callout-tip</span>
+<span id="cb15-248"><a href="#cb15-248"></a>Hint: Note that because <span class="in">`pbinom`</span> is just adding different pieces of <span class="in">`dbinom`</span> together, the following two lines of code are equivalent:</span>
+<span id="cb15-249"><a href="#cb15-249"></a></span>
+<span id="cb15-252"><a href="#cb15-252"></a><span class="in">```{r}</span></span>
+<span id="cb15-253"><a href="#cb15-253"></a><span class="fu">pbinom</span>(<span class="at">q =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">6</span>), <span class="at">size =</span> <span class="dv">5</span>, <span class="at">prob =</span> <span class="fl">0.75</span>)</span>
+<span id="cb15-254"><a href="#cb15-254"></a><span class="fu">cumsum</span>(<span class="fu">dbinom</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">6</span>), <span class="at">size =</span> <span class="dv">5</span>, <span class="at">prob =</span> <span class="fl">0.75</span>))</span>
+<span id="cb15-255"><a href="#cb15-255"></a><span class="in">```</span></span>
+<span id="cb15-256"><a href="#cb15-256"></a>:::</span>
+<span id="cb15-257"><a href="#cb15-257"></a></span>
+<span id="cb15-258"><a href="#cb15-258"></a><span class="fu">## Likelihoods</span></span>
+<span id="cb15-259"><a href="#cb15-259"></a></span>
+<span id="cb15-260"><a href="#cb15-260"></a>Likelihood are similar to a probabilities, except that we think of them as a function of parameters ( $X$ is "fixed"); in the previous exercises, we assumed fixed parameters and tried to answer questions about $X$. Now we do the opposite.</span>
+<span id="cb15-261"><a href="#cb15-261"></a></span>
+<span id="cb15-262"><a href="#cb15-262"></a>This introduces one weird implication:</span>
+<span id="cb15-263"><a href="#cb15-263"></a></span>
+<span id="cb15-264"><a href="#cb15-264"></a>Suppose we have a binomial distribution with $p = 0.5$ and $n = 55$. Then, summing over all possible values of $X$ should add up to $1$.</span>
+<span id="cb15-265"><a href="#cb15-265"></a></span>
+<span id="cb15-268"><a href="#cb15-268"></a><span class="in">```{r}</span></span>
+<span id="cb15-269"><a href="#cb15-269"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">55</span></span>
+<span id="cb15-270"><a href="#cb15-270"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(x, <span class="at">size =</span> <span class="dv">55</span>, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb15-271"><a href="#cb15-271"></a><span class="in">```</span></span>
+<span id="cb15-272"><a href="#cb15-272"></a></span>
+<span id="cb15-273"><a href="#cb15-273"></a>This *does not* happen if we take the same formula as a function of the parameter $p$ with $X = 22$.</span>
+<span id="cb15-274"><a href="#cb15-274"></a></span>
+<span id="cb15-277"><a href="#cb15-277"></a><span class="in">```{r}</span></span>
+<span id="cb15-278"><a href="#cb15-278"></a>p <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.001</span>)</span>
+<span id="cb15-279"><a href="#cb15-279"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">22</span>, <span class="at">size =</span> <span class="dv">55</span>, <span class="at">prob =</span> p))</span>
+<span id="cb15-280"><a href="#cb15-280"></a><span class="in">```</span></span>
+<span id="cb15-281"><a href="#cb15-281"></a></span>
+<span id="cb15-282"><a href="#cb15-282"></a>Furthermore, we didn't even sum over all the possible values of $p$. The vector <span class="in">`p`</span> (in this example) is of length 1001, but $p$ can actually take an infinite range of values! This is why Steve did the the whole "normalizing" thing in last <span class="co">[</span><span class="ot">week's class</span><span class="co">](https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-10.R)</span> in order to turn the likelihoods into a *probability distribution* for $p$.</span>
+<span id="cb15-283"><a href="#cb15-283"></a></span>
+<span id="cb15-284"><a href="#cb15-284"></a><span class="at">&gt; *---What? Did you just give me probability* $p$ it's own probability distribution?</span></span>
+<span id="cb15-285"><a href="#cb15-285"></a><span class="at">&gt;</span></span>
+<span id="cb15-286"><a href="#cb15-286"></a><span class="at">&gt; ---Yes.</span></span>
+<span id="cb15-287"><a href="#cb15-287"></a></span>
+<span id="cb15-288"><a href="#cb15-288"></a><span class="fu">### Exercise</span></span>
+<span id="cb15-289"><a href="#cb15-289"></a></span>
+<span id="cb15-290"><a href="#cb15-290"></a>Let's revisit Steve's grid approximation code.</span>
+<span id="cb15-291"><a href="#cb15-291"></a></span>
+<span id="cb15-292"><a href="#cb15-292"></a>I'll give you a start.</span>
+<span id="cb15-293"><a href="#cb15-293"></a></span>
+<span id="cb15-296"><a href="#cb15-296"></a><span class="in">```{r}</span></span>
+<span id="cb15-297"><a href="#cb15-297"></a><span class="co">#| message: false</span></span>
+<span id="cb15-298"><a href="#cb15-298"></a></span>
+<span id="cb15-299"><a href="#cb15-299"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb15-300"><a href="#cb15-300"></a>grid <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">prob =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.001</span>))</span>
+<span id="cb15-301"><a href="#cb15-301"></a>grid<span class="sc">$</span>like <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">21</span>, <span class="dv">47</span>, grid<span class="sc">$</span>prob) <span class="do">## MAKE SURE YOU USE THESE VALUES</span></span>
+<span id="cb15-302"><a href="#cb15-302"></a><span class="in">```</span></span>
+<span id="cb15-303"><a href="#cb15-303"></a></span>
+<span id="cb15-304"><a href="#cb15-304"></a>::: callout-note</span>
+<span id="cb15-305"><a href="#cb15-305"></a>Following Steve's code, calculate <span class="in">`clike_raw`</span> and <span class="in">`clike_normalized`</span>.</span>
+<span id="cb15-306"><a href="#cb15-306"></a></span>
+<span id="cb15-307"><a href="#cb15-307"></a>Looking at this data frame, what probability would you assign to <span class="in">`prob`</span> having a value equal to or greater than 0.588?</span>
+<span id="cb15-308"><a href="#cb15-308"></a>:::</span>
+<span id="cb15-309"><a href="#cb15-309"></a></span>
+<span id="cb15-310"><a href="#cb15-310"></a>::: callout-tip</span>
+<span id="cb15-311"><a href="#cb15-311"></a>Hint: You might want to look at something like this:</span>
+<span id="cb15-312"><a href="#cb15-312"></a></span>
+<span id="cb15-315"><a href="#cb15-315"></a><span class="in">```{r}</span></span>
+<span id="cb15-316"><a href="#cb15-316"></a><span class="co">#| eval: false</span></span>
+<span id="cb15-317"><a href="#cb15-317"></a>grid <span class="sc">|&gt;</span> <span class="fu">filter</span>(prob <span class="sc">==</span> <span class="fl">0.588</span>) </span>
+<span id="cb15-318"><a href="#cb15-318"></a><span class="in">```</span></span>
+<span id="cb15-319"><a href="#cb15-319"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
