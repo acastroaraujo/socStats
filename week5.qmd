@@ -193,7 +193,7 @@ Verify this by using the correct R function to calculate the probability that $X
 
 Looking back at what you've done, you should be able to understand that the formula for a probability distribution with $n=4$ has a sample space with 16 events, and that there are five possible outcomes $X = \{0, 1, 2, 3, 4 \}$.
 
-The probability distribution for a **Binomial** **probability distribution**, with parameters $p$ and $n = 4$ takes the following form:
+The **Binomial** **probability distribution**, with parameters $p$ and $n = 4$ takes the following form:
 
 $$
 \Pr(X = x) = \begin{cases} 
@@ -273,7 +273,7 @@ sum(dbinom(x = 22, size = 55, prob = p))
 
 Furthermore, we didn't even sum over all the possible values of $p$. The vector `p` (in this example) is of length 1001, but $p$ can actually take an infinite range of values! This is why Steve did the the whole "normalizing" thing in last [week's class](https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-10.R) in order to turn the likelihoods into a *probability distribution* for $p$.
 
-> *---What? Did you just give me probability* $p$ it's own probability distribution?
+> *---What? Did you just give probability* $p$ it's own probability distribution?
 >
 > ---Yes.
 
