@@ -294,8 +294,16 @@ grid$like <- dbinom(21, 47, grid$prob) ## MAKE SURE YOU USE THESE VALUES
 ::: callout-note
 Following Steve's code, calculate `clike_raw` and `clike_normalized`.
 
-Looking at this data frame, what probability would you assign to `prob` having a value equal to or greater than 0.588?
+Looking at this data frame, what are the chances that `prob` is equal to or greater than 0.588?
 :::
+
+<aside>
+
+Modified on `r Sys.Date()`.
+
+This question used to read "what probability would you assign to `prob` having a value equal to or greater than 0.588?". Hopefully the wording is easier to understand.
+
+</aside>
 
 ::: callout-tip
 Hint: You might want to look at something like this:

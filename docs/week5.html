@@ -577,7 +577,7 @@ You might remember some of this from the GRE.
 </div>
 </section>
 </section>
-<section id="likelihoods" class="level2" data-number="5.4">
+<section id="likelihoods" class="level2 page-columns page-full" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="likelihoods"><span class="header-section-number">5.4</span> Likelihoods</h2>
 <p>Likelihood are similar to a probabilities, except that we think of them as a function of parameters ( <span class="math inline">\(X\)</span> is “fixed”); in the previous exercises, we assumed fixed parameters and tried to answer questions about <span class="math inline">\(X\)</span>. Now we do the opposite.</p>
 <p>This introduces one weird implication:</p>
@@ -608,7 +608,7 @@ You might remember some of this from the GRE.
 <p><em>—What? Did you just give me probability</em> <span class="math inline">\(p\)</span> it’s own probability distribution?</p>
 <p>—Yes.</p>
 </blockquote>
-<section id="exercise-4" class="level3" data-number="5.4.1">
+<section id="exercise-4" class="level3 page-columns page-full" data-number="5.4.1">
 <h3 data-number="5.4.1" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">5.4.1</span> Exercise</h3>
 <p>Let’s revisit Steve’s grid approximation code.</p>
 <p>I’ll give you a start.</p>
@@ -627,10 +627,14 @@ You might remember some of this from the GRE.
 </div>
 <div class="callout-body-container">
 <p>Following Steve’s code, calculate <code>clike_raw</code> and <code>clike_normalized</code>.</p>
-<p>Looking at this data frame, what probability would you assign to <code>prob</code> having a value equal to or greater than 0.588?</p>
+<p>Looking at this data frame, what are the chances that <code>prob</code> is equal to or greater than 0.588?</p>
 </div>
 </div>
 </div>
+<aside>
+<p>Modified on 2023-10-01.</p>
+<p>This question used to read “what probability would you assign to <code>prob</code> having a value equal to or greater than 0.588?”. Hopefully the wording is easier to understand.</p>
+</aside>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1253,17 +1257,25 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-304"><a href="#cb15-304"></a>::: callout-note</span>
 <span id="cb15-305"><a href="#cb15-305"></a>Following Steve's code, calculate <span class="in">`clike_raw`</span> and <span class="in">`clike_normalized`</span>.</span>
 <span id="cb15-306"><a href="#cb15-306"></a></span>
-<span id="cb15-307"><a href="#cb15-307"></a>Looking at this data frame, what probability would you assign to <span class="in">`prob`</span> having a value equal to or greater than 0.588?</span>
+<span id="cb15-307"><a href="#cb15-307"></a>Looking at this data frame, what are the chances that <span class="in">`prob`</span> is equal to or greater than 0.588?</span>
 <span id="cb15-308"><a href="#cb15-308"></a>:::</span>
 <span id="cb15-309"><a href="#cb15-309"></a></span>
-<span id="cb15-310"><a href="#cb15-310"></a>::: callout-tip</span>
-<span id="cb15-311"><a href="#cb15-311"></a>Hint: You might want to look at something like this:</span>
-<span id="cb15-312"><a href="#cb15-312"></a></span>
-<span id="cb15-315"><a href="#cb15-315"></a><span class="in">```{r}</span></span>
-<span id="cb15-316"><a href="#cb15-316"></a><span class="co">#| eval: false</span></span>
-<span id="cb15-317"><a href="#cb15-317"></a>grid <span class="sc">|&gt;</span> <span class="fu">filter</span>(prob <span class="sc">==</span> <span class="fl">0.588</span>) </span>
-<span id="cb15-318"><a href="#cb15-318"></a><span class="in">```</span></span>
-<span id="cb15-319"><a href="#cb15-319"></a>:::</span>
+<span id="cb15-310"><a href="#cb15-310"></a><span class="kw">&lt;aside&gt;</span></span>
+<span id="cb15-311"><a href="#cb15-311"></a></span>
+<span id="cb15-312"><a href="#cb15-312"></a>Modified on <span class="in">`r Sys.Date()`</span>.</span>
+<span id="cb15-313"><a href="#cb15-313"></a></span>
+<span id="cb15-314"><a href="#cb15-314"></a>This question used to read "what probability would you assign to <span class="in">`prob`</span> having a value equal to or greater than 0.588?". Hopefully the wording is easier to understand.</span>
+<span id="cb15-315"><a href="#cb15-315"></a></span>
+<span id="cb15-316"><a href="#cb15-316"></a><span class="kw">&lt;/aside&gt;</span></span>
+<span id="cb15-317"><a href="#cb15-317"></a></span>
+<span id="cb15-318"><a href="#cb15-318"></a>::: callout-tip</span>
+<span id="cb15-319"><a href="#cb15-319"></a>Hint: You might want to look at something like this:</span>
+<span id="cb15-320"><a href="#cb15-320"></a></span>
+<span id="cb15-323"><a href="#cb15-323"></a><span class="in">```{r}</span></span>
+<span id="cb15-324"><a href="#cb15-324"></a><span class="co">#| eval: false</span></span>
+<span id="cb15-325"><a href="#cb15-325"></a>grid <span class="sc">|&gt;</span> <span class="fu">filter</span>(prob <span class="sc">==</span> <span class="fl">0.588</span>) </span>
+<span id="cb15-326"><a href="#cb15-326"></a><span class="in">```</span></span>
+<span id="cb15-327"><a href="#cb15-327"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
