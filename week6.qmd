@@ -1,0 +1,564 @@
+---
+title: "Week 6"
+callout-appearance: simple
+callout-icon: false
+---
+
+The purpose of this week is to understand *null hypothesis significance testing* (NHST) and *confidence intervals.* We will be making use of **simulation-based statistical inference** (including permutation testing and bootstrapping).
+
+These are some of the big ideas we will review:
+
+-   Sampling Distributions.
+
+-   Confidence Intervals.
+
+-   P-values and null-hypothesis testing.
+
+And here are some of the applications we will review:
+
+-   Differences in proportions.
+
+-   Chi-square ( $\chi^2$ ) tests for independence.
+
+**Set up**
+
+Don't forget to put these lines at the beginning of your quarto document:
+
+```{r}
+#| message: false
+#| code-fold: false
+library(tidyverse)
+library(infer)
+library(janitor) ## for convenient "table" functions
+library(gssr)    ## for access to GSS data
+
+## You can choose another ggplot2 theme, obviously. 
+## Windows users might not have this font available!
+theme_set(theme_light(base_family = "Optima")) 
+```
+
+*These are some useful readings:*
+
+-   "[There is still only one test](http://allendowney.blogspot.com/2016/06/there-is-still-only-one-test.html)" by Allen Downey
+
+-   The [documentation](https://infer.netlify.app/) for the `infer` package is pretty good.
+
+-   The American Statistical Association's Statement on Statistical Significance and P-Values.
+
+    <https://www.tandfonline.com/doi/epdf/10.1080/00031305.2016.1154108>
+
+## The *Truth* is Known
+
+### Sampling Distributions
+
+We have already seen sampling distributions in class.
+
+For example, suppose we know that the true proportion of people voting Democrats is $0.53$. If we decide to poll $1000$ individuals, what can we say *beforehand* about the unobserved results?
+
+The following chunk of code simulates this sampling distribution.
+
+```{r}
+S <- 1e4 ## number of simulated draws
+poll_size <- 1000 ## sample size
+
+draws <- rbinom(S, size = poll_size, prob = 0.53)
+proportions <- draws / poll_size
+
+tibble(proportions) |> 
+  ggplot(aes(proportions)) + 
+  geom_histogram(color = "white", boundary = 0.5, binwidth = 0.005) +
+  labs(title = "Sampling Distribution of p = 0.53 and n = 1000")
+```
+
+<aside>
+
+The **sampling distribution** is the set of possible sample \"statistics\" or \"data summaries\" (e.g., means, proportions) that could have been observed, *if the data collection process had been repeated many many times*.
+
+</aside>
+
+This sampling distribution is centered around the *true value* of $0.53$.
+
+```{r}
+mean(proportions)
+```
+
+The **standard error** is the standard deviation of the sample distribution.
+
+```{r}
+se <- sd(proportions)
+se
+```
+
+Furthermore, this sampling distribution *looks* normal, which is something we come to expect because of the **Central Limit Theorem**.
+
+In a normal distribution:
+
+-   We expect 68% of the values to be within 1 standard deviations around the center.
+
+    ```{r}
+    lower <- 0.53 - 1*se
+    upper <- 0.53 + 1*se
+    mean(proportions >= lower & proportions <= upper)
+    ```
+
+-   We expect 95% of the values to be roughly within 2 standard deviations around the mean.
+
+    ```{r}
+    lower <- 0.53 - 2*se
+    upper <- 0.53 + 2*se
+    mean(between(proportions, lower, upper)) ## using dplyr's between function
+    ```
+
+Now that we know this we can ask questions such as what is the probability that a poll of 1000 people tells us that the proportion of people voting Democrats is less than or equal to $0.5$?
+
+```{r}
+mean(proportions <= 0.5)
+```
+
+So, the probability is very low. It seems that a poll of 1000 is very likely to declare the correct winner. Researchers do this kind of calculation all the time to make sure their sample size is sufficiently large for their purposes.
+
+**Sampling distributions without simulations (aka using Math)**
+
+Because of the CLT, we can construct some sampling distributions simply by calculating the center and the spread.
+
+We know the center is $0.53$, and there's a convenient formula for calculating the standard error of a proportion:
+
+$$
+\text{se}_p = \sqrt{\frac{p(1-p)}{n}} = \sqrt{\frac{0.53 \times 0.47}{1000}} \approx 0.01578
+$$
+
+<aside>
+
+Learning this formula is worth your time!
+
+</aside>
+
+We can overlay this "analytical" sampling distribution on top of our simulated sampling distribution like this:
+
+```{r}
+tibble(proportions) |> 
+  ggplot(aes(proportions)) + 
+  geom_histogram(
+    color = "white", boundary = 0.5, binwidth = 0.005,
+    ## this is a little hack to ensure the y-axis are the same
+    mapping = aes(y = after_stat(density))
+  ) +
+  labs(title = "Sampling Distribution of p = 0.53 and n = 1000") +
+  ## adding the normal distribution on top
+  geom_function(fun = \(x) dnorm(x, mean = 0.53, sd = se)) 
+  
+```
+
+<aside>
+
+Keep in mind that the output of `dnorm` is labelled "density" whereas we had been calling output of `dbinom` a "probability." That's because binomial distributions are *discrete,* whereas normal distributions as *continuous.* We can't really assign probabilities to continuous numbers because there are infinitely many of them and the math gets weird; thus, we think about them a little differently.
+
+</aside>
+
+We can ask the same question as before: What is the probability that a poll of 1000 people tells us that the proportion of people voting Democrats is less than or equal to $0.5$? This probability is a *tail-area probability.* We call them like that because they correspond to that little shaded area under the curve.
+
+<aside>
+
+*P-values are also tail area probabilities!*
+
+</aside>
+
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 3
+#| fig-align: center
+
+tibble(proportions) |> 
+  ggplot(aes(proportions)) + 
+  geom_histogram(
+    color = "white", boundary = 0.5, binwidth = 0.005,
+    ## this is a little hack to ensure the y-axis are the same
+    mapping = aes(y = after_stat(density))
+  ) +
+  labs(title = "Sampling Distribution of p = 0.53 and n = 1000") +
+  ## adding the normal distribution on top
+  geom_function(fun = \(x) dnorm(x, mean = 0.53, sd = se)) +
+  stat_function(
+    geom = "area", 
+    fun = \(x) dnorm(x, mean = 0.53, sd = se), 
+    xlim = c(0.45, 0.5),
+    fill = "pink"
+  ) +
+  geom_vline(xintercept = 0.5, linetype = "dashed") +
+  labs(y = "density", x = "proportions")
+```
+
+```{r}
+pnorm(0.5, mean = 0.53, sd = sqrt(0.53*0.47/1000))
+```
+
+### Exercise
+
+::: callout-note
+*Choosing sample size.*
+
+You are designing a survey to estimate the proportion of individuals who will vote Democrat. Assuming that respondents are a simple random sample of the voting population, how many people do you need to poll so that the standard error is less than 5 percentage points?
+:::
+
+### Confidence Intervals
+
+Confidence intervals are constructed from the data we get to observe. In the example above, we established that the true population parameter was equal to $0.53$ and that the sample size was equal to $1000$.
+
+This is how one dataset could look like:
+
+```{r}
+set.seed(321)
+one_dataset <- rbinom(poll_size, size = 1, prob = 0.53)
+glimpse(one_dataset) ## one thousand observations of 1s and 0s
+```
+
+The *estimated* proportion from this one dataset is calculated as follows:
+
+```{r}
+prop_hat <- mean(one_dataset)
+prop_hat
+```
+
+It's increasingly common practice to *estimate* standard errors using a computational approximation technique called the **bootstrap**.
+
+Bootstrap resampling is done *with replacement*; that is, the same data point can appear multiple times in a resampled dataset. This is necessary, as otherwise it would not be possible to get new datasets of the same size as the original.
+
+The following chunk of code estimates 10,000 resampled proportions.
+
+```{r}
+boot_stats <- replicate(1e4, {
+  resample <- sample(one_dataset, replace = TRUE)
+  mean(resample)
+})
+
+glimpse(boot_stats)
+```
+
+We can then construct a confidence interval using the `quantile()` function on the bootstrap statistics.
+
+```{r}
+ci95 <- quantile(boot_stats, c(0.025, 0.975))
+ci95
+```
+
+This is how the bootstrap proportions---and the 95% confidence interval---compare to the "true" sampling distribution:
+
+```{r}
+#| warning: false
+#| code-fold: true
+ggplot() + 
+  geom_histogram(
+    data = tibble(proportions),
+    mapping = aes(proportions, fill = "sampling distribution"),
+    color = "white",
+    boundary = 0.5,
+    binwidth = 0.005
+  ) + 
+  geom_histogram(
+    data = tibble(boot_stats),
+    mapping = aes(boot_stats, fill = "bootstrap proportions"),
+    color = "white",
+    alpha = 1/2, 
+    boundary = 0.5,
+    binwidth = 0.005
+  ) +
+  geom_vline(xintercept = ci95, linetype = "dashed") +
+  labs(fill = NULL, title = "95% Confidence Interval", y = "count") +
+  annotate(
+    "text", x = prop_hat, y = 500, size = 5,
+    ## hack for LaTeX expressions in graphs
+    label = latex2exp::TeX(paste("\\hat{p} =", prop_hat))
+  )
+```
+
+**Confidence intervals without simulations (aka using Math)**
+
+We can also *estimate* standard errors "analytically" using the following formula:
+
+$$
+\widehat{\text{se}_p} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
+$$
+
+<aside>
+
+Note the use of the "hat" symbol in $\hat p$ to indicate that these are *estimates* from a dataset.
+
+</aside>
+
+```{r}
+se_hat <- sqrt(prop_hat * (1 - prop_hat) / 1000)
+se_hat
+```
+
+Assuming that the normal distribution kicks in because of the CLT, we can estimate the 95% confidence interval using the `qnorm()` function:
+
+```{r}
+qnorm(c(0.025, 0.975), mean = prop_hat, sd = se_hat)
+```
+
+In this case, *both confidence intervals are identical.* But we did have to make more assumptions (e.g., using a normal distribution)! And we also had to use formulas that we might not understand (e.g., the formula for $\widehat{\text{se}_p}$ )!
+
+```{r}
+#| code-fold: true
+
+prop_hat <- mean(one_dataset)
+se_hat <- sqrt(prop_hat * (1 - prop_hat) / 1000)
+ci95 <- qnorm(c(0.025, 0.975), mean = prop_hat, sd = se_hat)
+
+ggplot() +
+  stat_function(
+    geom = "area",
+    fun = \(x) dnorm(x, 0.53, sd = sqrt(0.53*0.47/1000)),
+    fill = "steelblue1"
+  ) +
+  stat_function(
+    geom = "area",
+    fun = \(x) dnorm(x, prop_hat, se_hat),
+    fill = "pink", alpha = 4/5
+  ) + 
+  geom_vline(xintercept = ci95, linetype = "dashed") +
+  scale_x_continuous(breaks = seq(0.43, 0.6, 0.02), limits = c(0.43, 0.6)) +
+  labs(x = "proportions", y = "density", title = "95% Confidence Interval")
+```
+
+### NHST
+
+Null Hypothesis Statistical Testing also involves the construction of sampling distributions---i.e., we first construct the sampling distribution of the "null model."
+
+This procedure can be quite mechanical:
+
+1.  We assume a hypothesis we would like to refute: a *null hypothesis* often denoted as $H_0$.
+
+2.  We choose a *test statistic* (e.g., an average, a proportion), which is some function of the observed data.
+
+3.  We derive the *sampling distribution* of the test statistic, given the null hypothesis. This distribution is also called the *reference distribution*.
+
+4.  We ask whether the observed value of the test statistic is likely to occur under the reference distribution. This probability is also known as a $p$*-value*.
+
+    The $p$-value is the probability that, under the null hypothesis, we observe a value of the test statistic at least as extreme as the one we actually observed.
+
+5.  We reject the null hypothesis if the $p$-value is less than or equal to the confidence level $\alpha$. Otherwise, we retain the null hypothesis (i.e., we *fail to reject* the null hypothesis).
+
+For example, continuing the previous example, suppose that our null model ( $H_0$ ) is that the proportion of people who vote Democrat and Republican is the same---i.e., that $p = 0.5$.
+
+We can simulate the null distribution as follows:
+
+```{r}
+S <- 1e4 ## number of simulated draws
+poll_size <- 1000 ## sample size
+
+draws <- rbinom(S, size = poll_size, prob = 0.50)
+null <- draws / poll_size
+```
+
+<aside>
+
+This is almost the exact same code that we used before. Only the `prob` argument has changed.
+
+</aside>
+
+We can overlay the null distribution on top of the sampling distribution for the "true" parameter as follows:
+
+```{r}
+#| warning: false
+#| fig-width: 9
+ggplot() + 
+  geom_histogram(
+    data = tibble(proportions),
+    mapping = aes(proportions, fill = "True Sampling Distribution"),
+    color = "white", boundary = 0.5, binwidth = 0.005,
+  ) +
+  geom_histogram(
+    data = tibble(null),
+    mapping = aes(null, fill = "Null Sampling Distribution"),
+    color = "white", boundary = 0.5, binwidth = 0.005,
+    alpha = 1/2
+  ) +
+  scale_x_continuous(breaks = seq(0.43, 0.61, 0.02), limits = c(0.43, 0.61)) +
+  labs(fill = NULL)
+```
+
+### Exercise
+
+::: callout-note
+What is the probability of observing the "true" value ( $p = 0.53$ ) under the null?
+
+What is the probability of observing `prop_hat` under the null? Is this statistically significant if the confidence level ( $\alpha$ ) is set to 0.05?
+:::
+
+::: callout-tip
+Hint: As a reminder, this is how I calculated `prop_hat` earlier:
+
+```{r}
+#| eval: false
+set.seed(321)
+one_dataset <- rbinom(poll_size, size = 1, prob = 0.53)
+prop_hat <- mean(one_dataset)
+```
+
+Here, `prop_hat` is 0.513. If you remove the `set.seed(321)` line you will get a different value of `prop_hat`. I encourage you to play around with this.
+:::
+
+::: callout-tip
+Hint: You can reach the same decision with NHST and confidence intervals. If your $H_0$ is included within the confidence interval, we then fail to reject the null.
+:::
+
+### Difference in Proportions
+
+We can repeat everything we did before for other scenarios; for example, a difference in proportions.
+
+Suppose we have to groups of people (e.g., men and women) who differ in the proportion of voting Democrat.
+
+For example, we can assume that $p_1 = 0.5$ and that $p_2 = 0.6$.
+
+Here, the *true* difference in proportions is $\theta = p_1 - p_2 = -0.1$.
+
+The following chunk creates a sampling distribution for this new parameter $\theta$.
+
+```{r}
+p1 <- 0.5
+n1 <- 120
+p2 <- 0.6
+n2 <- 90
+
+S <- 1e5
+draws1 <- rbinom(S, size = n1, prob = p1) 
+proportions1 <- draws1 / n1 
+draws2 <- rbinom(S, size = n2, prob = p2)
+proportions2 <- draws2 / n2
+theta_distribution <- proportions1 - proportions2
+```
+
+As before, the sampling distribution is centered around the true value of $-0.1$
+
+```{r}
+mean(theta_distribution)
+```
+
+And the standard error is given by:
+
+```{r}
+sd(theta_distribution)
+```
+
+```{r}
+tibble(theta = theta_distribution) |> 
+  ggplot(aes(theta)) + 
+  geom_histogram(color = "white", boundary = 0.5, binwidth = 0.025) +
+  labs(title = "Sampling Distribution of differences in proportions")
+```
+
+### Exercise
+
+::: callout-note
+The formula for calculating the standard error of a difference in proportions is given by:
+
+$$
+\sigma_{\hat p_1 - \hat p_2} = \sqrt{\frac{p_1 (1 - p_1)}{n_1} + \frac{p_2 (1 - p_2)}{n_2}}
+$$
+
+Verify that this standard error corresponds to `sd(theta_distribution)`.
+:::
+
+### Exercise
+
+::: callout-note
+*Comparison of proportions.*
+
+A randomized experiment is performed within a survey. 1000 people are contacted. Half the people contacted are promised a \$5 incentive to participate, and half are not promised an incentive. The result is a 50% response rate among the treated group and 40% response rate among the control group. Give an estimate and standard error of the difference in proportions.
+:::
+
+::: callout-tip
+Hint: Because this is a randomized experiment, we usually refer to this difference in proportions as an *average treatment effect,* which we interpret as a causal effect.
+:::
+
+## The *Data* is Known
+
+Here we will work with GSS data.
+
+Copy the following chunk of code to get the data frame we will be using.
+
+```{r}
+#| message: false
+gss18 <- gss_get_yr(2018) 
+
+d <- gss18 |> 
+  select(sex, attend, polviews) |> 
+  haven::zap_missing() |> 
+  mutate(sex = as_factor(sex)) |> 
+  haven::zap_labels() |> 
+  drop_na()
+
+glimpse(d)
+```
+
+### Exercise
+
+::: callout-note
+Go to the GSS website and describe the values of `attend` and `polviews`---e.g., what does a value of "4" mean in `polviews`.
+:::
+
+### Exercise
+
+::: callout-note
+Repeat what we did in class with Steve, but compare the `weekly` variable to a new variable call `conservative`.
+
+<https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-12.R>
+:::
+
+::: callout-tip
+Hint: You will have to create the `conservative` value yourself by modifying the `polviews variable.`
+:::
+
+### Exercise
+
+::: callout-note
+Is the difference in proportions between `conservative` and `weekly` statistically significant?
+:::
+
+### Exercise 
+
+::: callout-note
+Instead of discretizing the `polviews` and `attend` (which is what we did to create `weekly` and `conservative`), let's try interpreting their original values.
+
+I made the following plot using `geom_tile` to make the point that contingency tables are hard to interpret.
+
+Try to describe what's going on here.
+:::
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+#| column: page
+#| fig-align: center
+#| echo: false
+
+source("week6_plot_function.R")
+d |> plot_contingency_table(polviews, attend)
+```
+
+::: callout-tip
+Hint: You can get the same values in this plot with the `tabyl()` function from the `janitor` package.
+:::
+
+### Bonus
+
+::: callout-note
+Do a Chi square test on `polviews` and `attend` using the `infer` package.
+
+The null hypothesis is that these variables are "independent" of each other.
+:::
+
+::: callout-tip
+Hint: You may have to transform both `polviews` and `attend` into "factor" variables.
+
+```{r}
+#| eval: false
+
+d <- d |> 
+  mutate(polviews = as_factor(polviews),
+         attend = as_factor(attend))
+
+```
+:::
