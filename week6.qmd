@@ -70,11 +70,7 @@ tibble(proportions) |>
   labs(title = "Sampling Distribution of p = 0.53 and n = 1000")
 ```
 
-<aside>
-
-The **sampling distribution** is the set of possible sample \"statistics\" or \"data summaries\" (e.g., means, proportions) that could have been observed, *if the data collection process had been repeated many many times*.
-
-</aside>
+<aside>The **sampling distribution** is the set of possible sample "statistics" or "data summaries" (e.g., means, proportions) that could have been observed, *if the data collection process had been repeated many many times*.</aside>
 
 This sampling distribution is centered around the *true value* of $0.53$.
 
@@ -127,11 +123,7 @@ $$
 \text{se}_p = \sqrt{\frac{p(1-p)}{n}} = \sqrt{\frac{0.53 \times 0.47}{1000}} \approx 0.01578
 $$
 
-<aside>
-
-Learning this formula is worth your time!
-
-</aside>
+<aside>Learning this formula is worth your time!</aside>
 
 We can overlay this "analytical" sampling distribution on top of our simulated sampling distribution like this:
 
@@ -149,19 +141,11 @@ tibble(proportions) |>
   
 ```
 
-<aside>
-
-Keep in mind that the output of `dnorm` is labelled "density" whereas we had been calling output of `dbinom` a "probability." That's because binomial distributions are *discrete,* whereas normal distributions as *continuous.* We can't really assign probabilities to continuous numbers because there are infinitely many of them and the math gets weird; thus, we think about them a little differently.
-
-</aside>
+<aside>Keep in mind that the output of `dnorm` is labelled "density" whereas we had been calling output of `dbinom` a "probability." That's because binomial distributions are *discrete,* whereas normal distributions as *continuous.* We can't really assign probabilities to continuous numbers because there are infinitely many of them and the math gets weird; thus, we think about them a little differently.</aside>
 
 We can ask the same question as before: What is the probability that a poll of 1000 people tells us that the proportion of people voting Democrats is less than or equal to $0.5$? This probability is a *tail-area probability.* We call them like that because they correspond to that little shaded area under the curve.
 
-<aside>
-
-*P-values are also tail area probabilities!*
-
-</aside>
+<aside>*P-values are also tail area probabilities!*</aside>
 
 ```{r}
 #| echo: false
@@ -280,11 +264,7 @@ $$
 \widehat{\text{se}_p} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
 $$
 
-<aside>
-
-Note the use of the "hat" symbol in $\hat p$ to indicate that these are *estimates* from a dataset.
-
-</aside>
+<aside>Note the use of the "hat" symbol in $\hat p$ to indicate that these are *estimates* from a dataset.</aside>
 
 ```{r}
 se_hat <- sqrt(prop_hat * (1 - prop_hat) / 1000)
@@ -352,11 +332,7 @@ draws <- rbinom(S, size = poll_size, prob = 0.50)
 null <- draws / poll_size
 ```
 
-<aside>
-
-This is almost the exact same code that we used before. Only the `prob` argument has changed.
-
-</aside>
+<aside>This is almost the exact same code that we used before. Only the `prob` argument has changed.</aside>
 
 We can overlay the null distribution on top of the sampling distribution for the "true" parameter as follows:
 
@@ -517,7 +493,7 @@ Hint: You will have to create the `conservative` value yourself by modifying the
 Is the difference in proportions between `conservative` and `weekly` statistically significant?
 :::
 
-### Exercise 
+### Exercise
 
 ::: callout-note
 Instead of discretizing the `polviews` and `attend` (which is what we did to create `weekly` and `conservative`), let's try interpreting their original values.

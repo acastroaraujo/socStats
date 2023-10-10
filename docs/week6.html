@@ -239,6 +239,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Solutions 5</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Solutions 6</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -356,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <aside>
-<p>The <strong>sampling distribution</strong> is the set of possible sample "statistics" or "data summaries" (e.g., means, proportions) that could have been observed, <em>if the data collection process had been repeated many many times</em>.</p>
+The <strong>sampling distribution</strong> is the set of possible sample “statistics” or “data summaries” (e.g., means, proportions) that could have been observed, <em>if the data collection process had been repeated many many times</em>.
 </aside>
 <p>This sampling distribution is centered around the <em>true value</em> of <span class="math inline">\(0.53\)</span>.</p>
 <div class="cell">
@@ -365,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">mean</span>(proportions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5296265</code></pre>
+<pre><code>[1] 0.5301697</code></pre>
 </div>
 </div>
 <p>The <strong>standard error</strong> is the standard deviation of the sample distribution.</p>
@@ -376,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-2"><a href="#cb5-2"></a>se</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.01597482</code></pre>
+<pre><code>[1] 0.01595023</code></pre>
 </div>
 </div>
 <p>Furthermore, this sampling distribution <em>looks</em> normal, which is something we come to expect because of the <strong>Central Limit Theorem</strong>.</p>
@@ -391,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-3"><a href="#cb7-3"></a><span class="fu">mean</span>(proportions <span class="sc">&gt;=</span> lower <span class="sc">&amp;</span> proportions <span class="sc">&lt;=</span> upper)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.669</code></pre>
+<pre><code>[1] 0.6642</code></pre>
 </div>
 </div></li>
 <li><p>We expect 95% of the values to be roughly within 2 standard deviations around the mean.</p>
@@ -403,7 +409,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-3"><a href="#cb9-3"></a><span class="fu">mean</span>(<span class="fu">between</span>(proportions, lower, upper)) <span class="do">## using dplyr's between function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9508</code></pre>
+<pre><code>[1] 0.9532</code></pre>
 </div>
 </div></li>
 </ul>
@@ -414,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">mean</span>(proportions <span class="sc">&lt;=</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0338</code></pre>
+<pre><code>[1] 0.0317</code></pre>
 </div>
 </div>
 <p>So, the probability is very low. It seems that a poll of 1000 is very likely to declare the correct winner. Researchers do this kind of calculation all the time to make sure their sample size is sufficiently large for their purposes.</p>
@@ -425,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 \text{se}_p = \sqrt{\frac{p(1-p)}{n}} = \sqrt{\frac{0.53 \times 0.47}{1000}} \approx 0.01578
 \]</span></p>
 <aside>
-<p>Learning this formula is worth your time!</p>
+Learning this formula is worth your time!
 </aside>
 <p>We can overlay this “analytical” sampling distribution on top of our simulated sampling distribution like this:</p>
 <div class="cell">
@@ -447,11 +453,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <aside>
-<p>Keep in mind that the output of <code>dnorm</code> is labelled “density” whereas we had been calling output of <code>dbinom</code> a “probability.” That’s because binomial distributions are <em>discrete,</em> whereas normal distributions as <em>continuous.</em> We can’t really assign probabilities to continuous numbers because there are infinitely many of them and the math gets weird; thus, we think about them a little differently.</p>
+Keep in mind that the output of <code>dnorm</code> is labelled “density” whereas we had been calling output of <code>dbinom</code> a “probability.” That’s because binomial distributions are <em>discrete,</em> whereas normal distributions as <em>continuous.</em> We can’t really assign probabilities to continuous numbers because there are infinitely many of them and the math gets weird; thus, we think about them a little differently.
 </aside>
 <p>We can ask the same question as before: What is the probability that a poll of 1000 people tells us that the proportion of people voting Democrats is less than or equal to <span class="math inline">\(0.5\)</span>? This probability is a <em>tail-area probability.</em> We call them like that because they correspond to that little shaded area under the curve.</p>
 <aside>
-<p><em>P-values are also tail area probabilities!</em></p>
+<em>P-values are also tail area probabilities!</em>
 </aside>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -579,7 +585,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 \widehat{\text{se}_p} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
 \]</span></p>
 <aside>
-<p>Note the use of the “hat” symbol in <span class="math inline">\(\hat p\)</span> to indicate that these are <em>estimates</em> from a dataset.</p>
+Note the use of the “hat” symbol in <span class="math inline">\(\hat p\)</span> to indicate that these are <em>estimates</em> from a dataset.
 </aside>
 <div class="cell">
 <details open="">
@@ -654,7 +660,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <aside>
-<p>This is almost the exact same code that we used before. Only the <code>prob</code> argument has changed.</p>
+This is almost the exact same code that we used before. Only the <code>prob</code> argument has changed.
 </aside>
 <p>We can overlay the null distribution on top of the sampling distribution for the “true” parameter as follows:</p>
 <div class="cell">
@@ -1338,498 +1344,474 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb42-74"><a href="#cb42-74"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sampling Distribution of p = 0.53 and n = 1000"</span>)</span>
 <span id="cb42-75"><a href="#cb42-75"></a><span class="in">```</span></span>
 <span id="cb42-76"><a href="#cb42-76"></a></span>
-<span id="cb42-77"><a href="#cb42-77"></a><span class="kw">&lt;aside&gt;</span></span>
+<span id="cb42-77"><a href="#cb42-77"></a><span class="kw">&lt;aside&gt;</span>The **sampling distribution** is the set of possible sample "statistics" or "data summaries" (e.g., means, proportions) that could have been observed, *if the data collection process had been repeated many many times*.<span class="kw">&lt;/aside&gt;</span></span>
 <span id="cb42-78"><a href="#cb42-78"></a></span>
-<span id="cb42-79"><a href="#cb42-79"></a>The **sampling distribution** is the set of possible sample \"statistics\" or \"data summaries\" (e.g., means, proportions) that could have been observed, *if the data collection process had been repeated many many times*.</span>
+<span id="cb42-79"><a href="#cb42-79"></a>This sampling distribution is centered around the *true value* of $0.53$.</span>
 <span id="cb42-80"><a href="#cb42-80"></a></span>
-<span id="cb42-81"><a href="#cb42-81"></a><span class="kw">&lt;/aside&gt;</span></span>
-<span id="cb42-82"><a href="#cb42-82"></a></span>
-<span id="cb42-83"><a href="#cb42-83"></a>This sampling distribution is centered around the *true value* of $0.53$.</span>
-<span id="cb42-84"><a href="#cb42-84"></a></span>
-<span id="cb42-87"><a href="#cb42-87"></a><span class="in">```{r}</span></span>
-<span id="cb42-88"><a href="#cb42-88"></a><span class="fu">mean</span>(proportions)</span>
-<span id="cb42-89"><a href="#cb42-89"></a><span class="in">```</span></span>
-<span id="cb42-90"><a href="#cb42-90"></a></span>
-<span id="cb42-91"><a href="#cb42-91"></a>The **standard error** is the standard deviation of the sample distribution.</span>
-<span id="cb42-92"><a href="#cb42-92"></a></span>
-<span id="cb42-95"><a href="#cb42-95"></a><span class="in">```{r}</span></span>
-<span id="cb42-96"><a href="#cb42-96"></a>se <span class="ot">&lt;-</span> <span class="fu">sd</span>(proportions)</span>
-<span id="cb42-97"><a href="#cb42-97"></a>se</span>
-<span id="cb42-98"><a href="#cb42-98"></a><span class="in">```</span></span>
+<span id="cb42-83"><a href="#cb42-83"></a><span class="in">```{r}</span></span>
+<span id="cb42-84"><a href="#cb42-84"></a><span class="fu">mean</span>(proportions)</span>
+<span id="cb42-85"><a href="#cb42-85"></a><span class="in">```</span></span>
+<span id="cb42-86"><a href="#cb42-86"></a></span>
+<span id="cb42-87"><a href="#cb42-87"></a>The **standard error** is the standard deviation of the sample distribution.</span>
+<span id="cb42-88"><a href="#cb42-88"></a></span>
+<span id="cb42-91"><a href="#cb42-91"></a><span class="in">```{r}</span></span>
+<span id="cb42-92"><a href="#cb42-92"></a>se <span class="ot">&lt;-</span> <span class="fu">sd</span>(proportions)</span>
+<span id="cb42-93"><a href="#cb42-93"></a>se</span>
+<span id="cb42-94"><a href="#cb42-94"></a><span class="in">```</span></span>
+<span id="cb42-95"><a href="#cb42-95"></a></span>
+<span id="cb42-96"><a href="#cb42-96"></a>Furthermore, this sampling distribution *looks* normal, which is something we come to expect because of the **Central Limit Theorem**.</span>
+<span id="cb42-97"><a href="#cb42-97"></a></span>
+<span id="cb42-98"><a href="#cb42-98"></a>In a normal distribution:</span>
 <span id="cb42-99"><a href="#cb42-99"></a></span>
-<span id="cb42-100"><a href="#cb42-100"></a>Furthermore, this sampling distribution *looks* normal, which is something we come to expect because of the **Central Limit Theorem**.</span>
+<span id="cb42-100"><a href="#cb42-100"></a><span class="ss">-   </span>We expect 68% of the values to be within 1 standard deviations around the center.</span>
 <span id="cb42-101"><a href="#cb42-101"></a></span>
-<span id="cb42-102"><a href="#cb42-102"></a>In a normal distribution:</span>
-<span id="cb42-103"><a href="#cb42-103"></a></span>
-<span id="cb42-104"><a href="#cb42-104"></a><span class="ss">-   </span>We expect 68% of the values to be within 1 standard deviations around the center.</span>
-<span id="cb42-105"><a href="#cb42-105"></a></span>
-<span id="cb42-106"><a href="#cb42-106"></a>    <span class="in">```{r}</span></span>
-<span id="cb42-107"><a href="#cb42-107"></a>    lower <span class="ot">&lt;-</span> <span class="fl">0.53</span> <span class="sc">-</span> <span class="dv">1</span><span class="sc">*</span>se</span>
-<span id="cb42-108"><a href="#cb42-108"></a>    upper <span class="ot">&lt;-</span> <span class="fl">0.53</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">*</span>se</span>
-<span id="cb42-109"><a href="#cb42-109"></a>    <span class="fu">mean</span>(proportions <span class="sc">&gt;=</span> lower <span class="sc">&amp;</span> proportions <span class="sc">&lt;=</span> upper)</span>
-<span id="cb42-110"><a href="#cb42-110"></a>    <span class="in">```</span></span>
-<span id="cb42-111"><a href="#cb42-111"></a></span>
-<span id="cb42-112"><a href="#cb42-112"></a><span class="ss">-   </span>We expect 95% of the values to be roughly within 2 standard deviations around the mean.</span>
-<span id="cb42-113"><a href="#cb42-113"></a></span>
-<span id="cb42-114"><a href="#cb42-114"></a>    <span class="in">```{r}</span></span>
-<span id="cb42-115"><a href="#cb42-115"></a>    lower <span class="ot">&lt;-</span> <span class="fl">0.53</span> <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>se</span>
-<span id="cb42-116"><a href="#cb42-116"></a>    upper <span class="ot">&lt;-</span> <span class="fl">0.53</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>se</span>
-<span id="cb42-117"><a href="#cb42-117"></a>    <span class="fu">mean</span>(<span class="fu">between</span>(proportions, lower, upper)) <span class="do">## using dplyr's between function</span></span>
-<span id="cb42-118"><a href="#cb42-118"></a>    <span class="in">```</span></span>
-<span id="cb42-119"><a href="#cb42-119"></a></span>
-<span id="cb42-120"><a href="#cb42-120"></a>Now that we know this we can ask questions such as what is the probability that a poll of 1000 people tells us that the proportion of people voting Democrats is less than or equal to $0.5$?</span>
-<span id="cb42-121"><a href="#cb42-121"></a></span>
-<span id="cb42-124"><a href="#cb42-124"></a><span class="in">```{r}</span></span>
-<span id="cb42-125"><a href="#cb42-125"></a><span class="fu">mean</span>(proportions <span class="sc">&lt;=</span> <span class="fl">0.5</span>)</span>
-<span id="cb42-126"><a href="#cb42-126"></a><span class="in">```</span></span>
+<span id="cb42-102"><a href="#cb42-102"></a>    <span class="in">```{r}</span></span>
+<span id="cb42-103"><a href="#cb42-103"></a>    lower <span class="ot">&lt;-</span> <span class="fl">0.53</span> <span class="sc">-</span> <span class="dv">1</span><span class="sc">*</span>se</span>
+<span id="cb42-104"><a href="#cb42-104"></a>    upper <span class="ot">&lt;-</span> <span class="fl">0.53</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">*</span>se</span>
+<span id="cb42-105"><a href="#cb42-105"></a>    <span class="fu">mean</span>(proportions <span class="sc">&gt;=</span> lower <span class="sc">&amp;</span> proportions <span class="sc">&lt;=</span> upper)</span>
+<span id="cb42-106"><a href="#cb42-106"></a>    <span class="in">```</span></span>
+<span id="cb42-107"><a href="#cb42-107"></a></span>
+<span id="cb42-108"><a href="#cb42-108"></a><span class="ss">-   </span>We expect 95% of the values to be roughly within 2 standard deviations around the mean.</span>
+<span id="cb42-109"><a href="#cb42-109"></a></span>
+<span id="cb42-110"><a href="#cb42-110"></a>    <span class="in">```{r}</span></span>
+<span id="cb42-111"><a href="#cb42-111"></a>    lower <span class="ot">&lt;-</span> <span class="fl">0.53</span> <span class="sc">-</span> <span class="dv">2</span><span class="sc">*</span>se</span>
+<span id="cb42-112"><a href="#cb42-112"></a>    upper <span class="ot">&lt;-</span> <span class="fl">0.53</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span>se</span>
+<span id="cb42-113"><a href="#cb42-113"></a>    <span class="fu">mean</span>(<span class="fu">between</span>(proportions, lower, upper)) <span class="do">## using dplyr's between function</span></span>
+<span id="cb42-114"><a href="#cb42-114"></a>    <span class="in">```</span></span>
+<span id="cb42-115"><a href="#cb42-115"></a></span>
+<span id="cb42-116"><a href="#cb42-116"></a>Now that we know this we can ask questions such as what is the probability that a poll of 1000 people tells us that the proportion of people voting Democrats is less than or equal to $0.5$?</span>
+<span id="cb42-117"><a href="#cb42-117"></a></span>
+<span id="cb42-120"><a href="#cb42-120"></a><span class="in">```{r}</span></span>
+<span id="cb42-121"><a href="#cb42-121"></a><span class="fu">mean</span>(proportions <span class="sc">&lt;=</span> <span class="fl">0.5</span>)</span>
+<span id="cb42-122"><a href="#cb42-122"></a><span class="in">```</span></span>
+<span id="cb42-123"><a href="#cb42-123"></a></span>
+<span id="cb42-124"><a href="#cb42-124"></a>So, the probability is very low. It seems that a poll of 1000 is very likely to declare the correct winner. Researchers do this kind of calculation all the time to make sure their sample size is sufficiently large for their purposes.</span>
+<span id="cb42-125"><a href="#cb42-125"></a></span>
+<span id="cb42-126"><a href="#cb42-126"></a>**Sampling distributions without simulations (aka using Math)**</span>
 <span id="cb42-127"><a href="#cb42-127"></a></span>
-<span id="cb42-128"><a href="#cb42-128"></a>So, the probability is very low. It seems that a poll of 1000 is very likely to declare the correct winner. Researchers do this kind of calculation all the time to make sure their sample size is sufficiently large for their purposes.</span>
+<span id="cb42-128"><a href="#cb42-128"></a>Because of the CLT, we can construct some sampling distributions simply by calculating the center and the spread.</span>
 <span id="cb42-129"><a href="#cb42-129"></a></span>
-<span id="cb42-130"><a href="#cb42-130"></a>**Sampling distributions without simulations (aka using Math)**</span>
+<span id="cb42-130"><a href="#cb42-130"></a>We know the center is $0.53$, and there's a convenient formula for calculating the standard error of a proportion:</span>
 <span id="cb42-131"><a href="#cb42-131"></a></span>
-<span id="cb42-132"><a href="#cb42-132"></a>Because of the CLT, we can construct some sampling distributions simply by calculating the center and the spread.</span>
-<span id="cb42-133"><a href="#cb42-133"></a></span>
-<span id="cb42-134"><a href="#cb42-134"></a>We know the center is $0.53$, and there's a convenient formula for calculating the standard error of a proportion:</span>
+<span id="cb42-132"><a href="#cb42-132"></a>$$</span>
+<span id="cb42-133"><a href="#cb42-133"></a>\text{se}_p = \sqrt{\frac{p(1-p)}{n}} = \sqrt{\frac{0.53 \times 0.47}{1000}} \approx 0.01578</span>
+<span id="cb42-134"><a href="#cb42-134"></a>$$</span>
 <span id="cb42-135"><a href="#cb42-135"></a></span>
-<span id="cb42-136"><a href="#cb42-136"></a>$$</span>
-<span id="cb42-137"><a href="#cb42-137"></a>\text{se}_p = \sqrt{\frac{p(1-p)}{n}} = \sqrt{\frac{0.53 \times 0.47}{1000}} \approx 0.01578</span>
-<span id="cb42-138"><a href="#cb42-138"></a>$$</span>
+<span id="cb42-136"><a href="#cb42-136"></a><span class="kw">&lt;aside&gt;</span>Learning this formula is worth your time!<span class="kw">&lt;/aside&gt;</span></span>
+<span id="cb42-137"><a href="#cb42-137"></a></span>
+<span id="cb42-138"><a href="#cb42-138"></a>We can overlay this "analytical" sampling distribution on top of our simulated sampling distribution like this:</span>
 <span id="cb42-139"><a href="#cb42-139"></a></span>
-<span id="cb42-140"><a href="#cb42-140"></a><span class="kw">&lt;aside&gt;</span></span>
-<span id="cb42-141"><a href="#cb42-141"></a></span>
-<span id="cb42-142"><a href="#cb42-142"></a>Learning this formula is worth your time!</span>
-<span id="cb42-143"><a href="#cb42-143"></a></span>
-<span id="cb42-144"><a href="#cb42-144"></a><span class="kw">&lt;/aside&gt;</span></span>
-<span id="cb42-145"><a href="#cb42-145"></a></span>
-<span id="cb42-146"><a href="#cb42-146"></a>We can overlay this "analytical" sampling distribution on top of our simulated sampling distribution like this:</span>
-<span id="cb42-147"><a href="#cb42-147"></a></span>
-<span id="cb42-150"><a href="#cb42-150"></a><span class="in">```{r}</span></span>
-<span id="cb42-151"><a href="#cb42-151"></a><span class="fu">tibble</span>(proportions) <span class="sc">|&gt;</span> </span>
-<span id="cb42-152"><a href="#cb42-152"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(proportions)) <span class="sc">+</span> </span>
-<span id="cb42-153"><a href="#cb42-153"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb42-154"><a href="#cb42-154"></a>    <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>,</span>
-<span id="cb42-155"><a href="#cb42-155"></a>    <span class="do">## this is a little hack to ensure the y-axis are the same</span></span>
-<span id="cb42-156"><a href="#cb42-156"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density))</span>
-<span id="cb42-157"><a href="#cb42-157"></a>  ) <span class="sc">+</span></span>
-<span id="cb42-158"><a href="#cb42-158"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sampling Distribution of p = 0.53 and n = 1000"</span>) <span class="sc">+</span></span>
-<span id="cb42-159"><a href="#cb42-159"></a>  <span class="do">## adding the normal distribution on top</span></span>
-<span id="cb42-160"><a href="#cb42-160"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> \(x) <span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="fl">0.53</span>, <span class="at">sd =</span> se)) </span>
-<span id="cb42-161"><a href="#cb42-161"></a>  </span>
-<span id="cb42-162"><a href="#cb42-162"></a><span class="in">```</span></span>
-<span id="cb42-163"><a href="#cb42-163"></a></span>
-<span id="cb42-164"><a href="#cb42-164"></a><span class="kw">&lt;aside&gt;</span></span>
-<span id="cb42-165"><a href="#cb42-165"></a></span>
-<span id="cb42-166"><a href="#cb42-166"></a>Keep in mind that the output of <span class="in">`dnorm`</span> is labelled "density" whereas we had been calling output of <span class="in">`dbinom`</span> a "probability." That's because binomial distributions are *discrete,* whereas normal distributions as *continuous.* We can't really assign probabilities to continuous numbers because there are infinitely many of them and the math gets weird; thus, we think about them a little differently.</span>
-<span id="cb42-167"><a href="#cb42-167"></a></span>
-<span id="cb42-168"><a href="#cb42-168"></a><span class="kw">&lt;/aside&gt;</span></span>
+<span id="cb42-142"><a href="#cb42-142"></a><span class="in">```{r}</span></span>
+<span id="cb42-143"><a href="#cb42-143"></a><span class="fu">tibble</span>(proportions) <span class="sc">|&gt;</span> </span>
+<span id="cb42-144"><a href="#cb42-144"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(proportions)) <span class="sc">+</span> </span>
+<span id="cb42-145"><a href="#cb42-145"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb42-146"><a href="#cb42-146"></a>    <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>,</span>
+<span id="cb42-147"><a href="#cb42-147"></a>    <span class="do">## this is a little hack to ensure the y-axis are the same</span></span>
+<span id="cb42-148"><a href="#cb42-148"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density))</span>
+<span id="cb42-149"><a href="#cb42-149"></a>  ) <span class="sc">+</span></span>
+<span id="cb42-150"><a href="#cb42-150"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sampling Distribution of p = 0.53 and n = 1000"</span>) <span class="sc">+</span></span>
+<span id="cb42-151"><a href="#cb42-151"></a>  <span class="do">## adding the normal distribution on top</span></span>
+<span id="cb42-152"><a href="#cb42-152"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> \(x) <span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="fl">0.53</span>, <span class="at">sd =</span> se)) </span>
+<span id="cb42-153"><a href="#cb42-153"></a>  </span>
+<span id="cb42-154"><a href="#cb42-154"></a><span class="in">```</span></span>
+<span id="cb42-155"><a href="#cb42-155"></a></span>
+<span id="cb42-156"><a href="#cb42-156"></a><span class="kw">&lt;aside&gt;</span>Keep in mind that the output of <span class="in">`dnorm`</span> is labelled "density" whereas we had been calling output of <span class="in">`dbinom`</span> a "probability." That's because binomial distributions are *discrete,* whereas normal distributions as *continuous.* We can't really assign probabilities to continuous numbers because there are infinitely many of them and the math gets weird; thus, we think about them a little differently.<span class="kw">&lt;/aside&gt;</span></span>
+<span id="cb42-157"><a href="#cb42-157"></a></span>
+<span id="cb42-158"><a href="#cb42-158"></a>We can ask the same question as before: What is the probability that a poll of 1000 people tells us that the proportion of people voting Democrats is less than or equal to $0.5$? This probability is a *tail-area probability.* We call them like that because they correspond to that little shaded area under the curve.</span>
+<span id="cb42-159"><a href="#cb42-159"></a></span>
+<span id="cb42-160"><a href="#cb42-160"></a><span class="kw">&lt;aside&gt;</span>*P-values are also tail area probabilities!*<span class="kw">&lt;/aside&gt;</span></span>
+<span id="cb42-161"><a href="#cb42-161"></a></span>
+<span id="cb42-164"><a href="#cb42-164"></a><span class="in">```{r}</span></span>
+<span id="cb42-165"><a href="#cb42-165"></a><span class="co">#| echo: false</span></span>
+<span id="cb42-166"><a href="#cb42-166"></a><span class="co">#| fig-width: 5</span></span>
+<span id="cb42-167"><a href="#cb42-167"></a><span class="co">#| fig-height: 3</span></span>
+<span id="cb42-168"><a href="#cb42-168"></a><span class="co">#| fig-align: center</span></span>
 <span id="cb42-169"><a href="#cb42-169"></a></span>
-<span id="cb42-170"><a href="#cb42-170"></a>We can ask the same question as before: What is the probability that a poll of 1000 people tells us that the proportion of people voting Democrats is less than or equal to $0.5$? This probability is a *tail-area probability.* We call them like that because they correspond to that little shaded area under the curve.</span>
-<span id="cb42-171"><a href="#cb42-171"></a></span>
-<span id="cb42-172"><a href="#cb42-172"></a><span class="kw">&lt;aside&gt;</span></span>
-<span id="cb42-173"><a href="#cb42-173"></a></span>
-<span id="cb42-174"><a href="#cb42-174"></a>*P-values are also tail area probabilities!*</span>
-<span id="cb42-175"><a href="#cb42-175"></a></span>
-<span id="cb42-176"><a href="#cb42-176"></a><span class="kw">&lt;/aside&gt;</span></span>
-<span id="cb42-177"><a href="#cb42-177"></a></span>
-<span id="cb42-180"><a href="#cb42-180"></a><span class="in">```{r}</span></span>
-<span id="cb42-181"><a href="#cb42-181"></a><span class="co">#| echo: false</span></span>
-<span id="cb42-182"><a href="#cb42-182"></a><span class="co">#| fig-width: 5</span></span>
-<span id="cb42-183"><a href="#cb42-183"></a><span class="co">#| fig-height: 3</span></span>
-<span id="cb42-184"><a href="#cb42-184"></a><span class="co">#| fig-align: center</span></span>
-<span id="cb42-185"><a href="#cb42-185"></a></span>
-<span id="cb42-186"><a href="#cb42-186"></a><span class="fu">tibble</span>(proportions) <span class="sc">|&gt;</span> </span>
-<span id="cb42-187"><a href="#cb42-187"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(proportions)) <span class="sc">+</span> </span>
-<span id="cb42-188"><a href="#cb42-188"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb42-189"><a href="#cb42-189"></a>    <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>,</span>
-<span id="cb42-190"><a href="#cb42-190"></a>    <span class="do">## this is a little hack to ensure the y-axis are the same</span></span>
-<span id="cb42-191"><a href="#cb42-191"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density))</span>
-<span id="cb42-192"><a href="#cb42-192"></a>  ) <span class="sc">+</span></span>
-<span id="cb42-193"><a href="#cb42-193"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sampling Distribution of p = 0.53 and n = 1000"</span>) <span class="sc">+</span></span>
-<span id="cb42-194"><a href="#cb42-194"></a>  <span class="do">## adding the normal distribution on top</span></span>
-<span id="cb42-195"><a href="#cb42-195"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> \(x) <span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="fl">0.53</span>, <span class="at">sd =</span> se)) <span class="sc">+</span></span>
-<span id="cb42-196"><a href="#cb42-196"></a>  <span class="fu">stat_function</span>(</span>
-<span id="cb42-197"><a href="#cb42-197"></a>    <span class="at">geom =</span> <span class="st">"area"</span>, </span>
-<span id="cb42-198"><a href="#cb42-198"></a>    <span class="at">fun =</span> \(x) <span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="fl">0.53</span>, <span class="at">sd =</span> se), </span>
-<span id="cb42-199"><a href="#cb42-199"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">0.45</span>, <span class="fl">0.5</span>),</span>
-<span id="cb42-200"><a href="#cb42-200"></a>    <span class="at">fill =</span> <span class="st">"pink"</span></span>
-<span id="cb42-201"><a href="#cb42-201"></a>  ) <span class="sc">+</span></span>
-<span id="cb42-202"><a href="#cb42-202"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">0.5</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb42-203"><a href="#cb42-203"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"density"</span>, <span class="at">x =</span> <span class="st">"proportions"</span>)</span>
-<span id="cb42-204"><a href="#cb42-204"></a><span class="in">```</span></span>
+<span id="cb42-170"><a href="#cb42-170"></a><span class="fu">tibble</span>(proportions) <span class="sc">|&gt;</span> </span>
+<span id="cb42-171"><a href="#cb42-171"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(proportions)) <span class="sc">+</span> </span>
+<span id="cb42-172"><a href="#cb42-172"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb42-173"><a href="#cb42-173"></a>    <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>,</span>
+<span id="cb42-174"><a href="#cb42-174"></a>    <span class="do">## this is a little hack to ensure the y-axis are the same</span></span>
+<span id="cb42-175"><a href="#cb42-175"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density))</span>
+<span id="cb42-176"><a href="#cb42-176"></a>  ) <span class="sc">+</span></span>
+<span id="cb42-177"><a href="#cb42-177"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sampling Distribution of p = 0.53 and n = 1000"</span>) <span class="sc">+</span></span>
+<span id="cb42-178"><a href="#cb42-178"></a>  <span class="do">## adding the normal distribution on top</span></span>
+<span id="cb42-179"><a href="#cb42-179"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> \(x) <span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="fl">0.53</span>, <span class="at">sd =</span> se)) <span class="sc">+</span></span>
+<span id="cb42-180"><a href="#cb42-180"></a>  <span class="fu">stat_function</span>(</span>
+<span id="cb42-181"><a href="#cb42-181"></a>    <span class="at">geom =</span> <span class="st">"area"</span>, </span>
+<span id="cb42-182"><a href="#cb42-182"></a>    <span class="at">fun =</span> \(x) <span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="fl">0.53</span>, <span class="at">sd =</span> se), </span>
+<span id="cb42-183"><a href="#cb42-183"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">0.45</span>, <span class="fl">0.5</span>),</span>
+<span id="cb42-184"><a href="#cb42-184"></a>    <span class="at">fill =</span> <span class="st">"pink"</span></span>
+<span id="cb42-185"><a href="#cb42-185"></a>  ) <span class="sc">+</span></span>
+<span id="cb42-186"><a href="#cb42-186"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">0.5</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb42-187"><a href="#cb42-187"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"density"</span>, <span class="at">x =</span> <span class="st">"proportions"</span>)</span>
+<span id="cb42-188"><a href="#cb42-188"></a><span class="in">```</span></span>
+<span id="cb42-189"><a href="#cb42-189"></a></span>
+<span id="cb42-192"><a href="#cb42-192"></a><span class="in">```{r}</span></span>
+<span id="cb42-193"><a href="#cb42-193"></a><span class="fu">pnorm</span>(<span class="fl">0.5</span>, <span class="at">mean =</span> <span class="fl">0.53</span>, <span class="at">sd =</span> <span class="fu">sqrt</span>(<span class="fl">0.53</span><span class="sc">*</span><span class="fl">0.47</span><span class="sc">/</span><span class="dv">1000</span>))</span>
+<span id="cb42-194"><a href="#cb42-194"></a><span class="in">```</span></span>
+<span id="cb42-195"><a href="#cb42-195"></a></span>
+<span id="cb42-196"><a href="#cb42-196"></a><span class="fu">### Exercise</span></span>
+<span id="cb42-197"><a href="#cb42-197"></a></span>
+<span id="cb42-198"><a href="#cb42-198"></a>::: callout-note</span>
+<span id="cb42-199"><a href="#cb42-199"></a>*Choosing sample size.*</span>
+<span id="cb42-200"><a href="#cb42-200"></a></span>
+<span id="cb42-201"><a href="#cb42-201"></a>You are designing a survey to estimate the proportion of individuals who will vote Democrat. Assuming that respondents are a simple random sample of the voting population, how many people do you need to poll so that the standard error is less than 5 percentage points?</span>
+<span id="cb42-202"><a href="#cb42-202"></a>:::</span>
+<span id="cb42-203"><a href="#cb42-203"></a></span>
+<span id="cb42-204"><a href="#cb42-204"></a><span class="fu">### Confidence Intervals</span></span>
 <span id="cb42-205"><a href="#cb42-205"></a></span>
-<span id="cb42-208"><a href="#cb42-208"></a><span class="in">```{r}</span></span>
-<span id="cb42-209"><a href="#cb42-209"></a><span class="fu">pnorm</span>(<span class="fl">0.5</span>, <span class="at">mean =</span> <span class="fl">0.53</span>, <span class="at">sd =</span> <span class="fu">sqrt</span>(<span class="fl">0.53</span><span class="sc">*</span><span class="fl">0.47</span><span class="sc">/</span><span class="dv">1000</span>))</span>
-<span id="cb42-210"><a href="#cb42-210"></a><span class="in">```</span></span>
-<span id="cb42-211"><a href="#cb42-211"></a></span>
-<span id="cb42-212"><a href="#cb42-212"></a><span class="fu">### Exercise</span></span>
-<span id="cb42-213"><a href="#cb42-213"></a></span>
-<span id="cb42-214"><a href="#cb42-214"></a>::: callout-note</span>
-<span id="cb42-215"><a href="#cb42-215"></a>*Choosing sample size.*</span>
-<span id="cb42-216"><a href="#cb42-216"></a></span>
-<span id="cb42-217"><a href="#cb42-217"></a>You are designing a survey to estimate the proportion of individuals who will vote Democrat. Assuming that respondents are a simple random sample of the voting population, how many people do you need to poll so that the standard error is less than 5 percentage points?</span>
-<span id="cb42-218"><a href="#cb42-218"></a>:::</span>
+<span id="cb42-206"><a href="#cb42-206"></a>Confidence intervals are constructed from the data we get to observe. In the example above, we established that the true population parameter was equal to $0.53$ and that the sample size was equal to $1000$.</span>
+<span id="cb42-207"><a href="#cb42-207"></a></span>
+<span id="cb42-208"><a href="#cb42-208"></a>This is how one dataset could look like:</span>
+<span id="cb42-209"><a href="#cb42-209"></a></span>
+<span id="cb42-212"><a href="#cb42-212"></a><span class="in">```{r}</span></span>
+<span id="cb42-213"><a href="#cb42-213"></a><span class="fu">set.seed</span>(<span class="dv">321</span>)</span>
+<span id="cb42-214"><a href="#cb42-214"></a>one_dataset <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(poll_size, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.53</span>)</span>
+<span id="cb42-215"><a href="#cb42-215"></a><span class="fu">glimpse</span>(one_dataset) <span class="do">## one thousand observations of 1s and 0s</span></span>
+<span id="cb42-216"><a href="#cb42-216"></a><span class="in">```</span></span>
+<span id="cb42-217"><a href="#cb42-217"></a></span>
+<span id="cb42-218"><a href="#cb42-218"></a>The *estimated* proportion from this one dataset is calculated as follows:</span>
 <span id="cb42-219"><a href="#cb42-219"></a></span>
-<span id="cb42-220"><a href="#cb42-220"></a><span class="fu">### Confidence Intervals</span></span>
-<span id="cb42-221"><a href="#cb42-221"></a></span>
-<span id="cb42-222"><a href="#cb42-222"></a>Confidence intervals are constructed from the data we get to observe. In the example above, we established that the true population parameter was equal to $0.53$ and that the sample size was equal to $1000$.</span>
-<span id="cb42-223"><a href="#cb42-223"></a></span>
-<span id="cb42-224"><a href="#cb42-224"></a>This is how one dataset could look like:</span>
-<span id="cb42-225"><a href="#cb42-225"></a></span>
-<span id="cb42-228"><a href="#cb42-228"></a><span class="in">```{r}</span></span>
-<span id="cb42-229"><a href="#cb42-229"></a><span class="fu">set.seed</span>(<span class="dv">321</span>)</span>
-<span id="cb42-230"><a href="#cb42-230"></a>one_dataset <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(poll_size, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.53</span>)</span>
-<span id="cb42-231"><a href="#cb42-231"></a><span class="fu">glimpse</span>(one_dataset) <span class="do">## one thousand observations of 1s and 0s</span></span>
-<span id="cb42-232"><a href="#cb42-232"></a><span class="in">```</span></span>
-<span id="cb42-233"><a href="#cb42-233"></a></span>
-<span id="cb42-234"><a href="#cb42-234"></a>The *estimated* proportion from this one dataset is calculated as follows:</span>
-<span id="cb42-235"><a href="#cb42-235"></a></span>
-<span id="cb42-238"><a href="#cb42-238"></a><span class="in">```{r}</span></span>
-<span id="cb42-239"><a href="#cb42-239"></a>prop_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(one_dataset)</span>
-<span id="cb42-240"><a href="#cb42-240"></a>prop_hat</span>
-<span id="cb42-241"><a href="#cb42-241"></a><span class="in">```</span></span>
-<span id="cb42-242"><a href="#cb42-242"></a></span>
-<span id="cb42-243"><a href="#cb42-243"></a>It's increasingly common practice to *estimate* standard errors using a computational approximation technique called the **bootstrap**.</span>
-<span id="cb42-244"><a href="#cb42-244"></a></span>
-<span id="cb42-245"><a href="#cb42-245"></a>Bootstrap resampling is done *with replacement*; that is, the same data point can appear multiple times in a resampled dataset. This is necessary, as otherwise it would not be possible to get new datasets of the same size as the original.</span>
-<span id="cb42-246"><a href="#cb42-246"></a></span>
-<span id="cb42-247"><a href="#cb42-247"></a>The following chunk of code estimates 10,000 resampled proportions.</span>
-<span id="cb42-248"><a href="#cb42-248"></a></span>
-<span id="cb42-251"><a href="#cb42-251"></a><span class="in">```{r}</span></span>
-<span id="cb42-252"><a href="#cb42-252"></a>boot_stats <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">1e4</span>, {</span>
-<span id="cb42-253"><a href="#cb42-253"></a>  resample <span class="ot">&lt;-</span> <span class="fu">sample</span>(one_dataset, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb42-254"><a href="#cb42-254"></a>  <span class="fu">mean</span>(resample)</span>
-<span id="cb42-255"><a href="#cb42-255"></a>})</span>
-<span id="cb42-256"><a href="#cb42-256"></a></span>
-<span id="cb42-257"><a href="#cb42-257"></a><span class="fu">glimpse</span>(boot_stats)</span>
-<span id="cb42-258"><a href="#cb42-258"></a><span class="in">```</span></span>
-<span id="cb42-259"><a href="#cb42-259"></a></span>
-<span id="cb42-260"><a href="#cb42-260"></a>We can then construct a confidence interval using the <span class="in">`quantile()`</span> function on the bootstrap statistics.</span>
-<span id="cb42-261"><a href="#cb42-261"></a></span>
-<span id="cb42-264"><a href="#cb42-264"></a><span class="in">```{r}</span></span>
-<span id="cb42-265"><a href="#cb42-265"></a>ci95 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(boot_stats, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span>
-<span id="cb42-266"><a href="#cb42-266"></a>ci95</span>
-<span id="cb42-267"><a href="#cb42-267"></a><span class="in">```</span></span>
-<span id="cb42-268"><a href="#cb42-268"></a></span>
-<span id="cb42-269"><a href="#cb42-269"></a>This is how the bootstrap proportions---and the 95% confidence interval---compare to the "true" sampling distribution:</span>
-<span id="cb42-270"><a href="#cb42-270"></a></span>
-<span id="cb42-273"><a href="#cb42-273"></a><span class="in">```{r}</span></span>
-<span id="cb42-274"><a href="#cb42-274"></a><span class="co">#| warning: false</span></span>
-<span id="cb42-275"><a href="#cb42-275"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb42-276"><a href="#cb42-276"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb42-277"><a href="#cb42-277"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb42-278"><a href="#cb42-278"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(proportions),</span>
-<span id="cb42-279"><a href="#cb42-279"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(proportions, <span class="at">fill =</span> <span class="st">"sampling distribution"</span>),</span>
-<span id="cb42-280"><a href="#cb42-280"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
-<span id="cb42-281"><a href="#cb42-281"></a>    <span class="at">boundary =</span> <span class="fl">0.5</span>,</span>
-<span id="cb42-282"><a href="#cb42-282"></a>    <span class="at">binwidth =</span> <span class="fl">0.005</span></span>
-<span id="cb42-283"><a href="#cb42-283"></a>  ) <span class="sc">+</span> </span>
-<span id="cb42-284"><a href="#cb42-284"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb42-285"><a href="#cb42-285"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(boot_stats),</span>
-<span id="cb42-286"><a href="#cb42-286"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(boot_stats, <span class="at">fill =</span> <span class="st">"bootstrap proportions"</span>),</span>
-<span id="cb42-287"><a href="#cb42-287"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
-<span id="cb42-288"><a href="#cb42-288"></a>    <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, </span>
-<span id="cb42-289"><a href="#cb42-289"></a>    <span class="at">boundary =</span> <span class="fl">0.5</span>,</span>
-<span id="cb42-290"><a href="#cb42-290"></a>    <span class="at">binwidth =</span> <span class="fl">0.005</span></span>
-<span id="cb42-291"><a href="#cb42-291"></a>  ) <span class="sc">+</span></span>
-<span id="cb42-292"><a href="#cb42-292"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> ci95, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb42-293"><a href="#cb42-293"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="cn">NULL</span>, <span class="at">title =</span> <span class="st">"95% Confidence Interval"</span>, <span class="at">y =</span> <span class="st">"count"</span>) <span class="sc">+</span></span>
-<span id="cb42-294"><a href="#cb42-294"></a>  <span class="fu">annotate</span>(</span>
-<span id="cb42-295"><a href="#cb42-295"></a>    <span class="st">"text"</span>, <span class="at">x =</span> prop_hat, <span class="at">y =</span> <span class="dv">500</span>, <span class="at">size =</span> <span class="dv">5</span>,</span>
-<span id="cb42-296"><a href="#cb42-296"></a>    <span class="do">## hack for LaTeX expressions in graphs</span></span>
-<span id="cb42-297"><a href="#cb42-297"></a>    <span class="at">label =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="fu">paste</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">hat{p} ="</span>, prop_hat))</span>
-<span id="cb42-298"><a href="#cb42-298"></a>  )</span>
-<span id="cb42-299"><a href="#cb42-299"></a><span class="in">```</span></span>
-<span id="cb42-300"><a href="#cb42-300"></a></span>
-<span id="cb42-301"><a href="#cb42-301"></a>**Confidence intervals without simulations (aka using Math)**</span>
-<span id="cb42-302"><a href="#cb42-302"></a></span>
-<span id="cb42-303"><a href="#cb42-303"></a>We can also *estimate* standard errors "analytically" using the following formula:</span>
-<span id="cb42-304"><a href="#cb42-304"></a></span>
-<span id="cb42-305"><a href="#cb42-305"></a>$$</span>
-<span id="cb42-306"><a href="#cb42-306"></a>\widehat{\text{se}_p} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</span>
-<span id="cb42-307"><a href="#cb42-307"></a>$$</span>
-<span id="cb42-308"><a href="#cb42-308"></a></span>
-<span id="cb42-309"><a href="#cb42-309"></a><span class="kw">&lt;aside&gt;</span></span>
-<span id="cb42-310"><a href="#cb42-310"></a></span>
-<span id="cb42-311"><a href="#cb42-311"></a>Note the use of the "hat" symbol in $\hat p$ to indicate that these are *estimates* from a dataset.</span>
-<span id="cb42-312"><a href="#cb42-312"></a></span>
-<span id="cb42-313"><a href="#cb42-313"></a><span class="kw">&lt;/aside&gt;</span></span>
-<span id="cb42-314"><a href="#cb42-314"></a></span>
-<span id="cb42-317"><a href="#cb42-317"></a><span class="in">```{r}</span></span>
+<span id="cb42-222"><a href="#cb42-222"></a><span class="in">```{r}</span></span>
+<span id="cb42-223"><a href="#cb42-223"></a>prop_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(one_dataset)</span>
+<span id="cb42-224"><a href="#cb42-224"></a>prop_hat</span>
+<span id="cb42-225"><a href="#cb42-225"></a><span class="in">```</span></span>
+<span id="cb42-226"><a href="#cb42-226"></a></span>
+<span id="cb42-227"><a href="#cb42-227"></a>It's increasingly common practice to *estimate* standard errors using a computational approximation technique called the **bootstrap**.</span>
+<span id="cb42-228"><a href="#cb42-228"></a></span>
+<span id="cb42-229"><a href="#cb42-229"></a>Bootstrap resampling is done *with replacement*; that is, the same data point can appear multiple times in a resampled dataset. This is necessary, as otherwise it would not be possible to get new datasets of the same size as the original.</span>
+<span id="cb42-230"><a href="#cb42-230"></a></span>
+<span id="cb42-231"><a href="#cb42-231"></a>The following chunk of code estimates 10,000 resampled proportions.</span>
+<span id="cb42-232"><a href="#cb42-232"></a></span>
+<span id="cb42-235"><a href="#cb42-235"></a><span class="in">```{r}</span></span>
+<span id="cb42-236"><a href="#cb42-236"></a>boot_stats <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">1e4</span>, {</span>
+<span id="cb42-237"><a href="#cb42-237"></a>  resample <span class="ot">&lt;-</span> <span class="fu">sample</span>(one_dataset, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb42-238"><a href="#cb42-238"></a>  <span class="fu">mean</span>(resample)</span>
+<span id="cb42-239"><a href="#cb42-239"></a>})</span>
+<span id="cb42-240"><a href="#cb42-240"></a></span>
+<span id="cb42-241"><a href="#cb42-241"></a><span class="fu">glimpse</span>(boot_stats)</span>
+<span id="cb42-242"><a href="#cb42-242"></a><span class="in">```</span></span>
+<span id="cb42-243"><a href="#cb42-243"></a></span>
+<span id="cb42-244"><a href="#cb42-244"></a>We can then construct a confidence interval using the <span class="in">`quantile()`</span> function on the bootstrap statistics.</span>
+<span id="cb42-245"><a href="#cb42-245"></a></span>
+<span id="cb42-248"><a href="#cb42-248"></a><span class="in">```{r}</span></span>
+<span id="cb42-249"><a href="#cb42-249"></a>ci95 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(boot_stats, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span>
+<span id="cb42-250"><a href="#cb42-250"></a>ci95</span>
+<span id="cb42-251"><a href="#cb42-251"></a><span class="in">```</span></span>
+<span id="cb42-252"><a href="#cb42-252"></a></span>
+<span id="cb42-253"><a href="#cb42-253"></a>This is how the bootstrap proportions---and the 95% confidence interval---compare to the "true" sampling distribution:</span>
+<span id="cb42-254"><a href="#cb42-254"></a></span>
+<span id="cb42-257"><a href="#cb42-257"></a><span class="in">```{r}</span></span>
+<span id="cb42-258"><a href="#cb42-258"></a><span class="co">#| warning: false</span></span>
+<span id="cb42-259"><a href="#cb42-259"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb42-260"><a href="#cb42-260"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb42-261"><a href="#cb42-261"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb42-262"><a href="#cb42-262"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(proportions),</span>
+<span id="cb42-263"><a href="#cb42-263"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(proportions, <span class="at">fill =</span> <span class="st">"sampling distribution"</span>),</span>
+<span id="cb42-264"><a href="#cb42-264"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb42-265"><a href="#cb42-265"></a>    <span class="at">boundary =</span> <span class="fl">0.5</span>,</span>
+<span id="cb42-266"><a href="#cb42-266"></a>    <span class="at">binwidth =</span> <span class="fl">0.005</span></span>
+<span id="cb42-267"><a href="#cb42-267"></a>  ) <span class="sc">+</span> </span>
+<span id="cb42-268"><a href="#cb42-268"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb42-269"><a href="#cb42-269"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(boot_stats),</span>
+<span id="cb42-270"><a href="#cb42-270"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(boot_stats, <span class="at">fill =</span> <span class="st">"bootstrap proportions"</span>),</span>
+<span id="cb42-271"><a href="#cb42-271"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb42-272"><a href="#cb42-272"></a>    <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>, </span>
+<span id="cb42-273"><a href="#cb42-273"></a>    <span class="at">boundary =</span> <span class="fl">0.5</span>,</span>
+<span id="cb42-274"><a href="#cb42-274"></a>    <span class="at">binwidth =</span> <span class="fl">0.005</span></span>
+<span id="cb42-275"><a href="#cb42-275"></a>  ) <span class="sc">+</span></span>
+<span id="cb42-276"><a href="#cb42-276"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> ci95, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb42-277"><a href="#cb42-277"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="cn">NULL</span>, <span class="at">title =</span> <span class="st">"95% Confidence Interval"</span>, <span class="at">y =</span> <span class="st">"count"</span>) <span class="sc">+</span></span>
+<span id="cb42-278"><a href="#cb42-278"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb42-279"><a href="#cb42-279"></a>    <span class="st">"text"</span>, <span class="at">x =</span> prop_hat, <span class="at">y =</span> <span class="dv">500</span>, <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb42-280"><a href="#cb42-280"></a>    <span class="do">## hack for LaTeX expressions in graphs</span></span>
+<span id="cb42-281"><a href="#cb42-281"></a>    <span class="at">label =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="fu">paste</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">hat{p} ="</span>, prop_hat))</span>
+<span id="cb42-282"><a href="#cb42-282"></a>  )</span>
+<span id="cb42-283"><a href="#cb42-283"></a><span class="in">```</span></span>
+<span id="cb42-284"><a href="#cb42-284"></a></span>
+<span id="cb42-285"><a href="#cb42-285"></a>**Confidence intervals without simulations (aka using Math)**</span>
+<span id="cb42-286"><a href="#cb42-286"></a></span>
+<span id="cb42-287"><a href="#cb42-287"></a>We can also *estimate* standard errors "analytically" using the following formula:</span>
+<span id="cb42-288"><a href="#cb42-288"></a></span>
+<span id="cb42-289"><a href="#cb42-289"></a>$$</span>
+<span id="cb42-290"><a href="#cb42-290"></a>\widehat{\text{se}_p} = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}</span>
+<span id="cb42-291"><a href="#cb42-291"></a>$$</span>
+<span id="cb42-292"><a href="#cb42-292"></a></span>
+<span id="cb42-293"><a href="#cb42-293"></a><span class="kw">&lt;aside&gt;</span>Note the use of the "hat" symbol in $\hat p$ to indicate that these are *estimates* from a dataset.<span class="kw">&lt;/aside&gt;</span></span>
+<span id="cb42-294"><a href="#cb42-294"></a></span>
+<span id="cb42-297"><a href="#cb42-297"></a><span class="in">```{r}</span></span>
+<span id="cb42-298"><a href="#cb42-298"></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(prop_hat <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> prop_hat) <span class="sc">/</span> <span class="dv">1000</span>)</span>
+<span id="cb42-299"><a href="#cb42-299"></a>se_hat</span>
+<span id="cb42-300"><a href="#cb42-300"></a><span class="in">```</span></span>
+<span id="cb42-301"><a href="#cb42-301"></a></span>
+<span id="cb42-302"><a href="#cb42-302"></a>Assuming that the normal distribution kicks in because of the CLT, we can estimate the 95% confidence interval using the <span class="in">`qnorm()`</span> function:</span>
+<span id="cb42-303"><a href="#cb42-303"></a></span>
+<span id="cb42-306"><a href="#cb42-306"></a><span class="in">```{r}</span></span>
+<span id="cb42-307"><a href="#cb42-307"></a><span class="fu">qnorm</span>(<span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>), <span class="at">mean =</span> prop_hat, <span class="at">sd =</span> se_hat)</span>
+<span id="cb42-308"><a href="#cb42-308"></a><span class="in">```</span></span>
+<span id="cb42-309"><a href="#cb42-309"></a></span>
+<span id="cb42-310"><a href="#cb42-310"></a>In this case, *both confidence intervals are identical.* But we did have to make more assumptions (e.g., using a normal distribution)! And we also had to use formulas that we might not understand (e.g., the formula for $\widehat{\text{se}_p}$ )!</span>
+<span id="cb42-311"><a href="#cb42-311"></a></span>
+<span id="cb42-314"><a href="#cb42-314"></a><span class="in">```{r}</span></span>
+<span id="cb42-315"><a href="#cb42-315"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb42-316"><a href="#cb42-316"></a></span>
+<span id="cb42-317"><a href="#cb42-317"></a>prop_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(one_dataset)</span>
 <span id="cb42-318"><a href="#cb42-318"></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(prop_hat <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> prop_hat) <span class="sc">/</span> <span class="dv">1000</span>)</span>
-<span id="cb42-319"><a href="#cb42-319"></a>se_hat</span>
-<span id="cb42-320"><a href="#cb42-320"></a><span class="in">```</span></span>
-<span id="cb42-321"><a href="#cb42-321"></a></span>
-<span id="cb42-322"><a href="#cb42-322"></a>Assuming that the normal distribution kicks in because of the CLT, we can estimate the 95% confidence interval using the <span class="in">`qnorm()`</span> function:</span>
-<span id="cb42-323"><a href="#cb42-323"></a></span>
-<span id="cb42-326"><a href="#cb42-326"></a><span class="in">```{r}</span></span>
-<span id="cb42-327"><a href="#cb42-327"></a><span class="fu">qnorm</span>(<span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>), <span class="at">mean =</span> prop_hat, <span class="at">sd =</span> se_hat)</span>
-<span id="cb42-328"><a href="#cb42-328"></a><span class="in">```</span></span>
-<span id="cb42-329"><a href="#cb42-329"></a></span>
-<span id="cb42-330"><a href="#cb42-330"></a>In this case, *both confidence intervals are identical.* But we did have to make more assumptions (e.g., using a normal distribution)! And we also had to use formulas that we might not understand (e.g., the formula for $\widehat{\text{se}_p}$ )!</span>
-<span id="cb42-331"><a href="#cb42-331"></a></span>
-<span id="cb42-334"><a href="#cb42-334"></a><span class="in">```{r}</span></span>
-<span id="cb42-335"><a href="#cb42-335"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb42-319"><a href="#cb42-319"></a>ci95 <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>), <span class="at">mean =</span> prop_hat, <span class="at">sd =</span> se_hat)</span>
+<span id="cb42-320"><a href="#cb42-320"></a></span>
+<span id="cb42-321"><a href="#cb42-321"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb42-322"><a href="#cb42-322"></a>  <span class="fu">stat_function</span>(</span>
+<span id="cb42-323"><a href="#cb42-323"></a>    <span class="at">geom =</span> <span class="st">"area"</span>,</span>
+<span id="cb42-324"><a href="#cb42-324"></a>    <span class="at">fun =</span> \(x) <span class="fu">dnorm</span>(x, <span class="fl">0.53</span>, <span class="at">sd =</span> <span class="fu">sqrt</span>(<span class="fl">0.53</span><span class="sc">*</span><span class="fl">0.47</span><span class="sc">/</span><span class="dv">1000</span>)),</span>
+<span id="cb42-325"><a href="#cb42-325"></a>    <span class="at">fill =</span> <span class="st">"steelblue1"</span></span>
+<span id="cb42-326"><a href="#cb42-326"></a>  ) <span class="sc">+</span></span>
+<span id="cb42-327"><a href="#cb42-327"></a>  <span class="fu">stat_function</span>(</span>
+<span id="cb42-328"><a href="#cb42-328"></a>    <span class="at">geom =</span> <span class="st">"area"</span>,</span>
+<span id="cb42-329"><a href="#cb42-329"></a>    <span class="at">fun =</span> \(x) <span class="fu">dnorm</span>(x, prop_hat, se_hat),</span>
+<span id="cb42-330"><a href="#cb42-330"></a>    <span class="at">fill =</span> <span class="st">"pink"</span>, <span class="at">alpha =</span> <span class="dv">4</span><span class="sc">/</span><span class="dv">5</span></span>
+<span id="cb42-331"><a href="#cb42-331"></a>  ) <span class="sc">+</span> </span>
+<span id="cb42-332"><a href="#cb42-332"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> ci95, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb42-333"><a href="#cb42-333"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">0.43</span>, <span class="fl">0.6</span>, <span class="fl">0.02</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.43</span>, <span class="fl">0.6</span>)) <span class="sc">+</span></span>
+<span id="cb42-334"><a href="#cb42-334"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"proportions"</span>, <span class="at">y =</span> <span class="st">"density"</span>, <span class="at">title =</span> <span class="st">"95% Confidence Interval"</span>)</span>
+<span id="cb42-335"><a href="#cb42-335"></a><span class="in">```</span></span>
 <span id="cb42-336"><a href="#cb42-336"></a></span>
-<span id="cb42-337"><a href="#cb42-337"></a>prop_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(one_dataset)</span>
-<span id="cb42-338"><a href="#cb42-338"></a>se_hat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(prop_hat <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> prop_hat) <span class="sc">/</span> <span class="dv">1000</span>)</span>
-<span id="cb42-339"><a href="#cb42-339"></a>ci95 <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>), <span class="at">mean =</span> prop_hat, <span class="at">sd =</span> se_hat)</span>
+<span id="cb42-337"><a href="#cb42-337"></a><span class="fu">### NHST</span></span>
+<span id="cb42-338"><a href="#cb42-338"></a></span>
+<span id="cb42-339"><a href="#cb42-339"></a>Null Hypothesis Statistical Testing also involves the construction of sampling distributions---i.e., we first construct the sampling distribution of the "null model."</span>
 <span id="cb42-340"><a href="#cb42-340"></a></span>
-<span id="cb42-341"><a href="#cb42-341"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb42-342"><a href="#cb42-342"></a>  <span class="fu">stat_function</span>(</span>
-<span id="cb42-343"><a href="#cb42-343"></a>    <span class="at">geom =</span> <span class="st">"area"</span>,</span>
-<span id="cb42-344"><a href="#cb42-344"></a>    <span class="at">fun =</span> \(x) <span class="fu">dnorm</span>(x, <span class="fl">0.53</span>, <span class="at">sd =</span> <span class="fu">sqrt</span>(<span class="fl">0.53</span><span class="sc">*</span><span class="fl">0.47</span><span class="sc">/</span><span class="dv">1000</span>)),</span>
-<span id="cb42-345"><a href="#cb42-345"></a>    <span class="at">fill =</span> <span class="st">"steelblue1"</span></span>
-<span id="cb42-346"><a href="#cb42-346"></a>  ) <span class="sc">+</span></span>
-<span id="cb42-347"><a href="#cb42-347"></a>  <span class="fu">stat_function</span>(</span>
-<span id="cb42-348"><a href="#cb42-348"></a>    <span class="at">geom =</span> <span class="st">"area"</span>,</span>
-<span id="cb42-349"><a href="#cb42-349"></a>    <span class="at">fun =</span> \(x) <span class="fu">dnorm</span>(x, prop_hat, se_hat),</span>
-<span id="cb42-350"><a href="#cb42-350"></a>    <span class="at">fill =</span> <span class="st">"pink"</span>, <span class="at">alpha =</span> <span class="dv">4</span><span class="sc">/</span><span class="dv">5</span></span>
-<span id="cb42-351"><a href="#cb42-351"></a>  ) <span class="sc">+</span> </span>
-<span id="cb42-352"><a href="#cb42-352"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> ci95, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb42-353"><a href="#cb42-353"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">0.43</span>, <span class="fl">0.6</span>, <span class="fl">0.02</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.43</span>, <span class="fl">0.6</span>)) <span class="sc">+</span></span>
-<span id="cb42-354"><a href="#cb42-354"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"proportions"</span>, <span class="at">y =</span> <span class="st">"density"</span>, <span class="at">title =</span> <span class="st">"95% Confidence Interval"</span>)</span>
-<span id="cb42-355"><a href="#cb42-355"></a><span class="in">```</span></span>
+<span id="cb42-341"><a href="#cb42-341"></a>This procedure can be quite mechanical:</span>
+<span id="cb42-342"><a href="#cb42-342"></a></span>
+<span id="cb42-343"><a href="#cb42-343"></a><span class="ss">1.  </span>We assume a hypothesis we would like to refute: a *null hypothesis* often denoted as $H_0$.</span>
+<span id="cb42-344"><a href="#cb42-344"></a></span>
+<span id="cb42-345"><a href="#cb42-345"></a><span class="ss">2.  </span>We choose a *test statistic* (e.g., an average, a proportion), which is some function of the observed data.</span>
+<span id="cb42-346"><a href="#cb42-346"></a></span>
+<span id="cb42-347"><a href="#cb42-347"></a><span class="ss">3.  </span>We derive the *sampling distribution* of the test statistic, given the null hypothesis. This distribution is also called the *reference distribution*.</span>
+<span id="cb42-348"><a href="#cb42-348"></a></span>
+<span id="cb42-349"><a href="#cb42-349"></a><span class="ss">4.  </span>We ask whether the observed value of the test statistic is likely to occur under the reference distribution. This probability is also known as a $p$*-value*.</span>
+<span id="cb42-350"><a href="#cb42-350"></a></span>
+<span id="cb42-351"><a href="#cb42-351"></a>    The $p$-value is the probability that, under the null hypothesis, we observe a value of the test statistic at least as extreme as the one we actually observed.</span>
+<span id="cb42-352"><a href="#cb42-352"></a></span>
+<span id="cb42-353"><a href="#cb42-353"></a><span class="ss">5.  </span>We reject the null hypothesis if the $p$-value is less than or equal to the confidence level $\alpha$. Otherwise, we retain the null hypothesis (i.e., we *fail to reject* the null hypothesis).</span>
+<span id="cb42-354"><a href="#cb42-354"></a></span>
+<span id="cb42-355"><a href="#cb42-355"></a>For example, continuing the previous example, suppose that our null model ( $H_0$ ) is that the proportion of people who vote Democrat and Republican is the same---i.e., that $p = 0.5$.</span>
 <span id="cb42-356"><a href="#cb42-356"></a></span>
-<span id="cb42-357"><a href="#cb42-357"></a><span class="fu">### NHST</span></span>
+<span id="cb42-357"><a href="#cb42-357"></a>We can simulate the null distribution as follows:</span>
 <span id="cb42-358"><a href="#cb42-358"></a></span>
-<span id="cb42-359"><a href="#cb42-359"></a>Null Hypothesis Statistical Testing also involves the construction of sampling distributions---i.e., we first construct the sampling distribution of the "null model."</span>
-<span id="cb42-360"><a href="#cb42-360"></a></span>
-<span id="cb42-361"><a href="#cb42-361"></a>This procedure can be quite mechanical:</span>
-<span id="cb42-362"><a href="#cb42-362"></a></span>
-<span id="cb42-363"><a href="#cb42-363"></a><span class="ss">1.  </span>We assume a hypothesis we would like to refute: a *null hypothesis* often denoted as $H_0$.</span>
+<span id="cb42-361"><a href="#cb42-361"></a><span class="in">```{r}</span></span>
+<span id="cb42-362"><a href="#cb42-362"></a>S <span class="ot">&lt;-</span> <span class="fl">1e4</span> <span class="do">## number of simulated draws</span></span>
+<span id="cb42-363"><a href="#cb42-363"></a>poll_size <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="do">## sample size</span></span>
 <span id="cb42-364"><a href="#cb42-364"></a></span>
-<span id="cb42-365"><a href="#cb42-365"></a><span class="ss">2.  </span>We choose a *test statistic* (e.g., an average, a proportion), which is some function of the observed data.</span>
-<span id="cb42-366"><a href="#cb42-366"></a></span>
-<span id="cb42-367"><a href="#cb42-367"></a><span class="ss">3.  </span>We derive the *sampling distribution* of the test statistic, given the null hypothesis. This distribution is also called the *reference distribution*.</span>
+<span id="cb42-365"><a href="#cb42-365"></a>draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> poll_size, <span class="at">prob =</span> <span class="fl">0.50</span>)</span>
+<span id="cb42-366"><a href="#cb42-366"></a>null <span class="ot">&lt;-</span> draws <span class="sc">/</span> poll_size</span>
+<span id="cb42-367"><a href="#cb42-367"></a><span class="in">```</span></span>
 <span id="cb42-368"><a href="#cb42-368"></a></span>
-<span id="cb42-369"><a href="#cb42-369"></a><span class="ss">4.  </span>We ask whether the observed value of the test statistic is likely to occur under the reference distribution. This probability is also known as a $p$*-value*.</span>
+<span id="cb42-369"><a href="#cb42-369"></a><span class="kw">&lt;aside&gt;</span>This is almost the exact same code that we used before. Only the <span class="in">`prob`</span> argument has changed.<span class="kw">&lt;/aside&gt;</span></span>
 <span id="cb42-370"><a href="#cb42-370"></a></span>
-<span id="cb42-371"><a href="#cb42-371"></a>    The $p$-value is the probability that, under the null hypothesis, we observe a value of the test statistic at least as extreme as the one we actually observed.</span>
+<span id="cb42-371"><a href="#cb42-371"></a>We can overlay the null distribution on top of the sampling distribution for the "true" parameter as follows:</span>
 <span id="cb42-372"><a href="#cb42-372"></a></span>
-<span id="cb42-373"><a href="#cb42-373"></a><span class="ss">5.  </span>We reject the null hypothesis if the $p$-value is less than or equal to the confidence level $\alpha$. Otherwise, we retain the null hypothesis (i.e., we *fail to reject* the null hypothesis).</span>
-<span id="cb42-374"><a href="#cb42-374"></a></span>
-<span id="cb42-375"><a href="#cb42-375"></a>For example, continuing the previous example, suppose that our null model ( $H_0$ ) is that the proportion of people who vote Democrat and Republican is the same---i.e., that $p = 0.5$.</span>
-<span id="cb42-376"><a href="#cb42-376"></a></span>
-<span id="cb42-377"><a href="#cb42-377"></a>We can simulate the null distribution as follows:</span>
-<span id="cb42-378"><a href="#cb42-378"></a></span>
-<span id="cb42-381"><a href="#cb42-381"></a><span class="in">```{r}</span></span>
-<span id="cb42-382"><a href="#cb42-382"></a>S <span class="ot">&lt;-</span> <span class="fl">1e4</span> <span class="do">## number of simulated draws</span></span>
-<span id="cb42-383"><a href="#cb42-383"></a>poll_size <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="do">## sample size</span></span>
-<span id="cb42-384"><a href="#cb42-384"></a></span>
-<span id="cb42-385"><a href="#cb42-385"></a>draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> poll_size, <span class="at">prob =</span> <span class="fl">0.50</span>)</span>
-<span id="cb42-386"><a href="#cb42-386"></a>null <span class="ot">&lt;-</span> draws <span class="sc">/</span> poll_size</span>
-<span id="cb42-387"><a href="#cb42-387"></a><span class="in">```</span></span>
-<span id="cb42-388"><a href="#cb42-388"></a></span>
-<span id="cb42-389"><a href="#cb42-389"></a><span class="kw">&lt;aside&gt;</span></span>
-<span id="cb42-390"><a href="#cb42-390"></a></span>
-<span id="cb42-391"><a href="#cb42-391"></a>This is almost the exact same code that we used before. Only the <span class="in">`prob`</span> argument has changed.</span>
-<span id="cb42-392"><a href="#cb42-392"></a></span>
-<span id="cb42-393"><a href="#cb42-393"></a><span class="kw">&lt;/aside&gt;</span></span>
-<span id="cb42-394"><a href="#cb42-394"></a></span>
-<span id="cb42-395"><a href="#cb42-395"></a>We can overlay the null distribution on top of the sampling distribution for the "true" parameter as follows:</span>
-<span id="cb42-396"><a href="#cb42-396"></a></span>
-<span id="cb42-399"><a href="#cb42-399"></a><span class="in">```{r}</span></span>
-<span id="cb42-400"><a href="#cb42-400"></a><span class="co">#| warning: false</span></span>
-<span id="cb42-401"><a href="#cb42-401"></a><span class="co">#| fig-width: 9</span></span>
-<span id="cb42-402"><a href="#cb42-402"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb42-403"><a href="#cb42-403"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb42-404"><a href="#cb42-404"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(proportions),</span>
-<span id="cb42-405"><a href="#cb42-405"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(proportions, <span class="at">fill =</span> <span class="st">"True Sampling Distribution"</span>),</span>
-<span id="cb42-406"><a href="#cb42-406"></a>    <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>,</span>
-<span id="cb42-407"><a href="#cb42-407"></a>  ) <span class="sc">+</span></span>
-<span id="cb42-408"><a href="#cb42-408"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb42-409"><a href="#cb42-409"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(null),</span>
-<span id="cb42-410"><a href="#cb42-410"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(null, <span class="at">fill =</span> <span class="st">"Null Sampling Distribution"</span>),</span>
-<span id="cb42-411"><a href="#cb42-411"></a>    <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>,</span>
-<span id="cb42-412"><a href="#cb42-412"></a>    <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb42-413"><a href="#cb42-413"></a>  ) <span class="sc">+</span></span>
-<span id="cb42-414"><a href="#cb42-414"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">0.43</span>, <span class="fl">0.61</span>, <span class="fl">0.02</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.43</span>, <span class="fl">0.61</span>)) <span class="sc">+</span></span>
-<span id="cb42-415"><a href="#cb42-415"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="cn">NULL</span>)</span>
-<span id="cb42-416"><a href="#cb42-416"></a><span class="in">```</span></span>
-<span id="cb42-417"><a href="#cb42-417"></a></span>
-<span id="cb42-418"><a href="#cb42-418"></a><span class="fu">### Exercise</span></span>
-<span id="cb42-419"><a href="#cb42-419"></a></span>
-<span id="cb42-420"><a href="#cb42-420"></a>::: callout-note</span>
-<span id="cb42-421"><a href="#cb42-421"></a>What is the probability of observing the "true" value ( $p = 0.53$ ) under the null?</span>
+<span id="cb42-375"><a href="#cb42-375"></a><span class="in">```{r}</span></span>
+<span id="cb42-376"><a href="#cb42-376"></a><span class="co">#| warning: false</span></span>
+<span id="cb42-377"><a href="#cb42-377"></a><span class="co">#| fig-width: 9</span></span>
+<span id="cb42-378"><a href="#cb42-378"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb42-379"><a href="#cb42-379"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb42-380"><a href="#cb42-380"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(proportions),</span>
+<span id="cb42-381"><a href="#cb42-381"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(proportions, <span class="at">fill =</span> <span class="st">"True Sampling Distribution"</span>),</span>
+<span id="cb42-382"><a href="#cb42-382"></a>    <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>,</span>
+<span id="cb42-383"><a href="#cb42-383"></a>  ) <span class="sc">+</span></span>
+<span id="cb42-384"><a href="#cb42-384"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb42-385"><a href="#cb42-385"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(null),</span>
+<span id="cb42-386"><a href="#cb42-386"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(null, <span class="at">fill =</span> <span class="st">"Null Sampling Distribution"</span>),</span>
+<span id="cb42-387"><a href="#cb42-387"></a>    <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>,</span>
+<span id="cb42-388"><a href="#cb42-388"></a>    <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb42-389"><a href="#cb42-389"></a>  ) <span class="sc">+</span></span>
+<span id="cb42-390"><a href="#cb42-390"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">0.43</span>, <span class="fl">0.61</span>, <span class="fl">0.02</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.43</span>, <span class="fl">0.61</span>)) <span class="sc">+</span></span>
+<span id="cb42-391"><a href="#cb42-391"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="cn">NULL</span>)</span>
+<span id="cb42-392"><a href="#cb42-392"></a><span class="in">```</span></span>
+<span id="cb42-393"><a href="#cb42-393"></a></span>
+<span id="cb42-394"><a href="#cb42-394"></a><span class="fu">### Exercise</span></span>
+<span id="cb42-395"><a href="#cb42-395"></a></span>
+<span id="cb42-396"><a href="#cb42-396"></a>::: callout-note</span>
+<span id="cb42-397"><a href="#cb42-397"></a>What is the probability of observing the "true" value ( $p = 0.53$ ) under the null?</span>
+<span id="cb42-398"><a href="#cb42-398"></a></span>
+<span id="cb42-399"><a href="#cb42-399"></a>What is the probability of observing <span class="in">`prop_hat`</span> under the null? Is this statistically significant if the confidence level ( $\alpha$ ) is set to 0.05?</span>
+<span id="cb42-400"><a href="#cb42-400"></a>:::</span>
+<span id="cb42-401"><a href="#cb42-401"></a></span>
+<span id="cb42-402"><a href="#cb42-402"></a>::: callout-tip</span>
+<span id="cb42-403"><a href="#cb42-403"></a>Hint: As a reminder, this is how I calculated <span class="in">`prop_hat`</span> earlier:</span>
+<span id="cb42-404"><a href="#cb42-404"></a></span>
+<span id="cb42-407"><a href="#cb42-407"></a><span class="in">```{r}</span></span>
+<span id="cb42-408"><a href="#cb42-408"></a><span class="co">#| eval: false</span></span>
+<span id="cb42-409"><a href="#cb42-409"></a><span class="fu">set.seed</span>(<span class="dv">321</span>)</span>
+<span id="cb42-410"><a href="#cb42-410"></a>one_dataset <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(poll_size, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.53</span>)</span>
+<span id="cb42-411"><a href="#cb42-411"></a>prop_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(one_dataset)</span>
+<span id="cb42-412"><a href="#cb42-412"></a><span class="in">```</span></span>
+<span id="cb42-413"><a href="#cb42-413"></a></span>
+<span id="cb42-414"><a href="#cb42-414"></a>Here, <span class="in">`prop_hat`</span> is 0.513. If you remove the <span class="in">`set.seed(321)`</span> line you will get a different value of <span class="in">`prop_hat`</span>. I encourage you to play around with this.</span>
+<span id="cb42-415"><a href="#cb42-415"></a>:::</span>
+<span id="cb42-416"><a href="#cb42-416"></a></span>
+<span id="cb42-417"><a href="#cb42-417"></a>::: callout-tip</span>
+<span id="cb42-418"><a href="#cb42-418"></a>Hint: You can reach the same decision with NHST and confidence intervals. If your $H_0$ is included within the confidence interval, we then fail to reject the null.</span>
+<span id="cb42-419"><a href="#cb42-419"></a>:::</span>
+<span id="cb42-420"><a href="#cb42-420"></a></span>
+<span id="cb42-421"><a href="#cb42-421"></a><span class="fu">### Difference in Proportions</span></span>
 <span id="cb42-422"><a href="#cb42-422"></a></span>
-<span id="cb42-423"><a href="#cb42-423"></a>What is the probability of observing <span class="in">`prop_hat`</span> under the null? Is this statistically significant if the confidence level ( $\alpha$ ) is set to 0.05?</span>
-<span id="cb42-424"><a href="#cb42-424"></a>:::</span>
-<span id="cb42-425"><a href="#cb42-425"></a></span>
-<span id="cb42-426"><a href="#cb42-426"></a>::: callout-tip</span>
-<span id="cb42-427"><a href="#cb42-427"></a>Hint: As a reminder, this is how I calculated <span class="in">`prop_hat`</span> earlier:</span>
+<span id="cb42-423"><a href="#cb42-423"></a>We can repeat everything we did before for other scenarios; for example, a difference in proportions.</span>
+<span id="cb42-424"><a href="#cb42-424"></a></span>
+<span id="cb42-425"><a href="#cb42-425"></a>Suppose we have to groups of people (e.g., men and women) who differ in the proportion of voting Democrat.</span>
+<span id="cb42-426"><a href="#cb42-426"></a></span>
+<span id="cb42-427"><a href="#cb42-427"></a>For example, we can assume that $p_1 = 0.5$ and that $p_2 = 0.6$.</span>
 <span id="cb42-428"><a href="#cb42-428"></a></span>
-<span id="cb42-431"><a href="#cb42-431"></a><span class="in">```{r}</span></span>
-<span id="cb42-432"><a href="#cb42-432"></a><span class="co">#| eval: false</span></span>
-<span id="cb42-433"><a href="#cb42-433"></a><span class="fu">set.seed</span>(<span class="dv">321</span>)</span>
-<span id="cb42-434"><a href="#cb42-434"></a>one_dataset <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(poll_size, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fl">0.53</span>)</span>
-<span id="cb42-435"><a href="#cb42-435"></a>prop_hat <span class="ot">&lt;-</span> <span class="fu">mean</span>(one_dataset)</span>
-<span id="cb42-436"><a href="#cb42-436"></a><span class="in">```</span></span>
-<span id="cb42-437"><a href="#cb42-437"></a></span>
-<span id="cb42-438"><a href="#cb42-438"></a>Here, <span class="in">`prop_hat`</span> is 0.513. If you remove the <span class="in">`set.seed(321)`</span> line you will get a different value of <span class="in">`prop_hat`</span>. I encourage you to play around with this.</span>
-<span id="cb42-439"><a href="#cb42-439"></a>:::</span>
+<span id="cb42-429"><a href="#cb42-429"></a>Here, the *true* difference in proportions is $\theta = p_1 - p_2 = -0.1$.</span>
+<span id="cb42-430"><a href="#cb42-430"></a></span>
+<span id="cb42-431"><a href="#cb42-431"></a>The following chunk creates a sampling distribution for this new parameter $\theta$.</span>
+<span id="cb42-432"><a href="#cb42-432"></a></span>
+<span id="cb42-435"><a href="#cb42-435"></a><span class="in">```{r}</span></span>
+<span id="cb42-436"><a href="#cb42-436"></a>p1 <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb42-437"><a href="#cb42-437"></a>n1 <span class="ot">&lt;-</span> <span class="dv">120</span></span>
+<span id="cb42-438"><a href="#cb42-438"></a>p2 <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
+<span id="cb42-439"><a href="#cb42-439"></a>n2 <span class="ot">&lt;-</span> <span class="dv">90</span></span>
 <span id="cb42-440"><a href="#cb42-440"></a></span>
-<span id="cb42-441"><a href="#cb42-441"></a>::: callout-tip</span>
-<span id="cb42-442"><a href="#cb42-442"></a>Hint: You can reach the same decision with NHST and confidence intervals. If your $H_0$ is included within the confidence interval, we then fail to reject the null.</span>
-<span id="cb42-443"><a href="#cb42-443"></a>:::</span>
-<span id="cb42-444"><a href="#cb42-444"></a></span>
-<span id="cb42-445"><a href="#cb42-445"></a><span class="fu">### Difference in Proportions</span></span>
-<span id="cb42-446"><a href="#cb42-446"></a></span>
-<span id="cb42-447"><a href="#cb42-447"></a>We can repeat everything we did before for other scenarios; for example, a difference in proportions.</span>
+<span id="cb42-441"><a href="#cb42-441"></a>S <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb42-442"><a href="#cb42-442"></a>draws1 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> n1, <span class="at">prob =</span> p1) </span>
+<span id="cb42-443"><a href="#cb42-443"></a>proportions1 <span class="ot">&lt;-</span> draws1 <span class="sc">/</span> n1 </span>
+<span id="cb42-444"><a href="#cb42-444"></a>draws2 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> n2, <span class="at">prob =</span> p2)</span>
+<span id="cb42-445"><a href="#cb42-445"></a>proportions2 <span class="ot">&lt;-</span> draws2 <span class="sc">/</span> n2</span>
+<span id="cb42-446"><a href="#cb42-446"></a>theta_distribution <span class="ot">&lt;-</span> proportions1 <span class="sc">-</span> proportions2</span>
+<span id="cb42-447"><a href="#cb42-447"></a><span class="in">```</span></span>
 <span id="cb42-448"><a href="#cb42-448"></a></span>
-<span id="cb42-449"><a href="#cb42-449"></a>Suppose we have to groups of people (e.g., men and women) who differ in the proportion of voting Democrat.</span>
+<span id="cb42-449"><a href="#cb42-449"></a>As before, the sampling distribution is centered around the true value of $-0.1$</span>
 <span id="cb42-450"><a href="#cb42-450"></a></span>
-<span id="cb42-451"><a href="#cb42-451"></a>For example, we can assume that $p_1 = 0.5$ and that $p_2 = 0.6$.</span>
-<span id="cb42-452"><a href="#cb42-452"></a></span>
-<span id="cb42-453"><a href="#cb42-453"></a>Here, the *true* difference in proportions is $\theta = p_1 - p_2 = -0.1$.</span>
-<span id="cb42-454"><a href="#cb42-454"></a></span>
-<span id="cb42-455"><a href="#cb42-455"></a>The following chunk creates a sampling distribution for this new parameter $\theta$.</span>
+<span id="cb42-453"><a href="#cb42-453"></a><span class="in">```{r}</span></span>
+<span id="cb42-454"><a href="#cb42-454"></a><span class="fu">mean</span>(theta_distribution)</span>
+<span id="cb42-455"><a href="#cb42-455"></a><span class="in">```</span></span>
 <span id="cb42-456"><a href="#cb42-456"></a></span>
-<span id="cb42-459"><a href="#cb42-459"></a><span class="in">```{r}</span></span>
-<span id="cb42-460"><a href="#cb42-460"></a>p1 <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb42-461"><a href="#cb42-461"></a>n1 <span class="ot">&lt;-</span> <span class="dv">120</span></span>
-<span id="cb42-462"><a href="#cb42-462"></a>p2 <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
-<span id="cb42-463"><a href="#cb42-463"></a>n2 <span class="ot">&lt;-</span> <span class="dv">90</span></span>
+<span id="cb42-457"><a href="#cb42-457"></a>And the standard error is given by:</span>
+<span id="cb42-458"><a href="#cb42-458"></a></span>
+<span id="cb42-461"><a href="#cb42-461"></a><span class="in">```{r}</span></span>
+<span id="cb42-462"><a href="#cb42-462"></a><span class="fu">sd</span>(theta_distribution)</span>
+<span id="cb42-463"><a href="#cb42-463"></a><span class="in">```</span></span>
 <span id="cb42-464"><a href="#cb42-464"></a></span>
-<span id="cb42-465"><a href="#cb42-465"></a>S <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
-<span id="cb42-466"><a href="#cb42-466"></a>draws1 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> n1, <span class="at">prob =</span> p1) </span>
-<span id="cb42-467"><a href="#cb42-467"></a>proportions1 <span class="ot">&lt;-</span> draws1 <span class="sc">/</span> n1 </span>
-<span id="cb42-468"><a href="#cb42-468"></a>draws2 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> n2, <span class="at">prob =</span> p2)</span>
-<span id="cb42-469"><a href="#cb42-469"></a>proportions2 <span class="ot">&lt;-</span> draws2 <span class="sc">/</span> n2</span>
-<span id="cb42-470"><a href="#cb42-470"></a>theta_distribution <span class="ot">&lt;-</span> proportions1 <span class="sc">-</span> proportions2</span>
-<span id="cb42-471"><a href="#cb42-471"></a><span class="in">```</span></span>
-<span id="cb42-472"><a href="#cb42-472"></a></span>
-<span id="cb42-473"><a href="#cb42-473"></a>As before, the sampling distribution is centered around the true value of $-0.1$</span>
-<span id="cb42-474"><a href="#cb42-474"></a></span>
-<span id="cb42-477"><a href="#cb42-477"></a><span class="in">```{r}</span></span>
-<span id="cb42-478"><a href="#cb42-478"></a><span class="fu">mean</span>(theta_distribution)</span>
-<span id="cb42-479"><a href="#cb42-479"></a><span class="in">```</span></span>
-<span id="cb42-480"><a href="#cb42-480"></a></span>
-<span id="cb42-481"><a href="#cb42-481"></a>And the standard error is given by:</span>
+<span id="cb42-467"><a href="#cb42-467"></a><span class="in">```{r}</span></span>
+<span id="cb42-468"><a href="#cb42-468"></a><span class="fu">tibble</span>(<span class="at">theta =</span> theta_distribution) <span class="sc">|&gt;</span> </span>
+<span id="cb42-469"><a href="#cb42-469"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(theta)) <span class="sc">+</span> </span>
+<span id="cb42-470"><a href="#cb42-470"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.025</span>) <span class="sc">+</span></span>
+<span id="cb42-471"><a href="#cb42-471"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sampling Distribution of differences in proportions"</span>)</span>
+<span id="cb42-472"><a href="#cb42-472"></a><span class="in">```</span></span>
+<span id="cb42-473"><a href="#cb42-473"></a></span>
+<span id="cb42-474"><a href="#cb42-474"></a><span class="fu">### Exercise</span></span>
+<span id="cb42-475"><a href="#cb42-475"></a></span>
+<span id="cb42-476"><a href="#cb42-476"></a>::: callout-note</span>
+<span id="cb42-477"><a href="#cb42-477"></a>The formula for calculating the standard error of a difference in proportions is given by:</span>
+<span id="cb42-478"><a href="#cb42-478"></a></span>
+<span id="cb42-479"><a href="#cb42-479"></a>$$</span>
+<span id="cb42-480"><a href="#cb42-480"></a>\sigma_{\hat p_1 - \hat p_2} = \sqrt{\frac{p_1 (1 - p_1)}{n_1} + \frac{p_2 (1 - p_2)}{n_2}}</span>
+<span id="cb42-481"><a href="#cb42-481"></a>$$</span>
 <span id="cb42-482"><a href="#cb42-482"></a></span>
-<span id="cb42-485"><a href="#cb42-485"></a><span class="in">```{r}</span></span>
-<span id="cb42-486"><a href="#cb42-486"></a><span class="fu">sd</span>(theta_distribution)</span>
-<span id="cb42-487"><a href="#cb42-487"></a><span class="in">```</span></span>
-<span id="cb42-488"><a href="#cb42-488"></a></span>
-<span id="cb42-491"><a href="#cb42-491"></a><span class="in">```{r}</span></span>
-<span id="cb42-492"><a href="#cb42-492"></a><span class="fu">tibble</span>(<span class="at">theta =</span> theta_distribution) <span class="sc">|&gt;</span> </span>
-<span id="cb42-493"><a href="#cb42-493"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(theta)) <span class="sc">+</span> </span>
-<span id="cb42-494"><a href="#cb42-494"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.025</span>) <span class="sc">+</span></span>
-<span id="cb42-495"><a href="#cb42-495"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sampling Distribution of differences in proportions"</span>)</span>
-<span id="cb42-496"><a href="#cb42-496"></a><span class="in">```</span></span>
+<span id="cb42-483"><a href="#cb42-483"></a>Verify that this standard error corresponds to <span class="in">`sd(theta_distribution)`</span>.</span>
+<span id="cb42-484"><a href="#cb42-484"></a>:::</span>
+<span id="cb42-485"><a href="#cb42-485"></a></span>
+<span id="cb42-486"><a href="#cb42-486"></a><span class="fu">### Exercise</span></span>
+<span id="cb42-487"><a href="#cb42-487"></a></span>
+<span id="cb42-488"><a href="#cb42-488"></a>::: callout-note</span>
+<span id="cb42-489"><a href="#cb42-489"></a>*Comparison of proportions.*</span>
+<span id="cb42-490"><a href="#cb42-490"></a></span>
+<span id="cb42-491"><a href="#cb42-491"></a>A randomized experiment is performed within a survey. 1000 people are contacted. Half the people contacted are promised a \$5 incentive to participate, and half are not promised an incentive. The result is a 50% response rate among the treated group and 40% response rate among the control group. Give an estimate and standard error of the difference in proportions.</span>
+<span id="cb42-492"><a href="#cb42-492"></a>:::</span>
+<span id="cb42-493"><a href="#cb42-493"></a></span>
+<span id="cb42-494"><a href="#cb42-494"></a>::: callout-tip</span>
+<span id="cb42-495"><a href="#cb42-495"></a>Hint: Because this is a randomized experiment, we usually refer to this difference in proportions as an *average treatment effect,* which we interpret as a causal effect.</span>
+<span id="cb42-496"><a href="#cb42-496"></a>:::</span>
 <span id="cb42-497"><a href="#cb42-497"></a></span>
-<span id="cb42-498"><a href="#cb42-498"></a><span class="fu">### Exercise</span></span>
+<span id="cb42-498"><a href="#cb42-498"></a><span class="fu">## The *Data* is Known</span></span>
 <span id="cb42-499"><a href="#cb42-499"></a></span>
-<span id="cb42-500"><a href="#cb42-500"></a>::: callout-note</span>
-<span id="cb42-501"><a href="#cb42-501"></a>The formula for calculating the standard error of a difference in proportions is given by:</span>
-<span id="cb42-502"><a href="#cb42-502"></a></span>
-<span id="cb42-503"><a href="#cb42-503"></a>$$</span>
-<span id="cb42-504"><a href="#cb42-504"></a>\sigma_{\hat p_1 - \hat p_2} = \sqrt{\frac{p_1 (1 - p_1)}{n_1} + \frac{p_2 (1 - p_2)}{n_2}}</span>
-<span id="cb42-505"><a href="#cb42-505"></a>$$</span>
-<span id="cb42-506"><a href="#cb42-506"></a></span>
-<span id="cb42-507"><a href="#cb42-507"></a>Verify that this standard error corresponds to <span class="in">`sd(theta_distribution)`</span>.</span>
-<span id="cb42-508"><a href="#cb42-508"></a>:::</span>
+<span id="cb42-500"><a href="#cb42-500"></a>Here we will work with GSS data.</span>
+<span id="cb42-501"><a href="#cb42-501"></a></span>
+<span id="cb42-502"><a href="#cb42-502"></a>Copy the following chunk of code to get the data frame we will be using.</span>
+<span id="cb42-503"><a href="#cb42-503"></a></span>
+<span id="cb42-506"><a href="#cb42-506"></a><span class="in">```{r}</span></span>
+<span id="cb42-507"><a href="#cb42-507"></a><span class="co">#| message: false</span></span>
+<span id="cb42-508"><a href="#cb42-508"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
 <span id="cb42-509"><a href="#cb42-509"></a></span>
-<span id="cb42-510"><a href="#cb42-510"></a><span class="fu">### Exercise</span></span>
-<span id="cb42-511"><a href="#cb42-511"></a></span>
-<span id="cb42-512"><a href="#cb42-512"></a>::: callout-note</span>
-<span id="cb42-513"><a href="#cb42-513"></a>*Comparison of proportions.*</span>
-<span id="cb42-514"><a href="#cb42-514"></a></span>
-<span id="cb42-515"><a href="#cb42-515"></a>A randomized experiment is performed within a survey. 1000 people are contacted. Half the people contacted are promised a \$5 incentive to participate, and half are not promised an incentive. The result is a 50% response rate among the treated group and 40% response rate among the control group. Give an estimate and standard error of the difference in proportions.</span>
-<span id="cb42-516"><a href="#cb42-516"></a>:::</span>
-<span id="cb42-517"><a href="#cb42-517"></a></span>
-<span id="cb42-518"><a href="#cb42-518"></a>::: callout-tip</span>
-<span id="cb42-519"><a href="#cb42-519"></a>Hint: Because this is a randomized experiment, we usually refer to this difference in proportions as an *average treatment effect,* which we interpret as a causal effect.</span>
-<span id="cb42-520"><a href="#cb42-520"></a>:::</span>
+<span id="cb42-510"><a href="#cb42-510"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb42-511"><a href="#cb42-511"></a>  <span class="fu">select</span>(sex, attend, polviews) <span class="sc">|&gt;</span> </span>
+<span id="cb42-512"><a href="#cb42-512"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb42-513"><a href="#cb42-513"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as_factor</span>(sex)) <span class="sc">|&gt;</span> </span>
+<span id="cb42-514"><a href="#cb42-514"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb42-515"><a href="#cb42-515"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb42-516"><a href="#cb42-516"></a></span>
+<span id="cb42-517"><a href="#cb42-517"></a><span class="fu">glimpse</span>(d)</span>
+<span id="cb42-518"><a href="#cb42-518"></a><span class="in">```</span></span>
+<span id="cb42-519"><a href="#cb42-519"></a></span>
+<span id="cb42-520"><a href="#cb42-520"></a><span class="fu">### Exercise</span></span>
 <span id="cb42-521"><a href="#cb42-521"></a></span>
-<span id="cb42-522"><a href="#cb42-522"></a><span class="fu">## The *Data* is Known</span></span>
-<span id="cb42-523"><a href="#cb42-523"></a></span>
-<span id="cb42-524"><a href="#cb42-524"></a>Here we will work with GSS data.</span>
+<span id="cb42-522"><a href="#cb42-522"></a>::: callout-note</span>
+<span id="cb42-523"><a href="#cb42-523"></a>Go to the GSS website and describe the values of <span class="in">`attend`</span> and <span class="in">`polviews`</span>---e.g., what does a value of "4" mean in <span class="in">`polviews`</span>.</span>
+<span id="cb42-524"><a href="#cb42-524"></a>:::</span>
 <span id="cb42-525"><a href="#cb42-525"></a></span>
-<span id="cb42-526"><a href="#cb42-526"></a>Copy the following chunk of code to get the data frame we will be using.</span>
+<span id="cb42-526"><a href="#cb42-526"></a><span class="fu">### Exercise</span></span>
 <span id="cb42-527"><a href="#cb42-527"></a></span>
-<span id="cb42-530"><a href="#cb42-530"></a><span class="in">```{r}</span></span>
-<span id="cb42-531"><a href="#cb42-531"></a><span class="co">#| message: false</span></span>
-<span id="cb42-532"><a href="#cb42-532"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
+<span id="cb42-528"><a href="#cb42-528"></a>::: callout-note</span>
+<span id="cb42-529"><a href="#cb42-529"></a>Repeat what we did in class with Steve, but compare the <span class="in">`weekly`</span> variable to a new variable call <span class="in">`conservative`</span>.</span>
+<span id="cb42-530"><a href="#cb42-530"></a></span>
+<span id="cb42-531"><a href="#cb42-531"></a><span class="ot">&lt;https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-12.R&gt;</span></span>
+<span id="cb42-532"><a href="#cb42-532"></a>:::</span>
 <span id="cb42-533"><a href="#cb42-533"></a></span>
-<span id="cb42-534"><a href="#cb42-534"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
-<span id="cb42-535"><a href="#cb42-535"></a>  <span class="fu">select</span>(sex, attend, polviews) <span class="sc">|&gt;</span> </span>
-<span id="cb42-536"><a href="#cb42-536"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb42-537"><a href="#cb42-537"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as_factor</span>(sex)) <span class="sc">|&gt;</span> </span>
-<span id="cb42-538"><a href="#cb42-538"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb42-539"><a href="#cb42-539"></a>  <span class="fu">drop_na</span>()</span>
-<span id="cb42-540"><a href="#cb42-540"></a></span>
-<span id="cb42-541"><a href="#cb42-541"></a><span class="fu">glimpse</span>(d)</span>
-<span id="cb42-542"><a href="#cb42-542"></a><span class="in">```</span></span>
+<span id="cb42-534"><a href="#cb42-534"></a>::: callout-tip</span>
+<span id="cb42-535"><a href="#cb42-535"></a>Hint: You will have to create the <span class="in">`conservative`</span> value yourself by modifying the <span class="in">`polviews variable.`</span></span>
+<span id="cb42-536"><a href="#cb42-536"></a>:::</span>
+<span id="cb42-537"><a href="#cb42-537"></a></span>
+<span id="cb42-538"><a href="#cb42-538"></a><span class="fu">### Exercise</span></span>
+<span id="cb42-539"><a href="#cb42-539"></a></span>
+<span id="cb42-540"><a href="#cb42-540"></a>::: callout-note</span>
+<span id="cb42-541"><a href="#cb42-541"></a>Is the difference in proportions between <span class="in">`conservative`</span> and <span class="in">`weekly`</span> statistically significant?</span>
+<span id="cb42-542"><a href="#cb42-542"></a>:::</span>
 <span id="cb42-543"><a href="#cb42-543"></a></span>
 <span id="cb42-544"><a href="#cb42-544"></a><span class="fu">### Exercise</span></span>
 <span id="cb42-545"><a href="#cb42-545"></a></span>
 <span id="cb42-546"><a href="#cb42-546"></a>::: callout-note</span>
-<span id="cb42-547"><a href="#cb42-547"></a>Go to the GSS website and describe the values of <span class="in">`attend`</span> and <span class="in">`polviews`</span>---e.g., what does a value of "4" mean in <span class="in">`polviews`</span>.</span>
-<span id="cb42-548"><a href="#cb42-548"></a>:::</span>
-<span id="cb42-549"><a href="#cb42-549"></a></span>
-<span id="cb42-550"><a href="#cb42-550"></a><span class="fu">### Exercise</span></span>
-<span id="cb42-551"><a href="#cb42-551"></a></span>
-<span id="cb42-552"><a href="#cb42-552"></a>::: callout-note</span>
-<span id="cb42-553"><a href="#cb42-553"></a>Repeat what we did in class with Steve, but compare the <span class="in">`weekly`</span> variable to a new variable call <span class="in">`conservative`</span>.</span>
-<span id="cb42-554"><a href="#cb42-554"></a></span>
-<span id="cb42-555"><a href="#cb42-555"></a><span class="ot">&lt;https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-12.R&gt;</span></span>
-<span id="cb42-556"><a href="#cb42-556"></a>:::</span>
-<span id="cb42-557"><a href="#cb42-557"></a></span>
-<span id="cb42-558"><a href="#cb42-558"></a>::: callout-tip</span>
-<span id="cb42-559"><a href="#cb42-559"></a>Hint: You will have to create the <span class="in">`conservative`</span> value yourself by modifying the <span class="in">`polviews variable.`</span></span>
-<span id="cb42-560"><a href="#cb42-560"></a>:::</span>
-<span id="cb42-561"><a href="#cb42-561"></a></span>
-<span id="cb42-562"><a href="#cb42-562"></a><span class="fu">### Exercise</span></span>
-<span id="cb42-563"><a href="#cb42-563"></a></span>
-<span id="cb42-564"><a href="#cb42-564"></a>::: callout-note</span>
-<span id="cb42-565"><a href="#cb42-565"></a>Is the difference in proportions between <span class="in">`conservative`</span> and <span class="in">`weekly`</span> statistically significant?</span>
-<span id="cb42-566"><a href="#cb42-566"></a>:::</span>
-<span id="cb42-567"><a href="#cb42-567"></a></span>
-<span id="cb42-568"><a href="#cb42-568"></a><span class="fu">### Exercise </span></span>
-<span id="cb42-569"><a href="#cb42-569"></a></span>
-<span id="cb42-570"><a href="#cb42-570"></a>::: callout-note</span>
-<span id="cb42-571"><a href="#cb42-571"></a>Instead of discretizing the <span class="in">`polviews`</span> and <span class="in">`attend`</span> (which is what we did to create <span class="in">`weekly`</span> and <span class="in">`conservative`</span>), let's try interpreting their original values.</span>
+<span id="cb42-547"><a href="#cb42-547"></a>Instead of discretizing the <span class="in">`polviews`</span> and <span class="in">`attend`</span> (which is what we did to create <span class="in">`weekly`</span> and <span class="in">`conservative`</span>), let's try interpreting their original values.</span>
+<span id="cb42-548"><a href="#cb42-548"></a></span>
+<span id="cb42-549"><a href="#cb42-549"></a>I made the following plot using <span class="in">`geom_tile`</span> to make the point that contingency tables are hard to interpret.</span>
+<span id="cb42-550"><a href="#cb42-550"></a></span>
+<span id="cb42-551"><a href="#cb42-551"></a>Try to describe what's going on here.</span>
+<span id="cb42-552"><a href="#cb42-552"></a>:::</span>
+<span id="cb42-553"><a href="#cb42-553"></a></span>
+<span id="cb42-556"><a href="#cb42-556"></a><span class="in">```{r}</span></span>
+<span id="cb42-557"><a href="#cb42-557"></a><span class="co">#| fig-width: 12</span></span>
+<span id="cb42-558"><a href="#cb42-558"></a><span class="co">#| fig-height: 4</span></span>
+<span id="cb42-559"><a href="#cb42-559"></a><span class="co">#| column: page</span></span>
+<span id="cb42-560"><a href="#cb42-560"></a><span class="co">#| fig-align: center</span></span>
+<span id="cb42-561"><a href="#cb42-561"></a><span class="co">#| echo: false</span></span>
+<span id="cb42-562"><a href="#cb42-562"></a></span>
+<span id="cb42-563"><a href="#cb42-563"></a><span class="fu">source</span>(<span class="st">"week6_plot_function.R"</span>)</span>
+<span id="cb42-564"><a href="#cb42-564"></a>d <span class="sc">|&gt;</span> <span class="fu">plot_contingency_table</span>(polviews, attend)</span>
+<span id="cb42-565"><a href="#cb42-565"></a><span class="in">```</span></span>
+<span id="cb42-566"><a href="#cb42-566"></a></span>
+<span id="cb42-567"><a href="#cb42-567"></a>::: callout-tip</span>
+<span id="cb42-568"><a href="#cb42-568"></a>Hint: You can get the same values in this plot with the <span class="in">`tabyl()`</span> function from the <span class="in">`janitor`</span> package.</span>
+<span id="cb42-569"><a href="#cb42-569"></a>:::</span>
+<span id="cb42-570"><a href="#cb42-570"></a></span>
+<span id="cb42-571"><a href="#cb42-571"></a><span class="fu">### Bonus</span></span>
 <span id="cb42-572"><a href="#cb42-572"></a></span>
-<span id="cb42-573"><a href="#cb42-573"></a>I made the following plot using <span class="in">`geom_tile`</span> to make the point that contingency tables are hard to interpret.</span>
-<span id="cb42-574"><a href="#cb42-574"></a></span>
-<span id="cb42-575"><a href="#cb42-575"></a>Try to describe what's going on here.</span>
-<span id="cb42-576"><a href="#cb42-576"></a>:::</span>
-<span id="cb42-577"><a href="#cb42-577"></a></span>
-<span id="cb42-580"><a href="#cb42-580"></a><span class="in">```{r}</span></span>
-<span id="cb42-581"><a href="#cb42-581"></a><span class="co">#| fig-width: 12</span></span>
-<span id="cb42-582"><a href="#cb42-582"></a><span class="co">#| fig-height: 4</span></span>
-<span id="cb42-583"><a href="#cb42-583"></a><span class="co">#| column: page</span></span>
-<span id="cb42-584"><a href="#cb42-584"></a><span class="co">#| fig-align: center</span></span>
-<span id="cb42-585"><a href="#cb42-585"></a><span class="co">#| echo: false</span></span>
+<span id="cb42-573"><a href="#cb42-573"></a>::: callout-note</span>
+<span id="cb42-574"><a href="#cb42-574"></a>Do a Chi square test on <span class="in">`polviews`</span> and <span class="in">`attend`</span> using the <span class="in">`infer`</span> package.</span>
+<span id="cb42-575"><a href="#cb42-575"></a></span>
+<span id="cb42-576"><a href="#cb42-576"></a>The null hypothesis is that these variables are "independent" of each other.</span>
+<span id="cb42-577"><a href="#cb42-577"></a>:::</span>
+<span id="cb42-578"><a href="#cb42-578"></a></span>
+<span id="cb42-579"><a href="#cb42-579"></a>::: callout-tip</span>
+<span id="cb42-580"><a href="#cb42-580"></a>Hint: You may have to transform both <span class="in">`polviews`</span> and <span class="in">`attend`</span> into "factor" variables.</span>
+<span id="cb42-581"><a href="#cb42-581"></a></span>
+<span id="cb42-584"><a href="#cb42-584"></a><span class="in">```{r}</span></span>
+<span id="cb42-585"><a href="#cb42-585"></a><span class="co">#| eval: false</span></span>
 <span id="cb42-586"><a href="#cb42-586"></a></span>
-<span id="cb42-587"><a href="#cb42-587"></a><span class="fu">source</span>(<span class="st">"week6_plot_function.R"</span>)</span>
-<span id="cb42-588"><a href="#cb42-588"></a>d <span class="sc">|&gt;</span> <span class="fu">plot_contingency_table</span>(polviews, attend)</span>
-<span id="cb42-589"><a href="#cb42-589"></a><span class="in">```</span></span>
+<span id="cb42-587"><a href="#cb42-587"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb42-588"><a href="#cb42-588"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as_factor</span>(polviews),</span>
+<span id="cb42-589"><a href="#cb42-589"></a>         <span class="at">attend =</span> <span class="fu">as_factor</span>(attend))</span>
 <span id="cb42-590"><a href="#cb42-590"></a></span>
-<span id="cb42-591"><a href="#cb42-591"></a>::: callout-tip</span>
-<span id="cb42-592"><a href="#cb42-592"></a>Hint: You can get the same values in this plot with the <span class="in">`tabyl()`</span> function from the <span class="in">`janitor`</span> package.</span>
-<span id="cb42-593"><a href="#cb42-593"></a>:::</span>
-<span id="cb42-594"><a href="#cb42-594"></a></span>
-<span id="cb42-595"><a href="#cb42-595"></a><span class="fu">### Bonus</span></span>
-<span id="cb42-596"><a href="#cb42-596"></a></span>
-<span id="cb42-597"><a href="#cb42-597"></a>::: callout-note</span>
-<span id="cb42-598"><a href="#cb42-598"></a>Do a Chi square test on <span class="in">`polviews`</span> and <span class="in">`attend`</span> using the <span class="in">`infer`</span> package.</span>
-<span id="cb42-599"><a href="#cb42-599"></a></span>
-<span id="cb42-600"><a href="#cb42-600"></a>The null hypothesis is that these variables are "independent" of each other.</span>
-<span id="cb42-601"><a href="#cb42-601"></a>:::</span>
-<span id="cb42-602"><a href="#cb42-602"></a></span>
-<span id="cb42-603"><a href="#cb42-603"></a>::: callout-tip</span>
-<span id="cb42-604"><a href="#cb42-604"></a>Hint: You may have to transform both <span class="in">`polviews`</span> and <span class="in">`attend`</span> into "factor" variables.</span>
-<span id="cb42-605"><a href="#cb42-605"></a></span>
-<span id="cb42-608"><a href="#cb42-608"></a><span class="in">```{r}</span></span>
-<span id="cb42-609"><a href="#cb42-609"></a><span class="co">#| eval: false</span></span>
-<span id="cb42-610"><a href="#cb42-610"></a></span>
-<span id="cb42-611"><a href="#cb42-611"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
-<span id="cb42-612"><a href="#cb42-612"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as_factor</span>(polviews),</span>
-<span id="cb42-613"><a href="#cb42-613"></a>         <span class="at">attend =</span> <span class="fu">as_factor</span>(attend))</span>
-<span id="cb42-614"><a href="#cb42-614"></a></span>
-<span id="cb42-615"><a href="#cb42-615"></a><span class="in">```</span></span>
-<span id="cb42-616"><a href="#cb42-616"></a>:::</span>
+<span id="cb42-591"><a href="#cb42-591"></a><span class="in">```</span></span>
+<span id="cb42-592"><a href="#cb42-592"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

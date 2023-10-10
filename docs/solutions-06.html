@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Social Statistics I (Exercises) - 12&nbsp; Solutions 6</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./solutions-05.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" media="screen" href="https://www.cssfontstack.com/Optima" type="text/css">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec-solutions.html">Solutions</a></li><li class="breadcrumb-item"><a href="./solutions-06.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Solutions 6</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Social Statistics I (Exercises)</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sec1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computing preliminaries</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Week 1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Week 2</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sec2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data, sampling, and probability</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Week 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Week 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Week 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Week 6</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sec-solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Solutions 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Solutions 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Solutions 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Solutions 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-06.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Solutions 6</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#part-i" id="toc-part-i" class="nav-link active" data-scroll-target="#part-i"><span class="header-section-number">12.1</span> Part I</a>
+  <ul class="collapse">
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">12.1.1</span> Exercise</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">12.1.2</span> Exercise</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">12.1.3</span> Exercise</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">12.1.4</span> Exercise</a></li>
+  </ul></li>
+  <li><a href="#part-ii" id="toc-part-ii" class="nav-link" data-scroll-target="#part-ii"><span class="header-section-number">12.2</span> Part II</a>
+  <ul class="collapse">
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4"><span class="header-section-number">12.2.1</span> Exercise</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5"><span class="header-section-number">12.2.2</span> Exercise</a></li>
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6"><span class="header-section-number">12.2.3</span> Exercise</a></li>
+  <li><a href="#exercise-7" id="toc-exercise-7" class="nav-link" data-scroll-target="#exercise-7"><span class="header-section-number">12.2.4</span> Exercise</a></li>
+  <li><a href="#bonus" id="toc-bonus" class="nav-link" data-scroll-target="#bonus"><span class="header-section-number">12.2.5</span> Bonus</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Solutions 6</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(infer)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(janitor) <span class="do">## for convenient "table" functions</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(gssr)    <span class="do">## for access to GSS data</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Optima"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="part-i" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="part-i"><span class="header-section-number">12.1</span> Part I</h2>
+<section id="exercise" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">12.1.1</span> Exercise</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>Choosing sample size.</em></p>
+<p>You are designing a survey to estimate the proportion of individuals who will vote Democrat. Assuming that respondents are a simple random sample of the voting population, how many people do you need to poll so that the standard error is less than 5 percentage points?</p>
+</div>
+</div>
+</div>
+<p>The answer is somewhat ambiguous because you have to make an assumption about the <em>true</em> population parameter. In this example I had been using <span class="math inline">\(p = 0.53\)</span>. In general, people tend to choose <span class="math inline">\(p = 0.5\)</span> because it’s the most conservative estimate—i.e., it gives the maximum standard error.</p>
+<p>You could have answered this with some algebra—i.e.&nbsp;by solving for <span class="math inline">\(n\)</span> here:</p>
+<p><span class="math display">\[
+\begin{align}
+0.05 &gt; \sqrt{\frac{p (1-p)}{n}} &amp;&amp; \longrightarrow &amp;&amp;
+n &gt; \frac{p(1-p)}{0.05^2}
+\end{align}
+\]</span></p>
+<p>Or you could have answered this by playing around with the following simulation until you reached the numbers of <code>size = 100</code>.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="fl">1e4</span>, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">prob =</span> <span class="fl">0.53</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>proportions <span class="ot">&lt;-</span> draws <span class="sc">/</span> <span class="dv">100</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">sd</span>(proportions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04967905</code></pre>
+</div>
+</div>
+<p>Here’s a plot:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>se_prop_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(n, p) {</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">sqrt</span>(p<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p) <span class="sc">/</span> n)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>}</span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">xlim</span>(<span class="dv">10</span>, <span class="dv">400</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">0.18</span>) <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> \(x) <span class="fu">sqrt</span>(<span class="fl">0.5</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> x)) <span class="sc">+</span> </span>
+<span id="cb4-9"><a href="#cb4-9"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.025</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb4-10"><a href="#cb4-10"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">100</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Standard Error"</span>, <span class="at">x =</span> <span class="st">"Sample Size"</span>, <span class="at">title =</span> <span class="st">"Standard Error, Sample Size, and Proportion"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-06_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Note that halving the standard error requires multiplying the sample size by a factor of four!</em></p>
+</section>
+<section id="exercise-1" class="level3" data-number="12.1.2">
+<h3 data-number="12.1.2" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">12.1.2</span> Exercise</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>What is the probability of observing the “true” value ( <span class="math inline">\(p = 0.53\)</span> ) under the null?</p>
+<p>What is the probability of observing <code>prop_hat</code> under the null? Is this statistically significant if the confidence level ( <span class="math inline">\(\alpha\)</span> ) is set to 0.05?</p>
+</div>
+</div>
+</div>
+<p>In this exercise, we had a sample size of 1000.</p>
+<p>The sampling distribution for the null ( <span class="math inline">\(H_0\)</span> ) of <span class="math inline">\(p = 0.5\)</span> is as follows:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>S <span class="ot">&lt;-</span> <span class="fl">1e4</span> <span class="do">## number of simulated draws</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>poll_size <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="do">## sample size</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a>draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> poll_size, <span class="at">prob =</span> <span class="fl">0.50</span>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a>null <span class="ot">&lt;-</span> draws <span class="sc">/</span> poll_size</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="fu">tibble</span>(<span class="at">p =</span> null) <span class="sc">|&gt;</span> </span>
+<span id="cb5-8"><a href="#cb5-8"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(p)) <span class="sc">+</span> </span>
+<span id="cb5-9"><a href="#cb5-9"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>) <span class="sc">+</span> </span>
+<span id="cb5-10"><a href="#cb5-10"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="fl">0.53</span>, <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">fill =</span> <span class="st">"pink"</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-06_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>And the probability is computed as follows:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.53</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0256</code></pre>
+</div>
+</div>
+<p>The <code>prop_hat</code> value was estimated at 0.513.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.513</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1936</code></pre>
+</div>
+</div>
+<p><em>Note that the sample from which <code>prop_hat</code> was calculated was drawn from the “true” sampling distribution. The p-value is estimated to be 0.2, so we—mistakenly—failed to reject the “null hypothesis.” This mistake is usually called “Type II error” or “false negative.”</em></p>
+<p>Take note of the shaded areas in the following graph:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> poll_size, <span class="at">prob =</span> <span class="fl">0.53</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>true_dist <span class="ot">&lt;-</span> draws <span class="sc">/</span> poll_size</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a>g <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">true =</span> true_dist, <span class="at">null =</span> null) <span class="sc">|&gt;</span> </span>
+<span id="cb10-5"><a href="#cb10-5"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(true, <span class="at">fill =</span> <span class="st">"true"</span>), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(null, <span class="at">fill =</span> <span class="st">"null"</span>), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"proportion"</span>, <span class="at">fill =</span> <span class="st">"Sampling</span><span class="sc">\n</span><span class="st">Distribution"</span>)</span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-06_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>In this question, setting the confidence interval as <span class="math inline">\(\alpha = 0.05\)</span> means that we will compare the estimated proportion to whatever value produces a tail area probability of 0.05. I fiddled around with the null distribution and decided that this value was 0.526.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.526</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0444</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="do">## of the "analytical version":</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.0158</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5259887</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>g <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.0158</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-06_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Note that by setting the confidence level to 0.05, we are also inadvertently setting the probability of a “false negative.”</p>
+<p><em>It’s almost 40%</em></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">mean</span>(true_dist <span class="sc">&lt;</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.0158</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3858</code></pre>
+</div>
+</div>
+<p><em>It’s almost 40%</em></p>
+<p>People don’t usually think about <em>type II error</em> because it is outside their control—i.e., it requires for us to know the “true” value. But that doesn’t mean we shouldn’t carefully think about such things!</p>
+</section>
+<section id="exercise-2" class="level3" data-number="12.1.3">
+<h3 data-number="12.1.3" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">12.1.3</span> Exercise</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The formula for calculating the standard error of a difference in proportions is given by:</p>
+<p><span class="math display">\[
+\sigma_{\hat p_1 - \hat p_2} = \sqrt{\frac{p_1 (1 - p_1)}{n_1} + \frac{p_2 (1 - p_2)}{n_2}}
+\]</span></p>
+<p>Verify that this standard error corresponds to <code>sd(theta_distribution)</code>.</p>
+</div>
+</div>
+</div>
+<p>If you didn’t get the same answer, then you made some kind of weird mistake!</p>
+</section>
+<section id="exercise-3" class="level3" data-number="12.1.4">
+<h3 data-number="12.1.4" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">12.1.4</span> Exercise</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><em>Comparison of proportions.</em></p>
+<p>A randomized experiment is performed within a survey. 1000 people are contacted. Half the people contacted are promised a $5 incentive to participate, and half are not promised an incentive. The result is a 50% response rate among the treated group and 40% response rate among the control group. Give an estimate and standard error of the difference in proportions.</p>
+</div>
+</div>
+</div>
+<p>Using math to answer this is OK.</p>
+<p>But this is how I would have liked you to answer this question:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>p_treatment <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>p_control <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a></span>
+<span id="cb18-4"><a href="#cb18-4"></a>S <span class="ot">&lt;-</span> <span class="fl">10e4</span> <span class="do">## number of simulated draws</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a></span>
+<span id="cb18-6"><a href="#cb18-6"></a>treatment <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="dv">500</span>, p_treatment) <span class="sc">/</span> <span class="dv">500</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a>control <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="dv">500</span>, p_control) <span class="sc">/</span> <span class="dv">500</span></span>
+<span id="cb18-8"><a href="#cb18-8"></a>effect <span class="ot">&lt;-</span> treatment <span class="sc">-</span> control</span>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="fu">mean</span>(effect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1001012</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">sd</span>(effect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03131382</code></pre>
+</div>
+</div>
+<p>Using the formula:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">sqrt</span>((<span class="fl">0.5</span><span class="sc">*</span><span class="fl">0.4</span><span class="sc">/</span><span class="dv">500</span>) <span class="sc">+</span> (<span class="fl">0.5</span><span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">500</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="part-ii" class="level2 page-columns page-full" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="part-ii"><span class="header-section-number">12.2</span> Part II</h2>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Fetching: https://gss.norc.org/documents/stata/2018_stata.zip</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">select</span>(sex, attend, polviews) <span class="sc">|&gt;</span> </span>
+<span id="cb26-3"><a href="#cb26-3"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb26-4"><a href="#cb26-4"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as_factor</span>(sex)) <span class="sc">|&gt;</span> </span>
+<span id="cb26-5"><a href="#cb26-5"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb26-6"><a href="#cb26-6"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb26-7"><a href="#cb26-7"></a></span>
+<span id="cb26-8"><a href="#cb26-8"></a><span class="fu">glimpse</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 2,235
+Columns: 3
+$ sex      &lt;fct&gt; male, male, female, male, female, female, male, female, male,…
+$ attend   &lt;dbl&gt; 5, 2, 6, 8, 4, 7, 7, 0, 4, 5, 0, 3, 0, 7, 1, 0, 4, 5, 2, 7, 1…
+$ polviews &lt;dbl&gt; 6, 5, 4, 7, 3, 4, 5, 4, 6, 4, 4, 3, 2, 5, 2, 6, 2, 4, 6, 6, 4…</code></pre>
+</div>
+</div>
+<section id="exercise-4" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">12.2.1</span> Exercise</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Go to the GSS website and describe the values of <code>attend</code> and <code>polviews</code>—e.g., what does a value of “4” mean in <code>polviews</code>.</p>
+</div>
+</div>
+</div>
+<p>Just describe the variables!</p>
+<p><a href="https://gssdataexplorer.norc.org/variables/vfilter" class="uri">https://gssdataexplorer.norc.org/variables/vfilter</a></p>
+</section>
+<section id="exercise-5" class="level3" data-number="12.2.2">
+<h3 data-number="12.2.2" class="anchored" data-anchor-id="exercise-5"><span class="header-section-number">12.2.2</span> Exercise</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Repeat what we did in class with Steve, but compare the <code>weekly</code> variable to a new variable call <code>conservative</code>.</p>
+<p><a href="https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-12.R" class="uri">https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-12.R</a></p>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">mutate</span>(<span class="at">female =</span> <span class="fu">if_else</span>(sex <span class="sc">==</span> <span class="st">"female"</span>, 1L, 0L),</span>
+<span id="cb28-3"><a href="#cb28-3"></a>         <span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
+<span id="cb28-4"><a href="#cb28-4"></a>         <span class="at">conservative =</span> <span class="fu">if_else</span>(polviews <span class="sc">&gt;=</span> <span class="dv">5</span>, 1L, 0L)) <span class="sc">|&gt;</span> </span>
+<span id="cb28-5"><a href="#cb28-5"></a>  <span class="fu">drop_na</span>() </span>
+<span id="cb28-6"><a href="#cb28-6"></a></span>
+<span id="cb28-7"><a href="#cb28-7"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb28-8"><a href="#cb28-8"></a>  <span class="fu">tabyl</span>(conservative, weekly) <span class="sc">|&gt;</span> </span>
+<span id="cb28-9"><a href="#cb28-9"></a>  <span class="fu">adorn_percentages</span>(<span class="st">"row"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb28-10"><a href="#cb28-10"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb28-11"><a href="#cb28-11"></a>  <span class="fu">adorn_ns</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> conservative              0            1
+            0 82.87% (1,243) 17.13% (257)
+            1 67.35%   (495) 32.65% (240)</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">group_by</span>(conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb30-3"><a href="#cb30-3"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> 1L, <span class="st">"conservative"</span>, <span class="st">"other"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb30-4"><a href="#cb30-4"></a>  <span class="fu">summarise</span>(<span class="at">percent =</span> <span class="fu">mean</span>(weekly)) <span class="sc">|&gt;</span> </span>
+<span id="cb30-5"><a href="#cb30-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(conservative, percent)) <span class="sc">+</span> </span>
+<span id="cb30-6"><a href="#cb30-6"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb30-7"><a href="#cb30-7"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb30-8"><a href="#cb30-8"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">title =</span> <span class="st">"Percent of People who Attend Church Weekly"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="solutions-06_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>boot <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> 1L, <span class="st">"conservative"</span>, <span class="st">"other"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb31-3"><a href="#cb31-3"></a>  <span class="fu">specify</span>(weekly <span class="sc">~</span> conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb31-4"><a href="#cb31-4"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">1e4</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb31-5"><a href="#cb31-5"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
+<span id="cb31-6"><a href="#cb31-6"></a></span>
+<span id="cb31-7"><a href="#cb31-7"></a>ci <span class="ot">&lt;-</span> <span class="fu">get_confidence_interval</span>(boot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using `level = 0.95` to compute confidence interval.</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>boot <span class="sc">|&gt;</span> </span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">visualize</span>() <span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">shade_ci</span>(ci)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="solutions-06_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>obs_diff <span class="ot">&lt;-</span> <span class="fu">mean</span>(d<span class="sc">$</span>weekly[d<span class="sc">$</span>conservative <span class="sc">==</span> 1L]) <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>weekly[d<span class="sc">$</span>conservative <span class="sc">==</span> 0L])</span>
+<span id="cb34-2"><a href="#cb34-2"></a></span>
+<span id="cb34-3"><a href="#cb34-3"></a>d_summary <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb34-4"><a href="#cb34-4"></a>  <span class="fu">group_by</span>(conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb34-5"><a href="#cb34-5"></a>  <span class="fu">summarize</span>(<span class="at">weekly_percent =</span> <span class="fu">mean</span>(weekly)) <span class="sc">|&gt;</span> </span>
+<span id="cb34-6"><a href="#cb34-6"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> conservative, <span class="at">values_from =</span> weekly_percent, <span class="at">names_prefix =</span> <span class="st">"conservative_"</span>)</span>
+<span id="cb34-7"><a href="#cb34-7"></a></span>
+<span id="cb34-8"><a href="#cb34-8"></a>d_summary <span class="ot">&lt;-</span> d_summary <span class="sc">|&gt;</span> </span>
+<span id="cb34-9"><a href="#cb34-9"></a>  <span class="fu">mutate</span>(<span class="at">obs_diff =</span> conservative_1 <span class="sc">-</span> conservative_0)</span>
+<span id="cb34-10"><a href="#cb34-10"></a></span>
+<span id="cb34-11"><a href="#cb34-11"></a>d_summary<span class="sc">$</span>obs_diff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1551973</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>null <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> 1L, <span class="st">"conservative"</span>, <span class="st">"other"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb36-3"><a href="#cb36-3"></a>  <span class="fu">specify</span>(weekly <span class="sc">~</span> conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb36-4"><a href="#cb36-4"></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb36-5"><a href="#cb36-5"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">1e4</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb36-6"><a href="#cb36-6"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>)) </span>
+<span id="cb36-7"><a href="#cb36-7"></a></span>
+<span id="cb36-8"><a href="#cb36-8"></a>null</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: weekly (numeric)
+Explanatory: conservative (factor)
+Null Hypothesis: independence
+# A tibble: 10,000 × 2
+   replicate      stat
+       &lt;int&gt;     &lt;dbl&gt;
+ 1         1 -0.000898
+ 2         2  0.0173  
+ 3         3  0.0173  
+ 4         4 -0.0333  
+ 5         5 -0.0333  
+ 6         6 -0.00698 
+ 7         7  0.0153  
+ 8         8 -0.00495 
+ 9         9  0.00518 
+10        10  0.0133  
+# ℹ 9,990 more rows</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>null <span class="sc">|&gt;</span> </span>
+<span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">visualize</span>() <span class="sc">+</span> </span>
+<span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> d_summary<span class="sc">$</span>obs_diff, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="solutions-06_files/figure-html/unnamed-chunk-13-3.png" class="img-fluid figure-img" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-6" class="level3" data-number="12.2.3">
+<h3 data-number="12.2.3" class="anchored" data-anchor-id="exercise-6"><span class="header-section-number">12.2.3</span> Exercise</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Is the difference in proportions between <code>conservative</code> and <code>weekly</code> statistically significant?</p>
+</div>
+</div>
+</div>
+<p>Yes.</p>
+</section>
+<section id="exercise-7" class="level3 page-columns page-full" data-number="12.2.4">
+<h3 data-number="12.2.4" class="anchored" data-anchor-id="exercise-7"><span class="header-section-number">12.2.4</span> Exercise</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Instead of discretizing the <code>polviews</code> and <code>attend</code> (which is what we did to create <code>weekly</code> and <code>conservative</code>), let’s try interpreting their original values.</p>
+<p>I made the following plot using <code>geom_tile</code> to make the point that contingency tables are hard to interpret.</p>
+<p>Try to describe what’s going on here.</p>
+</div>
+</div>
+</div>
+<div class="cell page-columns page-full" data-layout-align="center">
+<div class="cell-output-display column-page">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="solutions-06_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Good luck!</p>
+<p>Pleas note that most people think of themselves as “moderate” and that very few of them attend religious services. There is, however, a big chunk of people that identify as conservative ( <span class="math inline">\(n = 104\)</span> ) that attend every week.</p>
+</section>
+<section id="bonus" class="level3" data-number="12.2.5">
+<h3 data-number="12.2.5" class="anchored" data-anchor-id="bonus"><span class="header-section-number">12.2.5</span> Bonus</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Do a Chi square test on <code>polviews</code> and <code>attend</code> using the <code>infer</code> package.</p>
+<p>The null hypothesis is that these variables are “independent” of each other.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as_factor</span>(polviews), <span class="at">attend =</span> <span class="fu">as_factor</span>(attend))</span>
+<span id="cb39-3"><a href="#cb39-3"></a></span>
+<span id="cb39-4"><a href="#cb39-4"></a><span class="fu">glimpse</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 2,235
+Columns: 6
+$ sex          &lt;fct&gt; male, male, female, male, female, female, male, female, m…
+$ attend       &lt;fct&gt; 5, 2, 6, 8, 4, 7, 7, 0, 4, 5, 0, 3, 0, 7, 1, 0, 4, 5, 2, …
+$ polviews     &lt;fct&gt; 6, 5, 4, 7, 3, 4, 5, 4, 6, 4, 4, 3, 2, 5, 2, 6, 2, 4, 6, …
+$ female       &lt;int&gt; 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, …
+$ weekly       &lt;int&gt; 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, …
+$ conservative &lt;int&gt; 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, …</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">specify</span>(attend <span class="sc">~</span> polviews) <span class="sc">|&gt;</span></span>
+<span id="cb41-3"><a href="#cb41-3"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"Chisq"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: attend (factor)
+Explanatory: polviews (factor)
+# A tibble: 1 × 1
+   stat
+  &lt;dbl&gt;
+1  232.</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">chisq.test</span>(d<span class="sc">$</span>attend, d<span class="sc">$</span>polviews)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in stats::chisq.test(x, y, ...): Chi-squared approximation may be
+incorrect</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  d$attend and d$polviews
+X-squared = 231.99, df = 48, p-value &lt; 2.2e-16</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>null <span class="ot">&lt;-</span>  d <span class="sc">|&gt;</span> </span>
+<span id="cb46-2"><a href="#cb46-2"></a>  <span class="fu">specify</span>(attend <span class="sc">~</span> polviews) <span class="sc">|&gt;</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb46-4"><a href="#cb46-4"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">1e3</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb46-5"><a href="#cb46-5"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"Chisq"</span>) </span>
+<span id="cb46-6"><a href="#cb46-6"></a></span>
+<span id="cb46-7"><a href="#cb46-7"></a>null <span class="sc">|&gt;</span> </span>
+<span id="cb46-8"><a href="#cb46-8"></a>  infer<span class="sc">::</span><span class="fu">visualise</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-06_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>null <span class="sc">|&gt;</span> </span>
+<span id="cb47-2"><a href="#cb47-2"></a>  infer<span class="sc">::</span><span class="fu">visualise</span>() <span class="sc">+</span></span>
+<span id="cb47-3"><a href="#cb47-3"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">231.9905</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-06_files/figure-html/unnamed-chunk-15-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><span class="math inline">\(\chi^2\)</span> <strong>test without the <code>infer</code> package:</strong></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>observed <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">attend =</span> d<span class="sc">$</span>attend, <span class="at">polviews =</span> d<span class="sc">$</span>polviews)</span>
+<span id="cb48-2"><a href="#cb48-2"></a>observed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>      polviews
+attend   1   2   3   4   5   6   7
+     0  69 128  77 248  66  74  16
+     1   5  17  18  52  20  14   0
+     2   9  30  37 130  41  36   8
+     3   7  27  28 104  23  35   7
+     4   3  11  21  53  23  23   9
+     5   9  18  19  74  31  23   8
+     6   3  10  11  25  13  20   5
+     7  12  24  34 125  51 104  25
+     8   5  12  10  35  15  24  21</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="do">## using the formula (this is a little "hack" you might have not seen before)</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>n <span class="ot">&lt;-</span> <span class="fu">sum</span>(observed)</span>
+<span id="cb50-3"><a href="#cb50-3"></a>cols <span class="ot">&lt;-</span> <span class="fu">colSums</span>(observed) </span>
+<span id="cb50-4"><a href="#cb50-4"></a>rows <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(observed) </span>
+<span id="cb50-5"><a href="#cb50-5"></a>expected <span class="ot">&lt;-</span> <span class="fu">outer</span>(rows, cols) <span class="sc">/</span> n</span>
+<span id="cb50-6"><a href="#cb50-6"></a>expected</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>          1        2         3         4        5         6         7
+0 37.009396 84.02953 77.355705 256.63893 85.84966 107.08456 30.032215
+1  6.877852 15.61611 14.375839  47.69396 15.95436  19.90067  5.581208
+2 15.884564 36.06577 33.201342 110.15034 36.84698  45.96107 12.889933
+3 12.609396 28.62953 26.355705  87.43893 29.24966  36.48456 10.232215
+4  7.805817 17.72304 16.315436  54.12886 18.10694  22.58568  6.334228
+5  9.934676 22.55660 20.765101  68.89128 23.04519  28.74541  8.061745
+6  4.748993 10.78255  9.926174  32.93154 11.01611  13.74094  3.853691
+7 20.469799 46.47651 42.785235 141.94631 47.48322  59.22819 16.610738
+8  6.659508 15.12036 13.919463  46.17987 15.44787  19.26890  5.404027</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="do">## chi-square statistic</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a><span class="fu">sum</span>((observed <span class="sc">-</span> expected)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> expected)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 231.9905</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="do">## null distribution</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a>null <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">1e4</span>, {</span>
+<span id="cb54-3"><a href="#cb54-3"></a>  ob_draw <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">attend =</span> <span class="fu">sample</span>(d<span class="sc">$</span>attend), <span class="at">polviews =</span> <span class="fu">sample</span>(d<span class="sc">$</span>polviews))</span>
+<span id="cb54-4"><a href="#cb54-4"></a>  <span class="fu">sum</span>((ob_draw <span class="sc">-</span> expected)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> expected)</span>
+<span id="cb54-5"><a href="#cb54-5"></a>})</span>
+<span id="cb54-6"><a href="#cb54-6"></a></span>
+<span id="cb54-7"><a href="#cb54-7"></a><span class="fu">tibble</span>(null) <span class="sc">|&gt;</span> </span>
+<span id="cb54-8"><a href="#cb54-8"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(null)) <span class="sc">+</span> </span>
+<span id="cb54-9"><a href="#cb54-9"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb54-10"><a href="#cb54-10"></a>  <span class="fu">geom_vline</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">xintercept =</span> <span class="fu">sum</span>((observed <span class="sc">-</span> expected)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> expected)) <span class="sc">+</span> </span>
+<span id="cb54-11"><a href="#cb54-11"></a>  <span class="fu">labs</span>(<span class="at">title =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">chi^2$ Simulation-Based Null Distribution"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="solutions-06_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Back to the interpretation:</em></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">as_tibble</span>(observed <span class="sc">-</span> expected, <span class="at">n =</span> <span class="st">"x"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb56-2"><a href="#cb56-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(attend, polviews, <span class="at">fill =</span> x<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">+</span> </span>
+<span id="cb56-3"><a href="#cb56-3"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(x, <span class="dv">2</span>))) <span class="sc">+</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb56-6"><a href="#cb56-6"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_line_size =</span> <span class="dv">0</span>, <span class="at">base_family =</span> <span class="st">"Optima"</span>) <span class="sc">+</span></span>
+<span id="cb56-7"><a href="#cb56-7"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Observed - Expected Counts"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-06_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./solutions-05.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Solutions 5</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb57" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb57-1"><a href="#cb57-1"></a><span class="co">---</span></span>
+<span id="cb57-2"><a href="#cb57-2"></a><span class="an">title:</span><span class="co"> "Solutions 6"</span></span>
+<span id="cb57-3"><a href="#cb57-3"></a><span class="an">callout-appearance:</span><span class="co"> simple</span></span>
+<span id="cb57-4"><a href="#cb57-4"></a><span class="an">callout-icon:</span><span class="co"> false</span></span>
+<span id="cb57-5"><a href="#cb57-5"></a><span class="co">---</span></span>
+<span id="cb57-6"><a href="#cb57-6"></a></span>
+<span id="cb57-9"><a href="#cb57-9"></a><span class="in">```{r}</span></span>
+<span id="cb57-10"><a href="#cb57-10"></a><span class="co">#| message: false</span></span>
+<span id="cb57-11"><a href="#cb57-11"></a><span class="co">#| code-fold: false</span></span>
+<span id="cb57-12"><a href="#cb57-12"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb57-13"><a href="#cb57-13"></a><span class="fu">library</span>(infer)</span>
+<span id="cb57-14"><a href="#cb57-14"></a><span class="fu">library</span>(janitor) <span class="do">## for convenient "table" functions</span></span>
+<span id="cb57-15"><a href="#cb57-15"></a><span class="fu">library</span>(gssr)    <span class="do">## for access to GSS data</span></span>
+<span id="cb57-16"><a href="#cb57-16"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Optima"</span>)) </span>
+<span id="cb57-17"><a href="#cb57-17"></a><span class="in">```</span></span>
+<span id="cb57-18"><a href="#cb57-18"></a></span>
+<span id="cb57-19"><a href="#cb57-19"></a><span class="fu">## Part I</span></span>
+<span id="cb57-20"><a href="#cb57-20"></a></span>
+<span id="cb57-21"><a href="#cb57-21"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-22"><a href="#cb57-22"></a></span>
+<span id="cb57-23"><a href="#cb57-23"></a>::: callout-note</span>
+<span id="cb57-24"><a href="#cb57-24"></a>*Choosing sample size.*</span>
+<span id="cb57-25"><a href="#cb57-25"></a></span>
+<span id="cb57-26"><a href="#cb57-26"></a>You are designing a survey to estimate the proportion of individuals who will vote Democrat. Assuming that respondents are a simple random sample of the voting population, how many people do you need to poll so that the standard error is less than 5 percentage points?</span>
+<span id="cb57-27"><a href="#cb57-27"></a>:::</span>
+<span id="cb57-28"><a href="#cb57-28"></a></span>
+<span id="cb57-29"><a href="#cb57-29"></a>The answer is somewhat ambiguous because you have to make an assumption about the *true* population parameter. In this example I had been using $p = 0.53$. In general, people tend to choose $p = 0.5$ because it's the most conservative estimate---i.e., it gives the maximum standard error.</span>
+<span id="cb57-30"><a href="#cb57-30"></a></span>
+<span id="cb57-31"><a href="#cb57-31"></a>You could have answered this with some algebra---i.e. by solving for $n$ here:</span>
+<span id="cb57-32"><a href="#cb57-32"></a></span>
+<span id="cb57-33"><a href="#cb57-33"></a>$$</span>
+<span id="cb57-34"><a href="#cb57-34"></a>\begin{align}</span>
+<span id="cb57-35"><a href="#cb57-35"></a>0.05 &gt; \sqrt{\frac{p (1-p)}{n}} &amp;&amp; \longrightarrow &amp;&amp;</span>
+<span id="cb57-36"><a href="#cb57-36"></a>n &gt; \frac{p(1-p)}{0.05^2}</span>
+<span id="cb57-37"><a href="#cb57-37"></a>\end{align}</span>
+<span id="cb57-38"><a href="#cb57-38"></a>$$</span>
+<span id="cb57-39"><a href="#cb57-39"></a></span>
+<span id="cb57-40"><a href="#cb57-40"></a>Or you could have answered this by playing around with the following simulation until you reached the numbers of <span class="in">`size = 100`</span>.</span>
+<span id="cb57-41"><a href="#cb57-41"></a></span>
+<span id="cb57-44"><a href="#cb57-44"></a><span class="in">```{r}</span></span>
+<span id="cb57-45"><a href="#cb57-45"></a>draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="fl">1e4</span>, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">prob =</span> <span class="fl">0.53</span>)</span>
+<span id="cb57-46"><a href="#cb57-46"></a>proportions <span class="ot">&lt;-</span> draws <span class="sc">/</span> <span class="dv">100</span></span>
+<span id="cb57-47"><a href="#cb57-47"></a><span class="fu">sd</span>(proportions)</span>
+<span id="cb57-48"><a href="#cb57-48"></a></span>
+<span id="cb57-49"><a href="#cb57-49"></a><span class="in">```</span></span>
+<span id="cb57-50"><a href="#cb57-50"></a></span>
+<span id="cb57-51"><a href="#cb57-51"></a>Here's a plot:</span>
+<span id="cb57-52"><a href="#cb57-52"></a></span>
+<span id="cb57-55"><a href="#cb57-55"></a><span class="in">```{r}</span></span>
+<span id="cb57-56"><a href="#cb57-56"></a>se_prop_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(n, p) {</span>
+<span id="cb57-57"><a href="#cb57-57"></a>  <span class="fu">sqrt</span>(p<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p) <span class="sc">/</span> n)</span>
+<span id="cb57-58"><a href="#cb57-58"></a>}</span>
+<span id="cb57-59"><a href="#cb57-59"></a></span>
+<span id="cb57-60"><a href="#cb57-60"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb57-61"><a href="#cb57-61"></a>  <span class="fu">xlim</span>(<span class="dv">10</span>, <span class="dv">400</span>) <span class="sc">+</span></span>
+<span id="cb57-62"><a href="#cb57-62"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">0.18</span>) <span class="sc">+</span></span>
+<span id="cb57-63"><a href="#cb57-63"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> \(x) <span class="fu">sqrt</span>(<span class="fl">0.5</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> x)) <span class="sc">+</span> </span>
+<span id="cb57-64"><a href="#cb57-64"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.025</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb57-65"><a href="#cb57-65"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">100</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb57-66"><a href="#cb57-66"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Standard Error"</span>, <span class="at">x =</span> <span class="st">"Sample Size"</span>, <span class="at">title =</span> <span class="st">"Standard Error, Sample Size, and Proportion"</span>)</span>
+<span id="cb57-67"><a href="#cb57-67"></a></span>
+<span id="cb57-68"><a href="#cb57-68"></a><span class="in">```</span></span>
+<span id="cb57-69"><a href="#cb57-69"></a></span>
+<span id="cb57-70"><a href="#cb57-70"></a>*Note that halving the standard error requires multiplying the sample size by a factor of four!*</span>
+<span id="cb57-71"><a href="#cb57-71"></a></span>
+<span id="cb57-72"><a href="#cb57-72"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-73"><a href="#cb57-73"></a></span>
+<span id="cb57-74"><a href="#cb57-74"></a>::: callout-note</span>
+<span id="cb57-75"><a href="#cb57-75"></a>What is the probability of observing the "true" value ( $p = 0.53$ ) under the null?</span>
+<span id="cb57-76"><a href="#cb57-76"></a></span>
+<span id="cb57-77"><a href="#cb57-77"></a>What is the probability of observing <span class="in">`prop_hat`</span> under the null? Is this statistically significant if the confidence level ( $\alpha$ ) is set to 0.05?</span>
+<span id="cb57-78"><a href="#cb57-78"></a>:::</span>
+<span id="cb57-79"><a href="#cb57-79"></a></span>
+<span id="cb57-80"><a href="#cb57-80"></a>In this exercise, we had a sample size of 1000.</span>
+<span id="cb57-81"><a href="#cb57-81"></a></span>
+<span id="cb57-82"><a href="#cb57-82"></a>The sampling distribution for the null ( $H_0$ ) of $p = 0.5$ is as follows:</span>
+<span id="cb57-83"><a href="#cb57-83"></a></span>
+<span id="cb57-86"><a href="#cb57-86"></a><span class="in">```{r}</span></span>
+<span id="cb57-87"><a href="#cb57-87"></a>S <span class="ot">&lt;-</span> <span class="fl">1e4</span> <span class="do">## number of simulated draws</span></span>
+<span id="cb57-88"><a href="#cb57-88"></a>poll_size <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="do">## sample size</span></span>
+<span id="cb57-89"><a href="#cb57-89"></a></span>
+<span id="cb57-90"><a href="#cb57-90"></a>draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> poll_size, <span class="at">prob =</span> <span class="fl">0.50</span>)</span>
+<span id="cb57-91"><a href="#cb57-91"></a>null <span class="ot">&lt;-</span> draws <span class="sc">/</span> poll_size</span>
+<span id="cb57-92"><a href="#cb57-92"></a></span>
+<span id="cb57-93"><a href="#cb57-93"></a><span class="fu">tibble</span>(<span class="at">p =</span> null) <span class="sc">|&gt;</span> </span>
+<span id="cb57-94"><a href="#cb57-94"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(p)) <span class="sc">+</span> </span>
+<span id="cb57-95"><a href="#cb57-95"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>) <span class="sc">+</span> </span>
+<span id="cb57-96"><a href="#cb57-96"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="fl">0.53</span>, <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">fill =</span> <span class="st">"pink"</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb57-97"><a href="#cb57-97"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">10</span>)</span>
+<span id="cb57-98"><a href="#cb57-98"></a><span class="in">```</span></span>
+<span id="cb57-99"><a href="#cb57-99"></a></span>
+<span id="cb57-100"><a href="#cb57-100"></a>And the probability is computed as follows:</span>
+<span id="cb57-101"><a href="#cb57-101"></a></span>
+<span id="cb57-104"><a href="#cb57-104"></a><span class="in">```{r}</span></span>
+<span id="cb57-105"><a href="#cb57-105"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.53</span>)</span>
+<span id="cb57-106"><a href="#cb57-106"></a><span class="in">```</span></span>
+<span id="cb57-107"><a href="#cb57-107"></a></span>
+<span id="cb57-108"><a href="#cb57-108"></a>The <span class="in">`prop_hat`</span> value was estimated at 0.513.</span>
+<span id="cb57-109"><a href="#cb57-109"></a></span>
+<span id="cb57-112"><a href="#cb57-112"></a><span class="in">```{r}</span></span>
+<span id="cb57-113"><a href="#cb57-113"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.513</span>)</span>
+<span id="cb57-114"><a href="#cb57-114"></a><span class="in">```</span></span>
+<span id="cb57-115"><a href="#cb57-115"></a></span>
+<span id="cb57-116"><a href="#cb57-116"></a>*Note that the sample from which `prop_hat` was calculated was drawn from the "true" sampling distribution. The p-value is estimated to be 0.2, so we---mistakenly---failed to reject the "null hypothesis." This mistake is usually called "Type II error" or "false negative."*</span>
+<span id="cb57-117"><a href="#cb57-117"></a></span>
+<span id="cb57-118"><a href="#cb57-118"></a>Take note of the shaded areas in the following graph:</span>
+<span id="cb57-119"><a href="#cb57-119"></a></span>
+<span id="cb57-122"><a href="#cb57-122"></a><span class="in">```{r}</span></span>
+<span id="cb57-123"><a href="#cb57-123"></a>draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> poll_size, <span class="at">prob =</span> <span class="fl">0.53</span>)</span>
+<span id="cb57-124"><a href="#cb57-124"></a>true_dist <span class="ot">&lt;-</span> draws <span class="sc">/</span> poll_size</span>
+<span id="cb57-125"><a href="#cb57-125"></a></span>
+<span id="cb57-126"><a href="#cb57-126"></a>g <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">true =</span> true_dist, <span class="at">null =</span> null) <span class="sc">|&gt;</span> </span>
+<span id="cb57-127"><a href="#cb57-127"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb57-128"><a href="#cb57-128"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(true, <span class="at">fill =</span> <span class="st">"true"</span>), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>) <span class="sc">+</span></span>
+<span id="cb57-129"><a href="#cb57-129"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(null, <span class="at">fill =</span> <span class="st">"null"</span>), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb57-130"><a href="#cb57-130"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"proportion"</span>, <span class="at">fill =</span> <span class="st">"Sampling</span><span class="sc">\n</span><span class="st">Distribution"</span>)</span>
+<span id="cb57-131"><a href="#cb57-131"></a></span>
+<span id="cb57-132"><a href="#cb57-132"></a>g</span>
+<span id="cb57-133"><a href="#cb57-133"></a><span class="in">```</span></span>
+<span id="cb57-134"><a href="#cb57-134"></a></span>
+<span id="cb57-135"><a href="#cb57-135"></a>In this question, setting the confidence interval as $\alpha = 0.05$ means that we will compare the estimated proportion to whatever value produces a tail area probability of 0.05. I fiddled around with the null distribution and decided that this value was 0.526.</span>
+<span id="cb57-136"><a href="#cb57-136"></a></span>
+<span id="cb57-139"><a href="#cb57-139"></a><span class="in">```{r}</span></span>
+<span id="cb57-140"><a href="#cb57-140"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.526</span>)</span>
+<span id="cb57-141"><a href="#cb57-141"></a><span class="do">## of the "analytical version":</span></span>
+<span id="cb57-142"><a href="#cb57-142"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.0158</span>)</span>
+<span id="cb57-143"><a href="#cb57-143"></a></span>
+<span id="cb57-144"><a href="#cb57-144"></a>g <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.0158</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb57-145"><a href="#cb57-145"></a><span class="in">```</span></span>
+<span id="cb57-146"><a href="#cb57-146"></a></span>
+<span id="cb57-147"><a href="#cb57-147"></a>Note that by setting the confidence level to 0.05, we are also inadvertently setting the probability of a "false negative."</span>
+<span id="cb57-148"><a href="#cb57-148"></a></span>
+<span id="cb57-149"><a href="#cb57-149"></a>*It's almost 40%*</span>
+<span id="cb57-150"><a href="#cb57-150"></a></span>
+<span id="cb57-153"><a href="#cb57-153"></a><span class="in">```{r}</span></span>
+<span id="cb57-154"><a href="#cb57-154"></a><span class="fu">mean</span>(true_dist <span class="sc">&lt;</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.0158</span>))</span>
+<span id="cb57-155"><a href="#cb57-155"></a><span class="in">```</span></span>
+<span id="cb57-156"><a href="#cb57-156"></a></span>
+<span id="cb57-157"><a href="#cb57-157"></a>*It's almost 40%*</span>
+<span id="cb57-158"><a href="#cb57-158"></a></span>
+<span id="cb57-159"><a href="#cb57-159"></a>People don't usually think about *type II error* because it is outside their control---i.e., it requires for us to know the "true" value. But that doesn't mean we shouldn't carefully think about such things!</span>
+<span id="cb57-160"><a href="#cb57-160"></a></span>
+<span id="cb57-161"><a href="#cb57-161"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-162"><a href="#cb57-162"></a></span>
+<span id="cb57-163"><a href="#cb57-163"></a>::: callout-note</span>
+<span id="cb57-164"><a href="#cb57-164"></a>The formula for calculating the standard error of a difference in proportions is given by:</span>
+<span id="cb57-165"><a href="#cb57-165"></a></span>
+<span id="cb57-166"><a href="#cb57-166"></a>$$</span>
+<span id="cb57-167"><a href="#cb57-167"></a>\sigma_{\hat p_1 - \hat p_2} = \sqrt{\frac{p_1 (1 - p_1)}{n_1} + \frac{p_2 (1 - p_2)}{n_2}}</span>
+<span id="cb57-168"><a href="#cb57-168"></a>$$</span>
+<span id="cb57-169"><a href="#cb57-169"></a></span>
+<span id="cb57-170"><a href="#cb57-170"></a>Verify that this standard error corresponds to <span class="in">`sd(theta_distribution)`</span>.</span>
+<span id="cb57-171"><a href="#cb57-171"></a>:::</span>
+<span id="cb57-172"><a href="#cb57-172"></a></span>
+<span id="cb57-173"><a href="#cb57-173"></a>If you didn't get the same answer, then you made some kind of weird mistake!</span>
+<span id="cb57-174"><a href="#cb57-174"></a></span>
+<span id="cb57-175"><a href="#cb57-175"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-176"><a href="#cb57-176"></a></span>
+<span id="cb57-177"><a href="#cb57-177"></a>::: callout-note</span>
+<span id="cb57-178"><a href="#cb57-178"></a>*Comparison of proportions.*</span>
+<span id="cb57-179"><a href="#cb57-179"></a></span>
+<span id="cb57-180"><a href="#cb57-180"></a>A randomized experiment is performed within a survey. 1000 people are contacted. Half the people contacted are promised a \$5 incentive to participate, and half are not promised an incentive. The result is a 50% response rate among the treated group and 40% response rate among the control group. Give an estimate and standard error of the difference in proportions.</span>
+<span id="cb57-181"><a href="#cb57-181"></a>:::</span>
+<span id="cb57-182"><a href="#cb57-182"></a></span>
+<span id="cb57-183"><a href="#cb57-183"></a>Using math to answer this is OK.</span>
+<span id="cb57-184"><a href="#cb57-184"></a></span>
+<span id="cb57-185"><a href="#cb57-185"></a>But this is how I would have liked you to answer this question:</span>
+<span id="cb57-186"><a href="#cb57-186"></a></span>
+<span id="cb57-189"><a href="#cb57-189"></a><span class="in">```{r}</span></span>
+<span id="cb57-190"><a href="#cb57-190"></a>p_treatment <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb57-191"><a href="#cb57-191"></a>p_control <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb57-192"><a href="#cb57-192"></a></span>
+<span id="cb57-193"><a href="#cb57-193"></a>S <span class="ot">&lt;-</span> <span class="fl">10e4</span> <span class="do">## number of simulated draws</span></span>
+<span id="cb57-194"><a href="#cb57-194"></a></span>
+<span id="cb57-195"><a href="#cb57-195"></a>treatment <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="dv">500</span>, p_treatment) <span class="sc">/</span> <span class="dv">500</span></span>
+<span id="cb57-196"><a href="#cb57-196"></a>control <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="dv">500</span>, p_control) <span class="sc">/</span> <span class="dv">500</span></span>
+<span id="cb57-197"><a href="#cb57-197"></a>effect <span class="ot">&lt;-</span> treatment <span class="sc">-</span> control</span>
+<span id="cb57-198"><a href="#cb57-198"></a><span class="fu">mean</span>(effect)</span>
+<span id="cb57-199"><a href="#cb57-199"></a><span class="fu">sd</span>(effect)</span>
+<span id="cb57-200"><a href="#cb57-200"></a><span class="in">```</span></span>
+<span id="cb57-201"><a href="#cb57-201"></a></span>
+<span id="cb57-202"><a href="#cb57-202"></a>Using the formula:</span>
+<span id="cb57-203"><a href="#cb57-203"></a></span>
+<span id="cb57-206"><a href="#cb57-206"></a><span class="in">```{r}</span></span>
+<span id="cb57-207"><a href="#cb57-207"></a><span class="fu">sqrt</span>((<span class="fl">0.5</span><span class="sc">*</span><span class="fl">0.4</span><span class="sc">/</span><span class="dv">500</span>) <span class="sc">+</span> (<span class="fl">0.5</span><span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">500</span>))</span>
+<span id="cb57-208"><a href="#cb57-208"></a><span class="in">```</span></span>
+<span id="cb57-209"><a href="#cb57-209"></a></span>
+<span id="cb57-210"><a href="#cb57-210"></a><span class="fu">## Part II</span></span>
+<span id="cb57-211"><a href="#cb57-211"></a></span>
+<span id="cb57-214"><a href="#cb57-214"></a><span class="in">```{r}</span></span>
+<span id="cb57-215"><a href="#cb57-215"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
+<span id="cb57-216"><a href="#cb57-216"></a></span>
+<span id="cb57-217"><a href="#cb57-217"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb57-218"><a href="#cb57-218"></a>  <span class="fu">select</span>(sex, attend, polviews) <span class="sc">|&gt;</span> </span>
+<span id="cb57-219"><a href="#cb57-219"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb57-220"><a href="#cb57-220"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as_factor</span>(sex)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-221"><a href="#cb57-221"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb57-222"><a href="#cb57-222"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb57-223"><a href="#cb57-223"></a></span>
+<span id="cb57-224"><a href="#cb57-224"></a><span class="fu">glimpse</span>(d)</span>
+<span id="cb57-225"><a href="#cb57-225"></a><span class="in">```</span></span>
+<span id="cb57-226"><a href="#cb57-226"></a></span>
+<span id="cb57-227"><a href="#cb57-227"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-228"><a href="#cb57-228"></a></span>
+<span id="cb57-229"><a href="#cb57-229"></a>::: callout-note</span>
+<span id="cb57-230"><a href="#cb57-230"></a>Go to the GSS website and describe the values of <span class="in">`attend`</span> and <span class="in">`polviews`</span>---e.g., what does a value of "4" mean in <span class="in">`polviews`</span>.</span>
+<span id="cb57-231"><a href="#cb57-231"></a>:::</span>
+<span id="cb57-232"><a href="#cb57-232"></a></span>
+<span id="cb57-233"><a href="#cb57-233"></a>Just describe the variables!</span>
+<span id="cb57-234"><a href="#cb57-234"></a></span>
+<span id="cb57-235"><a href="#cb57-235"></a><span class="ot">&lt;https://gssdataexplorer.norc.org/variables/vfilter&gt;</span></span>
+<span id="cb57-236"><a href="#cb57-236"></a></span>
+<span id="cb57-237"><a href="#cb57-237"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-238"><a href="#cb57-238"></a></span>
+<span id="cb57-239"><a href="#cb57-239"></a>::: callout-note</span>
+<span id="cb57-240"><a href="#cb57-240"></a>Repeat what we did in class with Steve, but compare the <span class="in">`weekly`</span> variable to a new variable call <span class="in">`conservative`</span>.</span>
+<span id="cb57-241"><a href="#cb57-241"></a></span>
+<span id="cb57-242"><a href="#cb57-242"></a><span class="ot">&lt;https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-12.R&gt;</span></span>
+<span id="cb57-243"><a href="#cb57-243"></a>:::</span>
+<span id="cb57-244"><a href="#cb57-244"></a></span>
+<span id="cb57-247"><a href="#cb57-247"></a><span class="in">```{r}</span></span>
+<span id="cb57-248"><a href="#cb57-248"></a><span class="co">#| fig-width: 5</span></span>
+<span id="cb57-249"><a href="#cb57-249"></a><span class="co">#| fig-height: 3</span></span>
+<span id="cb57-250"><a href="#cb57-250"></a><span class="co">#| fig-align: center</span></span>
+<span id="cb57-251"><a href="#cb57-251"></a></span>
+<span id="cb57-252"><a href="#cb57-252"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb57-253"><a href="#cb57-253"></a>  <span class="fu">mutate</span>(<span class="at">female =</span> <span class="fu">if_else</span>(sex <span class="sc">==</span> <span class="st">"female"</span>, 1L, 0L),</span>
+<span id="cb57-254"><a href="#cb57-254"></a>         <span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
+<span id="cb57-255"><a href="#cb57-255"></a>         <span class="at">conservative =</span> <span class="fu">if_else</span>(polviews <span class="sc">&gt;=</span> <span class="dv">5</span>, 1L, 0L)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-256"><a href="#cb57-256"></a>  <span class="fu">drop_na</span>() </span>
+<span id="cb57-257"><a href="#cb57-257"></a></span>
+<span id="cb57-258"><a href="#cb57-258"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb57-259"><a href="#cb57-259"></a>  <span class="fu">tabyl</span>(conservative, weekly) <span class="sc">|&gt;</span> </span>
+<span id="cb57-260"><a href="#cb57-260"></a>  <span class="fu">adorn_percentages</span>(<span class="st">"row"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb57-261"><a href="#cb57-261"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-262"><a href="#cb57-262"></a>  <span class="fu">adorn_ns</span>()</span>
+<span id="cb57-263"><a href="#cb57-263"></a></span>
+<span id="cb57-264"><a href="#cb57-264"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb57-265"><a href="#cb57-265"></a>  <span class="fu">group_by</span>(conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb57-266"><a href="#cb57-266"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> 1L, <span class="st">"conservative"</span>, <span class="st">"other"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-267"><a href="#cb57-267"></a>  <span class="fu">summarise</span>(<span class="at">percent =</span> <span class="fu">mean</span>(weekly)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-268"><a href="#cb57-268"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(conservative, percent)) <span class="sc">+</span> </span>
+<span id="cb57-269"><a href="#cb57-269"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb57-270"><a href="#cb57-270"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb57-271"><a href="#cb57-271"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">title =</span> <span class="st">"Percent of People who Attend Church Weekly"</span>)</span>
+<span id="cb57-272"><a href="#cb57-272"></a></span>
+<span id="cb57-273"><a href="#cb57-273"></a>boot <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb57-274"><a href="#cb57-274"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> 1L, <span class="st">"conservative"</span>, <span class="st">"other"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-275"><a href="#cb57-275"></a>  <span class="fu">specify</span>(weekly <span class="sc">~</span> conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb57-276"><a href="#cb57-276"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">1e4</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-277"><a href="#cb57-277"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
+<span id="cb57-278"><a href="#cb57-278"></a></span>
+<span id="cb57-279"><a href="#cb57-279"></a>ci <span class="ot">&lt;-</span> <span class="fu">get_confidence_interval</span>(boot)</span>
+<span id="cb57-280"><a href="#cb57-280"></a></span>
+<span id="cb57-281"><a href="#cb57-281"></a>boot <span class="sc">|&gt;</span> </span>
+<span id="cb57-282"><a href="#cb57-282"></a>  <span class="fu">visualize</span>() <span class="sc">+</span></span>
+<span id="cb57-283"><a href="#cb57-283"></a>  <span class="fu">shade_ci</span>(ci)</span>
+<span id="cb57-284"><a href="#cb57-284"></a></span>
+<span id="cb57-285"><a href="#cb57-285"></a>obs_diff <span class="ot">&lt;-</span> <span class="fu">mean</span>(d<span class="sc">$</span>weekly[d<span class="sc">$</span>conservative <span class="sc">==</span> 1L]) <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>weekly[d<span class="sc">$</span>conservative <span class="sc">==</span> 0L])</span>
+<span id="cb57-286"><a href="#cb57-286"></a></span>
+<span id="cb57-287"><a href="#cb57-287"></a>d_summary <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb57-288"><a href="#cb57-288"></a>  <span class="fu">group_by</span>(conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb57-289"><a href="#cb57-289"></a>  <span class="fu">summarize</span>(<span class="at">weekly_percent =</span> <span class="fu">mean</span>(weekly)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-290"><a href="#cb57-290"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> conservative, <span class="at">values_from =</span> weekly_percent, <span class="at">names_prefix =</span> <span class="st">"conservative_"</span>)</span>
+<span id="cb57-291"><a href="#cb57-291"></a></span>
+<span id="cb57-292"><a href="#cb57-292"></a>d_summary <span class="ot">&lt;-</span> d_summary <span class="sc">|&gt;</span> </span>
+<span id="cb57-293"><a href="#cb57-293"></a>  <span class="fu">mutate</span>(<span class="at">obs_diff =</span> conservative_1 <span class="sc">-</span> conservative_0)</span>
+<span id="cb57-294"><a href="#cb57-294"></a></span>
+<span id="cb57-295"><a href="#cb57-295"></a>d_summary<span class="sc">$</span>obs_diff</span>
+<span id="cb57-296"><a href="#cb57-296"></a></span>
+<span id="cb57-297"><a href="#cb57-297"></a>null <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb57-298"><a href="#cb57-298"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> 1L, <span class="st">"conservative"</span>, <span class="st">"other"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-299"><a href="#cb57-299"></a>  <span class="fu">specify</span>(weekly <span class="sc">~</span> conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb57-300"><a href="#cb57-300"></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-301"><a href="#cb57-301"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">1e4</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-302"><a href="#cb57-302"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>)) </span>
+<span id="cb57-303"><a href="#cb57-303"></a></span>
+<span id="cb57-304"><a href="#cb57-304"></a>null</span>
+<span id="cb57-305"><a href="#cb57-305"></a></span>
+<span id="cb57-306"><a href="#cb57-306"></a>null <span class="sc">|&gt;</span> </span>
+<span id="cb57-307"><a href="#cb57-307"></a>  <span class="fu">visualize</span>() <span class="sc">+</span> </span>
+<span id="cb57-308"><a href="#cb57-308"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> d_summary<span class="sc">$</span>obs_diff, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb57-309"><a href="#cb57-309"></a><span class="in">```</span></span>
+<span id="cb57-310"><a href="#cb57-310"></a></span>
+<span id="cb57-311"><a href="#cb57-311"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-312"><a href="#cb57-312"></a></span>
+<span id="cb57-313"><a href="#cb57-313"></a>::: callout-note</span>
+<span id="cb57-314"><a href="#cb57-314"></a>Is the difference in proportions between <span class="in">`conservative`</span> and <span class="in">`weekly`</span> statistically significant?</span>
+<span id="cb57-315"><a href="#cb57-315"></a>:::</span>
+<span id="cb57-316"><a href="#cb57-316"></a></span>
+<span id="cb57-317"><a href="#cb57-317"></a>Yes.</span>
+<span id="cb57-318"><a href="#cb57-318"></a></span>
+<span id="cb57-319"><a href="#cb57-319"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-320"><a href="#cb57-320"></a></span>
+<span id="cb57-321"><a href="#cb57-321"></a>::: callout-note</span>
+<span id="cb57-322"><a href="#cb57-322"></a>Instead of discretizing the <span class="in">`polviews`</span> and <span class="in">`attend`</span> (which is what we did to create <span class="in">`weekly`</span> and <span class="in">`conservative`</span>), let's try interpreting their original values.</span>
+<span id="cb57-323"><a href="#cb57-323"></a></span>
+<span id="cb57-324"><a href="#cb57-324"></a>I made the following plot using <span class="in">`geom_tile`</span> to make the point that contingency tables are hard to interpret.</span>
+<span id="cb57-325"><a href="#cb57-325"></a></span>
+<span id="cb57-326"><a href="#cb57-326"></a>Try to describe what's going on here.</span>
+<span id="cb57-327"><a href="#cb57-327"></a>:::</span>
+<span id="cb57-328"><a href="#cb57-328"></a></span>
+<span id="cb57-331"><a href="#cb57-331"></a><span class="in">```{r}</span></span>
+<span id="cb57-332"><a href="#cb57-332"></a><span class="co">#| fig-width: 12</span></span>
+<span id="cb57-333"><a href="#cb57-333"></a><span class="co">#| fig-height: 4</span></span>
+<span id="cb57-334"><a href="#cb57-334"></a><span class="co">#| column: page</span></span>
+<span id="cb57-335"><a href="#cb57-335"></a><span class="co">#| fig-align: center</span></span>
+<span id="cb57-336"><a href="#cb57-336"></a><span class="co">#| echo: false</span></span>
+<span id="cb57-337"><a href="#cb57-337"></a><span class="fu">source</span>(<span class="st">"week6_plot_function.R"</span>)</span>
+<span id="cb57-338"><a href="#cb57-338"></a>d <span class="sc">|&gt;</span> <span class="fu">plot_contingency_table</span>(polviews, attend)</span>
+<span id="cb57-339"><a href="#cb57-339"></a><span class="in">```</span></span>
+<span id="cb57-340"><a href="#cb57-340"></a></span>
+<span id="cb57-341"><a href="#cb57-341"></a>Good luck!</span>
+<span id="cb57-342"><a href="#cb57-342"></a></span>
+<span id="cb57-343"><a href="#cb57-343"></a>Pleas note that most people think of themselves as "moderate" and that very few of them attend religious services. There is, however, a big chunk of people that identify as conservative ( $n = 104$ ) that attend every week.</span>
+<span id="cb57-344"><a href="#cb57-344"></a></span>
+<span id="cb57-345"><a href="#cb57-345"></a><span class="fu">### Bonus</span></span>
+<span id="cb57-346"><a href="#cb57-346"></a></span>
+<span id="cb57-347"><a href="#cb57-347"></a>::: callout-note</span>
+<span id="cb57-348"><a href="#cb57-348"></a>Do a Chi square test on <span class="in">`polviews`</span> and <span class="in">`attend`</span> using the <span class="in">`infer`</span> package.</span>
+<span id="cb57-349"><a href="#cb57-349"></a></span>
+<span id="cb57-350"><a href="#cb57-350"></a>The null hypothesis is that these variables are "independent" of each other.</span>
+<span id="cb57-351"><a href="#cb57-351"></a>:::</span>
+<span id="cb57-352"><a href="#cb57-352"></a></span>
+<span id="cb57-355"><a href="#cb57-355"></a><span class="in">```{r}</span></span>
+<span id="cb57-356"><a href="#cb57-356"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb57-357"><a href="#cb57-357"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as_factor</span>(polviews), <span class="at">attend =</span> <span class="fu">as_factor</span>(attend))</span>
+<span id="cb57-358"><a href="#cb57-358"></a></span>
+<span id="cb57-359"><a href="#cb57-359"></a><span class="fu">glimpse</span>(d)</span>
+<span id="cb57-360"><a href="#cb57-360"></a></span>
+<span id="cb57-361"><a href="#cb57-361"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb57-362"><a href="#cb57-362"></a>  <span class="fu">specify</span>(attend <span class="sc">~</span> polviews) <span class="sc">|&gt;</span></span>
+<span id="cb57-363"><a href="#cb57-363"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"Chisq"</span>)</span>
+<span id="cb57-364"><a href="#cb57-364"></a></span>
+<span id="cb57-365"><a href="#cb57-365"></a><span class="fu">chisq.test</span>(d<span class="sc">$</span>attend, d<span class="sc">$</span>polviews)</span>
+<span id="cb57-366"><a href="#cb57-366"></a></span>
+<span id="cb57-367"><a href="#cb57-367"></a>null <span class="ot">&lt;-</span>  d <span class="sc">|&gt;</span> </span>
+<span id="cb57-368"><a href="#cb57-368"></a>  <span class="fu">specify</span>(attend <span class="sc">~</span> polviews) <span class="sc">|&gt;</span></span>
+<span id="cb57-369"><a href="#cb57-369"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-370"><a href="#cb57-370"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">1e3</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-371"><a href="#cb57-371"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"Chisq"</span>) </span>
+<span id="cb57-372"><a href="#cb57-372"></a></span>
+<span id="cb57-373"><a href="#cb57-373"></a>null <span class="sc">|&gt;</span> </span>
+<span id="cb57-374"><a href="#cb57-374"></a>  infer<span class="sc">::</span><span class="fu">visualise</span>()</span>
+<span id="cb57-375"><a href="#cb57-375"></a></span>
+<span id="cb57-376"><a href="#cb57-376"></a>null <span class="sc">|&gt;</span> </span>
+<span id="cb57-377"><a href="#cb57-377"></a>  infer<span class="sc">::</span><span class="fu">visualise</span>() <span class="sc">+</span></span>
+<span id="cb57-378"><a href="#cb57-378"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">231.9905</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb57-379"><a href="#cb57-379"></a>  </span>
+<span id="cb57-380"><a href="#cb57-380"></a><span class="in">```</span></span>
+<span id="cb57-381"><a href="#cb57-381"></a></span>
+<span id="cb57-382"><a href="#cb57-382"></a>$\chi^2$ **test without the `infer` package:**</span>
+<span id="cb57-383"><a href="#cb57-383"></a></span>
+<span id="cb57-386"><a href="#cb57-386"></a><span class="in">```{r}</span></span>
+<span id="cb57-387"><a href="#cb57-387"></a>observed <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">attend =</span> d<span class="sc">$</span>attend, <span class="at">polviews =</span> d<span class="sc">$</span>polviews)</span>
+<span id="cb57-388"><a href="#cb57-388"></a>observed</span>
+<span id="cb57-389"><a href="#cb57-389"></a></span>
+<span id="cb57-390"><a href="#cb57-390"></a><span class="do">## using the formula (this is a little "hack" you might have not seen before)</span></span>
+<span id="cb57-391"><a href="#cb57-391"></a>n <span class="ot">&lt;-</span> <span class="fu">sum</span>(observed)</span>
+<span id="cb57-392"><a href="#cb57-392"></a>cols <span class="ot">&lt;-</span> <span class="fu">colSums</span>(observed) </span>
+<span id="cb57-393"><a href="#cb57-393"></a>rows <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(observed) </span>
+<span id="cb57-394"><a href="#cb57-394"></a>expected <span class="ot">&lt;-</span> <span class="fu">outer</span>(rows, cols) <span class="sc">/</span> n</span>
+<span id="cb57-395"><a href="#cb57-395"></a>expected</span>
+<span id="cb57-396"><a href="#cb57-396"></a></span>
+<span id="cb57-397"><a href="#cb57-397"></a><span class="do">## chi-square statistic</span></span>
+<span id="cb57-398"><a href="#cb57-398"></a><span class="fu">sum</span>((observed <span class="sc">-</span> expected)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> expected)</span>
+<span id="cb57-399"><a href="#cb57-399"></a></span>
+<span id="cb57-400"><a href="#cb57-400"></a><span class="do">## null distribution</span></span>
+<span id="cb57-401"><a href="#cb57-401"></a>null <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">1e4</span>, {</span>
+<span id="cb57-402"><a href="#cb57-402"></a>  ob_draw <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">attend =</span> <span class="fu">sample</span>(d<span class="sc">$</span>attend), <span class="at">polviews =</span> <span class="fu">sample</span>(d<span class="sc">$</span>polviews))</span>
+<span id="cb57-403"><a href="#cb57-403"></a>  <span class="fu">sum</span>((ob_draw <span class="sc">-</span> expected)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> expected)</span>
+<span id="cb57-404"><a href="#cb57-404"></a>})</span>
+<span id="cb57-405"><a href="#cb57-405"></a></span>
+<span id="cb57-406"><a href="#cb57-406"></a><span class="fu">tibble</span>(null) <span class="sc">|&gt;</span> </span>
+<span id="cb57-407"><a href="#cb57-407"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(null)) <span class="sc">+</span> </span>
+<span id="cb57-408"><a href="#cb57-408"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb57-409"><a href="#cb57-409"></a>  <span class="fu">geom_vline</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">xintercept =</span> <span class="fu">sum</span>((observed <span class="sc">-</span> expected)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> expected)) <span class="sc">+</span> </span>
+<span id="cb57-410"><a href="#cb57-410"></a>  <span class="fu">labs</span>(<span class="at">title =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">chi^2$ Simulation-Based Null Distribution"</span>))</span>
+<span id="cb57-411"><a href="#cb57-411"></a><span class="in">```</span></span>
+<span id="cb57-412"><a href="#cb57-412"></a></span>
+<span id="cb57-413"><a href="#cb57-413"></a>*Back to the interpretation:*</span>
+<span id="cb57-414"><a href="#cb57-414"></a></span>
+<span id="cb57-417"><a href="#cb57-417"></a><span class="in">```{r}</span></span>
+<span id="cb57-418"><a href="#cb57-418"></a><span class="fu">as_tibble</span>(observed <span class="sc">-</span> expected, <span class="at">n =</span> <span class="st">"x"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-419"><a href="#cb57-419"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(attend, polviews, <span class="at">fill =</span> x<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">+</span> </span>
+<span id="cb57-420"><a href="#cb57-420"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb57-421"><a href="#cb57-421"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(x, <span class="dv">2</span>))) <span class="sc">+</span></span>
+<span id="cb57-422"><a href="#cb57-422"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb57-423"><a href="#cb57-423"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_line_size =</span> <span class="dv">0</span>, <span class="at">base_family =</span> <span class="st">"Optima"</span>) <span class="sc">+</span></span>
+<span id="cb57-424"><a href="#cb57-424"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Observed - Expected Counts"</span>)</span>
+<span id="cb57-425"><a href="#cb57-425"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

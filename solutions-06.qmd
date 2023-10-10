@@ -1,0 +1,391 @@
+---
+title: "Solutions 6"
+callout-appearance: simple
+callout-icon: false
+---
+
+```{r}
+#| message: false
+#| code-fold: false
+library(tidyverse)
+library(infer)
+library(janitor) ## for convenient "table" functions
+library(gssr)    ## for access to GSS data
+theme_set(theme_light(base_family = "Optima")) 
+```
+
+## Part I
+
+### Exercise
+
+::: callout-note
+*Choosing sample size.*
+
+You are designing a survey to estimate the proportion of individuals who will vote Democrat. Assuming that respondents are a simple random sample of the voting population, how many people do you need to poll so that the standard error is less than 5 percentage points?
+:::
+
+The answer is somewhat ambiguous because you have to make an assumption about the *true* population parameter. In this example I had been using $p = 0.53$. In general, people tend to choose $p = 0.5$ because it's the most conservative estimate---i.e., it gives the maximum standard error.
+
+You could have answered this with some algebra---i.e. by solving for $n$ here:
+
+$$
+\begin{align}
+0.05 > \sqrt{\frac{p (1-p)}{n}} && \longrightarrow &&
+n > \frac{p(1-p)}{0.05^2}
+\end{align}
+$$
+
+Or you could have answered this by playing around with the following simulation until you reached the numbers of `size = 100`.
+
+```{r}
+draws <- rbinom(1e4, size = 100, prob = 0.53)
+proportions <- draws / 100
+sd(proportions)
+
+```
+
+Here's a plot:
+
+```{r}
+se_prop_fun <- function(n, p) {
+  sqrt(p*(1-p) / n)
+}
+
+ggplot() +
+  xlim(10, 400) +
+  ylim(0, 0.18) +
+  geom_function(fun = \(x) sqrt(0.5^2 / x)) + 
+  geom_hline(yintercept = c(0.05, 0.025), linetype = "dashed") + 
+  geom_vline(xintercept = 100, linetype = "dashed") +
+  labs(y = "Standard Error", x = "Sample Size", title = "Standard Error, Sample Size, and Proportion")
+
+```
+
+*Note that halving the standard error requires multiplying the sample size by a factor of four!*
+
+### Exercise
+
+::: callout-note
+What is the probability of observing the "true" value ( $p = 0.53$ ) under the null?
+
+What is the probability of observing `prop_hat` under the null? Is this statistically significant if the confidence level ( $\alpha$ ) is set to 0.05?
+:::
+
+In this exercise, we had a sample size of 1000.
+
+The sampling distribution for the null ( $H_0$ ) of $p = 0.5$ is as follows:
+
+```{r}
+S <- 1e4 ## number of simulated draws
+poll_size <- 1000 ## sample size
+
+draws <- rbinom(S, size = poll_size, prob = 0.50)
+null <- draws / poll_size
+
+tibble(p = null) |> 
+  ggplot(aes(p)) + 
+  geom_histogram(color = "white", boundary = 0.5, binwidth = 0.005) + 
+  annotate("rect", xmin = 0.53, ymin = 0, xmax = Inf, ymax = Inf, fill = "pink", alpha = 1/4) + 
+  scale_x_continuous(n.breaks = 10)
+```
+
+And the probability is computed as follows:
+
+```{r}
+mean(null > 0.53)
+```
+
+The `prop_hat` value was estimated at 0.513.
+
+```{r}
+mean(null > 0.513)
+```
+
+*Note that the sample from which `prop_hat` was calculated was drawn from the "true" sampling distribution. The p-value is estimated to be 0.2, so we---mistakenly---failed to reject the "null hypothesis." This mistake is usually called "Type II error" or "false negative."*
+
+Take note of the shaded areas in the following graph:
+
+```{r}
+draws <- rbinom(S, size = poll_size, prob = 0.53)
+true_dist <- draws / poll_size
+
+g <- tibble(true = true_dist, null = null) |> 
+  ggplot() +
+  geom_histogram(aes(true, fill = "true"), color = "white", boundary = 0.5, binwidth = 0.005) +
+  geom_histogram(aes(null, fill = "null"), color = "white", boundary = 0.5, binwidth = 0.005, alpha = 1/2) +
+  labs(x = "proportion", fill = "Sampling\nDistribution")
+
+g
+```
+
+In this question, setting the confidence interval as $\alpha = 0.05$ means that we will compare the estimated proportion to whatever value produces a tail area probability of 0.05. I fiddled around with the null distribution and decided that this value was 0.526.
+
+```{r}
+mean(null > 0.526)
+## of the "analytical version":
+qnorm(0.95, mean = 0.5, sd = 0.0158)
+
+g + geom_vline(xintercept = qnorm(0.95, mean = 0.5, sd = 0.0158), linetype = "dashed")
+```
+
+Note that by setting the confidence level to 0.05, we are also inadvertently setting the probability of a "false negative."
+
+*It's almost 40%*
+
+```{r}
+mean(true_dist < qnorm(0.95, mean = 0.5, sd = 0.0158))
+```
+
+*It's almost 40%*
+
+People don't usually think about *type II error* because it is outside their control---i.e., it requires for us to know the "true" value. But that doesn't mean we shouldn't carefully think about such things!
+
+### Exercise
+
+::: callout-note
+The formula for calculating the standard error of a difference in proportions is given by:
+
+$$
+\sigma_{\hat p_1 - \hat p_2} = \sqrt{\frac{p_1 (1 - p_1)}{n_1} + \frac{p_2 (1 - p_2)}{n_2}}
+$$
+
+Verify that this standard error corresponds to `sd(theta_distribution)`.
+:::
+
+If you didn't get the same answer, then you made some kind of weird mistake!
+
+### Exercise
+
+::: callout-note
+*Comparison of proportions.*
+
+A randomized experiment is performed within a survey. 1000 people are contacted. Half the people contacted are promised a \$5 incentive to participate, and half are not promised an incentive. The result is a 50% response rate among the treated group and 40% response rate among the control group. Give an estimate and standard error of the difference in proportions.
+:::
+
+Using math to answer this is OK.
+
+But this is how I would have liked you to answer this question:
+
+```{r}
+p_treatment <- 0.5
+p_control <- 0.4
+
+S <- 10e4 ## number of simulated draws
+
+treatment <- rbinom(S, 500, p_treatment) / 500
+control <- rbinom(S, 500, p_control) / 500
+effect <- treatment - control
+mean(effect)
+sd(effect)
+```
+
+Using the formula:
+
+```{r}
+sqrt((0.5*0.4/500) + (0.5^2/500))
+```
+
+## Part II
+
+```{r}
+gss18 <- gss_get_yr(2018) 
+
+d <- gss18 |> 
+  select(sex, attend, polviews) |> 
+  haven::zap_missing() |> 
+  mutate(sex = as_factor(sex)) |> 
+  haven::zap_labels() |> 
+  drop_na()
+
+glimpse(d)
+```
+
+### Exercise
+
+::: callout-note
+Go to the GSS website and describe the values of `attend` and `polviews`---e.g., what does a value of "4" mean in `polviews`.
+:::
+
+Just describe the variables!
+
+<https://gssdataexplorer.norc.org/variables/vfilter>
+
+### Exercise
+
+::: callout-note
+Repeat what we did in class with Steve, but compare the `weekly` variable to a new variable call `conservative`.
+
+<https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-12.R>
+:::
+
+```{r}
+#| fig-width: 5
+#| fig-height: 3
+#| fig-align: center
+
+d <- d |> 
+  mutate(female = if_else(sex == "female", 1L, 0L),
+         weekly = if_else(attend >= 7, 1L, 0L),
+         conservative = if_else(polviews >= 5, 1L, 0L)) |> 
+  drop_na() 
+
+d |> 
+  tabyl(conservative, weekly) |> 
+  adorn_percentages("row") |>
+  adorn_pct_formatting(digits = 2) |> 
+  adorn_ns()
+
+d |> 
+  group_by(conservative) |> 
+  mutate(conservative = if_else(conservative == 1L, "conservative", "other")) |> 
+  summarise(percent = mean(weekly)) |> 
+  ggplot(aes(conservative, percent)) + 
+  geom_col(width = 1/2) + 
+  scale_y_continuous(labels = scales::percent_format(1)) + 
+  labs(y = NULL, title = "Percent of People who Attend Church Weekly")
+
+boot <- d |> 
+  mutate(conservative = if_else(conservative == 1L, "conservative", "other")) |> 
+  specify(weekly ~ conservative) |> 
+  generate(reps = 1e4, type = "bootstrap") |> 
+  calculate(stat = "diff in means", order = c("conservative", "other"))
+
+ci <- get_confidence_interval(boot)
+
+boot |> 
+  visualize() +
+  shade_ci(ci)
+
+obs_diff <- mean(d$weekly[d$conservative == 1L]) - mean(d$weekly[d$conservative == 0L])
+
+d_summary <- d |> 
+  group_by(conservative) |> 
+  summarize(weekly_percent = mean(weekly)) |> 
+  pivot_wider(names_from = conservative, values_from = weekly_percent, names_prefix = "conservative_")
+
+d_summary <- d_summary |> 
+  mutate(obs_diff = conservative_1 - conservative_0)
+
+d_summary$obs_diff
+
+null <- d |> 
+  mutate(conservative = if_else(conservative == 1L, "conservative", "other")) |> 
+  specify(weekly ~ conservative) |> 
+  hypothesize(null = "independence") |> 
+  generate(reps = 1e4, type = "permute") |> 
+  calculate(stat = "diff in means", order = c("conservative", "other")) 
+
+null
+
+null |> 
+  visualize() + 
+  geom_vline(xintercept = d_summary$obs_diff, linetype = "dashed")
+```
+
+### Exercise
+
+::: callout-note
+Is the difference in proportions between `conservative` and `weekly` statistically significant?
+:::
+
+Yes.
+
+### Exercise
+
+::: callout-note
+Instead of discretizing the `polviews` and `attend` (which is what we did to create `weekly` and `conservative`), let's try interpreting their original values.
+
+I made the following plot using `geom_tile` to make the point that contingency tables are hard to interpret.
+
+Try to describe what's going on here.
+:::
+
+```{r}
+#| fig-width: 12
+#| fig-height: 4
+#| column: page
+#| fig-align: center
+#| echo: false
+source("week6_plot_function.R")
+d |> plot_contingency_table(polviews, attend)
+```
+
+Good luck!
+
+Pleas note that most people think of themselves as "moderate" and that very few of them attend religious services. There is, however, a big chunk of people that identify as conservative ( $n = 104$ ) that attend every week.
+
+### Bonus
+
+::: callout-note
+Do a Chi square test on `polviews` and `attend` using the `infer` package.
+
+The null hypothesis is that these variables are "independent" of each other.
+:::
+
+```{r}
+d <- d |> 
+  mutate(polviews = as_factor(polviews), attend = as_factor(attend))
+
+glimpse(d)
+
+d |> 
+  specify(attend ~ polviews) |>
+  calculate(stat = "Chisq")
+
+chisq.test(d$attend, d$polviews)
+
+null <-  d |> 
+  specify(attend ~ polviews) |>
+  hypothesise(null = "independence") |> 
+  generate(reps = 1e3, type = "permute") |> 
+  calculate(stat = "Chisq") 
+
+null |> 
+  infer::visualise()
+
+null |> 
+  infer::visualise() +
+  geom_vline(xintercept = 231.9905, linetype = "dashed")
+  
+```
+
+$\chi^2$ **test without the `infer` package:**
+
+```{r}
+observed <- table(attend = d$attend, polviews = d$polviews)
+observed
+
+## using the formula (this is a little "hack" you might have not seen before)
+n <- sum(observed)
+cols <- colSums(observed) 
+rows <- rowSums(observed) 
+expected <- outer(rows, cols) / n
+expected
+
+## chi-square statistic
+sum((observed - expected)^2 / expected)
+
+## null distribution
+null <- replicate(1e4, {
+  ob_draw <- table(attend = sample(d$attend), polviews = sample(d$polviews))
+  sum((ob_draw - expected)^2 / expected)
+})
+
+tibble(null) |> 
+  ggplot(aes(null)) + 
+  geom_histogram(color = "white") +
+  geom_vline(linetype = "dashed", xintercept = sum((observed - expected)^2 / expected)) + 
+  labs(title = latex2exp::TeX("$\\chi^2$ Simulation-Based Null Distribution"))
+```
+
+*Back to the interpretation:*
+
+```{r}
+as_tibble(observed - expected, n = "x") |> 
+  ggplot(aes(attend, polviews, fill = x^2)) + 
+  geom_tile(color = "white", linewidth = 1.5, show.legend = FALSE) +
+  geom_text(aes(label = round(x, 2))) +
+  scale_fill_gradient(low = "white") +
+  theme_minimal(base_line_size = 0, base_family = "Optima") +
+  labs(title = "Observed - Expected Counts")
+```
