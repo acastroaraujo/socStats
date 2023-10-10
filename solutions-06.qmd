@@ -47,10 +47,6 @@ sd(proportions)
 Here's a plot:
 
 ```{r}
-se_prop_fun <- function(n, p) {
-  sqrt(p*(1-p) / n)
-}
-
 ggplot() +
   xlim(10, 400) +
   ylim(0, 0.18) +
@@ -129,8 +125,6 @@ g + geom_vline(xintercept = qnorm(0.95, mean = 0.5, sd = 0.0158), linetype = "da
 ```
 
 Note that by setting the confidence level to 0.05, we are also inadvertently setting the probability of a "false negative."
-
-*It's almost 40%*
 
 ```{r}
 mean(true_dist < qnorm(0.95, mean = 0.5, sd = 0.0158))

@@ -340,24 +340,20 @@ n &gt; \frac{p(1-p)}{0.05^2}
 <span id="cb2-3"><a href="#cb2-3"></a><span class="fu">sd</span>(proportions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.04967905</code></pre>
+<pre><code>[1] 0.04989916</code></pre>
 </div>
 </div>
 <p>Here’s a plot:</p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>se_prop_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(n, p) {</span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">sqrt</span>(p<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p) <span class="sc">/</span> n)</span>
-<span id="cb4-3"><a href="#cb4-3"></a>}</span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">xlim</span>(<span class="dv">10</span>, <span class="dv">400</span>) <span class="sc">+</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">0.18</span>) <span class="sc">+</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> \(x) <span class="fu">sqrt</span>(<span class="fl">0.5</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> x)) <span class="sc">+</span> </span>
-<span id="cb4-9"><a href="#cb4-9"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.025</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
-<span id="cb4-10"><a href="#cb4-10"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">100</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Standard Error"</span>, <span class="at">x =</span> <span class="st">"Sample Size"</span>, <span class="at">title =</span> <span class="st">"Standard Error, Sample Size, and Proportion"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">xlim</span>(<span class="dv">10</span>, <span class="dv">400</span>) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">0.18</span>) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> \(x) <span class="fu">sqrt</span>(<span class="fl">0.5</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> x)) <span class="sc">+</span> </span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.025</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">100</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Standard Error"</span>, <span class="at">x =</span> <span class="st">"Sample Size"</span>, <span class="at">title =</span> <span class="st">"Standard Error, Sample Size, and Proportion"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="solutions-06_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
@@ -406,7 +402,7 @@ n &gt; \frac{p(1-p)}{0.05^2}
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.53</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0256</code></pre>
+<pre><code>[1] 0.0251</code></pre>
 </div>
 </div>
 <p>The <code>prop_hat</code> value was estimated at 0.513.</p>
@@ -416,7 +412,7 @@ n &gt; \frac{p(1-p)}{0.05^2}
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.513</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1936</code></pre>
+<pre><code>[1] 0.1959</code></pre>
 </div>
 </div>
 <p><em>Note that the sample from which <code>prop_hat</code> was calculated was drawn from the “true” sampling distribution. The p-value is estimated to be 0.2, so we—mistakenly—failed to reject the “null hypothesis.” This mistake is usually called “Type II error” or “false negative.”</em></p>
@@ -446,7 +442,7 @@ n &gt; \frac{p(1-p)}{0.05^2}
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.526</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0444</code></pre>
+<pre><code>[1] 0.0459</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
@@ -465,14 +461,13 @@ n &gt; \frac{p(1-p)}{0.05^2}
 </div>
 </div>
 <p>Note that by setting the confidence level to 0.05, we are also inadvertently setting the probability of a “false negative.”</p>
-<p><em>It’s almost 40%</em></p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">mean</span>(true_dist <span class="sc">&lt;</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.0158</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3858</code></pre>
+<pre><code>[1] 0.3884</code></pre>
 </div>
 </div>
 <p><em>It’s almost 40%</em></p>
@@ -525,14 +520,14 @@ n &gt; \frac{p(1-p)}{0.05^2}
 <span id="cb18-9"><a href="#cb18-9"></a><span class="fu">mean</span>(effect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1001012</code></pre>
+<pre><code>[1] 0.09995086</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">sd</span>(effect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.03131382</code></pre>
+<pre><code>[1] 0.03129886</code></pre>
 </div>
 </div>
 <p>Using the formula:</p>
@@ -703,15 +698,15 @@ Null Hypothesis: independence
 # A tibble: 10,000 × 2
    replicate      stat
        &lt;int&gt;     &lt;dbl&gt;
- 1         1 -0.000898
- 2         2  0.0173  
- 3         3  0.0173  
- 4         4 -0.0333  
- 5         5 -0.0333  
- 6         6 -0.00698 
- 7         7  0.0153  
- 8         8 -0.00495 
- 9         9  0.00518 
+ 1         1 -0.0131  
+ 2         2 -0.00293 
+ 3         3  0.0153  
+ 4         4 -0.000898
+ 5         5  0.0194  
+ 6         6 -0.0110  
+ 7         7  0.0214  
+ 8         8 -0.0232  
+ 9         9  0.00721 
 10        10  0.0133  
 # ℹ 9,990 more rows</code></pre>
 </div>
@@ -1293,348 +1288,342 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb57-51"><a href="#cb57-51"></a>Here's a plot:</span>
 <span id="cb57-52"><a href="#cb57-52"></a></span>
 <span id="cb57-55"><a href="#cb57-55"></a><span class="in">```{r}</span></span>
-<span id="cb57-56"><a href="#cb57-56"></a>se_prop_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(n, p) {</span>
-<span id="cb57-57"><a href="#cb57-57"></a>  <span class="fu">sqrt</span>(p<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p) <span class="sc">/</span> n)</span>
-<span id="cb57-58"><a href="#cb57-58"></a>}</span>
-<span id="cb57-59"><a href="#cb57-59"></a></span>
-<span id="cb57-60"><a href="#cb57-60"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb57-61"><a href="#cb57-61"></a>  <span class="fu">xlim</span>(<span class="dv">10</span>, <span class="dv">400</span>) <span class="sc">+</span></span>
-<span id="cb57-62"><a href="#cb57-62"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">0.18</span>) <span class="sc">+</span></span>
-<span id="cb57-63"><a href="#cb57-63"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> \(x) <span class="fu">sqrt</span>(<span class="fl">0.5</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> x)) <span class="sc">+</span> </span>
-<span id="cb57-64"><a href="#cb57-64"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.025</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
-<span id="cb57-65"><a href="#cb57-65"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">100</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb57-66"><a href="#cb57-66"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Standard Error"</span>, <span class="at">x =</span> <span class="st">"Sample Size"</span>, <span class="at">title =</span> <span class="st">"Standard Error, Sample Size, and Proportion"</span>)</span>
+<span id="cb57-56"><a href="#cb57-56"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb57-57"><a href="#cb57-57"></a>  <span class="fu">xlim</span>(<span class="dv">10</span>, <span class="dv">400</span>) <span class="sc">+</span></span>
+<span id="cb57-58"><a href="#cb57-58"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="fl">0.18</span>) <span class="sc">+</span></span>
+<span id="cb57-59"><a href="#cb57-59"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> \(x) <span class="fu">sqrt</span>(<span class="fl">0.5</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> x)) <span class="sc">+</span> </span>
+<span id="cb57-60"><a href="#cb57-60"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.025</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb57-61"><a href="#cb57-61"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">100</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb57-62"><a href="#cb57-62"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Standard Error"</span>, <span class="at">x =</span> <span class="st">"Sample Size"</span>, <span class="at">title =</span> <span class="st">"Standard Error, Sample Size, and Proportion"</span>)</span>
+<span id="cb57-63"><a href="#cb57-63"></a></span>
+<span id="cb57-64"><a href="#cb57-64"></a><span class="in">```</span></span>
+<span id="cb57-65"><a href="#cb57-65"></a></span>
+<span id="cb57-66"><a href="#cb57-66"></a>*Note that halving the standard error requires multiplying the sample size by a factor of four!*</span>
 <span id="cb57-67"><a href="#cb57-67"></a></span>
-<span id="cb57-68"><a href="#cb57-68"></a><span class="in">```</span></span>
+<span id="cb57-68"><a href="#cb57-68"></a><span class="fu">### Exercise</span></span>
 <span id="cb57-69"><a href="#cb57-69"></a></span>
-<span id="cb57-70"><a href="#cb57-70"></a>*Note that halving the standard error requires multiplying the sample size by a factor of four!*</span>
-<span id="cb57-71"><a href="#cb57-71"></a></span>
-<span id="cb57-72"><a href="#cb57-72"></a><span class="fu">### Exercise</span></span>
-<span id="cb57-73"><a href="#cb57-73"></a></span>
-<span id="cb57-74"><a href="#cb57-74"></a>::: callout-note</span>
-<span id="cb57-75"><a href="#cb57-75"></a>What is the probability of observing the "true" value ( $p = 0.53$ ) under the null?</span>
-<span id="cb57-76"><a href="#cb57-76"></a></span>
-<span id="cb57-77"><a href="#cb57-77"></a>What is the probability of observing <span class="in">`prop_hat`</span> under the null? Is this statistically significant if the confidence level ( $\alpha$ ) is set to 0.05?</span>
-<span id="cb57-78"><a href="#cb57-78"></a>:::</span>
+<span id="cb57-70"><a href="#cb57-70"></a>::: callout-note</span>
+<span id="cb57-71"><a href="#cb57-71"></a>What is the probability of observing the "true" value ( $p = 0.53$ ) under the null?</span>
+<span id="cb57-72"><a href="#cb57-72"></a></span>
+<span id="cb57-73"><a href="#cb57-73"></a>What is the probability of observing <span class="in">`prop_hat`</span> under the null? Is this statistically significant if the confidence level ( $\alpha$ ) is set to 0.05?</span>
+<span id="cb57-74"><a href="#cb57-74"></a>:::</span>
+<span id="cb57-75"><a href="#cb57-75"></a></span>
+<span id="cb57-76"><a href="#cb57-76"></a>In this exercise, we had a sample size of 1000.</span>
+<span id="cb57-77"><a href="#cb57-77"></a></span>
+<span id="cb57-78"><a href="#cb57-78"></a>The sampling distribution for the null ( $H_0$ ) of $p = 0.5$ is as follows:</span>
 <span id="cb57-79"><a href="#cb57-79"></a></span>
-<span id="cb57-80"><a href="#cb57-80"></a>In this exercise, we had a sample size of 1000.</span>
-<span id="cb57-81"><a href="#cb57-81"></a></span>
-<span id="cb57-82"><a href="#cb57-82"></a>The sampling distribution for the null ( $H_0$ ) of $p = 0.5$ is as follows:</span>
-<span id="cb57-83"><a href="#cb57-83"></a></span>
-<span id="cb57-86"><a href="#cb57-86"></a><span class="in">```{r}</span></span>
-<span id="cb57-87"><a href="#cb57-87"></a>S <span class="ot">&lt;-</span> <span class="fl">1e4</span> <span class="do">## number of simulated draws</span></span>
-<span id="cb57-88"><a href="#cb57-88"></a>poll_size <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="do">## sample size</span></span>
-<span id="cb57-89"><a href="#cb57-89"></a></span>
-<span id="cb57-90"><a href="#cb57-90"></a>draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> poll_size, <span class="at">prob =</span> <span class="fl">0.50</span>)</span>
-<span id="cb57-91"><a href="#cb57-91"></a>null <span class="ot">&lt;-</span> draws <span class="sc">/</span> poll_size</span>
-<span id="cb57-92"><a href="#cb57-92"></a></span>
-<span id="cb57-93"><a href="#cb57-93"></a><span class="fu">tibble</span>(<span class="at">p =</span> null) <span class="sc">|&gt;</span> </span>
-<span id="cb57-94"><a href="#cb57-94"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(p)) <span class="sc">+</span> </span>
-<span id="cb57-95"><a href="#cb57-95"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>) <span class="sc">+</span> </span>
-<span id="cb57-96"><a href="#cb57-96"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="fl">0.53</span>, <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">fill =</span> <span class="st">"pink"</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>) <span class="sc">+</span> </span>
-<span id="cb57-97"><a href="#cb57-97"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">10</span>)</span>
-<span id="cb57-98"><a href="#cb57-98"></a><span class="in">```</span></span>
-<span id="cb57-99"><a href="#cb57-99"></a></span>
-<span id="cb57-100"><a href="#cb57-100"></a>And the probability is computed as follows:</span>
-<span id="cb57-101"><a href="#cb57-101"></a></span>
-<span id="cb57-104"><a href="#cb57-104"></a><span class="in">```{r}</span></span>
-<span id="cb57-105"><a href="#cb57-105"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.53</span>)</span>
-<span id="cb57-106"><a href="#cb57-106"></a><span class="in">```</span></span>
-<span id="cb57-107"><a href="#cb57-107"></a></span>
-<span id="cb57-108"><a href="#cb57-108"></a>The <span class="in">`prop_hat`</span> value was estimated at 0.513.</span>
-<span id="cb57-109"><a href="#cb57-109"></a></span>
-<span id="cb57-112"><a href="#cb57-112"></a><span class="in">```{r}</span></span>
-<span id="cb57-113"><a href="#cb57-113"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.513</span>)</span>
-<span id="cb57-114"><a href="#cb57-114"></a><span class="in">```</span></span>
+<span id="cb57-82"><a href="#cb57-82"></a><span class="in">```{r}</span></span>
+<span id="cb57-83"><a href="#cb57-83"></a>S <span class="ot">&lt;-</span> <span class="fl">1e4</span> <span class="do">## number of simulated draws</span></span>
+<span id="cb57-84"><a href="#cb57-84"></a>poll_size <span class="ot">&lt;-</span> <span class="dv">1000</span> <span class="do">## sample size</span></span>
+<span id="cb57-85"><a href="#cb57-85"></a></span>
+<span id="cb57-86"><a href="#cb57-86"></a>draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> poll_size, <span class="at">prob =</span> <span class="fl">0.50</span>)</span>
+<span id="cb57-87"><a href="#cb57-87"></a>null <span class="ot">&lt;-</span> draws <span class="sc">/</span> poll_size</span>
+<span id="cb57-88"><a href="#cb57-88"></a></span>
+<span id="cb57-89"><a href="#cb57-89"></a><span class="fu">tibble</span>(<span class="at">p =</span> null) <span class="sc">|&gt;</span> </span>
+<span id="cb57-90"><a href="#cb57-90"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(p)) <span class="sc">+</span> </span>
+<span id="cb57-91"><a href="#cb57-91"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>) <span class="sc">+</span> </span>
+<span id="cb57-92"><a href="#cb57-92"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="fl">0.53</span>, <span class="at">ymin =</span> <span class="dv">0</span>, <span class="at">xmax =</span> <span class="cn">Inf</span>, <span class="at">ymax =</span> <span class="cn">Inf</span>, <span class="at">fill =</span> <span class="st">"pink"</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb57-93"><a href="#cb57-93"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">10</span>)</span>
+<span id="cb57-94"><a href="#cb57-94"></a><span class="in">```</span></span>
+<span id="cb57-95"><a href="#cb57-95"></a></span>
+<span id="cb57-96"><a href="#cb57-96"></a>And the probability is computed as follows:</span>
+<span id="cb57-97"><a href="#cb57-97"></a></span>
+<span id="cb57-100"><a href="#cb57-100"></a><span class="in">```{r}</span></span>
+<span id="cb57-101"><a href="#cb57-101"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.53</span>)</span>
+<span id="cb57-102"><a href="#cb57-102"></a><span class="in">```</span></span>
+<span id="cb57-103"><a href="#cb57-103"></a></span>
+<span id="cb57-104"><a href="#cb57-104"></a>The <span class="in">`prop_hat`</span> value was estimated at 0.513.</span>
+<span id="cb57-105"><a href="#cb57-105"></a></span>
+<span id="cb57-108"><a href="#cb57-108"></a><span class="in">```{r}</span></span>
+<span id="cb57-109"><a href="#cb57-109"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.513</span>)</span>
+<span id="cb57-110"><a href="#cb57-110"></a><span class="in">```</span></span>
+<span id="cb57-111"><a href="#cb57-111"></a></span>
+<span id="cb57-112"><a href="#cb57-112"></a>*Note that the sample from which `prop_hat` was calculated was drawn from the "true" sampling distribution. The p-value is estimated to be 0.2, so we---mistakenly---failed to reject the "null hypothesis." This mistake is usually called "Type II error" or "false negative."*</span>
+<span id="cb57-113"><a href="#cb57-113"></a></span>
+<span id="cb57-114"><a href="#cb57-114"></a>Take note of the shaded areas in the following graph:</span>
 <span id="cb57-115"><a href="#cb57-115"></a></span>
-<span id="cb57-116"><a href="#cb57-116"></a>*Note that the sample from which `prop_hat` was calculated was drawn from the "true" sampling distribution. The p-value is estimated to be 0.2, so we---mistakenly---failed to reject the "null hypothesis." This mistake is usually called "Type II error" or "false negative."*</span>
-<span id="cb57-117"><a href="#cb57-117"></a></span>
-<span id="cb57-118"><a href="#cb57-118"></a>Take note of the shaded areas in the following graph:</span>
-<span id="cb57-119"><a href="#cb57-119"></a></span>
-<span id="cb57-122"><a href="#cb57-122"></a><span class="in">```{r}</span></span>
-<span id="cb57-123"><a href="#cb57-123"></a>draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> poll_size, <span class="at">prob =</span> <span class="fl">0.53</span>)</span>
-<span id="cb57-124"><a href="#cb57-124"></a>true_dist <span class="ot">&lt;-</span> draws <span class="sc">/</span> poll_size</span>
-<span id="cb57-125"><a href="#cb57-125"></a></span>
-<span id="cb57-126"><a href="#cb57-126"></a>g <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">true =</span> true_dist, <span class="at">null =</span> null) <span class="sc">|&gt;</span> </span>
-<span id="cb57-127"><a href="#cb57-127"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb57-128"><a href="#cb57-128"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(true, <span class="at">fill =</span> <span class="st">"true"</span>), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>) <span class="sc">+</span></span>
-<span id="cb57-129"><a href="#cb57-129"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(null, <span class="at">fill =</span> <span class="st">"null"</span>), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb57-130"><a href="#cb57-130"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"proportion"</span>, <span class="at">fill =</span> <span class="st">"Sampling</span><span class="sc">\n</span><span class="st">Distribution"</span>)</span>
-<span id="cb57-131"><a href="#cb57-131"></a></span>
-<span id="cb57-132"><a href="#cb57-132"></a>g</span>
-<span id="cb57-133"><a href="#cb57-133"></a><span class="in">```</span></span>
-<span id="cb57-134"><a href="#cb57-134"></a></span>
-<span id="cb57-135"><a href="#cb57-135"></a>In this question, setting the confidence interval as $\alpha = 0.05$ means that we will compare the estimated proportion to whatever value produces a tail area probability of 0.05. I fiddled around with the null distribution and decided that this value was 0.526.</span>
-<span id="cb57-136"><a href="#cb57-136"></a></span>
-<span id="cb57-139"><a href="#cb57-139"></a><span class="in">```{r}</span></span>
-<span id="cb57-140"><a href="#cb57-140"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.526</span>)</span>
-<span id="cb57-141"><a href="#cb57-141"></a><span class="do">## of the "analytical version":</span></span>
-<span id="cb57-142"><a href="#cb57-142"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.0158</span>)</span>
-<span id="cb57-143"><a href="#cb57-143"></a></span>
-<span id="cb57-144"><a href="#cb57-144"></a>g <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.0158</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
-<span id="cb57-145"><a href="#cb57-145"></a><span class="in">```</span></span>
-<span id="cb57-146"><a href="#cb57-146"></a></span>
-<span id="cb57-147"><a href="#cb57-147"></a>Note that by setting the confidence level to 0.05, we are also inadvertently setting the probability of a "false negative."</span>
-<span id="cb57-148"><a href="#cb57-148"></a></span>
-<span id="cb57-149"><a href="#cb57-149"></a>*It's almost 40%*</span>
+<span id="cb57-118"><a href="#cb57-118"></a><span class="in">```{r}</span></span>
+<span id="cb57-119"><a href="#cb57-119"></a>draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="at">size =</span> poll_size, <span class="at">prob =</span> <span class="fl">0.53</span>)</span>
+<span id="cb57-120"><a href="#cb57-120"></a>true_dist <span class="ot">&lt;-</span> draws <span class="sc">/</span> poll_size</span>
+<span id="cb57-121"><a href="#cb57-121"></a></span>
+<span id="cb57-122"><a href="#cb57-122"></a>g <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">true =</span> true_dist, <span class="at">null =</span> null) <span class="sc">|&gt;</span> </span>
+<span id="cb57-123"><a href="#cb57-123"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb57-124"><a href="#cb57-124"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(true, <span class="at">fill =</span> <span class="st">"true"</span>), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>) <span class="sc">+</span></span>
+<span id="cb57-125"><a href="#cb57-125"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(null, <span class="at">fill =</span> <span class="st">"null"</span>), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.5</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb57-126"><a href="#cb57-126"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"proportion"</span>, <span class="at">fill =</span> <span class="st">"Sampling</span><span class="sc">\n</span><span class="st">Distribution"</span>)</span>
+<span id="cb57-127"><a href="#cb57-127"></a></span>
+<span id="cb57-128"><a href="#cb57-128"></a>g</span>
+<span id="cb57-129"><a href="#cb57-129"></a><span class="in">```</span></span>
+<span id="cb57-130"><a href="#cb57-130"></a></span>
+<span id="cb57-131"><a href="#cb57-131"></a>In this question, setting the confidence interval as $\alpha = 0.05$ means that we will compare the estimated proportion to whatever value produces a tail area probability of 0.05. I fiddled around with the null distribution and decided that this value was 0.526.</span>
+<span id="cb57-132"><a href="#cb57-132"></a></span>
+<span id="cb57-135"><a href="#cb57-135"></a><span class="in">```{r}</span></span>
+<span id="cb57-136"><a href="#cb57-136"></a><span class="fu">mean</span>(null <span class="sc">&gt;</span> <span class="fl">0.526</span>)</span>
+<span id="cb57-137"><a href="#cb57-137"></a><span class="do">## of the "analytical version":</span></span>
+<span id="cb57-138"><a href="#cb57-138"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.0158</span>)</span>
+<span id="cb57-139"><a href="#cb57-139"></a></span>
+<span id="cb57-140"><a href="#cb57-140"></a>g <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.0158</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb57-141"><a href="#cb57-141"></a><span class="in">```</span></span>
+<span id="cb57-142"><a href="#cb57-142"></a></span>
+<span id="cb57-143"><a href="#cb57-143"></a>Note that by setting the confidence level to 0.05, we are also inadvertently setting the probability of a "false negative."</span>
+<span id="cb57-144"><a href="#cb57-144"></a></span>
+<span id="cb57-147"><a href="#cb57-147"></a><span class="in">```{r}</span></span>
+<span id="cb57-148"><a href="#cb57-148"></a><span class="fu">mean</span>(true_dist <span class="sc">&lt;</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.0158</span>))</span>
+<span id="cb57-149"><a href="#cb57-149"></a><span class="in">```</span></span>
 <span id="cb57-150"><a href="#cb57-150"></a></span>
-<span id="cb57-153"><a href="#cb57-153"></a><span class="in">```{r}</span></span>
-<span id="cb57-154"><a href="#cb57-154"></a><span class="fu">mean</span>(true_dist <span class="sc">&lt;</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>, <span class="at">mean =</span> <span class="fl">0.5</span>, <span class="at">sd =</span> <span class="fl">0.0158</span>))</span>
-<span id="cb57-155"><a href="#cb57-155"></a><span class="in">```</span></span>
+<span id="cb57-151"><a href="#cb57-151"></a>*It's almost 40%*</span>
+<span id="cb57-152"><a href="#cb57-152"></a></span>
+<span id="cb57-153"><a href="#cb57-153"></a>People don't usually think about *type II error* because it is outside their control---i.e., it requires for us to know the "true" value. But that doesn't mean we shouldn't carefully think about such things!</span>
+<span id="cb57-154"><a href="#cb57-154"></a></span>
+<span id="cb57-155"><a href="#cb57-155"></a><span class="fu">### Exercise</span></span>
 <span id="cb57-156"><a href="#cb57-156"></a></span>
-<span id="cb57-157"><a href="#cb57-157"></a>*It's almost 40%*</span>
-<span id="cb57-158"><a href="#cb57-158"></a></span>
-<span id="cb57-159"><a href="#cb57-159"></a>People don't usually think about *type II error* because it is outside their control---i.e., it requires for us to know the "true" value. But that doesn't mean we shouldn't carefully think about such things!</span>
-<span id="cb57-160"><a href="#cb57-160"></a></span>
-<span id="cb57-161"><a href="#cb57-161"></a><span class="fu">### Exercise</span></span>
-<span id="cb57-162"><a href="#cb57-162"></a></span>
-<span id="cb57-163"><a href="#cb57-163"></a>::: callout-note</span>
-<span id="cb57-164"><a href="#cb57-164"></a>The formula for calculating the standard error of a difference in proportions is given by:</span>
-<span id="cb57-165"><a href="#cb57-165"></a></span>
-<span id="cb57-166"><a href="#cb57-166"></a>$$</span>
-<span id="cb57-167"><a href="#cb57-167"></a>\sigma_{\hat p_1 - \hat p_2} = \sqrt{\frac{p_1 (1 - p_1)}{n_1} + \frac{p_2 (1 - p_2)}{n_2}}</span>
-<span id="cb57-168"><a href="#cb57-168"></a>$$</span>
-<span id="cb57-169"><a href="#cb57-169"></a></span>
-<span id="cb57-170"><a href="#cb57-170"></a>Verify that this standard error corresponds to <span class="in">`sd(theta_distribution)`</span>.</span>
-<span id="cb57-171"><a href="#cb57-171"></a>:::</span>
-<span id="cb57-172"><a href="#cb57-172"></a></span>
-<span id="cb57-173"><a href="#cb57-173"></a>If you didn't get the same answer, then you made some kind of weird mistake!</span>
-<span id="cb57-174"><a href="#cb57-174"></a></span>
-<span id="cb57-175"><a href="#cb57-175"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-157"><a href="#cb57-157"></a>::: callout-note</span>
+<span id="cb57-158"><a href="#cb57-158"></a>The formula for calculating the standard error of a difference in proportions is given by:</span>
+<span id="cb57-159"><a href="#cb57-159"></a></span>
+<span id="cb57-160"><a href="#cb57-160"></a>$$</span>
+<span id="cb57-161"><a href="#cb57-161"></a>\sigma_{\hat p_1 - \hat p_2} = \sqrt{\frac{p_1 (1 - p_1)}{n_1} + \frac{p_2 (1 - p_2)}{n_2}}</span>
+<span id="cb57-162"><a href="#cb57-162"></a>$$</span>
+<span id="cb57-163"><a href="#cb57-163"></a></span>
+<span id="cb57-164"><a href="#cb57-164"></a>Verify that this standard error corresponds to <span class="in">`sd(theta_distribution)`</span>.</span>
+<span id="cb57-165"><a href="#cb57-165"></a>:::</span>
+<span id="cb57-166"><a href="#cb57-166"></a></span>
+<span id="cb57-167"><a href="#cb57-167"></a>If you didn't get the same answer, then you made some kind of weird mistake!</span>
+<span id="cb57-168"><a href="#cb57-168"></a></span>
+<span id="cb57-169"><a href="#cb57-169"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-170"><a href="#cb57-170"></a></span>
+<span id="cb57-171"><a href="#cb57-171"></a>::: callout-note</span>
+<span id="cb57-172"><a href="#cb57-172"></a>*Comparison of proportions.*</span>
+<span id="cb57-173"><a href="#cb57-173"></a></span>
+<span id="cb57-174"><a href="#cb57-174"></a>A randomized experiment is performed within a survey. 1000 people are contacted. Half the people contacted are promised a \$5 incentive to participate, and half are not promised an incentive. The result is a 50% response rate among the treated group and 40% response rate among the control group. Give an estimate and standard error of the difference in proportions.</span>
+<span id="cb57-175"><a href="#cb57-175"></a>:::</span>
 <span id="cb57-176"><a href="#cb57-176"></a></span>
-<span id="cb57-177"><a href="#cb57-177"></a>::: callout-note</span>
-<span id="cb57-178"><a href="#cb57-178"></a>*Comparison of proportions.*</span>
-<span id="cb57-179"><a href="#cb57-179"></a></span>
-<span id="cb57-180"><a href="#cb57-180"></a>A randomized experiment is performed within a survey. 1000 people are contacted. Half the people contacted are promised a \$5 incentive to participate, and half are not promised an incentive. The result is a 50% response rate among the treated group and 40% response rate among the control group. Give an estimate and standard error of the difference in proportions.</span>
-<span id="cb57-181"><a href="#cb57-181"></a>:::</span>
-<span id="cb57-182"><a href="#cb57-182"></a></span>
-<span id="cb57-183"><a href="#cb57-183"></a>Using math to answer this is OK.</span>
-<span id="cb57-184"><a href="#cb57-184"></a></span>
-<span id="cb57-185"><a href="#cb57-185"></a>But this is how I would have liked you to answer this question:</span>
+<span id="cb57-177"><a href="#cb57-177"></a>Using math to answer this is OK.</span>
+<span id="cb57-178"><a href="#cb57-178"></a></span>
+<span id="cb57-179"><a href="#cb57-179"></a>But this is how I would have liked you to answer this question:</span>
+<span id="cb57-180"><a href="#cb57-180"></a></span>
+<span id="cb57-183"><a href="#cb57-183"></a><span class="in">```{r}</span></span>
+<span id="cb57-184"><a href="#cb57-184"></a>p_treatment <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb57-185"><a href="#cb57-185"></a>p_control <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
 <span id="cb57-186"><a href="#cb57-186"></a></span>
-<span id="cb57-189"><a href="#cb57-189"></a><span class="in">```{r}</span></span>
-<span id="cb57-190"><a href="#cb57-190"></a>p_treatment <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb57-191"><a href="#cb57-191"></a>p_control <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
-<span id="cb57-192"><a href="#cb57-192"></a></span>
-<span id="cb57-193"><a href="#cb57-193"></a>S <span class="ot">&lt;-</span> <span class="fl">10e4</span> <span class="do">## number of simulated draws</span></span>
-<span id="cb57-194"><a href="#cb57-194"></a></span>
-<span id="cb57-195"><a href="#cb57-195"></a>treatment <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="dv">500</span>, p_treatment) <span class="sc">/</span> <span class="dv">500</span></span>
-<span id="cb57-196"><a href="#cb57-196"></a>control <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="dv">500</span>, p_control) <span class="sc">/</span> <span class="dv">500</span></span>
-<span id="cb57-197"><a href="#cb57-197"></a>effect <span class="ot">&lt;-</span> treatment <span class="sc">-</span> control</span>
-<span id="cb57-198"><a href="#cb57-198"></a><span class="fu">mean</span>(effect)</span>
-<span id="cb57-199"><a href="#cb57-199"></a><span class="fu">sd</span>(effect)</span>
-<span id="cb57-200"><a href="#cb57-200"></a><span class="in">```</span></span>
-<span id="cb57-201"><a href="#cb57-201"></a></span>
-<span id="cb57-202"><a href="#cb57-202"></a>Using the formula:</span>
+<span id="cb57-187"><a href="#cb57-187"></a>S <span class="ot">&lt;-</span> <span class="fl">10e4</span> <span class="do">## number of simulated draws</span></span>
+<span id="cb57-188"><a href="#cb57-188"></a></span>
+<span id="cb57-189"><a href="#cb57-189"></a>treatment <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="dv">500</span>, p_treatment) <span class="sc">/</span> <span class="dv">500</span></span>
+<span id="cb57-190"><a href="#cb57-190"></a>control <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(S, <span class="dv">500</span>, p_control) <span class="sc">/</span> <span class="dv">500</span></span>
+<span id="cb57-191"><a href="#cb57-191"></a>effect <span class="ot">&lt;-</span> treatment <span class="sc">-</span> control</span>
+<span id="cb57-192"><a href="#cb57-192"></a><span class="fu">mean</span>(effect)</span>
+<span id="cb57-193"><a href="#cb57-193"></a><span class="fu">sd</span>(effect)</span>
+<span id="cb57-194"><a href="#cb57-194"></a><span class="in">```</span></span>
+<span id="cb57-195"><a href="#cb57-195"></a></span>
+<span id="cb57-196"><a href="#cb57-196"></a>Using the formula:</span>
+<span id="cb57-197"><a href="#cb57-197"></a></span>
+<span id="cb57-200"><a href="#cb57-200"></a><span class="in">```{r}</span></span>
+<span id="cb57-201"><a href="#cb57-201"></a><span class="fu">sqrt</span>((<span class="fl">0.5</span><span class="sc">*</span><span class="fl">0.4</span><span class="sc">/</span><span class="dv">500</span>) <span class="sc">+</span> (<span class="fl">0.5</span><span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">500</span>))</span>
+<span id="cb57-202"><a href="#cb57-202"></a><span class="in">```</span></span>
 <span id="cb57-203"><a href="#cb57-203"></a></span>
-<span id="cb57-206"><a href="#cb57-206"></a><span class="in">```{r}</span></span>
-<span id="cb57-207"><a href="#cb57-207"></a><span class="fu">sqrt</span>((<span class="fl">0.5</span><span class="sc">*</span><span class="fl">0.4</span><span class="sc">/</span><span class="dv">500</span>) <span class="sc">+</span> (<span class="fl">0.5</span><span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">500</span>))</span>
-<span id="cb57-208"><a href="#cb57-208"></a><span class="in">```</span></span>
-<span id="cb57-209"><a href="#cb57-209"></a></span>
-<span id="cb57-210"><a href="#cb57-210"></a><span class="fu">## Part II</span></span>
-<span id="cb57-211"><a href="#cb57-211"></a></span>
-<span id="cb57-214"><a href="#cb57-214"></a><span class="in">```{r}</span></span>
-<span id="cb57-215"><a href="#cb57-215"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
-<span id="cb57-216"><a href="#cb57-216"></a></span>
-<span id="cb57-217"><a href="#cb57-217"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
-<span id="cb57-218"><a href="#cb57-218"></a>  <span class="fu">select</span>(sex, attend, polviews) <span class="sc">|&gt;</span> </span>
-<span id="cb57-219"><a href="#cb57-219"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb57-220"><a href="#cb57-220"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as_factor</span>(sex)) <span class="sc">|&gt;</span> </span>
-<span id="cb57-221"><a href="#cb57-221"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb57-222"><a href="#cb57-222"></a>  <span class="fu">drop_na</span>()</span>
-<span id="cb57-223"><a href="#cb57-223"></a></span>
-<span id="cb57-224"><a href="#cb57-224"></a><span class="fu">glimpse</span>(d)</span>
-<span id="cb57-225"><a href="#cb57-225"></a><span class="in">```</span></span>
+<span id="cb57-204"><a href="#cb57-204"></a><span class="fu">## Part II</span></span>
+<span id="cb57-205"><a href="#cb57-205"></a></span>
+<span id="cb57-208"><a href="#cb57-208"></a><span class="in">```{r}</span></span>
+<span id="cb57-209"><a href="#cb57-209"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
+<span id="cb57-210"><a href="#cb57-210"></a></span>
+<span id="cb57-211"><a href="#cb57-211"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb57-212"><a href="#cb57-212"></a>  <span class="fu">select</span>(sex, attend, polviews) <span class="sc">|&gt;</span> </span>
+<span id="cb57-213"><a href="#cb57-213"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb57-214"><a href="#cb57-214"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">as_factor</span>(sex)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-215"><a href="#cb57-215"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb57-216"><a href="#cb57-216"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb57-217"><a href="#cb57-217"></a></span>
+<span id="cb57-218"><a href="#cb57-218"></a><span class="fu">glimpse</span>(d)</span>
+<span id="cb57-219"><a href="#cb57-219"></a><span class="in">```</span></span>
+<span id="cb57-220"><a href="#cb57-220"></a></span>
+<span id="cb57-221"><a href="#cb57-221"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-222"><a href="#cb57-222"></a></span>
+<span id="cb57-223"><a href="#cb57-223"></a>::: callout-note</span>
+<span id="cb57-224"><a href="#cb57-224"></a>Go to the GSS website and describe the values of <span class="in">`attend`</span> and <span class="in">`polviews`</span>---e.g., what does a value of "4" mean in <span class="in">`polviews`</span>.</span>
+<span id="cb57-225"><a href="#cb57-225"></a>:::</span>
 <span id="cb57-226"><a href="#cb57-226"></a></span>
-<span id="cb57-227"><a href="#cb57-227"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-227"><a href="#cb57-227"></a>Just describe the variables!</span>
 <span id="cb57-228"><a href="#cb57-228"></a></span>
-<span id="cb57-229"><a href="#cb57-229"></a>::: callout-note</span>
-<span id="cb57-230"><a href="#cb57-230"></a>Go to the GSS website and describe the values of <span class="in">`attend`</span> and <span class="in">`polviews`</span>---e.g., what does a value of "4" mean in <span class="in">`polviews`</span>.</span>
-<span id="cb57-231"><a href="#cb57-231"></a>:::</span>
+<span id="cb57-229"><a href="#cb57-229"></a><span class="ot">&lt;https://gssdataexplorer.norc.org/variables/vfilter&gt;</span></span>
+<span id="cb57-230"><a href="#cb57-230"></a></span>
+<span id="cb57-231"><a href="#cb57-231"></a><span class="fu">### Exercise</span></span>
 <span id="cb57-232"><a href="#cb57-232"></a></span>
-<span id="cb57-233"><a href="#cb57-233"></a>Just describe the variables!</span>
-<span id="cb57-234"><a href="#cb57-234"></a></span>
-<span id="cb57-235"><a href="#cb57-235"></a><span class="ot">&lt;https://gssdataexplorer.norc.org/variables/vfilter&gt;</span></span>
-<span id="cb57-236"><a href="#cb57-236"></a></span>
-<span id="cb57-237"><a href="#cb57-237"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-233"><a href="#cb57-233"></a>::: callout-note</span>
+<span id="cb57-234"><a href="#cb57-234"></a>Repeat what we did in class with Steve, but compare the <span class="in">`weekly`</span> variable to a new variable call <span class="in">`conservative`</span>.</span>
+<span id="cb57-235"><a href="#cb57-235"></a></span>
+<span id="cb57-236"><a href="#cb57-236"></a><span class="ot">&lt;https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-12.R&gt;</span></span>
+<span id="cb57-237"><a href="#cb57-237"></a>:::</span>
 <span id="cb57-238"><a href="#cb57-238"></a></span>
-<span id="cb57-239"><a href="#cb57-239"></a>::: callout-note</span>
-<span id="cb57-240"><a href="#cb57-240"></a>Repeat what we did in class with Steve, but compare the <span class="in">`weekly`</span> variable to a new variable call <span class="in">`conservative`</span>.</span>
-<span id="cb57-241"><a href="#cb57-241"></a></span>
-<span id="cb57-242"><a href="#cb57-242"></a><span class="ot">&lt;https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-12.R&gt;</span></span>
-<span id="cb57-243"><a href="#cb57-243"></a>:::</span>
-<span id="cb57-244"><a href="#cb57-244"></a></span>
-<span id="cb57-247"><a href="#cb57-247"></a><span class="in">```{r}</span></span>
-<span id="cb57-248"><a href="#cb57-248"></a><span class="co">#| fig-width: 5</span></span>
-<span id="cb57-249"><a href="#cb57-249"></a><span class="co">#| fig-height: 3</span></span>
-<span id="cb57-250"><a href="#cb57-250"></a><span class="co">#| fig-align: center</span></span>
+<span id="cb57-241"><a href="#cb57-241"></a><span class="in">```{r}</span></span>
+<span id="cb57-242"><a href="#cb57-242"></a><span class="co">#| fig-width: 5</span></span>
+<span id="cb57-243"><a href="#cb57-243"></a><span class="co">#| fig-height: 3</span></span>
+<span id="cb57-244"><a href="#cb57-244"></a><span class="co">#| fig-align: center</span></span>
+<span id="cb57-245"><a href="#cb57-245"></a></span>
+<span id="cb57-246"><a href="#cb57-246"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb57-247"><a href="#cb57-247"></a>  <span class="fu">mutate</span>(<span class="at">female =</span> <span class="fu">if_else</span>(sex <span class="sc">==</span> <span class="st">"female"</span>, 1L, 0L),</span>
+<span id="cb57-248"><a href="#cb57-248"></a>         <span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
+<span id="cb57-249"><a href="#cb57-249"></a>         <span class="at">conservative =</span> <span class="fu">if_else</span>(polviews <span class="sc">&gt;=</span> <span class="dv">5</span>, 1L, 0L)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-250"><a href="#cb57-250"></a>  <span class="fu">drop_na</span>() </span>
 <span id="cb57-251"><a href="#cb57-251"></a></span>
-<span id="cb57-252"><a href="#cb57-252"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
-<span id="cb57-253"><a href="#cb57-253"></a>  <span class="fu">mutate</span>(<span class="at">female =</span> <span class="fu">if_else</span>(sex <span class="sc">==</span> <span class="st">"female"</span>, 1L, 0L),</span>
-<span id="cb57-254"><a href="#cb57-254"></a>         <span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
-<span id="cb57-255"><a href="#cb57-255"></a>         <span class="at">conservative =</span> <span class="fu">if_else</span>(polviews <span class="sc">&gt;=</span> <span class="dv">5</span>, 1L, 0L)) <span class="sc">|&gt;</span> </span>
-<span id="cb57-256"><a href="#cb57-256"></a>  <span class="fu">drop_na</span>() </span>
+<span id="cb57-252"><a href="#cb57-252"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb57-253"><a href="#cb57-253"></a>  <span class="fu">tabyl</span>(conservative, weekly) <span class="sc">|&gt;</span> </span>
+<span id="cb57-254"><a href="#cb57-254"></a>  <span class="fu">adorn_percentages</span>(<span class="st">"row"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb57-255"><a href="#cb57-255"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-256"><a href="#cb57-256"></a>  <span class="fu">adorn_ns</span>()</span>
 <span id="cb57-257"><a href="#cb57-257"></a></span>
 <span id="cb57-258"><a href="#cb57-258"></a>d <span class="sc">|&gt;</span> </span>
-<span id="cb57-259"><a href="#cb57-259"></a>  <span class="fu">tabyl</span>(conservative, weekly) <span class="sc">|&gt;</span> </span>
-<span id="cb57-260"><a href="#cb57-260"></a>  <span class="fu">adorn_percentages</span>(<span class="st">"row"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb57-261"><a href="#cb57-261"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb57-262"><a href="#cb57-262"></a>  <span class="fu">adorn_ns</span>()</span>
-<span id="cb57-263"><a href="#cb57-263"></a></span>
-<span id="cb57-264"><a href="#cb57-264"></a>d <span class="sc">|&gt;</span> </span>
-<span id="cb57-265"><a href="#cb57-265"></a>  <span class="fu">group_by</span>(conservative) <span class="sc">|&gt;</span> </span>
-<span id="cb57-266"><a href="#cb57-266"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> 1L, <span class="st">"conservative"</span>, <span class="st">"other"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb57-267"><a href="#cb57-267"></a>  <span class="fu">summarise</span>(<span class="at">percent =</span> <span class="fu">mean</span>(weekly)) <span class="sc">|&gt;</span> </span>
-<span id="cb57-268"><a href="#cb57-268"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(conservative, percent)) <span class="sc">+</span> </span>
-<span id="cb57-269"><a href="#cb57-269"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span> </span>
-<span id="cb57-270"><a href="#cb57-270"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="dv">1</span>)) <span class="sc">+</span> </span>
-<span id="cb57-271"><a href="#cb57-271"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">title =</span> <span class="st">"Percent of People who Attend Church Weekly"</span>)</span>
+<span id="cb57-259"><a href="#cb57-259"></a>  <span class="fu">group_by</span>(conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb57-260"><a href="#cb57-260"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> 1L, <span class="st">"conservative"</span>, <span class="st">"other"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-261"><a href="#cb57-261"></a>  <span class="fu">summarise</span>(<span class="at">percent =</span> <span class="fu">mean</span>(weekly)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-262"><a href="#cb57-262"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(conservative, percent)) <span class="sc">+</span> </span>
+<span id="cb57-263"><a href="#cb57-263"></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb57-264"><a href="#cb57-264"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(<span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb57-265"><a href="#cb57-265"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">title =</span> <span class="st">"Percent of People who Attend Church Weekly"</span>)</span>
+<span id="cb57-266"><a href="#cb57-266"></a></span>
+<span id="cb57-267"><a href="#cb57-267"></a>boot <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb57-268"><a href="#cb57-268"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> 1L, <span class="st">"conservative"</span>, <span class="st">"other"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-269"><a href="#cb57-269"></a>  <span class="fu">specify</span>(weekly <span class="sc">~</span> conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb57-270"><a href="#cb57-270"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">1e4</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-271"><a href="#cb57-271"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
 <span id="cb57-272"><a href="#cb57-272"></a></span>
-<span id="cb57-273"><a href="#cb57-273"></a>boot <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
-<span id="cb57-274"><a href="#cb57-274"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> 1L, <span class="st">"conservative"</span>, <span class="st">"other"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb57-275"><a href="#cb57-275"></a>  <span class="fu">specify</span>(weekly <span class="sc">~</span> conservative) <span class="sc">|&gt;</span> </span>
-<span id="cb57-276"><a href="#cb57-276"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">1e4</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb57-277"><a href="#cb57-277"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
+<span id="cb57-273"><a href="#cb57-273"></a>ci <span class="ot">&lt;-</span> <span class="fu">get_confidence_interval</span>(boot)</span>
+<span id="cb57-274"><a href="#cb57-274"></a></span>
+<span id="cb57-275"><a href="#cb57-275"></a>boot <span class="sc">|&gt;</span> </span>
+<span id="cb57-276"><a href="#cb57-276"></a>  <span class="fu">visualize</span>() <span class="sc">+</span></span>
+<span id="cb57-277"><a href="#cb57-277"></a>  <span class="fu">shade_ci</span>(ci)</span>
 <span id="cb57-278"><a href="#cb57-278"></a></span>
-<span id="cb57-279"><a href="#cb57-279"></a>ci <span class="ot">&lt;-</span> <span class="fu">get_confidence_interval</span>(boot)</span>
+<span id="cb57-279"><a href="#cb57-279"></a>obs_diff <span class="ot">&lt;-</span> <span class="fu">mean</span>(d<span class="sc">$</span>weekly[d<span class="sc">$</span>conservative <span class="sc">==</span> 1L]) <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>weekly[d<span class="sc">$</span>conservative <span class="sc">==</span> 0L])</span>
 <span id="cb57-280"><a href="#cb57-280"></a></span>
-<span id="cb57-281"><a href="#cb57-281"></a>boot <span class="sc">|&gt;</span> </span>
-<span id="cb57-282"><a href="#cb57-282"></a>  <span class="fu">visualize</span>() <span class="sc">+</span></span>
-<span id="cb57-283"><a href="#cb57-283"></a>  <span class="fu">shade_ci</span>(ci)</span>
-<span id="cb57-284"><a href="#cb57-284"></a></span>
-<span id="cb57-285"><a href="#cb57-285"></a>obs_diff <span class="ot">&lt;-</span> <span class="fu">mean</span>(d<span class="sc">$</span>weekly[d<span class="sc">$</span>conservative <span class="sc">==</span> 1L]) <span class="sc">-</span> <span class="fu">mean</span>(d<span class="sc">$</span>weekly[d<span class="sc">$</span>conservative <span class="sc">==</span> 0L])</span>
-<span id="cb57-286"><a href="#cb57-286"></a></span>
-<span id="cb57-287"><a href="#cb57-287"></a>d_summary <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
-<span id="cb57-288"><a href="#cb57-288"></a>  <span class="fu">group_by</span>(conservative) <span class="sc">|&gt;</span> </span>
-<span id="cb57-289"><a href="#cb57-289"></a>  <span class="fu">summarize</span>(<span class="at">weekly_percent =</span> <span class="fu">mean</span>(weekly)) <span class="sc">|&gt;</span> </span>
-<span id="cb57-290"><a href="#cb57-290"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> conservative, <span class="at">values_from =</span> weekly_percent, <span class="at">names_prefix =</span> <span class="st">"conservative_"</span>)</span>
-<span id="cb57-291"><a href="#cb57-291"></a></span>
-<span id="cb57-292"><a href="#cb57-292"></a>d_summary <span class="ot">&lt;-</span> d_summary <span class="sc">|&gt;</span> </span>
-<span id="cb57-293"><a href="#cb57-293"></a>  <span class="fu">mutate</span>(<span class="at">obs_diff =</span> conservative_1 <span class="sc">-</span> conservative_0)</span>
-<span id="cb57-294"><a href="#cb57-294"></a></span>
-<span id="cb57-295"><a href="#cb57-295"></a>d_summary<span class="sc">$</span>obs_diff</span>
-<span id="cb57-296"><a href="#cb57-296"></a></span>
-<span id="cb57-297"><a href="#cb57-297"></a>null <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
-<span id="cb57-298"><a href="#cb57-298"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> 1L, <span class="st">"conservative"</span>, <span class="st">"other"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb57-299"><a href="#cb57-299"></a>  <span class="fu">specify</span>(weekly <span class="sc">~</span> conservative) <span class="sc">|&gt;</span> </span>
-<span id="cb57-300"><a href="#cb57-300"></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb57-301"><a href="#cb57-301"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">1e4</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb57-302"><a href="#cb57-302"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>)) </span>
-<span id="cb57-303"><a href="#cb57-303"></a></span>
-<span id="cb57-304"><a href="#cb57-304"></a>null</span>
-<span id="cb57-305"><a href="#cb57-305"></a></span>
-<span id="cb57-306"><a href="#cb57-306"></a>null <span class="sc">|&gt;</span> </span>
-<span id="cb57-307"><a href="#cb57-307"></a>  <span class="fu">visualize</span>() <span class="sc">+</span> </span>
-<span id="cb57-308"><a href="#cb57-308"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> d_summary<span class="sc">$</span>obs_diff, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
-<span id="cb57-309"><a href="#cb57-309"></a><span class="in">```</span></span>
+<span id="cb57-281"><a href="#cb57-281"></a>d_summary <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb57-282"><a href="#cb57-282"></a>  <span class="fu">group_by</span>(conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb57-283"><a href="#cb57-283"></a>  <span class="fu">summarize</span>(<span class="at">weekly_percent =</span> <span class="fu">mean</span>(weekly)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-284"><a href="#cb57-284"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> conservative, <span class="at">values_from =</span> weekly_percent, <span class="at">names_prefix =</span> <span class="st">"conservative_"</span>)</span>
+<span id="cb57-285"><a href="#cb57-285"></a></span>
+<span id="cb57-286"><a href="#cb57-286"></a>d_summary <span class="ot">&lt;-</span> d_summary <span class="sc">|&gt;</span> </span>
+<span id="cb57-287"><a href="#cb57-287"></a>  <span class="fu">mutate</span>(<span class="at">obs_diff =</span> conservative_1 <span class="sc">-</span> conservative_0)</span>
+<span id="cb57-288"><a href="#cb57-288"></a></span>
+<span id="cb57-289"><a href="#cb57-289"></a>d_summary<span class="sc">$</span>obs_diff</span>
+<span id="cb57-290"><a href="#cb57-290"></a></span>
+<span id="cb57-291"><a href="#cb57-291"></a>null <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb57-292"><a href="#cb57-292"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> 1L, <span class="st">"conservative"</span>, <span class="st">"other"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-293"><a href="#cb57-293"></a>  <span class="fu">specify</span>(weekly <span class="sc">~</span> conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb57-294"><a href="#cb57-294"></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-295"><a href="#cb57-295"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">1e4</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-296"><a href="#cb57-296"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>)) </span>
+<span id="cb57-297"><a href="#cb57-297"></a></span>
+<span id="cb57-298"><a href="#cb57-298"></a>null</span>
+<span id="cb57-299"><a href="#cb57-299"></a></span>
+<span id="cb57-300"><a href="#cb57-300"></a>null <span class="sc">|&gt;</span> </span>
+<span id="cb57-301"><a href="#cb57-301"></a>  <span class="fu">visualize</span>() <span class="sc">+</span> </span>
+<span id="cb57-302"><a href="#cb57-302"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> d_summary<span class="sc">$</span>obs_diff, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb57-303"><a href="#cb57-303"></a><span class="in">```</span></span>
+<span id="cb57-304"><a href="#cb57-304"></a></span>
+<span id="cb57-305"><a href="#cb57-305"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-306"><a href="#cb57-306"></a></span>
+<span id="cb57-307"><a href="#cb57-307"></a>::: callout-note</span>
+<span id="cb57-308"><a href="#cb57-308"></a>Is the difference in proportions between <span class="in">`conservative`</span> and <span class="in">`weekly`</span> statistically significant?</span>
+<span id="cb57-309"><a href="#cb57-309"></a>:::</span>
 <span id="cb57-310"><a href="#cb57-310"></a></span>
-<span id="cb57-311"><a href="#cb57-311"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-311"><a href="#cb57-311"></a>Yes.</span>
 <span id="cb57-312"><a href="#cb57-312"></a></span>
-<span id="cb57-313"><a href="#cb57-313"></a>::: callout-note</span>
-<span id="cb57-314"><a href="#cb57-314"></a>Is the difference in proportions between <span class="in">`conservative`</span> and <span class="in">`weekly`</span> statistically significant?</span>
-<span id="cb57-315"><a href="#cb57-315"></a>:::</span>
-<span id="cb57-316"><a href="#cb57-316"></a></span>
-<span id="cb57-317"><a href="#cb57-317"></a>Yes.</span>
-<span id="cb57-318"><a href="#cb57-318"></a></span>
-<span id="cb57-319"><a href="#cb57-319"></a><span class="fu">### Exercise</span></span>
-<span id="cb57-320"><a href="#cb57-320"></a></span>
-<span id="cb57-321"><a href="#cb57-321"></a>::: callout-note</span>
-<span id="cb57-322"><a href="#cb57-322"></a>Instead of discretizing the <span class="in">`polviews`</span> and <span class="in">`attend`</span> (which is what we did to create <span class="in">`weekly`</span> and <span class="in">`conservative`</span>), let's try interpreting their original values.</span>
-<span id="cb57-323"><a href="#cb57-323"></a></span>
-<span id="cb57-324"><a href="#cb57-324"></a>I made the following plot using <span class="in">`geom_tile`</span> to make the point that contingency tables are hard to interpret.</span>
-<span id="cb57-325"><a href="#cb57-325"></a></span>
-<span id="cb57-326"><a href="#cb57-326"></a>Try to describe what's going on here.</span>
-<span id="cb57-327"><a href="#cb57-327"></a>:::</span>
-<span id="cb57-328"><a href="#cb57-328"></a></span>
-<span id="cb57-331"><a href="#cb57-331"></a><span class="in">```{r}</span></span>
-<span id="cb57-332"><a href="#cb57-332"></a><span class="co">#| fig-width: 12</span></span>
-<span id="cb57-333"><a href="#cb57-333"></a><span class="co">#| fig-height: 4</span></span>
-<span id="cb57-334"><a href="#cb57-334"></a><span class="co">#| column: page</span></span>
-<span id="cb57-335"><a href="#cb57-335"></a><span class="co">#| fig-align: center</span></span>
-<span id="cb57-336"><a href="#cb57-336"></a><span class="co">#| echo: false</span></span>
-<span id="cb57-337"><a href="#cb57-337"></a><span class="fu">source</span>(<span class="st">"week6_plot_function.R"</span>)</span>
-<span id="cb57-338"><a href="#cb57-338"></a>d <span class="sc">|&gt;</span> <span class="fu">plot_contingency_table</span>(polviews, attend)</span>
-<span id="cb57-339"><a href="#cb57-339"></a><span class="in">```</span></span>
+<span id="cb57-313"><a href="#cb57-313"></a><span class="fu">### Exercise</span></span>
+<span id="cb57-314"><a href="#cb57-314"></a></span>
+<span id="cb57-315"><a href="#cb57-315"></a>::: callout-note</span>
+<span id="cb57-316"><a href="#cb57-316"></a>Instead of discretizing the <span class="in">`polviews`</span> and <span class="in">`attend`</span> (which is what we did to create <span class="in">`weekly`</span> and <span class="in">`conservative`</span>), let's try interpreting their original values.</span>
+<span id="cb57-317"><a href="#cb57-317"></a></span>
+<span id="cb57-318"><a href="#cb57-318"></a>I made the following plot using <span class="in">`geom_tile`</span> to make the point that contingency tables are hard to interpret.</span>
+<span id="cb57-319"><a href="#cb57-319"></a></span>
+<span id="cb57-320"><a href="#cb57-320"></a>Try to describe what's going on here.</span>
+<span id="cb57-321"><a href="#cb57-321"></a>:::</span>
+<span id="cb57-322"><a href="#cb57-322"></a></span>
+<span id="cb57-325"><a href="#cb57-325"></a><span class="in">```{r}</span></span>
+<span id="cb57-326"><a href="#cb57-326"></a><span class="co">#| fig-width: 12</span></span>
+<span id="cb57-327"><a href="#cb57-327"></a><span class="co">#| fig-height: 4</span></span>
+<span id="cb57-328"><a href="#cb57-328"></a><span class="co">#| column: page</span></span>
+<span id="cb57-329"><a href="#cb57-329"></a><span class="co">#| fig-align: center</span></span>
+<span id="cb57-330"><a href="#cb57-330"></a><span class="co">#| echo: false</span></span>
+<span id="cb57-331"><a href="#cb57-331"></a><span class="fu">source</span>(<span class="st">"week6_plot_function.R"</span>)</span>
+<span id="cb57-332"><a href="#cb57-332"></a>d <span class="sc">|&gt;</span> <span class="fu">plot_contingency_table</span>(polviews, attend)</span>
+<span id="cb57-333"><a href="#cb57-333"></a><span class="in">```</span></span>
+<span id="cb57-334"><a href="#cb57-334"></a></span>
+<span id="cb57-335"><a href="#cb57-335"></a>Good luck!</span>
+<span id="cb57-336"><a href="#cb57-336"></a></span>
+<span id="cb57-337"><a href="#cb57-337"></a>Pleas note that most people think of themselves as "moderate" and that very few of them attend religious services. There is, however, a big chunk of people that identify as conservative ( $n = 104$ ) that attend every week.</span>
+<span id="cb57-338"><a href="#cb57-338"></a></span>
+<span id="cb57-339"><a href="#cb57-339"></a><span class="fu">### Bonus</span></span>
 <span id="cb57-340"><a href="#cb57-340"></a></span>
-<span id="cb57-341"><a href="#cb57-341"></a>Good luck!</span>
-<span id="cb57-342"><a href="#cb57-342"></a></span>
-<span id="cb57-343"><a href="#cb57-343"></a>Pleas note that most people think of themselves as "moderate" and that very few of them attend religious services. There is, however, a big chunk of people that identify as conservative ( $n = 104$ ) that attend every week.</span>
-<span id="cb57-344"><a href="#cb57-344"></a></span>
-<span id="cb57-345"><a href="#cb57-345"></a><span class="fu">### Bonus</span></span>
+<span id="cb57-341"><a href="#cb57-341"></a>::: callout-note</span>
+<span id="cb57-342"><a href="#cb57-342"></a>Do a Chi square test on <span class="in">`polviews`</span> and <span class="in">`attend`</span> using the <span class="in">`infer`</span> package.</span>
+<span id="cb57-343"><a href="#cb57-343"></a></span>
+<span id="cb57-344"><a href="#cb57-344"></a>The null hypothesis is that these variables are "independent" of each other.</span>
+<span id="cb57-345"><a href="#cb57-345"></a>:::</span>
 <span id="cb57-346"><a href="#cb57-346"></a></span>
-<span id="cb57-347"><a href="#cb57-347"></a>::: callout-note</span>
-<span id="cb57-348"><a href="#cb57-348"></a>Do a Chi square test on <span class="in">`polviews`</span> and <span class="in">`attend`</span> using the <span class="in">`infer`</span> package.</span>
-<span id="cb57-349"><a href="#cb57-349"></a></span>
-<span id="cb57-350"><a href="#cb57-350"></a>The null hypothesis is that these variables are "independent" of each other.</span>
-<span id="cb57-351"><a href="#cb57-351"></a>:::</span>
+<span id="cb57-349"><a href="#cb57-349"></a><span class="in">```{r}</span></span>
+<span id="cb57-350"><a href="#cb57-350"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb57-351"><a href="#cb57-351"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as_factor</span>(polviews), <span class="at">attend =</span> <span class="fu">as_factor</span>(attend))</span>
 <span id="cb57-352"><a href="#cb57-352"></a></span>
-<span id="cb57-355"><a href="#cb57-355"></a><span class="in">```{r}</span></span>
-<span id="cb57-356"><a href="#cb57-356"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
-<span id="cb57-357"><a href="#cb57-357"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as_factor</span>(polviews), <span class="at">attend =</span> <span class="fu">as_factor</span>(attend))</span>
+<span id="cb57-353"><a href="#cb57-353"></a><span class="fu">glimpse</span>(d)</span>
+<span id="cb57-354"><a href="#cb57-354"></a></span>
+<span id="cb57-355"><a href="#cb57-355"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb57-356"><a href="#cb57-356"></a>  <span class="fu">specify</span>(attend <span class="sc">~</span> polviews) <span class="sc">|&gt;</span></span>
+<span id="cb57-357"><a href="#cb57-357"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"Chisq"</span>)</span>
 <span id="cb57-358"><a href="#cb57-358"></a></span>
-<span id="cb57-359"><a href="#cb57-359"></a><span class="fu">glimpse</span>(d)</span>
+<span id="cb57-359"><a href="#cb57-359"></a><span class="fu">chisq.test</span>(d<span class="sc">$</span>attend, d<span class="sc">$</span>polviews)</span>
 <span id="cb57-360"><a href="#cb57-360"></a></span>
-<span id="cb57-361"><a href="#cb57-361"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb57-361"><a href="#cb57-361"></a>null <span class="ot">&lt;-</span>  d <span class="sc">|&gt;</span> </span>
 <span id="cb57-362"><a href="#cb57-362"></a>  <span class="fu">specify</span>(attend <span class="sc">~</span> polviews) <span class="sc">|&gt;</span></span>
-<span id="cb57-363"><a href="#cb57-363"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"Chisq"</span>)</span>
-<span id="cb57-364"><a href="#cb57-364"></a></span>
-<span id="cb57-365"><a href="#cb57-365"></a><span class="fu">chisq.test</span>(d<span class="sc">$</span>attend, d<span class="sc">$</span>polviews)</span>
+<span id="cb57-363"><a href="#cb57-363"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-364"><a href="#cb57-364"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">1e3</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-365"><a href="#cb57-365"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"Chisq"</span>) </span>
 <span id="cb57-366"><a href="#cb57-366"></a></span>
-<span id="cb57-367"><a href="#cb57-367"></a>null <span class="ot">&lt;-</span>  d <span class="sc">|&gt;</span> </span>
-<span id="cb57-368"><a href="#cb57-368"></a>  <span class="fu">specify</span>(attend <span class="sc">~</span> polviews) <span class="sc">|&gt;</span></span>
-<span id="cb57-369"><a href="#cb57-369"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb57-370"><a href="#cb57-370"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">1e3</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb57-371"><a href="#cb57-371"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"Chisq"</span>) </span>
-<span id="cb57-372"><a href="#cb57-372"></a></span>
-<span id="cb57-373"><a href="#cb57-373"></a>null <span class="sc">|&gt;</span> </span>
-<span id="cb57-374"><a href="#cb57-374"></a>  infer<span class="sc">::</span><span class="fu">visualise</span>()</span>
+<span id="cb57-367"><a href="#cb57-367"></a>null <span class="sc">|&gt;</span> </span>
+<span id="cb57-368"><a href="#cb57-368"></a>  infer<span class="sc">::</span><span class="fu">visualise</span>()</span>
+<span id="cb57-369"><a href="#cb57-369"></a></span>
+<span id="cb57-370"><a href="#cb57-370"></a>null <span class="sc">|&gt;</span> </span>
+<span id="cb57-371"><a href="#cb57-371"></a>  infer<span class="sc">::</span><span class="fu">visualise</span>() <span class="sc">+</span></span>
+<span id="cb57-372"><a href="#cb57-372"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">231.9905</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb57-373"><a href="#cb57-373"></a>  </span>
+<span id="cb57-374"><a href="#cb57-374"></a><span class="in">```</span></span>
 <span id="cb57-375"><a href="#cb57-375"></a></span>
-<span id="cb57-376"><a href="#cb57-376"></a>null <span class="sc">|&gt;</span> </span>
-<span id="cb57-377"><a href="#cb57-377"></a>  infer<span class="sc">::</span><span class="fu">visualise</span>() <span class="sc">+</span></span>
-<span id="cb57-378"><a href="#cb57-378"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">231.9905</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
-<span id="cb57-379"><a href="#cb57-379"></a>  </span>
-<span id="cb57-380"><a href="#cb57-380"></a><span class="in">```</span></span>
-<span id="cb57-381"><a href="#cb57-381"></a></span>
-<span id="cb57-382"><a href="#cb57-382"></a>$\chi^2$ **test without the `infer` package:**</span>
+<span id="cb57-376"><a href="#cb57-376"></a>$\chi^2$ **test without the `infer` package:**</span>
+<span id="cb57-377"><a href="#cb57-377"></a></span>
+<span id="cb57-380"><a href="#cb57-380"></a><span class="in">```{r}</span></span>
+<span id="cb57-381"><a href="#cb57-381"></a>observed <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">attend =</span> d<span class="sc">$</span>attend, <span class="at">polviews =</span> d<span class="sc">$</span>polviews)</span>
+<span id="cb57-382"><a href="#cb57-382"></a>observed</span>
 <span id="cb57-383"><a href="#cb57-383"></a></span>
-<span id="cb57-386"><a href="#cb57-386"></a><span class="in">```{r}</span></span>
-<span id="cb57-387"><a href="#cb57-387"></a>observed <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">attend =</span> d<span class="sc">$</span>attend, <span class="at">polviews =</span> d<span class="sc">$</span>polviews)</span>
-<span id="cb57-388"><a href="#cb57-388"></a>observed</span>
-<span id="cb57-389"><a href="#cb57-389"></a></span>
-<span id="cb57-390"><a href="#cb57-390"></a><span class="do">## using the formula (this is a little "hack" you might have not seen before)</span></span>
-<span id="cb57-391"><a href="#cb57-391"></a>n <span class="ot">&lt;-</span> <span class="fu">sum</span>(observed)</span>
-<span id="cb57-392"><a href="#cb57-392"></a>cols <span class="ot">&lt;-</span> <span class="fu">colSums</span>(observed) </span>
-<span id="cb57-393"><a href="#cb57-393"></a>rows <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(observed) </span>
-<span id="cb57-394"><a href="#cb57-394"></a>expected <span class="ot">&lt;-</span> <span class="fu">outer</span>(rows, cols) <span class="sc">/</span> n</span>
-<span id="cb57-395"><a href="#cb57-395"></a>expected</span>
-<span id="cb57-396"><a href="#cb57-396"></a></span>
-<span id="cb57-397"><a href="#cb57-397"></a><span class="do">## chi-square statistic</span></span>
-<span id="cb57-398"><a href="#cb57-398"></a><span class="fu">sum</span>((observed <span class="sc">-</span> expected)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> expected)</span>
+<span id="cb57-384"><a href="#cb57-384"></a><span class="do">## using the formula (this is a little "hack" you might have not seen before)</span></span>
+<span id="cb57-385"><a href="#cb57-385"></a>n <span class="ot">&lt;-</span> <span class="fu">sum</span>(observed)</span>
+<span id="cb57-386"><a href="#cb57-386"></a>cols <span class="ot">&lt;-</span> <span class="fu">colSums</span>(observed) </span>
+<span id="cb57-387"><a href="#cb57-387"></a>rows <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(observed) </span>
+<span id="cb57-388"><a href="#cb57-388"></a>expected <span class="ot">&lt;-</span> <span class="fu">outer</span>(rows, cols) <span class="sc">/</span> n</span>
+<span id="cb57-389"><a href="#cb57-389"></a>expected</span>
+<span id="cb57-390"><a href="#cb57-390"></a></span>
+<span id="cb57-391"><a href="#cb57-391"></a><span class="do">## chi-square statistic</span></span>
+<span id="cb57-392"><a href="#cb57-392"></a><span class="fu">sum</span>((observed <span class="sc">-</span> expected)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> expected)</span>
+<span id="cb57-393"><a href="#cb57-393"></a></span>
+<span id="cb57-394"><a href="#cb57-394"></a><span class="do">## null distribution</span></span>
+<span id="cb57-395"><a href="#cb57-395"></a>null <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">1e4</span>, {</span>
+<span id="cb57-396"><a href="#cb57-396"></a>  ob_draw <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">attend =</span> <span class="fu">sample</span>(d<span class="sc">$</span>attend), <span class="at">polviews =</span> <span class="fu">sample</span>(d<span class="sc">$</span>polviews))</span>
+<span id="cb57-397"><a href="#cb57-397"></a>  <span class="fu">sum</span>((ob_draw <span class="sc">-</span> expected)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> expected)</span>
+<span id="cb57-398"><a href="#cb57-398"></a>})</span>
 <span id="cb57-399"><a href="#cb57-399"></a></span>
-<span id="cb57-400"><a href="#cb57-400"></a><span class="do">## null distribution</span></span>
-<span id="cb57-401"><a href="#cb57-401"></a>null <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">1e4</span>, {</span>
-<span id="cb57-402"><a href="#cb57-402"></a>  ob_draw <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">attend =</span> <span class="fu">sample</span>(d<span class="sc">$</span>attend), <span class="at">polviews =</span> <span class="fu">sample</span>(d<span class="sc">$</span>polviews))</span>
-<span id="cb57-403"><a href="#cb57-403"></a>  <span class="fu">sum</span>((ob_draw <span class="sc">-</span> expected)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> expected)</span>
-<span id="cb57-404"><a href="#cb57-404"></a>})</span>
-<span id="cb57-405"><a href="#cb57-405"></a></span>
-<span id="cb57-406"><a href="#cb57-406"></a><span class="fu">tibble</span>(null) <span class="sc">|&gt;</span> </span>
-<span id="cb57-407"><a href="#cb57-407"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(null)) <span class="sc">+</span> </span>
-<span id="cb57-408"><a href="#cb57-408"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb57-409"><a href="#cb57-409"></a>  <span class="fu">geom_vline</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">xintercept =</span> <span class="fu">sum</span>((observed <span class="sc">-</span> expected)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> expected)) <span class="sc">+</span> </span>
-<span id="cb57-410"><a href="#cb57-410"></a>  <span class="fu">labs</span>(<span class="at">title =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">chi^2$ Simulation-Based Null Distribution"</span>))</span>
-<span id="cb57-411"><a href="#cb57-411"></a><span class="in">```</span></span>
-<span id="cb57-412"><a href="#cb57-412"></a></span>
-<span id="cb57-413"><a href="#cb57-413"></a>*Back to the interpretation:*</span>
-<span id="cb57-414"><a href="#cb57-414"></a></span>
-<span id="cb57-417"><a href="#cb57-417"></a><span class="in">```{r}</span></span>
-<span id="cb57-418"><a href="#cb57-418"></a><span class="fu">as_tibble</span>(observed <span class="sc">-</span> expected, <span class="at">n =</span> <span class="st">"x"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb57-419"><a href="#cb57-419"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(attend, polviews, <span class="at">fill =</span> x<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">+</span> </span>
-<span id="cb57-420"><a href="#cb57-420"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb57-421"><a href="#cb57-421"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(x, <span class="dv">2</span>))) <span class="sc">+</span></span>
-<span id="cb57-422"><a href="#cb57-422"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb57-423"><a href="#cb57-423"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_line_size =</span> <span class="dv">0</span>, <span class="at">base_family =</span> <span class="st">"Optima"</span>) <span class="sc">+</span></span>
-<span id="cb57-424"><a href="#cb57-424"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Observed - Expected Counts"</span>)</span>
-<span id="cb57-425"><a href="#cb57-425"></a><span class="in">```</span></span>
+<span id="cb57-400"><a href="#cb57-400"></a><span class="fu">tibble</span>(null) <span class="sc">|&gt;</span> </span>
+<span id="cb57-401"><a href="#cb57-401"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(null)) <span class="sc">+</span> </span>
+<span id="cb57-402"><a href="#cb57-402"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb57-403"><a href="#cb57-403"></a>  <span class="fu">geom_vline</span>(<span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">xintercept =</span> <span class="fu">sum</span>((observed <span class="sc">-</span> expected)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> expected)) <span class="sc">+</span> </span>
+<span id="cb57-404"><a href="#cb57-404"></a>  <span class="fu">labs</span>(<span class="at">title =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">chi^2$ Simulation-Based Null Distribution"</span>))</span>
+<span id="cb57-405"><a href="#cb57-405"></a><span class="in">```</span></span>
+<span id="cb57-406"><a href="#cb57-406"></a></span>
+<span id="cb57-407"><a href="#cb57-407"></a>*Back to the interpretation:*</span>
+<span id="cb57-408"><a href="#cb57-408"></a></span>
+<span id="cb57-411"><a href="#cb57-411"></a><span class="in">```{r}</span></span>
+<span id="cb57-412"><a href="#cb57-412"></a><span class="fu">as_tibble</span>(observed <span class="sc">-</span> expected, <span class="at">n =</span> <span class="st">"x"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb57-413"><a href="#cb57-413"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(attend, polviews, <span class="at">fill =</span> x<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">+</span> </span>
+<span id="cb57-414"><a href="#cb57-414"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb57-415"><a href="#cb57-415"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(x, <span class="dv">2</span>))) <span class="sc">+</span></span>
+<span id="cb57-416"><a href="#cb57-416"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb57-417"><a href="#cb57-417"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_line_size =</span> <span class="dv">0</span>, <span class="at">base_family =</span> <span class="st">"Optima"</span>) <span class="sc">+</span></span>
+<span id="cb57-418"><a href="#cb57-418"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Observed - Expected Counts"</span>)</span>
+<span id="cb57-419"><a href="#cb57-419"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
