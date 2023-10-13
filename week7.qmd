@@ -7,7 +7,7 @@ code-fold: true
 
 Hi everyone, this week we'll practice making sense of contingency tables with conditional, joint, and marginal probabilities. You might also want to complement Steve's materials with other resources.
 
-For example, this is how @imai2022 defines these concepts:
+For example, this is how @imai2022 define these concepts:
 
 ![](images/conditional_probability.png){fig-align="center" width="100%"}
 
@@ -52,7 +52,7 @@ table(conservative = d$conservative, weekly = d$weekly)
 ```
 
 ::: callout-note
-In this sample:
+**In this sample:**
 
 1.  What is the probability that a person attends religious services weekly?
 
@@ -80,7 +80,9 @@ Finally, if we *assume* that $W$ and $C$ are independent:
 :::
 
 ::: callout-tip
-Hint: I introduced the superscript $\complement$ notation, which means "complement." You can think of $C$ as "conservative" and $C^\complement$ as "not conservative."
+Hint: I introduced the superscript $\complement$ notation, which means "complement."
+
+You can think of $C$ as "conservative" and $C^\complement$ as "not conservative."
 :::
 
 ### Exercise
@@ -97,7 +99,7 @@ Choose 2 new variables in the GSS.
 Suggestion: You should really make your life easier and either choose two binary variables or create them.
 :::
 
-## Making Sense of Dependence
+## Four Ways to Make Sense of Dependence
 
 ### Exercise 
 

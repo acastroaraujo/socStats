@@ -451,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">sum</span>(<span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.72799</code></pre>
+<pre><code>[1] 8.229349</code></pre>
 </div>
 </div>
 <p>The simulation you create will have 1000 instances of a value like this.</p>
@@ -490,8 +490,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Now lets revisit last class’ simulation exercise.</p>
-<p><a href="https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-08.R" class="uri">https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-08.R</a></p>
+<p>Now lets revisit last class’ simulation exercise (click <a href="https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-08.R"><strong>here</strong></a>).</p>
 <p>You’ll notice that the sample size is controlled by the following object:</p>
 <div class="cell">
 <details open="">
@@ -985,49 +984,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb13-130"><a href="#cb13-130"></a>Write down intuitively what you think this means.</span>
 <span id="cb13-131"><a href="#cb13-131"></a>:::</span>
 <span id="cb13-132"><a href="#cb13-132"></a></span>
-<span id="cb13-133"><a href="#cb13-133"></a>Now lets revisit last class' simulation exercise.</span>
+<span id="cb13-133"><a href="#cb13-133"></a>Now lets revisit last class' simulation exercise (click <span class="co">[</span><span class="ot">**here**</span><span class="co">](https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-08.R)</span>).</span>
 <span id="cb13-134"><a href="#cb13-134"></a></span>
-<span id="cb13-135"><a href="#cb13-135"></a><span class="ot">&lt;https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-08.R&gt;</span></span>
+<span id="cb13-135"><a href="#cb13-135"></a>You'll notice that the sample size is controlled by the following object:</span>
 <span id="cb13-136"><a href="#cb13-136"></a></span>
-<span id="cb13-137"><a href="#cb13-137"></a>You'll notice that the sample size is controlled by the following object:</span>
-<span id="cb13-138"><a href="#cb13-138"></a></span>
-<span id="cb13-141"><a href="#cb13-141"></a><span class="in">```{r}</span></span>
-<span id="cb13-142"><a href="#cb13-142"></a>svy_size <span class="ot">&lt;-</span> <span class="dv">2247</span>  <span class="co"># number of people in each "poll"</span></span>
-<span id="cb13-143"><a href="#cb13-143"></a><span class="in">```</span></span>
+<span id="cb13-139"><a href="#cb13-139"></a><span class="in">```{r}</span></span>
+<span id="cb13-140"><a href="#cb13-140"></a>svy_size <span class="ot">&lt;-</span> <span class="dv">2247</span>  <span class="co"># number of people in each "poll"</span></span>
+<span id="cb13-141"><a href="#cb13-141"></a><span class="in">```</span></span>
+<span id="cb13-142"><a href="#cb13-142"></a></span>
+<span id="cb13-143"><a href="#cb13-143"></a>And the "true" population proportion is given by:</span>
 <span id="cb13-144"><a href="#cb13-144"></a></span>
-<span id="cb13-145"><a href="#cb13-145"></a>And the "true" population proportion is given by:</span>
-<span id="cb13-146"><a href="#cb13-146"></a></span>
-<span id="cb13-149"><a href="#cb13-149"></a><span class="in">```{r}</span></span>
-<span id="cb13-150"><a href="#cb13-150"></a>est_prop <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb13-151"><a href="#cb13-151"></a><span class="in">```</span></span>
+<span id="cb13-147"><a href="#cb13-147"></a><span class="in">```{r}</span></span>
+<span id="cb13-148"><a href="#cb13-148"></a>est_prop <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb13-149"><a href="#cb13-149"></a><span class="in">```</span></span>
+<span id="cb13-150"><a href="#cb13-150"></a></span>
+<span id="cb13-151"><a href="#cb13-151"></a>In class, we also calculated the standard error "analytically" using the following mathematical equation:</span>
 <span id="cb13-152"><a href="#cb13-152"></a></span>
-<span id="cb13-153"><a href="#cb13-153"></a>In class, we also calculated the standard error "analytically" using the following mathematical equation:</span>
-<span id="cb13-154"><a href="#cb13-154"></a></span>
+<span id="cb13-153"><a href="#cb13-153"></a>$$</span>
+<span id="cb13-154"><a href="#cb13-154"></a>\text{se}_x = \sqrt{\frac{p (1-p)}{n}}</span>
 <span id="cb13-155"><a href="#cb13-155"></a>$$</span>
-<span id="cb13-156"><a href="#cb13-156"></a>\text{se}_x = \sqrt{\frac{p (1-p)}{n}}</span>
-<span id="cb13-157"><a href="#cb13-157"></a>$$</span>
+<span id="cb13-156"><a href="#cb13-156"></a></span>
+<span id="cb13-157"><a href="#cb13-157"></a>Or in code:</span>
 <span id="cb13-158"><a href="#cb13-158"></a></span>
-<span id="cb13-159"><a href="#cb13-159"></a>Or in code:</span>
-<span id="cb13-160"><a href="#cb13-160"></a></span>
-<span id="cb13-163"><a href="#cb13-163"></a><span class="in">```{r}</span></span>
-<span id="cb13-164"><a href="#cb13-164"></a>std_error <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">*</span> (<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">/</span> svy_size)</span>
-<span id="cb13-165"><a href="#cb13-165"></a>std_error</span>
-<span id="cb13-166"><a href="#cb13-166"></a><span class="in">```</span></span>
+<span id="cb13-161"><a href="#cb13-161"></a><span class="in">```{r}</span></span>
+<span id="cb13-162"><a href="#cb13-162"></a>std_error <span class="ot">&lt;-</span> <span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">*</span> (<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">/</span> svy_size)</span>
+<span id="cb13-163"><a href="#cb13-163"></a>std_error</span>
+<span id="cb13-164"><a href="#cb13-164"></a><span class="in">```</span></span>
+<span id="cb13-165"><a href="#cb13-165"></a></span>
+<span id="cb13-166"><a href="#cb13-166"></a>This means that the 95% confidence interval should be roughly 2 standard errors away from 0.33</span>
 <span id="cb13-167"><a href="#cb13-167"></a></span>
-<span id="cb13-168"><a href="#cb13-168"></a>This means that the 95% confidence interval should be roughly 2 standard errors away from 0.33</span>
-<span id="cb13-169"><a href="#cb13-169"></a></span>
-<span id="cb13-172"><a href="#cb13-172"></a><span class="in">```{r}</span></span>
-<span id="cb13-173"><a href="#cb13-173"></a><span class="fl">0.33</span> <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>std_error <span class="do">## "1.96" is roughly "2"!</span></span>
-<span id="cb13-174"><a href="#cb13-174"></a><span class="fl">0.33</span> <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>std_error</span>
-<span id="cb13-175"><a href="#cb13-175"></a><span class="in">```</span></span>
+<span id="cb13-170"><a href="#cb13-170"></a><span class="in">```{r}</span></span>
+<span id="cb13-171"><a href="#cb13-171"></a><span class="fl">0.33</span> <span class="sc">-</span> <span class="fl">1.96</span><span class="sc">*</span>std_error <span class="do">## "1.96" is roughly "2"!</span></span>
+<span id="cb13-172"><a href="#cb13-172"></a><span class="fl">0.33</span> <span class="sc">+</span> <span class="fl">1.96</span><span class="sc">*</span>std_error</span>
+<span id="cb13-173"><a href="#cb13-173"></a><span class="in">```</span></span>
+<span id="cb13-174"><a href="#cb13-174"></a></span>
+<span id="cb13-175"><a href="#cb13-175"></a>In Steve's simulation, this is given by <span class="in">`ci95`</span>.</span>
 <span id="cb13-176"><a href="#cb13-176"></a></span>
-<span id="cb13-177"><a href="#cb13-177"></a>In Steve's simulation, this is given by <span class="in">`ci95`</span>.</span>
-<span id="cb13-178"><a href="#cb13-178"></a></span>
-<span id="cb13-179"><a href="#cb13-179"></a>::: callout-note</span>
-<span id="cb13-180"><a href="#cb13-180"></a>Repeat Steve's simulation with different values of <span class="in">`svy_size`</span>. Is the 95% confidence interval still roughly 2 standard errors away from 0.33?</span>
-<span id="cb13-181"><a href="#cb13-181"></a></span>
-<span id="cb13-182"><a href="#cb13-182"></a>Do these results change your initial interpretation of the idea that "sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold" ?</span>
-<span id="cb13-183"><a href="#cb13-183"></a>:::</span>
+<span id="cb13-177"><a href="#cb13-177"></a>::: callout-note</span>
+<span id="cb13-178"><a href="#cb13-178"></a>Repeat Steve's simulation with different values of <span class="in">`svy_size`</span>. Is the 95% confidence interval still roughly 2 standard errors away from 0.33?</span>
+<span id="cb13-179"><a href="#cb13-179"></a></span>
+<span id="cb13-180"><a href="#cb13-180"></a>Do these results change your initial interpretation of the idea that "sample sizes equal to or greater than 30 are often considered sufficient for the CLT to hold" ?</span>
+<span id="cb13-181"><a href="#cb13-181"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

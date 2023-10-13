@@ -124,9 +124,7 @@ Many introductory statistics textbooks say that "sample sizes equal to or greate
 Write down intuitively what you think this means.
 :::
 
-Now lets revisit last class' simulation exercise.
-
-<https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-08.R>
+Now lets revisit last class' simulation exercise (click [**here**](https://github.com/vaiseys/soc-stats-1/blob/main/demos/day-08.R)).
 
 You'll notice that the sample size is controlled by the following object:
 

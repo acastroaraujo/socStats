@@ -293,7 +293,7 @@ div.csl-indent {
   <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">7.1.1</span> Exercise</a></li>
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">7.1.2</span> Exercise</a></li>
   </ul></li>
-  <li><a href="#making-sense-of-dependence" id="toc-making-sense-of-dependence" class="nav-link" data-scroll-target="#making-sense-of-dependence"><span class="header-section-number">7.2</span> Making Sense of Dependence</a>
+  <li><a href="#four-ways-to-make-sense-of-dependence" id="toc-four-ways-to-make-sense-of-dependence" class="nav-link" data-scroll-target="#four-ways-to-make-sense-of-dependence"><span class="header-section-number">7.2</span> Four Ways to Make Sense of Dependence</a>
   <ul class="collapse">
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">7.2.1</span> Exercise</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">7.2.2</span> Exercise</a></li>
@@ -324,7 +324,7 @@ div.csl-indent {
 </header>
 
 <p>Hi everyone, this week we’ll practice making sense of contingency tables with conditional, joint, and marginal probabilities. You might also want to complement Steve’s materials with other resources.</p>
-<p>For example, this is how <span class="citation" data-cites="imai2022">Imai and Williams (<a href="references.html#ref-imai2022" role="doc-biblioref">2022</a>)</span> defines these concepts:</p>
+<p>For example, this is how <span class="citation" data-cites="imai2022">Imai and Williams (<a href="references.html#ref-imai2022" role="doc-biblioref">2022</a>)</span> define these concepts:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/conditional_probability.png" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -384,7 +384,7 @@ conservative    0    1
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>In this sample:</p>
+<p><strong>In this sample:</strong></p>
 <ol type="1">
 <li><p>What is the probability that a person attends religious services weekly?</p>
 <p>I’m asking for <span class="math inline">\(\Pr(W)\)</span></p></li>
@@ -410,7 +410,8 @@ conservative    0    1
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Hint: I introduced the superscript <span class="math inline">\(\complement\)</span> notation, which means “complement.” You can think of <span class="math inline">\(C\)</span> as “conservative” and <span class="math inline">\(C^\complement\)</span> as “not conservative.”</p>
+<p>Hint: I introduced the superscript <span class="math inline">\(\complement\)</span> notation, which means “complement.”</p>
+<p>You can think of <span class="math inline">\(C\)</span> as “conservative” and <span class="math inline">\(C^\complement\)</span> as “not conservative.”</p>
 </div>
 </div>
 </div>
@@ -443,8 +444,8 @@ conservative    0    1
 </div>
 </section>
 </section>
-<section id="making-sense-of-dependence" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="making-sense-of-dependence"><span class="header-section-number">7.2</span> Making Sense of Dependence</h2>
+<section id="four-ways-to-make-sense-of-dependence" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="four-ways-to-make-sense-of-dependence"><span class="header-section-number">7.2</span> Four Ways to Make Sense of Dependence</h2>
 <section id="exercise-2" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">7.2.1</span> Exercise</h3>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -832,7 +833,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-7"><a href="#cb4-7"></a></span>
 <span id="cb4-8"><a href="#cb4-8"></a>Hi everyone, this week we'll practice making sense of contingency tables with conditional, joint, and marginal probabilities. You might also want to complement Steve's materials with other resources.</span>
 <span id="cb4-9"><a href="#cb4-9"></a></span>
-<span id="cb4-10"><a href="#cb4-10"></a>For example, this is how @imai2022 defines these concepts:</span>
+<span id="cb4-10"><a href="#cb4-10"></a>For example, this is how @imai2022 define these concepts:</span>
 <span id="cb4-11"><a href="#cb4-11"></a></span>
 <span id="cb4-12"><a href="#cb4-12"></a><span class="al">![](images/conditional_probability.png)</span>{fig-align="center" width="100%"}</span>
 <span id="cb4-13"><a href="#cb4-13"></a></span>
@@ -877,7 +878,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-56"><a href="#cb4-56"></a><span class="in">```</span></span>
 <span id="cb4-57"><a href="#cb4-57"></a></span>
 <span id="cb4-58"><a href="#cb4-58"></a>::: callout-note</span>
-<span id="cb4-59"><a href="#cb4-59"></a>In this sample:</span>
+<span id="cb4-59"><a href="#cb4-59"></a>**In this sample:**</span>
 <span id="cb4-60"><a href="#cb4-60"></a></span>
 <span id="cb4-61"><a href="#cb4-61"></a><span class="ss">1.  </span>What is the probability that a person attends religious services weekly?</span>
 <span id="cb4-62"><a href="#cb4-62"></a></span>
@@ -905,68 +906,70 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-84"><a href="#cb4-84"></a>:::</span>
 <span id="cb4-85"><a href="#cb4-85"></a></span>
 <span id="cb4-86"><a href="#cb4-86"></a>::: callout-tip</span>
-<span id="cb4-87"><a href="#cb4-87"></a>Hint: I introduced the superscript $\complement$ notation, which means "complement." You can think of $C$ as "conservative" and $C^\complement$ as "not conservative."</span>
-<span id="cb4-88"><a href="#cb4-88"></a>:::</span>
-<span id="cb4-89"><a href="#cb4-89"></a></span>
-<span id="cb4-90"><a href="#cb4-90"></a><span class="fu">### Exercise</span></span>
+<span id="cb4-87"><a href="#cb4-87"></a>Hint: I introduced the superscript $\complement$ notation, which means "complement."</span>
+<span id="cb4-88"><a href="#cb4-88"></a></span>
+<span id="cb4-89"><a href="#cb4-89"></a>You can think of $C$ as "conservative" and $C^\complement$ as "not conservative."</span>
+<span id="cb4-90"><a href="#cb4-90"></a>:::</span>
 <span id="cb4-91"><a href="#cb4-91"></a></span>
-<span id="cb4-92"><a href="#cb4-92"></a>::: callout-note</span>
-<span id="cb4-93"><a href="#cb4-93"></a>Choose 2 new variables in the GSS.</span>
-<span id="cb4-94"><a href="#cb4-94"></a></span>
-<span id="cb4-95"><a href="#cb4-95"></a><span class="ss">-   </span>Show the contingency table for these new variables.</span>
+<span id="cb4-92"><a href="#cb4-92"></a><span class="fu">### Exercise</span></span>
+<span id="cb4-93"><a href="#cb4-93"></a></span>
+<span id="cb4-94"><a href="#cb4-94"></a>::: callout-note</span>
+<span id="cb4-95"><a href="#cb4-95"></a>Choose 2 new variables in the GSS.</span>
 <span id="cb4-96"><a href="#cb4-96"></a></span>
-<span id="cb4-97"><a href="#cb4-97"></a><span class="ss">-   </span>Modify the exercise 7.1.1 so that it applies to your new contingency table and answer all 8 questions.</span>
-<span id="cb4-98"><a href="#cb4-98"></a>:::</span>
-<span id="cb4-99"><a href="#cb4-99"></a></span>
-<span id="cb4-100"><a href="#cb4-100"></a>::: callout-tip</span>
-<span id="cb4-101"><a href="#cb4-101"></a>Suggestion: You should really make your life easier and either choose two binary variables or create them.</span>
-<span id="cb4-102"><a href="#cb4-102"></a>:::</span>
-<span id="cb4-103"><a href="#cb4-103"></a></span>
-<span id="cb4-104"><a href="#cb4-104"></a><span class="fu">## Making Sense of Dependence</span></span>
+<span id="cb4-97"><a href="#cb4-97"></a><span class="ss">-   </span>Show the contingency table for these new variables.</span>
+<span id="cb4-98"><a href="#cb4-98"></a></span>
+<span id="cb4-99"><a href="#cb4-99"></a><span class="ss">-   </span>Modify the exercise 7.1.1 so that it applies to your new contingency table and answer all 8 questions.</span>
+<span id="cb4-100"><a href="#cb4-100"></a>:::</span>
+<span id="cb4-101"><a href="#cb4-101"></a></span>
+<span id="cb4-102"><a href="#cb4-102"></a>::: callout-tip</span>
+<span id="cb4-103"><a href="#cb4-103"></a>Suggestion: You should really make your life easier and either choose two binary variables or create them.</span>
+<span id="cb4-104"><a href="#cb4-104"></a>:::</span>
 <span id="cb4-105"><a href="#cb4-105"></a></span>
-<span id="cb4-106"><a href="#cb4-106"></a><span class="fu">### Exercise </span></span>
+<span id="cb4-106"><a href="#cb4-106"></a><span class="fu">## Four Ways to Make Sense of Dependence</span></span>
 <span id="cb4-107"><a href="#cb4-107"></a></span>
-<span id="cb4-108"><a href="#cb4-108"></a>::: callout-note</span>
-<span id="cb4-109"><a href="#cb4-109"></a>Take another look at the <span class="in">`weekly`</span> vs <span class="in">`conservative`</span> contingency table.</span>
-<span id="cb4-110"><a href="#cb4-110"></a></span>
-<span id="cb4-111"><a href="#cb4-111"></a>Focus on these two probabilities:</span>
+<span id="cb4-108"><a href="#cb4-108"></a><span class="fu">### Exercise </span></span>
+<span id="cb4-109"><a href="#cb4-109"></a></span>
+<span id="cb4-110"><a href="#cb4-110"></a>::: callout-note</span>
+<span id="cb4-111"><a href="#cb4-111"></a>Take another look at the <span class="in">`weekly`</span> vs <span class="in">`conservative`</span> contingency table.</span>
 <span id="cb4-112"><a href="#cb4-112"></a></span>
-<span id="cb4-113"><a href="#cb4-113"></a>$$</span>
-<span id="cb4-114"><a href="#cb4-114"></a>\begin{align}</span>
-<span id="cb4-115"><a href="#cb4-115"></a>\Pr(W \mid C) &amp;&amp;\text{and} &amp;&amp; \Pr(W \mid C^\complement)</span>
-<span id="cb4-116"><a href="#cb4-116"></a>\end{align}</span>
-<span id="cb4-117"><a href="#cb4-117"></a>$$</span>
-<span id="cb4-118"><a href="#cb4-118"></a></span>
-<span id="cb4-119"><a href="#cb4-119"></a>Compare these probabilities using the following summary statistics:</span>
+<span id="cb4-113"><a href="#cb4-113"></a>Focus on these two probabilities:</span>
+<span id="cb4-114"><a href="#cb4-114"></a></span>
+<span id="cb4-115"><a href="#cb4-115"></a>$$</span>
+<span id="cb4-116"><a href="#cb4-116"></a>\begin{align}</span>
+<span id="cb4-117"><a href="#cb4-117"></a>\Pr(W \mid C) &amp;&amp;\text{and} &amp;&amp; \Pr(W \mid C^\complement)</span>
+<span id="cb4-118"><a href="#cb4-118"></a>\end{align}</span>
+<span id="cb4-119"><a href="#cb4-119"></a>$$</span>
 <span id="cb4-120"><a href="#cb4-120"></a></span>
-<span id="cb4-121"><a href="#cb4-121"></a><span class="ss">1.  </span>Difference in Probabilities</span>
-<span id="cb4-122"><a href="#cb4-122"></a><span class="ss">2.  </span>Relative Risk Ratio</span>
-<span id="cb4-123"><a href="#cb4-123"></a><span class="ss">3.  </span>Odds Ratio</span>
-<span id="cb4-124"><a href="#cb4-124"></a><span class="ss">4.  </span>Log Odds Ratio</span>
-<span id="cb4-125"><a href="#cb4-125"></a>:::</span>
-<span id="cb4-126"><a href="#cb4-126"></a></span>
-<span id="cb4-127"><a href="#cb4-127"></a><span class="fu">### Exercise</span></span>
+<span id="cb4-121"><a href="#cb4-121"></a>Compare these probabilities using the following summary statistics:</span>
+<span id="cb4-122"><a href="#cb4-122"></a></span>
+<span id="cb4-123"><a href="#cb4-123"></a><span class="ss">1.  </span>Difference in Probabilities</span>
+<span id="cb4-124"><a href="#cb4-124"></a><span class="ss">2.  </span>Relative Risk Ratio</span>
+<span id="cb4-125"><a href="#cb4-125"></a><span class="ss">3.  </span>Odds Ratio</span>
+<span id="cb4-126"><a href="#cb4-126"></a><span class="ss">4.  </span>Log Odds Ratio</span>
+<span id="cb4-127"><a href="#cb4-127"></a>:::</span>
 <span id="cb4-128"><a href="#cb4-128"></a></span>
-<span id="cb4-129"><a href="#cb4-129"></a>::: callout-note</span>
-<span id="cb4-130"><a href="#cb4-130"></a>Last week we used the <span class="in">`infer`</span> package to draw a "simulation-based bootstrap distribution" for the difference in proportions between $\Pr(W \mid C)$ and $\Pr(W \mid C^\complement)$.</span>
-<span id="cb4-131"><a href="#cb4-131"></a></span>
-<span id="cb4-132"><a href="#cb4-132"></a>Now we mix things up a little bit.</span>
+<span id="cb4-129"><a href="#cb4-129"></a><span class="fu">### Exercise</span></span>
+<span id="cb4-130"><a href="#cb4-130"></a></span>
+<span id="cb4-131"><a href="#cb4-131"></a>::: callout-note</span>
+<span id="cb4-132"><a href="#cb4-132"></a>Last week we used the <span class="in">`infer`</span> package to draw a "simulation-based bootstrap distribution" for the difference in proportions between $\Pr(W \mid C)$ and $\Pr(W \mid C^\complement)$.</span>
 <span id="cb4-133"><a href="#cb4-133"></a></span>
-<span id="cb4-134"><a href="#cb4-134"></a><span class="ss">1.  </span>Draw a sampling distribution for the "relative risk ratio" (Hint: <span class="in">`infer`</span> calls this "ratio of props")</span>
-<span id="cb4-135"><a href="#cb4-135"></a><span class="ss">2.  </span>Draw a sampling distribution for the "odds ratio"</span>
-<span id="cb4-136"><a href="#cb4-136"></a>:::</span>
-<span id="cb4-137"><a href="#cb4-137"></a></span>
-<span id="cb4-138"><a href="#cb4-138"></a><span class="fu">### Exercise </span></span>
+<span id="cb4-134"><a href="#cb4-134"></a>Now we mix things up a little bit.</span>
+<span id="cb4-135"><a href="#cb4-135"></a></span>
+<span id="cb4-136"><a href="#cb4-136"></a><span class="ss">1.  </span>Draw a sampling distribution for the "relative risk ratio" (Hint: <span class="in">`infer`</span> calls this "ratio of props")</span>
+<span id="cb4-137"><a href="#cb4-137"></a><span class="ss">2.  </span>Draw a sampling distribution for the "odds ratio"</span>
+<span id="cb4-138"><a href="#cb4-138"></a>:::</span>
 <span id="cb4-139"><a href="#cb4-139"></a></span>
-<span id="cb4-140"><a href="#cb4-140"></a>::: callout-note</span>
-<span id="cb4-141"><a href="#cb4-141"></a>Repeat exercise 7.2.1 using the contingency table you created in exercise 7.1.2</span>
-<span id="cb4-142"><a href="#cb4-142"></a>:::</span>
-<span id="cb4-143"><a href="#cb4-143"></a></span>
-<span id="cb4-144"><a href="#cb4-144"></a><span class="fu">### Exercise </span></span>
+<span id="cb4-140"><a href="#cb4-140"></a><span class="fu">### Exercise </span></span>
+<span id="cb4-141"><a href="#cb4-141"></a></span>
+<span id="cb4-142"><a href="#cb4-142"></a>::: callout-note</span>
+<span id="cb4-143"><a href="#cb4-143"></a>Repeat exercise 7.2.1 using the contingency table you created in exercise 7.1.2</span>
+<span id="cb4-144"><a href="#cb4-144"></a>:::</span>
 <span id="cb4-145"><a href="#cb4-145"></a></span>
-<span id="cb4-146"><a href="#cb4-146"></a>::: callout-note</span>
-<span id="cb4-147"><a href="#cb4-147"></a>Repeat exercise 7.2.2 using the contingency table you created in exercise 7.1.2</span>
-<span id="cb4-148"><a href="#cb4-148"></a>:::</span>
+<span id="cb4-146"><a href="#cb4-146"></a><span class="fu">### Exercise </span></span>
+<span id="cb4-147"><a href="#cb4-147"></a></span>
+<span id="cb4-148"><a href="#cb4-148"></a>::: callout-note</span>
+<span id="cb4-149"><a href="#cb4-149"></a>Repeat exercise 7.2.2 using the contingency table you created in exercise 7.1.2</span>
+<span id="cb4-150"><a href="#cb4-150"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
