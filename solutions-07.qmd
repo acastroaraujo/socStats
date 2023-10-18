@@ -1,6 +1,7 @@
 ---
 title: "Solutions 7"
 callout-icon: false
+callout-appearance: simple
 code-fold: show
 ---
 
@@ -214,7 +215,7 @@ prop.table(crosstab2, margin = 1)
 ```
 
 |                                                 |                                                                       |
-|-------------------------------------------------|-----------------------------------------------------------------------|
+|------------------------------|------------------------------------------|
 | $\Pr(CP \mid C) = 0.75$                         | The probability that a conservative person favors capital punishment. |
 | $\Pr(CP^\complement \mid C) = 0.25$             | The probability that a conservative person opposes capital punishment |
 | $\Pr(CP \mid C^\complement) = 0.57$             | The probability that a non-conservative favors capital punishment.    |
@@ -227,7 +228,7 @@ prop.table(crosstab2, margin = 2)
 ```
 
 |                                                 |                                                                          |
-|-------------------------------------------------|--------------------------------------------------------------------------|
+|-----------------------------|-------------------------------------------|
 | $\Pr(C \mid CP) = 0.4$                          | The probability that a capital punishment supporter is conservative.     |
 | $\Pr(C \mid CP^\complement) = 0.22$             | The probability that a capital punishment opposer is conservative.       |
 | $\Pr(C^\complement \mid CP) = 0.6$              | The probability that a capital punishment supporter is non-conservative. |
@@ -239,12 +240,12 @@ Now look at this:
 prop.table(crosstab2)
 ```
 
-|                                                         |                                                                                      |
-|---------------------------------------------------------|--------------------------------------------------------------------------------------|
-| $\Pr(C \text{ and } CP) = 0.25$                         | The probability that a person is conservative *and* favors capital punishment.       |
-| $\Pr(C \text{ and } CP^\complement) = 0.08$             | The probability that a person is conservative *and* opposes capital punishment.      |
-| $\Pr(C^\complement \text{ and } CP) = 0.38$             | The probability that a person is non-conservative *and* favors capital punishment.   |
-| $\Pr(C^\complement \text{ and } CP^\complement) = 0.28$ | The probability that a person is non-conservative *and* opposes capital punishment.  |
+|                                                         |                                                                                     |
+|-----------------------------|-------------------------------------------|
+| $\Pr(C \text{ and } CP) = 0.25$                         | The probability that a person is conservative *and* favors capital punishment.      |
+| $\Pr(C \text{ and } CP^\complement) = 0.08$             | The probability that a person is conservative *and* opposes capital punishment.     |
+| $\Pr(C^\complement \text{ and } CP) = 0.38$             | The probability that a person is non-conservative *and* favors capital punishment.  |
+| $\Pr(C^\complement \text{ and } CP^\complement) = 0.28$ | The probability that a person is non-conservative *and* opposes capital punishment. |
 
 Assuming independence:
 
