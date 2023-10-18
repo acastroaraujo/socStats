@@ -1,0 +1,535 @@
+---
+title: "Solutions 7"
+callout-icon: false
+code-fold: show
+---
+
+```{r}
+#| label: "Set up"
+#| message: false
+
+library(tidyverse)
+library(infer)
+library(gssr)
+
+theme_set(theme_light(base_family = "Optima"))
+```
+
+## Contingency Tables
+
+```{r}
+#| message: false
+gss18 <- gss_get_yr(2018) 
+
+d <- gss18 |> 
+  select(attend, polviews) |> 
+  haven::zap_missing() |> 
+  haven::zap_labels() |> 
+  mutate(weekly = if_else(attend >= 7, 1L, 0L),
+         conservative = if_else(polviews >= 5, 1L, 0L)) |> 
+  drop_na() 
+
+crosstab1 <- table(conservative = d$conservative, weekly = d$weekly)
+crosstab1
+```
+
+### Exercise
+
+It might be easier to modify the table so that we look at the margins:
+
+```{r}
+addmargins(crosstab1)
+```
+
+I will provide answers using (1) the contingency table, (2) base R, and (3) tidyverse
+
+::: callout-note
+What is the probability that a person attends religious services weekly?
+
+I'm asking for $\Pr(W)$
+:::
+
+```{r}
+## contingency table
+497 / 2235
+## base R
+mean(d$weekly)
+## tidyverse
+d |> 
+  summarize(p = mean(weekly))
+```
+
+::: callout-note
+What is the probability that a person *does not* attend religious services weekly?
+
+I'm asking for $\Pr(W^\complement)$
+:::
+
+```{r}
+## contingency table
+1738 / 2235
+## base R
+mean(d$weekly == 0)
+## tidyverse
+d |> 
+  summarize(p = mean(weekly == 0))
+```
+
+::: callout-note
+What is the probability that a person is conservative, given that they attend religious services weekly?
+
+I'm asking for $\Pr(C \mid W)$
+:::
+
+```{r}
+## contingency table
+240 / 497
+## base R
+mean(d$conservative[d$weekly == 1])
+## tidyverse
+d |> 
+  filter(weekly == 1) |> 
+  summarize(p = mean(conservative))
+```
+
+::: callout-note
+$\Pr(W \mid C)$
+:::
+
+```{r}
+## contingency table
+240 / 735
+## base R
+mean(d$weekly[d$conservative == 1])
+## tidyverse
+d |> 
+  filter(conservative == 1) |> 
+  summarize(p = mean(weekly))
+```
+
+::: callout-note
+$\Pr(C \mid W^\complement)$
+:::
+
+```{r}
+## contingency table
+495 / 1738
+## base R
+mean(d$conservative[d$weekly == 0])
+## tidyverse
+d |> 
+  filter(weekly == 0) |> 
+  summarize(p = mean(conservative))
+```
+
+::: callout-note
+$\Pr(W \text{ and } C)$
+:::
+
+```{r}
+## contingency table
+240 / 2235
+## base R
+mean(d$weekly & d$conservative) ## this does implicit coercion, see Week 1!
+## tidyverse
+d |> 
+  count(weekly, conservative) |> 
+  mutate(p = n / sum(n))
+```
+
+::: callout-note
+$\Pr(W^\complement \text{ and } C^\complement)$
+:::
+
+```{r}
+## contingency table
+1243 / 2235
+## base R
+mean(d$weekly == 0 & d$conservative == 0)
+## tidyverse
+d |> 
+  count(weekly, conservative) |> 
+  mutate(p = n / sum(n)) |> 
+  filter(weekly == 0, conservative == 0)
+```
+
+::: callout-note
+Finally, if we *assume* that $W$ and $C$ are independent:
+
+-   What *would* be the joint probability of $W$ and $C$ ?
+:::
+
+```{r}
+(735 / 2235) * (497 / 2235)
+```
+
+::: callout-tip
+Hint: These are some useful functions for working with contingency tables.
+
+```{r}
+addmargins(crosstab1)
+rowSums(crosstab1)
+colSums(crosstab1)
+prop.table(crosstab1)
+prop.table(crosstab1, margin = 1) ## row percentages
+prop.table(crosstab1, margin = 2) ## col percentages
+```
+:::
+
+### Exercise
+
+Here I chose the `cappun` variable, which asks *Do you favor or oppose the death penalty for persons convicted of murder?*
+
+```{r}
+d <- gss18 |> 
+  select(attend, polviews, cappun) |> 
+  haven::zap_missing() |> 
+  haven::zap_labels() |> 
+  mutate(
+    weekly = if_else(attend >= 7, 1L, 0L),
+    conservative = if_else(polviews >= 5, 1L, 0L),
+    cappun = if_else(cappun == 1, 1L, 0L)
+    ) |> 
+  drop_na() 
+
+crosstab2 <- table(conservative = d$conservative, capital_punishment = d$cappun)
+addmargins(crosstab2)
+```
+
+Marginal probabilities:
+
+```{r}
+table(capital_punishment = d$cappun) |> 
+  prop.table()
+```
+
+-   The probability that a person favors capital punishment is 0.63
+
+-   The probability that a person does *not* favor capital punishment is 0.37
+
+Now look at this:
+
+```{r}
+prop.table(crosstab2, margin = 1)
+```
+
+|                                                 |                                                                       |
+|-------------------------------------------------|-----------------------------------------------------------------------|
+| $\Pr(CP \mid C) = 0.75$                         | The probability that a conservative person favors capital punishment. |
+| $\Pr(CP^\complement \mid C) = 0.25$             | The probability that a conservative person opposes capital punishment |
+| $\Pr(CP \mid C^\complement) = 0.57$             | The probability that a non-conservative favors capital punishment.    |
+| $\Pr(CP^\complement \mid C^\complement) = 0.42$ | The probability that a non-conservative opposes capital punishment.   |
+
+Now look at this:
+
+```{r}
+prop.table(crosstab2, margin = 2)
+```
+
+|                                                 |                                                                          |
+|-------------------------------------------------|--------------------------------------------------------------------------|
+| $\Pr(C \mid CP) = 0.4$                          | The probability that a capital punishment supporter is conservative.     |
+| $\Pr(C \mid CP^\complement) = 0.22$             | The probability that a capital punishment opposer is conservative.       |
+| $\Pr(C^\complement \mid CP) = 0.6$              | The probability that a capital punishment supporter is non-conservative. |
+| $\Pr(C^\complement \mid CP^\complement) = 0.77$ | The probability that a capital punishment opposer is non-conservative.   |
+
+Now look at this:
+
+```{r}
+prop.table(crosstab2)
+```
+
+|                                                         |                                                                                      |
+|---------------------------------------------------------|--------------------------------------------------------------------------------------|
+| $\Pr(C \text{ and } CP) = 0.25$                         | The probability that a person is conservative *and* favors capital punishment.       |
+| $\Pr(C \text{ and } CP^\complement) = 0.08$             | The probability that a person is conservative *and* opposes capital punishment.      |
+| $\Pr(C^\complement \text{ and } CP) = 0.38$             | The probability that a person is non-conservative *and* favors capital punishment.   |
+| $\Pr(C^\complement \text{ and } CP^\complement) = 0.28$ | The probability that a person is non-conservative *and* opposes capital punishment.  |
+
+Assuming independence:
+
+```{r}
+conservative <- table(conservative = d$conservative)
+conservative <- conservative / sum(conservative)
+cp <- table(capital_punishment = d$cappun)
+cp <- cp / sum(cp)
+outer(conservative, cp)
+```
+
+*Here, each cell is the product of the marginal probabilities. You probably calculated these probabilities differently. That's OK.*
+
+## Four Ways to Make Sense of Dependence
+
+### Exercise
+
+::: callout-note
+Take another look at the `weekly` vs `conservative` contingency table.
+
+Focus on these two probabilities:
+
+$$
+\begin{align}
+\Pr(\text{weekly} \mid \text{conservative}) &&\text{and} && \Pr(\text{weekly} \mid \text{non-conservative})
+\end{align}
+$$
+
+Compare these probabilities using the following summary statistics:
+
+1.  Difference in Probabilities
+2.  Relative Risk Ratio
+3.  Odds Ratio
+4.  Log Odds Ratio
+:::
+
+*Note. Recall that---under independence---these two probabilities would be the same. So there would be (1) zero difference in probabilities; (2) a relative risk ratio of one; (3) an odds ratio of one; and (4) a log odds ratio of zero.*
+
+**Difference in proportions.**
+
+```{r}
+prop.table(crosstab1, margin = 1)
+0.3265306 - 0.1713333
+```
+
+Conservatives are 15 percentage points more likely to attend religious ceremonies weekly.
+
+**Relative Risk Ratio**
+
+```{r}
+0.3265306 / 0.1713333
+```
+
+Conservatives' probability of attending religious ceremonies weekly is almost 2 times greater.
+
+*Note the asymmetry. Non-conservatives' probability of not attending weekly is 1.2 times greater.*
+
+```{r}
+0.8286667 / 0.6734694
+```
+
+**Odds ratio**
+
+```{r}
+## odds that a conservative attends RC weekly
+numerator <- 0.3265306 / (1 - 0.3265306)
+numerator
+## odds that a non-conservative attends RC weekly
+denominator <- 0.1713333 / (1 - 0.1713333)
+denominator
+## odds ratio
+numerator / denominator
+```
+
+*Note the symmetry now:*
+
+```{r}
+(0.8286667 / (1 - 0.8286667)) / (0.6734694 / (1 - 0.6734694))
+```
+
+**Log Odds Ratio**
+
+```{r}
+log(numerator / denominator)
+log(denominator / numerator)
+```
+
+### Exercise
+
+::: callout-note
+Last week, in class, we used the `infer` package to draw a "simulation-based bootstrap distribution" for the difference in proportions between $\Pr(W \mid C)$ and $\Pr(W \mid C^\complement)$.
+
+Now we mix things up a little bit.
+
+1.  Draw a sampling distribution for the "relative risk ratio" (Hint: `infer` calls this "ratio of props")
+2.  Draw a sampling distribution for the "odds ratio"
+:::
+
+**Using `infer`**
+
+```{r}
+d <- d |> 
+  mutate(
+    CP = if_else(cappun == 1, "supports", "opposes"),
+    C = if_else(conservative == 1, "conservative", "other"),
+    W = if_else(weekly == 1, "weekly", "other")
+  )
+
+boot_diff_in_props <- d |> 
+  specify(W ~ C, success = "weekly") |> 
+  generate(reps = 5e3, type = "bootstrap") |> 
+  calculate("diff in props", order = c("conservative", "other"))
+
+boot_diff_in_props |> 
+  ggplot(aes(stat)) + 
+  geom_histogram(color = "white", boundary = 0.1, binwidth = 0.005) + 
+  geom_vline(xintercept = 0, linetype = "dashed") + 
+  labs(
+    title = "Difference in Proportions", 
+    subtitle = "Simulation-Based Bootstrap Distribution"
+  )
+
+boot_rrr <- d |> 
+  specify(W ~ C, success = "weekly") |> 
+  generate(reps = 5e3, type = "bootstrap") |> 
+  calculate("ratio of props", order = c("conservative", "other"))
+
+boot_rrr |> 
+  ggplot(aes(stat)) + 
+  geom_histogram(color = "white", binwidth = 0.05) + 
+  geom_vline(xintercept = 1, linetype = "dashed") +
+  labs(
+    title = "Relative Risk Ratio", 
+    subtitle = "Simulation-Based Bootstrap Distribution"
+  )
+
+boot_odds_ratio <- d |> 
+  specify(W ~ C, success = "weekly") |> 
+  generate(reps = 5e3, type = "bootstrap") |> 
+  calculate("odds ratio", order = c("conservative", "other"))
+
+boot_odds_ratio |> 
+  ggplot(aes(stat)) + 
+  geom_histogram(color = "white", binwidth = 0.1) + 
+  geom_vline(xintercept = 1, linetype = "dashed") + 
+  labs(
+    title = "Odds Ratio", 
+    subtitle = "Simulation-Based Bootstrap Distribution"
+  )
+```
+
+*Note. It's easy to draw the sampling distribution for the log odds!*
+
+```{r}
+boot_odds_ratio |> 
+  mutate(stat = log(stat)) |> 
+  ggplot(aes(stat)) + 
+  geom_histogram(color = "white", binwidth = 0.05) + 
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  labs(
+    title = "Log Odds Ratio", 
+    subtitle = "Simulation-Based Bootstrap Distribution"
+  )
+```
+
+### Exercise
+
+::: callout-note
+Take another look at the `cappun` vs `conservative` contingency table.
+
+Focus on these two probabilities:
+
+$$
+\begin{align}
+\Pr(\text{supports cappun} \mid \text{conservative}) &&\text{and} && \Pr(\text{supports cappun} \mid \text{non-conservative})
+\end{align}
+$$
+
+Compare these probabilities using the following summary statistics:
+
+1.  Difference in Probabilities
+2.  Relative Risk Ratio
+3.  Odds Ratio
+4.  Log Odds Ratio
+:::
+
+**Difference in Proportions**
+
+```{r}
+prop.table(crosstab2, margin = 1)
+0.7489240 - 0.5729537
+```
+
+Conservatives' support for capital punishment is 17 percentage points higher than non-conservatives'.
+
+**Relative Risk Ratio**
+
+```{r}
+0.7489240 / 0.5729537
+```
+
+Conservatives' support for capital punishment is 1.3 times greater than non-conservatives'.
+
+**Odds ratio**
+
+```{r}
+## odds that a conservative supports CP
+numerator <- 0.7489240 / (1 - 0.7489240)
+numerator
+## odds that a non-conservative supports CP
+denominator <- 0.5729537 / (1 - 0.5729537)
+denominator
+## odds ratio
+numerator / denominator
+```
+
+The odds that a conservative supports capital punishment is 2 times larger than the odds that non-conservative supports capital punishment.
+
+**Log Odds Ratio**
+
+```{r}
+log(numerator / denominator)
+```
+
+### Exercise
+
+**Sampling distribution for the relative risk ratio**
+
+```{r}
+boot_rrr <- d |> 
+  specify(CP ~ C, success = "supports") |> 
+  generate(reps = 5e3, type = "bootstrap") |> 
+  calculate("ratio of props", order = c("conservative", "other"))
+
+boot_rrr |> 
+  infer::visualize() + 
+  geom_vline(xintercept = 1, linetype = "dashed")
+```
+
+**Sampling distribution for the odds ratio**
+
+```{r}
+boot_odds_ratio <- d |> 
+  specify(CP ~ C, success = "supports") |> 
+  generate(reps = 5e3, type = "bootstrap") |> 
+  calculate("odds ratio", order = c("conservative", "other"))
+
+boot_odds_ratio |> 
+  infer::visualize() + 
+  geom_vline(xintercept = 1, linetype = "dashed")
+```
+
+**How to do this *without* using the `infer` package?**
+
+```{r}
+out <- replicate(5e3, {
+  
+  i <- sample(1:nrow(d), replace = TRUE)
+  dr <- d[i, ]  ## integer subsetting (see Week 1)
+  
+  out <- table(
+    conservative = dr$conservative, 
+    capital_punishment = dr$cappun
+  ) |> prop.table(margin = 1)
+  
+  rrr <- out[2, 2] / out[1, 2]
+  odds_ratio <- (out[2, 2] / (1 - out[2, 2])) / (out[1, 2] / (1 - out[1, 2]))
+  
+  tibble(rrr, odds_ratio)
+  
+}, simplify = FALSE)
+
+boot <- bind_rows(out) |> 
+  rowid_to_column(var = "replicate") |> 
+  mutate(log_odds_ratio = log(odds_ratio))
+
+glimpse(boot)
+
+boot |> 
+  ggplot(aes(rrr)) +
+  geom_histogram(color = "white") +
+  geom_vline(xintercept = 1, linetype = "dashed")
+
+boot |> 
+  ggplot(aes(odds_ratio)) +
+  geom_histogram(color = "white") +
+  geom_vline(xintercept = 1, linetype = "dashed")
+```

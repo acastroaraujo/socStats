@@ -1,0 +1,245 @@
+---
+title: "Solutions 5"
+callout-icon: false
+code-fold: true
+---
+
+```{r}
+#| label: Set up
+#| message: false
+library(tidyverse)
+theme_set(theme_light(base_family = "Optima"))
+```
+
+## Probability
+
+### Exercise
+
+::: callout-note
+Suppose that $p = 2/3$.
+
+-   Use `dbinom()` to verify the results in @eq-bernouilli-pmf.
+
+-   Use `pbinom()` to verify the results in @eq-bernouilli-cdf.
+
+-   Use `rbinom()` to generate 100 samples from the Bernouilli distribution with `prob = 2/3`. Plot the results in `ggplot` using `geom_bar`.
+:::
+
+`dbinom()`
+
+```{r}
+## should be 2/3
+dbinom(1, size = 1, prob = 2/3)
+## should be 1/3
+dbinom(0, size = 1, prob = 2/3) 
+## should all be zero
+dbinom(c(-2, -1, 2, 3), size = 1, prob = 2/3) 
+```
+
+`pbinom()`
+
+```{r}
+## should be all zero 
+pbinom(c(-3, -2, -1), size = 1, prob = 2/3)
+## should be 1/3
+pbinom(0, size = 1, prob = 2/3)
+## should be 1
+pbinom(1, size = 1, prob = 2/3)
+## should all be 1
+pbinom(c(2, 3, 4, 5), size = 1, prob = 2/3)
+```
+
+`rbinom()`
+
+```{r}
+x <- rbinom(100, size = 1, prob = 2/3)
+glimpse(x)
+mean(x)
+
+tibble(x = as_factor(x)) |> 
+  ggplot(aes(x)) + 
+  geom_bar(width = 1/2)
+```
+
+### Exercise
+
+::: callout-note
+Suppose we flip a fair coin exactly four times.
+
+Draw the sample space $\Omega$ for this "experiment."
+:::
+
+$$
+\Omega = \begin{Bmatrix} 
+T, T, T, T \\
+\hline
+H, T, T, T \\ T, H, T, T \\ T, T, H, T \\ T, T, T, H \\
+\hline
+H, H, T, T \\ H, T, H, T \\ H, T, T, H \\ T, H, H, T \\ T, H, T, H \\ T, T, H, H \\
+\hline
+T, H, H, H \\ H, T, H, H \\ H, H, T, H \\ H, H, H, T \\
+\hline
+H, H, H, H
+\end{Bmatrix}
+$$
+
+<aside>The horizontal lines will prove useful when we turn this sample space into a random variable.</aside>
+
+### Exercise
+
+::: callout-note
+Turn the previous sample space into a random variable that counts the number of heads ( $H$ ) in each event.
+
+-   How many possible ways are there to get $X = 0$, $X = 1$, $X = 2$, $X = 3$, and $X = 4$?
+
+-   What is the probability that $X = 2$?
+
+-   Verify this by using the correct R function to calculate the probability that $X = 2$?
+
+-   Use the correct R function to calculate the probability that $X \leq 1$?
+:::
+
+$$
+\begin{align}
+\Omega = \begin{Bmatrix} 
+T, T, T, T \\
+\hline
+H, T, T, T \\ T, H, T, T \\ T, T, H, T \\ T, T, T, H \\
+\hline
+H, H, T, T \\ H, T, H, T \\ H, T, T, H \\ T, H, H, T \\ T, H, T, H \\ T, T, H, H \\
+\hline
+T, H, H, H \\ H, T, H, H \\ H, H, T, H \\ H, H, H, T \\
+\hline
+H, H, H, H
+\end{Bmatrix} &&\text{becomes} &&X = \begin{Bmatrix} 0 \\1 \\ 2 \\ 3 \\ 4 \end{Bmatrix}
+\end{align}
+$$
+
+There is 1 way of getting $X = 0$ , 4 ways of getting $X = 1$, 6 ways of getting $X = 2$, 4 ways of getting $X = 3$, and 1 way of getting $X = 4$.
+
+What is the probability that $X = 2$?
+
+$$
+\Pr(X = 2) = \frac{6}{16} = 0.375
+$$
+
+```{r}
+dbinom(x = 2, size = 4, prob = 1/2)
+```
+
+Use the correct R function to calculate the probability that $X \leq 1$ ?
+
+$$
+\Pr(X \leq 1) = \Pr(X = 0) + \Pr(X = 1) = \frac{1 + 4}{16} = 0.3125
+$$
+
+```{r}
+pbinom(1, size = 4, prob = 1/2)
+```
+
+### Exercise
+
+::: callout-note
+Use `rbinom()` to generate 1000 samples from the Binomial distribution with `size = 5` and `prob = 2/3`. Plot the results in `ggplot` using `geom_bar`.
+
+Estimate the probability that $X$ is an even number using the **`mean()`** function on those 1000 values.
+:::
+
+```{r}
+x <- rbinom(1e3, size = 5, prob = 2/3)
+
+tibble(x = as_factor(x)) |> 
+  ggplot(aes(x)) + 
+  geom_bar(width = 1/2)
+
+mean(x == 2 | x == 4)
+```
+
+```{r}
+sum(dbinom(c(2, 4), size = 5, prob = 2/3))
+```
+
+*Note. You can get sophisticated in finding even numbers by using the "modulus" operator.*
+
+```{r}
+mean(x %% 2 == 0)
+```
+
+*Actually, I just discovered that [zero is technically an even number](https://www.bbc.com/news/magazine-20559052)* 🤯
+
+```{r}
+mean(x == 2 | x == 4 | x == 0)
+```
+
+### Exercise
+
+::: callout-note
+Revisit what you did @sec-four-coins-1 and @sec-four-coins-2.
+
+-   What is the probability that $X = 2$ when $p = 1/3$ and $n = 4$?
+
+-   Verify this by using the correct R function to calculate the probability that $X = 2$?
+:::
+
+$$
+\Pr\bigg(X = 2 \mid p =\frac{1}{3}, n =4 \bigg) = 6 \times \bigg(\frac{1}{3}\bigg)^2 \times \bigg(\frac{2}{3}\bigg)^2 = 0.2962963
+$$
+
+```{r}
+dbinom(x = 2, size = 4, prob = 1/3)
+```
+
+### Exercise
+
+::: callout-note
+Suppose that $p = 2/3$ and $n = 15$
+
+-   Use `dbinom()` to verify the results in @eq-binomial-pmf.
+
+-   Use `pbinom()` to verify the results in @eq-binomial-cdf.
+:::
+
+`dbinom()`
+
+```{r}
+x <- 0:15
+choose(15, x) * (2/3)^x * (1/3)^(15 - x)
+dbinom(x, size = 15, prob = 2/3)
+```
+
+`pbinom()`
+
+```{r}
+cumsum(choose(15, x) * (2/3)^x * (1/3)^(15 - x))
+pbinom(x, size = 15, prob = 2/3)
+```
+
+## Likelihood
+
+### Exercise
+
+```{r}
+grid <- tibble(prob = seq(0, 1, by = 0.001))
+grid$like <- dbinom(21, 47, grid$prob)
+
+grid <- grid |> 
+  mutate(clike_raw = cumsum(like)) |> 
+  mutate(clike_normalized = clike_raw / sum(like)) 
+
+grid |> 
+  filter(prob == 0.588)
+```
+
+The value of `clike_normalized` gives the chances that `prob` is equal to or less than 0.588. To answer the question I just need to subtract 1 from that.
+
+```{r}
+1 - 0.9752575
+```
+
+```{r}
+grid |> 
+  ggplot(aes(prob, clike_normalized)) + 
+  geom_line() + 
+  geom_vline(xintercept = 0.588, linetype = "dashed") +
+  geom_hline(yintercept = 0.9752575, color = "steelblue1")
+```

@@ -97,6 +97,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <link rel="stylesheet" media="screen" href="https://www.cssfontstack.com/Optima" type="text/css">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -249,6 +251,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Solutions 6</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Solutions 7</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -267,16 +275,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"><span class="header-section-number">12.1</span> </a></li>
+  <li><a href="#probability" id="toc-probability" class="nav-link active" data-scroll-target="#probability"><span class="header-section-number">12.1</span> Probability</a>
+  <ul class="collapse">
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">12.1.1</span> Exercise</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">12.1.2</span> Exercise</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">12.1.3</span> Exercise</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">12.1.4</span> Exercise</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4"><span class="header-section-number">12.1.5</span> Exercise</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5"><span class="header-section-number">12.1.6</span> Exercise</a></li>
+  </ul></li>
+  <li><a href="#likelihood" id="toc-likelihood" class="nav-link" data-scroll-target="#likelihood"><span class="header-section-number">12.2</span> Likelihood</a>
+  <ul class="collapse">
+  <li><a href="#exercise-6" id="toc-exercise-6" class="nav-link" data-scroll-target="#exercise-6"><span class="header-section-number">12.2.1</span> Exercise</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Solutions 5</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Solutions 5</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -291,12 +311,440 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="section" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="section"><span class="header-section-number">12.1</span> </h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Optima"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="probability" class="level2 page-columns page-full" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="probability"><span class="header-section-number">12.1</span> Probability</h2>
+<section id="exercise" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">12.1.1</span> Exercise</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose that <span class="math inline">\(p = 2/3\)</span>.</p>
+<ul>
+<li><p>Use <code>dbinom()</code> to verify the results in <a href="week5.html#eq-bernouilli-pmf">Equation&nbsp;<span>5.1</span></a>.</p></li>
+<li><p>Use <code>pbinom()</code> to verify the results in <a href="week5.html#eq-bernouilli-cdf">Equation&nbsp;<span>5.2</span></a>.</p></li>
+<li><p>Use <code>rbinom()</code> to generate 100 samples from the Bernouilli distribution with <code>prob = 2/3</code>. Plot the results in <code>ggplot</code> using <code>geom_bar</code>.</p></li>
+</ul>
+</div>
+</div>
+<p><code>dbinom()</code></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="do">## should be 2/3</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">dbinom</span>(<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6666667</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="do">## should be 1/3</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">dbinom</span>(<span class="dv">0</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3333333</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="do">## should all be zero</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">dbinom</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 0 0 0</code></pre>
+</div>
+</div>
+<p><code>pbinom()</code></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="do">## should be all zero </span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">pbinom</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0 0 0</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="do">## should be 1/3</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">pbinom</span>(<span class="dv">0</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3333333</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="do">## should be 1</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">pbinom</span>(<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="do">## should all be 1</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">pbinom</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 1 1 1</code></pre>
+</div>
+</div>
+<p><code>rbinom()</code></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">100</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">glimpse</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> int [1:100] 0 1 0 1 1 0 0 1 1 0 ...</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.64</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">as_factor</span>(x)) <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> </span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-05_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercise-1" class="level3 page-columns page-full" data-number="12.1.2">
+<h3 data-number="12.1.2" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">12.1.2</span> Exercise</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose we flip a fair coin exactly four times.</p>
+<p>Draw the sample space <span class="math inline">\(\Omega\)</span> for this “experiment.”</p>
+</div>
+</div>
+<p><span class="math display">\[
+\Omega = \begin{Bmatrix}
+T, T, T, T \\
+\hline
+H, T, T, T \\ T, H, T, T \\ T, T, H, T \\ T, T, T, H \\
+\hline
+H, H, T, T \\ H, T, H, T \\ H, T, T, H \\ T, H, H, T \\ T, H, T, H \\ T, T, H, H \\
+\hline
+T, H, H, H \\ H, T, H, H \\ H, H, T, H \\ H, H, H, T \\
+\hline
+H, H, H, H
+\end{Bmatrix}
+\]</span></p>
+<aside>
+The horizontal lines will prove useful when we turn this sample space into a random variable.
+</aside>
+</section>
+<section id="exercise-2" class="level3" data-number="12.1.3">
+<h3 data-number="12.1.3" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">12.1.3</span> Exercise</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Turn the previous sample space into a random variable that counts the number of heads ( <span class="math inline">\(H\)</span> ) in each event.</p>
+<ul>
+<li><p>How many possible ways are there to get <span class="math inline">\(X = 0\)</span>, <span class="math inline">\(X = 1\)</span>, <span class="math inline">\(X = 2\)</span>, <span class="math inline">\(X = 3\)</span>, and <span class="math inline">\(X = 4\)</span>?</p></li>
+<li><p>What is the probability that <span class="math inline">\(X = 2\)</span>?</p></li>
+<li><p>Verify this by using the correct R function to calculate the probability that <span class="math inline">\(X = 2\)</span>?</p></li>
+<li><p>Use the correct R function to calculate the probability that <span class="math inline">\(X \leq 1\)</span>?</p></li>
+</ul>
+</div>
+</div>
+<p><span class="math display">\[
+\begin{align}
+\Omega = \begin{Bmatrix}
+T, T, T, T \\
+\hline
+H, T, T, T \\ T, H, T, T \\ T, T, H, T \\ T, T, T, H \\
+\hline
+H, H, T, T \\ H, T, H, T \\ H, T, T, H \\ T, H, H, T \\ T, H, T, H \\ T, T, H, H \\
+\hline
+T, H, H, H \\ H, T, H, H \\ H, H, T, H \\ H, H, H, T \\
+\hline
+H, H, H, H
+\end{Bmatrix} &amp;&amp;\text{becomes} &amp;&amp;X = \begin{Bmatrix} 0 \\1 \\ 2 \\ 3 \\ 4 \end{Bmatrix}
+\end{align}
+\]</span></p>
+<p>There is 1 way of getting <span class="math inline">\(X = 0\)</span> , 4 ways of getting <span class="math inline">\(X = 1\)</span>, 6 ways of getting <span class="math inline">\(X = 2\)</span>, 4 ways of getting <span class="math inline">\(X = 3\)</span>, and 1 way of getting <span class="math inline">\(X = 4\)</span>.</p>
+<p>What is the probability that <span class="math inline">\(X = 2\)</span>?</p>
+<p><span class="math display">\[
+\Pr(X = 2) = \frac{6}{16} = 0.375
+\]</span></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.375</code></pre>
+</div>
+</div>
+<p>Use the correct R function to calculate the probability that <span class="math inline">\(X \leq 1\)</span> ?</p>
+<p><span class="math display">\[
+\Pr(X \leq 1) = \Pr(X = 0) + \Pr(X = 1) = \frac{1 + 4}{16} = 0.3125
+\]</span></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">pbinom</span>(<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3125</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-3" class="level3" data-number="12.1.4">
+<h3 data-number="12.1.4" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">12.1.4</span> Exercise</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use <code>rbinom()</code> to generate 1000 samples from the Binomial distribution with <code>size = 5</code> and <code>prob = 2/3</code>. Plot the results in <code>ggplot</code> using <code>geom_bar</code>.</p>
+<p>Estimate the probability that <span class="math inline">\(X\)</span> is an even number using the <strong><code>mean()</code></strong> function on those 1000 values.</p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="fl">1e3</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">as_factor</span>(x)) <span class="sc">|&gt;</span> </span>
+<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> </span>
+<span id="cb25-5"><a href="#cb25-5"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-05_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">mean</span>(x <span class="sc">==</span> <span class="dv">2</span> <span class="sc">|</span> x <span class="sc">==</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.516</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="at">size =</span> <span class="dv">5</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4938272</code></pre>
+</div>
+</div>
+<p><em>Note. You can get sophisticated in finding even numbers by using the “modulus” operator.</em></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">mean</span>(x <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.523</code></pre>
+</div>
+</div>
+<p><em>Actually, I just discovered that <a href="https://www.bbc.com/news/magazine-20559052">zero is technically an even number</a></em> 🤯</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">mean</span>(x <span class="sc">==</span> <span class="dv">2</span> <span class="sc">|</span> x <span class="sc">==</span> <span class="dv">4</span> <span class="sc">|</span> x <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.523</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-4" class="level3" data-number="12.1.5">
+<h3 data-number="12.1.5" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">12.1.5</span> Exercise</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Revisit what you did <a href="week5.html#sec-four-coins-1"><span>Section&nbsp;5.3.1</span></a> and <a href="week5.html#sec-four-coins-2"><span>Section&nbsp;5.3.2</span></a>.</p>
+<ul>
+<li><p>What is the probability that <span class="math inline">\(X = 2\)</span> when <span class="math inline">\(p = 1/3\)</span> and <span class="math inline">\(n = 4\)</span>?</p></li>
+<li><p>Verify this by using the correct R function to calculate the probability that <span class="math inline">\(X = 2\)</span>?</p></li>
+</ul>
+</div>
+</div>
+<p><span class="math display">\[
+\Pr\bigg(X = 2 \mid p =\frac{1}{3}, n =4 \bigg) = 6 \times \bigg(\frac{1}{3}\bigg)^2 \times \bigg(\frac{2}{3}\bigg)^2 = 0.2962963
+\]</span></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2962963</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-5" class="level3" data-number="12.1.6">
+<h3 data-number="12.1.6" class="anchored" data-anchor-id="exercise-5"><span class="header-section-number">12.1.6</span> Exercise</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suppose that <span class="math inline">\(p = 2/3\)</span> and <span class="math inline">\(n = 15\)</span></p>
+<ul>
+<li><p>Use <code>dbinom()</code> to verify the results in <a href="week5.html#eq-binomial-pmf">Equation&nbsp;<span>5.3</span></a>.</p></li>
+<li><p>Use <code>pbinom()</code> to verify the results in <a href="week5.html#eq-binomial-cdf">Equation&nbsp;<span>5.4</span></a>.</p></li>
+</ul>
+</div>
+</div>
+<p><code>dbinom()</code></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">15</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="fu">choose</span>(<span class="dv">15</span>, x) <span class="sc">*</span> (<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)<span class="sc">^</span>x <span class="sc">*</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)<span class="sc">^</span>(<span class="dv">15</span> <span class="sc">-</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 6.969172e-08 2.090752e-06 2.927052e-05 2.536779e-04 1.522067e-03
+ [6] 6.697095e-03 2.232365e-02 5.740368e-02 1.148074e-01 1.785892e-01
+[11] 2.143071e-01 1.948246e-01 1.298831e-01 5.994603e-02 1.712744e-02
+[16] 2.283658e-03</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">dbinom</span>(x, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 6.969172e-08 2.090752e-06 2.927052e-05 2.536779e-04 1.522067e-03
+ [6] 6.697095e-03 2.232365e-02 5.740368e-02 1.148074e-01 1.785892e-01
+[11] 2.143071e-01 1.948246e-01 1.298831e-01 5.994603e-02 1.712744e-02
+[16] 2.283658e-03</code></pre>
+</div>
+</div>
+<p><code>pbinom()</code></p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">cumsum</span>(<span class="fu">choose</span>(<span class="dv">15</span>, x) <span class="sc">*</span> (<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)<span class="sc">^</span>x <span class="sc">*</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)<span class="sc">^</span>(<span class="dv">15</span> <span class="sc">-</span> x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 6.969172e-08 2.160443e-06 3.143097e-05 2.851088e-04 1.807176e-03
+ [6] 8.504271e-03 3.082792e-02 8.823160e-02 2.030389e-01 3.816282e-01
+[11] 5.959352e-01 7.907598e-01 9.206429e-01 9.805889e-01 9.977163e-01
+[16] 1.000000e+00</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">pbinom</span>(x, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 6.969172e-08 2.160443e-06 3.143097e-05 2.851088e-04 1.807176e-03
+ [6] 8.504271e-03 3.082792e-02 8.823160e-02 2.030389e-01 3.816282e-01
+[11] 5.959352e-01 7.907598e-01 9.206429e-01 9.805889e-01 9.977163e-01
+[16] 1.000000e+00</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="likelihood" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="likelihood"><span class="header-section-number">12.2</span> Likelihood</h2>
+<section id="exercise-6" class="level3" data-number="12.2.1">
+<h3 data-number="12.2.1" class="anchored" data-anchor-id="exercise-6"><span class="header-section-number">12.2.1</span> Exercise</h3>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">prob =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.001</span>))</span>
+<span id="cb44-2"><a href="#cb44-2"></a>grid<span class="sc">$</span>like <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">21</span>, <span class="dv">47</span>, grid<span class="sc">$</span>prob)</span>
+<span id="cb44-3"><a href="#cb44-3"></a></span>
+<span id="cb44-4"><a href="#cb44-4"></a>grid <span class="ot">&lt;-</span> grid <span class="sc">|&gt;</span> </span>
+<span id="cb44-5"><a href="#cb44-5"></a>  <span class="fu">mutate</span>(<span class="at">clike_raw =</span> <span class="fu">cumsum</span>(like)) <span class="sc">|&gt;</span> </span>
+<span id="cb44-6"><a href="#cb44-6"></a>  <span class="fu">mutate</span>(<span class="at">clike_normalized =</span> clike_raw <span class="sc">/</span> <span class="fu">sum</span>(like)) </span>
+<span id="cb44-7"><a href="#cb44-7"></a></span>
+<span id="cb44-8"><a href="#cb44-8"></a>grid <span class="sc">|&gt;</span> </span>
+<span id="cb44-9"><a href="#cb44-9"></a>  <span class="fu">filter</span>(prob <span class="sc">==</span> <span class="fl">0.588</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+   prob   like clike_raw clike_normalized
+  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;
+1 0.588 0.0175      20.3            0.975</code></pre>
+</div>
+</div>
+<p>The value of <code>clike_normalized</code> gives the chances that <code>prob</code> is equal to or less than 0.588. To answer the question I just need to subtract 1 from that.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.9752575</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0247425</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>grid <span class="sc">|&gt;</span> </span>
+<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(prob, clike_normalized)) <span class="sc">+</span> </span>
+<span id="cb48-3"><a href="#cb48-3"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb48-4"><a href="#cb48-4"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">0.588</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb48-5"><a href="#cb48-5"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.9752575</span>, <span class="at">color =</span> <span class="st">"steelblue1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-05_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
 <!-- -->
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -596,11 +1044,252 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Solutions 5"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">---</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">## </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb49" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb49-1"><a href="#cb49-1"></a><span class="co">---</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="an">title:</span><span class="co"> "Solutions 5"</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a><span class="an">callout-icon:</span><span class="co"> false</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a><span class="an">code-fold:</span><span class="co"> true</span></span>
+<span id="cb49-5"><a href="#cb49-5"></a><span class="co">---</span></span>
+<span id="cb49-6"><a href="#cb49-6"></a></span>
+<span id="cb49-9"><a href="#cb49-9"></a><span class="in">```{r}</span></span>
+<span id="cb49-10"><a href="#cb49-10"></a><span class="co">#| label: Set up</span></span>
+<span id="cb49-11"><a href="#cb49-11"></a><span class="co">#| message: false</span></span>
+<span id="cb49-12"><a href="#cb49-12"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb49-13"><a href="#cb49-13"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Optima"</span>))</span>
+<span id="cb49-14"><a href="#cb49-14"></a><span class="in">```</span></span>
+<span id="cb49-15"><a href="#cb49-15"></a></span>
+<span id="cb49-16"><a href="#cb49-16"></a><span class="fu">## Probability</span></span>
+<span id="cb49-17"><a href="#cb49-17"></a></span>
+<span id="cb49-18"><a href="#cb49-18"></a><span class="fu">### Exercise</span></span>
+<span id="cb49-19"><a href="#cb49-19"></a></span>
+<span id="cb49-20"><a href="#cb49-20"></a>::: callout-note</span>
+<span id="cb49-21"><a href="#cb49-21"></a>Suppose that $p = 2/3$.</span>
+<span id="cb49-22"><a href="#cb49-22"></a></span>
+<span id="cb49-23"><a href="#cb49-23"></a><span class="ss">-   </span>Use <span class="in">`dbinom()`</span> to verify the results in @eq-bernouilli-pmf.</span>
+<span id="cb49-24"><a href="#cb49-24"></a></span>
+<span id="cb49-25"><a href="#cb49-25"></a><span class="ss">-   </span>Use <span class="in">`pbinom()`</span> to verify the results in @eq-bernouilli-cdf.</span>
+<span id="cb49-26"><a href="#cb49-26"></a></span>
+<span id="cb49-27"><a href="#cb49-27"></a><span class="ss">-   </span>Use <span class="in">`rbinom()`</span> to generate 100 samples from the Bernouilli distribution with <span class="in">`prob = 2/3`</span>. Plot the results in <span class="in">`ggplot`</span> using <span class="in">`geom_bar`</span>.</span>
+<span id="cb49-28"><a href="#cb49-28"></a>:::</span>
+<span id="cb49-29"><a href="#cb49-29"></a></span>
+<span id="cb49-30"><a href="#cb49-30"></a><span class="in">`dbinom()`</span></span>
+<span id="cb49-31"><a href="#cb49-31"></a></span>
+<span id="cb49-34"><a href="#cb49-34"></a><span class="in">```{r}</span></span>
+<span id="cb49-35"><a href="#cb49-35"></a><span class="do">## should be 2/3</span></span>
+<span id="cb49-36"><a href="#cb49-36"></a><span class="fu">dbinom</span>(<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb49-37"><a href="#cb49-37"></a><span class="do">## should be 1/3</span></span>
+<span id="cb49-38"><a href="#cb49-38"></a><span class="fu">dbinom</span>(<span class="dv">0</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) </span>
+<span id="cb49-39"><a href="#cb49-39"></a><span class="do">## should all be zero</span></span>
+<span id="cb49-40"><a href="#cb49-40"></a><span class="fu">dbinom</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) </span>
+<span id="cb49-41"><a href="#cb49-41"></a><span class="in">```</span></span>
+<span id="cb49-42"><a href="#cb49-42"></a></span>
+<span id="cb49-43"><a href="#cb49-43"></a><span class="in">`pbinom()`</span></span>
+<span id="cb49-44"><a href="#cb49-44"></a></span>
+<span id="cb49-47"><a href="#cb49-47"></a><span class="in">```{r}</span></span>
+<span id="cb49-48"><a href="#cb49-48"></a><span class="do">## should be all zero </span></span>
+<span id="cb49-49"><a href="#cb49-49"></a><span class="fu">pbinom</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb49-50"><a href="#cb49-50"></a><span class="do">## should be 1/3</span></span>
+<span id="cb49-51"><a href="#cb49-51"></a><span class="fu">pbinom</span>(<span class="dv">0</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb49-52"><a href="#cb49-52"></a><span class="do">## should be 1</span></span>
+<span id="cb49-53"><a href="#cb49-53"></a><span class="fu">pbinom</span>(<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb49-54"><a href="#cb49-54"></a><span class="do">## should all be 1</span></span>
+<span id="cb49-55"><a href="#cb49-55"></a><span class="fu">pbinom</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb49-56"><a href="#cb49-56"></a><span class="in">```</span></span>
+<span id="cb49-57"><a href="#cb49-57"></a></span>
+<span id="cb49-58"><a href="#cb49-58"></a><span class="in">`rbinom()`</span></span>
+<span id="cb49-59"><a href="#cb49-59"></a></span>
+<span id="cb49-62"><a href="#cb49-62"></a><span class="in">```{r}</span></span>
+<span id="cb49-63"><a href="#cb49-63"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">100</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb49-64"><a href="#cb49-64"></a><span class="fu">glimpse</span>(x)</span>
+<span id="cb49-65"><a href="#cb49-65"></a><span class="fu">mean</span>(x)</span>
+<span id="cb49-66"><a href="#cb49-66"></a></span>
+<span id="cb49-67"><a href="#cb49-67"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">as_factor</span>(x)) <span class="sc">|&gt;</span> </span>
+<span id="cb49-68"><a href="#cb49-68"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> </span>
+<span id="cb49-69"><a href="#cb49-69"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb49-70"><a href="#cb49-70"></a><span class="in">```</span></span>
+<span id="cb49-71"><a href="#cb49-71"></a></span>
+<span id="cb49-72"><a href="#cb49-72"></a><span class="fu">### Exercise</span></span>
+<span id="cb49-73"><a href="#cb49-73"></a></span>
+<span id="cb49-74"><a href="#cb49-74"></a>::: callout-note</span>
+<span id="cb49-75"><a href="#cb49-75"></a>Suppose we flip a fair coin exactly four times.</span>
+<span id="cb49-76"><a href="#cb49-76"></a></span>
+<span id="cb49-77"><a href="#cb49-77"></a>Draw the sample space $\Omega$ for this "experiment."</span>
+<span id="cb49-78"><a href="#cb49-78"></a>:::</span>
+<span id="cb49-79"><a href="#cb49-79"></a></span>
+<span id="cb49-80"><a href="#cb49-80"></a>$$</span>
+<span id="cb49-81"><a href="#cb49-81"></a>\Omega = \begin{Bmatrix} </span>
+<span id="cb49-82"><a href="#cb49-82"></a>T, T, T, T <span class="sc">\\</span></span>
+<span id="cb49-83"><a href="#cb49-83"></a>\hline</span>
+<span id="cb49-84"><a href="#cb49-84"></a>H, T, T, T <span class="sc">\\</span> T, H, T, T <span class="sc">\\</span> T, T, H, T <span class="sc">\\</span> T, T, T, H <span class="sc">\\</span></span>
+<span id="cb49-85"><a href="#cb49-85"></a>\hline</span>
+<span id="cb49-86"><a href="#cb49-86"></a>H, H, T, T <span class="sc">\\</span> H, T, H, T <span class="sc">\\</span> H, T, T, H <span class="sc">\\</span> T, H, H, T <span class="sc">\\</span> T, H, T, H <span class="sc">\\</span> T, T, H, H <span class="sc">\\</span></span>
+<span id="cb49-87"><a href="#cb49-87"></a>\hline</span>
+<span id="cb49-88"><a href="#cb49-88"></a>T, H, H, H <span class="sc">\\</span> H, T, H, H <span class="sc">\\</span> H, H, T, H <span class="sc">\\</span> H, H, H, T <span class="sc">\\</span></span>
+<span id="cb49-89"><a href="#cb49-89"></a>\hline</span>
+<span id="cb49-90"><a href="#cb49-90"></a>H, H, H, H</span>
+<span id="cb49-91"><a href="#cb49-91"></a>\end{Bmatrix}</span>
+<span id="cb49-92"><a href="#cb49-92"></a>$$</span>
+<span id="cb49-93"><a href="#cb49-93"></a></span>
+<span id="cb49-94"><a href="#cb49-94"></a><span class="kw">&lt;aside&gt;</span>The horizontal lines will prove useful when we turn this sample space into a random variable.<span class="kw">&lt;/aside&gt;</span></span>
+<span id="cb49-95"><a href="#cb49-95"></a></span>
+<span id="cb49-96"><a href="#cb49-96"></a><span class="fu">### Exercise</span></span>
+<span id="cb49-97"><a href="#cb49-97"></a></span>
+<span id="cb49-98"><a href="#cb49-98"></a>::: callout-note</span>
+<span id="cb49-99"><a href="#cb49-99"></a>Turn the previous sample space into a random variable that counts the number of heads ( $H$ ) in each event.</span>
+<span id="cb49-100"><a href="#cb49-100"></a></span>
+<span id="cb49-101"><a href="#cb49-101"></a><span class="ss">-   </span>How many possible ways are there to get $X = 0$, $X = 1$, $X = 2$, $X = 3$, and $X = 4$?</span>
+<span id="cb49-102"><a href="#cb49-102"></a></span>
+<span id="cb49-103"><a href="#cb49-103"></a><span class="ss">-   </span>What is the probability that $X = 2$?</span>
+<span id="cb49-104"><a href="#cb49-104"></a></span>
+<span id="cb49-105"><a href="#cb49-105"></a><span class="ss">-   </span>Verify this by using the correct R function to calculate the probability that $X = 2$?</span>
+<span id="cb49-106"><a href="#cb49-106"></a></span>
+<span id="cb49-107"><a href="#cb49-107"></a><span class="ss">-   </span>Use the correct R function to calculate the probability that $X \leq 1$?</span>
+<span id="cb49-108"><a href="#cb49-108"></a>:::</span>
+<span id="cb49-109"><a href="#cb49-109"></a></span>
+<span id="cb49-110"><a href="#cb49-110"></a>$$</span>
+<span id="cb49-111"><a href="#cb49-111"></a>\begin{align}</span>
+<span id="cb49-112"><a href="#cb49-112"></a>\Omega = \begin{Bmatrix} </span>
+<span id="cb49-113"><a href="#cb49-113"></a>T, T, T, T <span class="sc">\\</span></span>
+<span id="cb49-114"><a href="#cb49-114"></a>\hline</span>
+<span id="cb49-115"><a href="#cb49-115"></a>H, T, T, T <span class="sc">\\</span> T, H, T, T <span class="sc">\\</span> T, T, H, T <span class="sc">\\</span> T, T, T, H <span class="sc">\\</span></span>
+<span id="cb49-116"><a href="#cb49-116"></a>\hline</span>
+<span id="cb49-117"><a href="#cb49-117"></a>H, H, T, T <span class="sc">\\</span> H, T, H, T <span class="sc">\\</span> H, T, T, H <span class="sc">\\</span> T, H, H, T <span class="sc">\\</span> T, H, T, H <span class="sc">\\</span> T, T, H, H <span class="sc">\\</span></span>
+<span id="cb49-118"><a href="#cb49-118"></a>\hline</span>
+<span id="cb49-119"><a href="#cb49-119"></a>T, H, H, H <span class="sc">\\</span> H, T, H, H <span class="sc">\\</span> H, H, T, H <span class="sc">\\</span> H, H, H, T <span class="sc">\\</span></span>
+<span id="cb49-120"><a href="#cb49-120"></a>\hline</span>
+<span id="cb49-121"><a href="#cb49-121"></a>H, H, H, H</span>
+<span id="cb49-122"><a href="#cb49-122"></a>\end{Bmatrix} &amp;&amp;\text{becomes} &amp;&amp;X = \begin{Bmatrix} 0 <span class="sc">\\</span>1 <span class="sc">\\</span> 2 <span class="sc">\\</span> 3 <span class="sc">\\</span> 4 \end{Bmatrix}</span>
+<span id="cb49-123"><a href="#cb49-123"></a>\end{align}</span>
+<span id="cb49-124"><a href="#cb49-124"></a>$$</span>
+<span id="cb49-125"><a href="#cb49-125"></a></span>
+<span id="cb49-126"><a href="#cb49-126"></a>There is 1 way of getting $X = 0$ , 4 ways of getting $X = 1$, 6 ways of getting $X = 2$, 4 ways of getting $X = 3$, and 1 way of getting $X = 4$.</span>
+<span id="cb49-127"><a href="#cb49-127"></a></span>
+<span id="cb49-128"><a href="#cb49-128"></a>What is the probability that $X = 2$?</span>
+<span id="cb49-129"><a href="#cb49-129"></a></span>
+<span id="cb49-130"><a href="#cb49-130"></a>$$</span>
+<span id="cb49-131"><a href="#cb49-131"></a>\Pr(X = 2) = \frac{6}{16} = 0.375</span>
+<span id="cb49-132"><a href="#cb49-132"></a>$$</span>
+<span id="cb49-133"><a href="#cb49-133"></a></span>
+<span id="cb49-136"><a href="#cb49-136"></a><span class="in">```{r}</span></span>
+<span id="cb49-137"><a href="#cb49-137"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb49-138"><a href="#cb49-138"></a><span class="in">```</span></span>
+<span id="cb49-139"><a href="#cb49-139"></a></span>
+<span id="cb49-140"><a href="#cb49-140"></a>Use the correct R function to calculate the probability that $X \leq 1$ ?</span>
+<span id="cb49-141"><a href="#cb49-141"></a></span>
+<span id="cb49-142"><a href="#cb49-142"></a>$$</span>
+<span id="cb49-143"><a href="#cb49-143"></a>\Pr(X \leq 1) = \Pr(X = 0) + \Pr(X = 1) = \frac{1 + 4}{16} = 0.3125</span>
+<span id="cb49-144"><a href="#cb49-144"></a>$$</span>
+<span id="cb49-145"><a href="#cb49-145"></a></span>
+<span id="cb49-148"><a href="#cb49-148"></a><span class="in">```{r}</span></span>
+<span id="cb49-149"><a href="#cb49-149"></a><span class="fu">pbinom</span>(<span class="dv">1</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb49-150"><a href="#cb49-150"></a><span class="in">```</span></span>
+<span id="cb49-151"><a href="#cb49-151"></a></span>
+<span id="cb49-152"><a href="#cb49-152"></a><span class="fu">### Exercise</span></span>
+<span id="cb49-153"><a href="#cb49-153"></a></span>
+<span id="cb49-154"><a href="#cb49-154"></a>::: callout-note</span>
+<span id="cb49-155"><a href="#cb49-155"></a>Use <span class="in">`rbinom()`</span> to generate 1000 samples from the Binomial distribution with <span class="in">`size = 5`</span> and <span class="in">`prob = 2/3`</span>. Plot the results in <span class="in">`ggplot`</span> using <span class="in">`geom_bar`</span>.</span>
+<span id="cb49-156"><a href="#cb49-156"></a></span>
+<span id="cb49-157"><a href="#cb49-157"></a>Estimate the probability that $X$ is an even number using the **`mean()`** function on those 1000 values.</span>
+<span id="cb49-158"><a href="#cb49-158"></a>:::</span>
+<span id="cb49-159"><a href="#cb49-159"></a></span>
+<span id="cb49-162"><a href="#cb49-162"></a><span class="in">```{r}</span></span>
+<span id="cb49-163"><a href="#cb49-163"></a>x <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="fl">1e3</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb49-164"><a href="#cb49-164"></a></span>
+<span id="cb49-165"><a href="#cb49-165"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">as_factor</span>(x)) <span class="sc">|&gt;</span> </span>
+<span id="cb49-166"><a href="#cb49-166"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> </span>
+<span id="cb49-167"><a href="#cb49-167"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb49-168"><a href="#cb49-168"></a></span>
+<span id="cb49-169"><a href="#cb49-169"></a><span class="fu">mean</span>(x <span class="sc">==</span> <span class="dv">2</span> <span class="sc">|</span> x <span class="sc">==</span> <span class="dv">4</span>)</span>
+<span id="cb49-170"><a href="#cb49-170"></a><span class="in">```</span></span>
+<span id="cb49-171"><a href="#cb49-171"></a></span>
+<span id="cb49-174"><a href="#cb49-174"></a><span class="in">```{r}</span></span>
+<span id="cb49-175"><a href="#cb49-175"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), <span class="at">size =</span> <span class="dv">5</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>))</span>
+<span id="cb49-176"><a href="#cb49-176"></a><span class="in">```</span></span>
+<span id="cb49-177"><a href="#cb49-177"></a></span>
+<span id="cb49-178"><a href="#cb49-178"></a>*Note. You can get sophisticated in finding even numbers by using the "modulus" operator.*</span>
+<span id="cb49-179"><a href="#cb49-179"></a></span>
+<span id="cb49-182"><a href="#cb49-182"></a><span class="in">```{r}</span></span>
+<span id="cb49-183"><a href="#cb49-183"></a><span class="fu">mean</span>(x <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb49-184"><a href="#cb49-184"></a><span class="in">```</span></span>
+<span id="cb49-185"><a href="#cb49-185"></a></span>
+<span id="cb49-186"><a href="#cb49-186"></a>*Actually, I just discovered that [zero is technically an even number](https://www.bbc.com/news/magazine-20559052)* 🤯</span>
+<span id="cb49-187"><a href="#cb49-187"></a></span>
+<span id="cb49-190"><a href="#cb49-190"></a><span class="in">```{r}</span></span>
+<span id="cb49-191"><a href="#cb49-191"></a><span class="fu">mean</span>(x <span class="sc">==</span> <span class="dv">2</span> <span class="sc">|</span> x <span class="sc">==</span> <span class="dv">4</span> <span class="sc">|</span> x <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb49-192"><a href="#cb49-192"></a><span class="in">```</span></span>
+<span id="cb49-193"><a href="#cb49-193"></a></span>
+<span id="cb49-194"><a href="#cb49-194"></a><span class="fu">### Exercise</span></span>
+<span id="cb49-195"><a href="#cb49-195"></a></span>
+<span id="cb49-196"><a href="#cb49-196"></a>::: callout-note</span>
+<span id="cb49-197"><a href="#cb49-197"></a>Revisit what you did @sec-four-coins-1 and @sec-four-coins-2.</span>
+<span id="cb49-198"><a href="#cb49-198"></a></span>
+<span id="cb49-199"><a href="#cb49-199"></a><span class="ss">-   </span>What is the probability that $X = 2$ when $p = 1/3$ and $n = 4$?</span>
+<span id="cb49-200"><a href="#cb49-200"></a></span>
+<span id="cb49-201"><a href="#cb49-201"></a><span class="ss">-   </span>Verify this by using the correct R function to calculate the probability that $X = 2$?</span>
+<span id="cb49-202"><a href="#cb49-202"></a>:::</span>
+<span id="cb49-203"><a href="#cb49-203"></a></span>
+<span id="cb49-204"><a href="#cb49-204"></a>$$</span>
+<span id="cb49-205"><a href="#cb49-205"></a>\Pr\bigg(X = 2 \mid p =\frac{1}{3}, n =4 \bigg) = 6 \times \bigg(\frac{1}{3}\bigg)^2 \times \bigg(\frac{2}{3}\bigg)^2 = 0.2962963</span>
+<span id="cb49-206"><a href="#cb49-206"></a>$$</span>
+<span id="cb49-207"><a href="#cb49-207"></a></span>
+<span id="cb49-210"><a href="#cb49-210"></a><span class="in">```{r}</span></span>
+<span id="cb49-211"><a href="#cb49-211"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">prob =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb49-212"><a href="#cb49-212"></a><span class="in">```</span></span>
+<span id="cb49-213"><a href="#cb49-213"></a></span>
+<span id="cb49-214"><a href="#cb49-214"></a><span class="fu">### Exercise</span></span>
+<span id="cb49-215"><a href="#cb49-215"></a></span>
+<span id="cb49-216"><a href="#cb49-216"></a>::: callout-note</span>
+<span id="cb49-217"><a href="#cb49-217"></a>Suppose that $p = 2/3$ and $n = 15$</span>
+<span id="cb49-218"><a href="#cb49-218"></a></span>
+<span id="cb49-219"><a href="#cb49-219"></a><span class="ss">-   </span>Use <span class="in">`dbinom()`</span> to verify the results in @eq-binomial-pmf.</span>
+<span id="cb49-220"><a href="#cb49-220"></a></span>
+<span id="cb49-221"><a href="#cb49-221"></a><span class="ss">-   </span>Use <span class="in">`pbinom()`</span> to verify the results in @eq-binomial-cdf.</span>
+<span id="cb49-222"><a href="#cb49-222"></a>:::</span>
+<span id="cb49-223"><a href="#cb49-223"></a></span>
+<span id="cb49-224"><a href="#cb49-224"></a><span class="in">`dbinom()`</span></span>
+<span id="cb49-225"><a href="#cb49-225"></a></span>
+<span id="cb49-228"><a href="#cb49-228"></a><span class="in">```{r}</span></span>
+<span id="cb49-229"><a href="#cb49-229"></a>x <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">15</span></span>
+<span id="cb49-230"><a href="#cb49-230"></a><span class="fu">choose</span>(<span class="dv">15</span>, x) <span class="sc">*</span> (<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)<span class="sc">^</span>x <span class="sc">*</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)<span class="sc">^</span>(<span class="dv">15</span> <span class="sc">-</span> x)</span>
+<span id="cb49-231"><a href="#cb49-231"></a><span class="fu">dbinom</span>(x, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb49-232"><a href="#cb49-232"></a><span class="in">```</span></span>
+<span id="cb49-233"><a href="#cb49-233"></a></span>
+<span id="cb49-234"><a href="#cb49-234"></a><span class="in">`pbinom()`</span></span>
+<span id="cb49-235"><a href="#cb49-235"></a></span>
+<span id="cb49-238"><a href="#cb49-238"></a><span class="in">```{r}</span></span>
+<span id="cb49-239"><a href="#cb49-239"></a><span class="fu">cumsum</span>(<span class="fu">choose</span>(<span class="dv">15</span>, x) <span class="sc">*</span> (<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)<span class="sc">^</span>x <span class="sc">*</span> (<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)<span class="sc">^</span>(<span class="dv">15</span> <span class="sc">-</span> x))</span>
+<span id="cb49-240"><a href="#cb49-240"></a><span class="fu">pbinom</span>(x, <span class="at">size =</span> <span class="dv">15</span>, <span class="at">prob =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb49-241"><a href="#cb49-241"></a><span class="in">```</span></span>
+<span id="cb49-242"><a href="#cb49-242"></a></span>
+<span id="cb49-243"><a href="#cb49-243"></a><span class="fu">## Likelihood</span></span>
+<span id="cb49-244"><a href="#cb49-244"></a></span>
+<span id="cb49-245"><a href="#cb49-245"></a><span class="fu">### Exercise</span></span>
+<span id="cb49-246"><a href="#cb49-246"></a></span>
+<span id="cb49-249"><a href="#cb49-249"></a><span class="in">```{r}</span></span>
+<span id="cb49-250"><a href="#cb49-250"></a>grid <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">prob =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.001</span>))</span>
+<span id="cb49-251"><a href="#cb49-251"></a>grid<span class="sc">$</span>like <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">21</span>, <span class="dv">47</span>, grid<span class="sc">$</span>prob)</span>
+<span id="cb49-252"><a href="#cb49-252"></a></span>
+<span id="cb49-253"><a href="#cb49-253"></a>grid <span class="ot">&lt;-</span> grid <span class="sc">|&gt;</span> </span>
+<span id="cb49-254"><a href="#cb49-254"></a>  <span class="fu">mutate</span>(<span class="at">clike_raw =</span> <span class="fu">cumsum</span>(like)) <span class="sc">|&gt;</span> </span>
+<span id="cb49-255"><a href="#cb49-255"></a>  <span class="fu">mutate</span>(<span class="at">clike_normalized =</span> clike_raw <span class="sc">/</span> <span class="fu">sum</span>(like)) </span>
+<span id="cb49-256"><a href="#cb49-256"></a></span>
+<span id="cb49-257"><a href="#cb49-257"></a>grid <span class="sc">|&gt;</span> </span>
+<span id="cb49-258"><a href="#cb49-258"></a>  <span class="fu">filter</span>(prob <span class="sc">==</span> <span class="fl">0.588</span>)</span>
+<span id="cb49-259"><a href="#cb49-259"></a><span class="in">```</span></span>
+<span id="cb49-260"><a href="#cb49-260"></a></span>
+<span id="cb49-261"><a href="#cb49-261"></a>The value of <span class="in">`clike_normalized`</span> gives the chances that <span class="in">`prob`</span> is equal to or less than 0.588. To answer the question I just need to subtract 1 from that.</span>
+<span id="cb49-262"><a href="#cb49-262"></a></span>
+<span id="cb49-265"><a href="#cb49-265"></a><span class="in">```{r}</span></span>
+<span id="cb49-266"><a href="#cb49-266"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.9752575</span></span>
+<span id="cb49-267"><a href="#cb49-267"></a><span class="in">```</span></span>
+<span id="cb49-268"><a href="#cb49-268"></a></span>
+<span id="cb49-271"><a href="#cb49-271"></a><span class="in">```{r}</span></span>
+<span id="cb49-272"><a href="#cb49-272"></a>grid <span class="sc">|&gt;</span> </span>
+<span id="cb49-273"><a href="#cb49-273"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(prob, clike_normalized)) <span class="sc">+</span> </span>
+<span id="cb49-274"><a href="#cb49-274"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb49-275"><a href="#cb49-275"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">0.588</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb49-276"><a href="#cb49-276"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.9752575</span>, <span class="at">color =</span> <span class="st">"steelblue1"</span>)</span>
+<span id="cb49-277"><a href="#cb49-277"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

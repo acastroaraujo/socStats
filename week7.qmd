@@ -60,7 +60,7 @@ table(conservative = d$conservative, weekly = d$weekly)
 
 2.  What is the probability that a person *does not* attend religious services weekly?
 
-    I'm asking for $\Pr(W^C)$
+    I'm asking for $\Pr(W^\complement)$
 
 3.  What is the probability that a person is conservative, given that they attend religious services weekly?
 
@@ -101,7 +101,7 @@ Suggestion: You should really make your life easier and either choose two binary
 
 ## Four Ways to Make Sense of Dependence
 
-### Exercise 
+### Exercise
 
 ::: callout-note
 Take another look at the `weekly` vs `conservative` contingency table.
@@ -125,7 +125,7 @@ Compare these probabilities using the following summary statistics:
 ### Exercise
 
 ::: callout-note
-Last week we used the `infer` package to draw a "simulation-based bootstrap distribution" for the difference in proportions between $\Pr(W \mid C)$ and $\Pr(W \mid C^\complement)$.
+Last week, in class, we used the `infer` package to draw a "simulation-based bootstrap distribution" for the difference in proportions between $\Pr(W \mid C)$ and $\Pr(W \mid C^\complement)$.
 
 Now we mix things up a little bit.
 
@@ -133,13 +133,13 @@ Now we mix things up a little bit.
 2.  Draw a sampling distribution for the "odds ratio"
 :::
 
-### Exercise 
+### Exercise
 
 ::: callout-note
 Repeat exercise 7.2.1 using the contingency table you created in exercise 7.1.2
 :::
 
-### Exercise 
+### Exercise
 
 ::: callout-note
 Repeat exercise 7.2.2 using the contingency table you created in exercise 7.1.2

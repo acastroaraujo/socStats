@@ -1,0 +1,2232 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Social Statistics I (Exercises) - 14&nbsp; Solutions 7</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./solutions-06.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" media="screen" href="https://www.cssfontstack.com/Optima" type="text/css">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec-solutions.html">Solutions</a></li><li class="breadcrumb-item"><a href="./solutions-07.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Solutions 7</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Social Statistics I (Exercises)</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sec1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computing preliminaries</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Week 1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Week 2</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sec2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data, sampling, and probability</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Week 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Week 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Week 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Week 6</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week7.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Week 7</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sec-solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Solutions 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Solutions 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Solutions 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Solutions 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Solutions 6</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-07.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Solutions 7</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#contingency-tables" id="toc-contingency-tables" class="nav-link active" data-scroll-target="#contingency-tables"><span class="header-section-number">14.1</span> Contingency Tables</a>
+  <ul class="collapse">
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">14.1.1</span> Exercise</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">14.1.2</span> Exercise</a></li>
+  </ul></li>
+  <li><a href="#four-ways-to-make-sense-of-dependence" id="toc-four-ways-to-make-sense-of-dependence" class="nav-link" data-scroll-target="#four-ways-to-make-sense-of-dependence"><span class="header-section-number">14.2</span> Four Ways to Make Sense of Dependence</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">14.2.1</span> Exercise</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">14.2.2</span> Exercise</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4"><span class="header-section-number">14.2.3</span> Exercise</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5"><span class="header-section-number">14.2.4</span> Exercise</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Solutions 7</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(infer)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(gssr)</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Optima"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="contingency-tables" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="contingency-tables"><span class="header-section-number">14.1</span> Contingency Tables</h2>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="fu">select</span>(attend, polviews) <span class="sc">|&gt;</span> </span>
+<span id="cb2-5"><a href="#cb2-5"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb2-6"><a href="#cb2-6"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="fu">mutate</span>(<span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
+<span id="cb2-8"><a href="#cb2-8"></a>         <span class="at">conservative =</span> <span class="fu">if_else</span>(polviews <span class="sc">&gt;=</span> <span class="dv">5</span>, 1L, 0L)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="fu">drop_na</span>() </span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a>crosstab1 <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">conservative =</span> d<span class="sc">$</span>conservative, <span class="at">weekly =</span> d<span class="sc">$</span>weekly)</span>
+<span id="cb2-12"><a href="#cb2-12"></a>crosstab1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            weekly
+conservative    0    1
+           0 1243  257
+           1  495  240</code></pre>
+</div>
+</div>
+<section id="exercise" class="level3" data-number="14.1.1">
+<h3 data-number="14.1.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">14.1.1</span> Exercise</h3>
+<p>It might be easier to modify the table so that we look at the margins:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">addmargins</span>(crosstab1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            weekly
+conservative    0    1  Sum
+         0   1243  257 1500
+         1    495  240  735
+         Sum 1738  497 2235</code></pre>
+</div>
+</div>
+<p>I will provide answers using (1) the contingency table, (2) base R, and (3) tidyverse</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What is the probability that a person attends religious services weekly?</p>
+<p>I’m asking for <span class="math inline">\(\Pr(W)\)</span></p>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="do">## contingency table</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="dv">497</span> <span class="sc">/</span> <span class="dv">2235</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2223714</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="do">## base R</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">mean</span>(d<span class="sc">$</span>weekly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2223714</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="do">## tidyverse</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">mean</span>(weekly))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+      p
+  &lt;dbl&gt;
+1 0.222</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What is the probability that a person <em>does not</em> attend religious services weekly?</p>
+<p>I’m asking for <span class="math inline">\(\Pr(W^\complement)\)</span></p>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="do">## contingency table</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="dv">1738</span> <span class="sc">/</span> <span class="dv">2235</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7776286</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="do">## base R</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">mean</span>(d<span class="sc">$</span>weekly <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7776286</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="do">## tidyverse</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">mean</span>(weekly <span class="sc">==</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+      p
+  &lt;dbl&gt;
+1 0.778</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>What is the probability that a person is conservative, given that they attend religious services weekly?</p>
+<p>I’m asking for <span class="math inline">\(\Pr(C \mid W)\)</span></p>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="do">## contingency table</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="dv">240</span> <span class="sc">/</span> <span class="dv">497</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4828974</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="do">## base R</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">mean</span>(d<span class="sc">$</span>conservative[d<span class="sc">$</span>weekly <span class="sc">==</span> <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4828974</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="do">## tidyverse</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">filter</span>(weekly <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">mean</span>(conservative))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+      p
+  &lt;dbl&gt;
+1 0.483</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\Pr(W \mid C)\)</span></p>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="do">## contingency table</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="dv">240</span> <span class="sc">/</span> <span class="dv">735</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3265306</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="do">## base R</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">mean</span>(d<span class="sc">$</span>weekly[d<span class="sc">$</span>conservative <span class="sc">==</span> <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3265306</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="do">## tidyverse</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">filter</span>(conservative <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb28-4"><a href="#cb28-4"></a>  <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">mean</span>(weekly))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+      p
+  &lt;dbl&gt;
+1 0.327</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\Pr(C \mid W^\complement)\)</span></p>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="do">## contingency table</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="dv">495</span> <span class="sc">/</span> <span class="dv">1738</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2848101</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="do">## base R</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">mean</span>(d<span class="sc">$</span>conservative[d<span class="sc">$</span>weekly <span class="sc">==</span> <span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2848101</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="do">## tidyverse</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb34-3"><a href="#cb34-3"></a>  <span class="fu">filter</span>(weekly <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb34-4"><a href="#cb34-4"></a>  <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">mean</span>(conservative))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+      p
+  &lt;dbl&gt;
+1 0.285</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\Pr(W \text{ and } C)\)</span></p>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="do">## contingency table</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="dv">240</span> <span class="sc">/</span> <span class="dv">2235</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1073826</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="do">## base R</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="fu">mean</span>(d<span class="sc">$</span>weekly <span class="sc">&amp;</span> d<span class="sc">$</span>conservative) <span class="do">## this does implicit coercion, see Week 1!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1073826</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="do">## tidyverse</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb40-3"><a href="#cb40-3"></a>  <span class="fu">count</span>(weekly, conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb40-4"><a href="#cb40-4"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  weekly conservative     n     p
+   &lt;int&gt;        &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+1      0            0  1243 0.556
+2      0            1   495 0.221
+3      1            0   257 0.115
+4      1            1   240 0.107</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\Pr(W^\complement \text{ and } C^\complement)\)</span></p>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="do">## contingency table</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="dv">1243</span> <span class="sc">/</span> <span class="dv">2235</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5561521</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="do">## base R</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">mean</span>(d<span class="sc">$</span>weekly <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> d<span class="sc">$</span>conservative <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5561521</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="do">## tidyverse</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb46-3"><a href="#cb46-3"></a>  <span class="fu">count</span>(weekly, conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb46-4"><a href="#cb46-4"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">|&gt;</span> </span>
+<span id="cb46-5"><a href="#cb46-5"></a>  <span class="fu">filter</span>(weekly <span class="sc">==</span> <span class="dv">0</span>, conservative <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  weekly conservative     n     p
+   &lt;int&gt;        &lt;int&gt; &lt;int&gt; &lt;dbl&gt;
+1      0            0  1243 0.556</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Finally, if we <em>assume</em> that <span class="math inline">\(W\)</span> and <span class="math inline">\(C\)</span> are independent:</p>
+<ul>
+<li>What <em>would</em> be the joint probability of <span class="math inline">\(W\)</span> and <span class="math inline">\(C\)</span> ?</li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>(<span class="dv">735</span> <span class="sc">/</span> <span class="dv">2235</span>) <span class="sc">*</span> (<span class="dv">497</span> <span class="sc">/</span> <span class="dv">2235</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.07312884</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hint: These are some useful functions for working with contingency tables.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">addmargins</span>(crosstab1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            weekly
+conservative    0    1  Sum
+         0   1243  257 1500
+         1    495  240  735
+         Sum 1738  497 2235</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">rowSums</span>(crosstab1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   0    1 
+1500  735 </code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">colSums</span>(crosstab1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   0    1 
+1738  497 </code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">prop.table</span>(crosstab1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            weekly
+conservative         0         1
+           0 0.5561521 0.1149888
+           1 0.2214765 0.1073826</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="fu">prop.table</span>(crosstab1, <span class="at">margin =</span> <span class="dv">1</span>) <span class="do">## row percentages</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            weekly
+conservative         0         1
+           0 0.8286667 0.1713333
+           1 0.6734694 0.3265306</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="fu">prop.table</span>(crosstab1, <span class="at">margin =</span> <span class="dv">2</span>) <span class="do">## col percentages</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            weekly
+conservative         0         1
+           0 0.7151899 0.5171026
+           1 0.2848101 0.4828974</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-1" class="level3" data-number="14.1.2">
+<h3 data-number="14.1.2" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">14.1.2</span> Exercise</h3>
+<p>Here I chose the <code>cappun</code> variable, which asks <em>Do you favor or oppose the death penalty for persons convicted of murder?</em></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb62-2"><a href="#cb62-2"></a>  <span class="fu">select</span>(attend, polviews, cappun) <span class="sc">|&gt;</span> </span>
+<span id="cb62-3"><a href="#cb62-3"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb62-4"><a href="#cb62-4"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb62-5"><a href="#cb62-5"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb62-6"><a href="#cb62-6"></a>    <span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
+<span id="cb62-7"><a href="#cb62-7"></a>    <span class="at">conservative =</span> <span class="fu">if_else</span>(polviews <span class="sc">&gt;=</span> <span class="dv">5</span>, 1L, 0L),</span>
+<span id="cb62-8"><a href="#cb62-8"></a>    <span class="at">cappun =</span> <span class="fu">if_else</span>(cappun <span class="sc">==</span> <span class="dv">1</span>, 1L, 0L)</span>
+<span id="cb62-9"><a href="#cb62-9"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb62-10"><a href="#cb62-10"></a>  <span class="fu">drop_na</span>() </span>
+<span id="cb62-11"><a href="#cb62-11"></a></span>
+<span id="cb62-12"><a href="#cb62-12"></a>crosstab2 <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">conservative =</span> d<span class="sc">$</span>conservative, <span class="at">capital_punishment =</span> d<span class="sc">$</span>cappun)</span>
+<span id="cb62-13"><a href="#cb62-13"></a><span class="fu">addmargins</span>(crosstab2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            capital_punishment
+conservative    0    1  Sum
+         0    600  805 1405
+         1    175  522  697
+         Sum  775 1327 2102</code></pre>
+</div>
+</div>
+<p>Marginal probabilities:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="fu">table</span>(<span class="at">capital_punishment =</span> d<span class="sc">$</span>cappun) <span class="sc">|&gt;</span> </span>
+<span id="cb64-2"><a href="#cb64-2"></a>  <span class="fu">prop.table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>capital_punishment
+        0         1 
+0.3686965 0.6313035 </code></pre>
+</div>
+</div>
+<ul>
+<li><p>The probability that a person favors capital punishment is 0.63</p></li>
+<li><p>The probability that a person does <em>not</em> favor capital punishment is 0.37</p></li>
+</ul>
+<p>Now look at this:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">prop.table</span>(crosstab2, <span class="at">margin =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            capital_punishment
+conservative         0         1
+           0 0.4270463 0.5729537
+           1 0.2510760 0.7489240</code></pre>
+</div>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 59%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\Pr(CP \mid C) = 0.75\)</span></td>
+<td>The probability that a conservative person favors capital punishment.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Pr(CP^\complement \mid C) = 0.25\)</span></td>
+<td>The probability that a conservative person opposes capital punishment</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\Pr(CP \mid C^\complement) = 0.57\)</span></td>
+<td>The probability that a non-conservative favors capital punishment.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Pr(CP^\complement \mid C^\complement) = 0.42\)</span></td>
+<td>The probability that a non-conservative opposes capital punishment.</td>
+</tr>
+</tbody>
+</table>
+<p>Now look at this:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="fu">prop.table</span>(crosstab2, <span class="at">margin =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            capital_punishment
+conservative         0         1
+           0 0.7741935 0.6066315
+           1 0.2258065 0.3933685</code></pre>
+</div>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 60%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\Pr(C \mid CP) = 0.4\)</span></td>
+<td>The probability that a capital punishment supporter is conservative.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Pr(C \mid CP^\complement) = 0.22\)</span></td>
+<td>The probability that a capital punishment opposer is conservative.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\Pr(C^\complement \mid CP) = 0.6\)</span></td>
+<td>The probability that a capital punishment supporter is non-conservative.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Pr(C^\complement \mid CP^\complement) = 0.77\)</span></td>
+<td>The probability that a capital punishment opposer is non-conservative.</td>
+</tr>
+</tbody>
+</table>
+<p>Now look at this:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="fu">prop.table</span>(crosstab2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            capital_punishment
+conservative          0          1
+           0 0.28544244 0.38296860
+           1 0.08325404 0.24833492</code></pre>
+</div>
+</div>
+<table class="table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 60%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\Pr(C \text{ and } CP) = 0.25\)</span></td>
+<td>The probability that a person is conservative <em>and</em> favors capital punishment.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Pr(C \text{ and } CP^\complement) = 0.08\)</span></td>
+<td>The probability that a person is conservative <em>and</em> opposes capital punishment.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\Pr(C^\complement \text{ and } CP) = 0.38\)</span></td>
+<td>The probability that a person is non-conservative <em>and</em> favors capital punishment.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\Pr(C^\complement \text{ and } CP^\complement) = 0.28\)</span></td>
+<td>The probability that a person is non-conservative <em>and</em> opposes capital punishment.</td>
+</tr>
+</tbody>
+</table>
+<p>Assuming independence:</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a>conservative <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">conservative =</span> d<span class="sc">$</span>conservative)</span>
+<span id="cb72-2"><a href="#cb72-2"></a>conservative <span class="ot">&lt;-</span> conservative <span class="sc">/</span> <span class="fu">sum</span>(conservative)</span>
+<span id="cb72-3"><a href="#cb72-3"></a>cp <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">capital_punishment =</span> d<span class="sc">$</span>cappun)</span>
+<span id="cb72-4"><a href="#cb72-4"></a>cp <span class="ot">&lt;-</span> cp <span class="sc">/</span> <span class="fu">sum</span>(cp)</span>
+<span id="cb72-5"><a href="#cb72-5"></a><span class="fu">outer</span>(conservative, cp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            capital_punishment
+conservative         0         1
+           0 0.2464408 0.4219702
+           1 0.1222557 0.2093333</code></pre>
+</div>
+</div>
+<p><em>Here, each cell is the product of the marginal probabilities. You probably calculated these probabilities differently. That’s OK.</em></p>
+</section>
+</section>
+<section id="four-ways-to-make-sense-of-dependence" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="four-ways-to-make-sense-of-dependence"><span class="header-section-number">14.2</span> Four Ways to Make Sense of Dependence</h2>
+<section id="exercise-2" class="level3" data-number="14.2.1">
+<h3 data-number="14.2.1" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">14.2.1</span> Exercise</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Take another look at the <code>weekly</code> vs <code>conservative</code> contingency table.</p>
+<p>Focus on these two probabilities:</p>
+<p><span class="math display">\[
+\begin{align}
+\Pr(\text{weekly} \mid \text{conservative}) &amp;&amp;\text{and} &amp;&amp; \Pr(\text{weekly} \mid \text{non-conservative})
+\end{align}
+\]</span></p>
+<p>Compare these probabilities using the following summary statistics:</p>
+<ol type="1">
+<li>Difference in Probabilities</li>
+<li>Relative Risk Ratio</li>
+<li>Odds Ratio</li>
+<li>Log Odds Ratio</li>
+</ol>
+</div>
+</div>
+<p><em>Note. Recall that—under independence—these two probabilities would be the same. So there would be (1) zero difference in probabilities; (2) a relative risk ratio of one; (3) an odds ratio of one; and (4) a log odds ratio of zero.</em></p>
+<p><strong>Difference in proportions.</strong></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="fu">prop.table</span>(crosstab1, <span class="at">margin =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            weekly
+conservative         0         1
+           0 0.8286667 0.1713333
+           1 0.6734694 0.3265306</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a><span class="fl">0.3265306</span> <span class="sc">-</span> <span class="fl">0.1713333</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1551973</code></pre>
+</div>
+</div>
+<p>Conservatives are 15 percentage points more likely to attend religious ceremonies weekly.</p>
+<p><strong>Relative Risk Ratio</strong></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="fl">0.3265306</span> <span class="sc">/</span> <span class="fl">0.1713333</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.905821</code></pre>
+</div>
+</div>
+<p>Conservatives’ probability of attending religious ceremonies weekly is almost 2 times greater.</p>
+<p><em>Note the asymmetry. Non-conservatives’ probability of not attending weekly is 1.2 times greater.</em></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a><span class="fl">0.8286667</span> <span class="sc">/</span> <span class="fl">0.6734694</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.230444</code></pre>
+</div>
+</div>
+<p><strong>Odds ratio</strong></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="do">## odds that a conservative attends RC weekly</span></span>
+<span id="cb82-2"><a href="#cb82-2"></a>numerator <span class="ot">&lt;-</span> <span class="fl">0.3265306</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.3265306</span>)</span>
+<span id="cb82-3"><a href="#cb82-3"></a>numerator</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4848485</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="do">## odds that a non-conservative attends RC weekly</span></span>
+<span id="cb84-2"><a href="#cb84-2"></a>denominator <span class="ot">&lt;-</span> <span class="fl">0.1713333</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.1713333</span>)</span>
+<span id="cb84-3"><a href="#cb84-3"></a>denominator</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2067578</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="do">## odds ratio</span></span>
+<span id="cb86-2"><a href="#cb86-2"></a>numerator <span class="sc">/</span> denominator</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.345007</code></pre>
+</div>
+</div>
+<p><em>Note the symmetry now:</em></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a>(<span class="fl">0.8286667</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.8286667</span>)) <span class="sc">/</span> (<span class="fl">0.6734694</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.6734694</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.345007</code></pre>
+</div>
+</div>
+<p><strong>Log Odds Ratio</strong></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="fu">log</span>(numerator <span class="sc">/</span> denominator)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8522883</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="fu">log</span>(denominator <span class="sc">/</span> numerator)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.8522883</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-3" class="level3" data-number="14.2.2">
+<h3 data-number="14.2.2" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">14.2.2</span> Exercise</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Last week, in class, we used the <code>infer</code> package to draw a “simulation-based bootstrap distribution” for the difference in proportions between <span class="math inline">\(\Pr(W \mid C)\)</span> and <span class="math inline">\(\Pr(W \mid C^\complement)\)</span>.</p>
+<p>Now we mix things up a little bit.</p>
+<ol type="1">
+<li>Draw a sampling distribution for the “relative risk ratio” (Hint: <code>infer</code> calls this “ratio of props”)</li>
+<li>Draw a sampling distribution for the “odds ratio”</li>
+</ol>
+</div>
+</div>
+<p><strong>Using <code>infer</code></strong></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb94-2"><a href="#cb94-2"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb94-3"><a href="#cb94-3"></a>    <span class="at">CP =</span> <span class="fu">if_else</span>(cappun <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"supports"</span>, <span class="st">"opposes"</span>),</span>
+<span id="cb94-4"><a href="#cb94-4"></a>    <span class="at">C =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"conservative"</span>, <span class="st">"other"</span>),</span>
+<span id="cb94-5"><a href="#cb94-5"></a>    <span class="at">W =</span> <span class="fu">if_else</span>(weekly <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"weekly"</span>, <span class="st">"other"</span>)</span>
+<span id="cb94-6"><a href="#cb94-6"></a>  )</span>
+<span id="cb94-7"><a href="#cb94-7"></a></span>
+<span id="cb94-8"><a href="#cb94-8"></a>boot_diff_in_props <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb94-9"><a href="#cb94-9"></a>  <span class="fu">specify</span>(W <span class="sc">~</span> C, <span class="at">success =</span> <span class="st">"weekly"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb94-10"><a href="#cb94-10"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">5e3</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb94-11"><a href="#cb94-11"></a>  <span class="fu">calculate</span>(<span class="st">"diff in props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
+<span id="cb94-12"><a href="#cb94-12"></a></span>
+<span id="cb94-13"><a href="#cb94-13"></a>boot_diff_in_props <span class="sc">|&gt;</span> </span>
+<span id="cb94-14"><a href="#cb94-14"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(stat)) <span class="sc">+</span> </span>
+<span id="cb94-15"><a href="#cb94-15"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.1</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>) <span class="sc">+</span> </span>
+<span id="cb94-16"><a href="#cb94-16"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb94-17"><a href="#cb94-17"></a>  <span class="fu">labs</span>(</span>
+<span id="cb94-18"><a href="#cb94-18"></a>    <span class="at">title =</span> <span class="st">"Difference in Proportions"</span>, </span>
+<span id="cb94-19"><a href="#cb94-19"></a>    <span class="at">subtitle =</span> <span class="st">"Simulation-Based Bootstrap Distribution"</span></span>
+<span id="cb94-20"><a href="#cb94-20"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-07_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a>boot_rrr <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb95-2"><a href="#cb95-2"></a>  <span class="fu">specify</span>(W <span class="sc">~</span> C, <span class="at">success =</span> <span class="st">"weekly"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb95-3"><a href="#cb95-3"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">5e3</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb95-4"><a href="#cb95-4"></a>  <span class="fu">calculate</span>(<span class="st">"ratio of props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
+<span id="cb95-5"><a href="#cb95-5"></a></span>
+<span id="cb95-6"><a href="#cb95-6"></a>boot_rrr <span class="sc">|&gt;</span> </span>
+<span id="cb95-7"><a href="#cb95-7"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(stat)) <span class="sc">+</span> </span>
+<span id="cb95-8"><a href="#cb95-8"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb95-9"><a href="#cb95-9"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb95-10"><a href="#cb95-10"></a>  <span class="fu">labs</span>(</span>
+<span id="cb95-11"><a href="#cb95-11"></a>    <span class="at">title =</span> <span class="st">"Relative Risk Ratio"</span>, </span>
+<span id="cb95-12"><a href="#cb95-12"></a>    <span class="at">subtitle =</span> <span class="st">"Simulation-Based Bootstrap Distribution"</span></span>
+<span id="cb95-13"><a href="#cb95-13"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-07_files/figure-html/unnamed-chunk-25-2.png" class="img-fluid" width="672"></p>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a>boot_odds_ratio <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb96-2"><a href="#cb96-2"></a>  <span class="fu">specify</span>(W <span class="sc">~</span> C, <span class="at">success =</span> <span class="st">"weekly"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb96-3"><a href="#cb96-3"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">5e3</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb96-4"><a href="#cb96-4"></a>  <span class="fu">calculate</span>(<span class="st">"odds ratio"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
+<span id="cb96-5"><a href="#cb96-5"></a></span>
+<span id="cb96-6"><a href="#cb96-6"></a>boot_odds_ratio <span class="sc">|&gt;</span> </span>
+<span id="cb96-7"><a href="#cb96-7"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(stat)) <span class="sc">+</span> </span>
+<span id="cb96-8"><a href="#cb96-8"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb96-9"><a href="#cb96-9"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb96-10"><a href="#cb96-10"></a>  <span class="fu">labs</span>(</span>
+<span id="cb96-11"><a href="#cb96-11"></a>    <span class="at">title =</span> <span class="st">"Odds Ratio"</span>, </span>
+<span id="cb96-12"><a href="#cb96-12"></a>    <span class="at">subtitle =</span> <span class="st">"Simulation-Based Bootstrap Distribution"</span></span>
+<span id="cb96-13"><a href="#cb96-13"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-07_files/figure-html/unnamed-chunk-25-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><em>Note. It’s easy to draw the sampling distribution for the log odds!</em></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a>boot_odds_ratio <span class="sc">|&gt;</span> </span>
+<span id="cb97-2"><a href="#cb97-2"></a>  <span class="fu">mutate</span>(<span class="at">stat =</span> <span class="fu">log</span>(stat)) <span class="sc">|&gt;</span> </span>
+<span id="cb97-3"><a href="#cb97-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(stat)) <span class="sc">+</span> </span>
+<span id="cb97-4"><a href="#cb97-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb97-5"><a href="#cb97-5"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb97-6"><a href="#cb97-6"></a>  <span class="fu">labs</span>(</span>
+<span id="cb97-7"><a href="#cb97-7"></a>    <span class="at">title =</span> <span class="st">"Log Odds Ratio"</span>, </span>
+<span id="cb97-8"><a href="#cb97-8"></a>    <span class="at">subtitle =</span> <span class="st">"Simulation-Based Bootstrap Distribution"</span></span>
+<span id="cb97-9"><a href="#cb97-9"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-07_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercise-4" class="level3" data-number="14.2.3">
+<h3 data-number="14.2.3" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">14.2.3</span> Exercise</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Take another look at the <code>cappun</code> vs <code>conservative</code> contingency table.</p>
+<p>Focus on these two probabilities:</p>
+<p><span class="math display">\[
+\begin{align}
+\Pr(\text{supports cappun} \mid \text{conservative}) &amp;&amp;\text{and} &amp;&amp; \Pr(\text{supports cappun} \mid \text{non-conservative})
+\end{align}
+\]</span></p>
+<p>Compare these probabilities using the following summary statistics:</p>
+<ol type="1">
+<li>Difference in Probabilities</li>
+<li>Relative Risk Ratio</li>
+<li>Odds Ratio</li>
+<li>Log Odds Ratio</li>
+</ol>
+</div>
+</div>
+<p><strong>Difference in Proportions</strong></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a><span class="fu">prop.table</span>(crosstab2, <span class="at">margin =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            capital_punishment
+conservative         0         1
+           0 0.4270463 0.5729537
+           1 0.2510760 0.7489240</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a><span class="fl">0.7489240</span> <span class="sc">-</span> <span class="fl">0.5729537</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1759703</code></pre>
+</div>
+</div>
+<p>Conservatives’ support for capital punishment is 17 percentage points higher than non-conservatives’.</p>
+<p><strong>Relative Risk Ratio</strong></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1"></a><span class="fl">0.7489240</span> <span class="sc">/</span> <span class="fl">0.5729537</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.307128</code></pre>
+</div>
+</div>
+<p>Conservatives’ support for capital punishment is 1.3 times greater than non-conservatives’.</p>
+<p><strong>Odds ratio</strong></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a><span class="do">## odds that a conservative supports CP</span></span>
+<span id="cb104-2"><a href="#cb104-2"></a>numerator <span class="ot">&lt;-</span> <span class="fl">0.7489240</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.7489240</span>)</span>
+<span id="cb104-3"><a href="#cb104-3"></a>numerator</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.982858</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="do">## odds that a non-conservative supports CP</span></span>
+<span id="cb106-2"><a href="#cb106-2"></a>denominator <span class="ot">&lt;-</span> <span class="fl">0.5729537</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.5729537</span>)</span>
+<span id="cb106-3"><a href="#cb106-3"></a>denominator</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.341666</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1"></a><span class="do">## odds ratio</span></span>
+<span id="cb108-2"><a href="#cb108-2"></a>numerator <span class="sc">/</span> denominator</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.223248</code></pre>
+</div>
+</div>
+<p>The odds that a conservative supports capital punishment is 2 times larger than the odds that non-conservative supports capital punishment.</p>
+<p><strong>Log Odds Ratio</strong></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a><span class="fu">log</span>(numerator <span class="sc">/</span> denominator)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7989694</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-5" class="level3" data-number="14.2.4">
+<h3 data-number="14.2.4" class="anchored" data-anchor-id="exercise-5"><span class="header-section-number">14.2.4</span> Exercise</h3>
+<p><strong>Sampling distribution for the relative risk ratio</strong></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a>boot_rrr <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb112-2"><a href="#cb112-2"></a>  <span class="fu">specify</span>(CP <span class="sc">~</span> C, <span class="at">success =</span> <span class="st">"supports"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb112-3"><a href="#cb112-3"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">5e3</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb112-4"><a href="#cb112-4"></a>  <span class="fu">calculate</span>(<span class="st">"ratio of props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
+<span id="cb112-5"><a href="#cb112-5"></a></span>
+<span id="cb112-6"><a href="#cb112-6"></a>boot_rrr <span class="sc">|&gt;</span> </span>
+<span id="cb112-7"><a href="#cb112-7"></a>  infer<span class="sc">::</span><span class="fu">visualize</span>() <span class="sc">+</span> </span>
+<span id="cb112-8"><a href="#cb112-8"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-07_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><strong>Sampling distribution for the odds ratio</strong></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1"></a>boot_odds_ratio <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb113-2"><a href="#cb113-2"></a>  <span class="fu">specify</span>(CP <span class="sc">~</span> C, <span class="at">success =</span> <span class="st">"supports"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb113-3"><a href="#cb113-3"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">5e3</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb113-4"><a href="#cb113-4"></a>  <span class="fu">calculate</span>(<span class="st">"odds ratio"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
+<span id="cb113-5"><a href="#cb113-5"></a></span>
+<span id="cb113-6"><a href="#cb113-6"></a>boot_odds_ratio <span class="sc">|&gt;</span> </span>
+<span id="cb113-7"><a href="#cb113-7"></a>  infer<span class="sc">::</span><span class="fu">visualize</span>() <span class="sc">+</span> </span>
+<span id="cb113-8"><a href="#cb113-8"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-07_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><strong>How to do this <em>without</em> using the <code>infer</code> package?</strong></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a>out <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">5e3</span>, {</span>
+<span id="cb114-2"><a href="#cb114-2"></a>  </span>
+<span id="cb114-3"><a href="#cb114-3"></a>  i <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(d), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb114-4"><a href="#cb114-4"></a>  dr <span class="ot">&lt;-</span> d[i, ]  <span class="do">## integer subsetting (see Week 1)</span></span>
+<span id="cb114-5"><a href="#cb114-5"></a>  </span>
+<span id="cb114-6"><a href="#cb114-6"></a>  out <span class="ot">&lt;-</span> <span class="fu">table</span>(</span>
+<span id="cb114-7"><a href="#cb114-7"></a>    <span class="at">conservative =</span> dr<span class="sc">$</span>conservative, </span>
+<span id="cb114-8"><a href="#cb114-8"></a>    <span class="at">capital_punishment =</span> dr<span class="sc">$</span>cappun</span>
+<span id="cb114-9"><a href="#cb114-9"></a>  ) <span class="sc">|&gt;</span> <span class="fu">prop.table</span>(<span class="at">margin =</span> <span class="dv">1</span>)</span>
+<span id="cb114-10"><a href="#cb114-10"></a>  </span>
+<span id="cb114-11"><a href="#cb114-11"></a>  rrr <span class="ot">&lt;-</span> out[<span class="dv">2</span>, <span class="dv">2</span>] <span class="sc">/</span> out[<span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb114-12"><a href="#cb114-12"></a>  odds_ratio <span class="ot">&lt;-</span> (out[<span class="dv">2</span>, <span class="dv">2</span>] <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> out[<span class="dv">2</span>, <span class="dv">2</span>])) <span class="sc">/</span> (out[<span class="dv">1</span>, <span class="dv">2</span>] <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> out[<span class="dv">1</span>, <span class="dv">2</span>]))</span>
+<span id="cb114-13"><a href="#cb114-13"></a>  </span>
+<span id="cb114-14"><a href="#cb114-14"></a>  <span class="fu">tibble</span>(rrr, odds_ratio)</span>
+<span id="cb114-15"><a href="#cb114-15"></a>  </span>
+<span id="cb114-16"><a href="#cb114-16"></a>}, <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb114-17"><a href="#cb114-17"></a></span>
+<span id="cb114-18"><a href="#cb114-18"></a>boot <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(out) <span class="sc">|&gt;</span> </span>
+<span id="cb114-19"><a href="#cb114-19"></a>  <span class="fu">rowid_to_column</span>(<span class="at">var =</span> <span class="st">"replicate"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb114-20"><a href="#cb114-20"></a>  <span class="fu">mutate</span>(<span class="at">log_odds_ratio =</span> <span class="fu">log</span>(odds_ratio))</span>
+<span id="cb114-21"><a href="#cb114-21"></a></span>
+<span id="cb114-22"><a href="#cb114-22"></a><span class="fu">glimpse</span>(boot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 5,000
+Columns: 4
+$ replicate      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
+$ rrr            &lt;dbl&gt; 1.314604, 1.314962, 1.338669, 1.292190, 1.322816, 1.259…
+$ odds_ratio     &lt;dbl&gt; 2.323960, 2.201926, 2.312112, 2.229336, 2.248223, 1.898…
+$ log_odds_ratio &lt;dbl&gt; 0.8432725, 0.7893323, 0.8381616, 0.8017036, 0.8101403, …</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a>boot <span class="sc">|&gt;</span> </span>
+<span id="cb116-2"><a href="#cb116-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(rrr)) <span class="sc">+</span></span>
+<span id="cb116-3"><a href="#cb116-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb116-4"><a href="#cb116-4"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="solutions-07_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="672"></p>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1"></a>boot <span class="sc">|&gt;</span> </span>
+<span id="cb118-2"><a href="#cb118-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(odds_ratio)) <span class="sc">+</span></span>
+<span id="cb118-3"><a href="#cb118-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb118-4"><a href="#cb118-4"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="solutions-07_files/figure-html/unnamed-chunk-33-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./solutions-06.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Solutions 6</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb120" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb120-1"><a href="#cb120-1"></a><span class="co">---</span></span>
+<span id="cb120-2"><a href="#cb120-2"></a><span class="an">title:</span><span class="co"> "Solutions 7"</span></span>
+<span id="cb120-3"><a href="#cb120-3"></a><span class="an">callout-icon:</span><span class="co"> false</span></span>
+<span id="cb120-4"><a href="#cb120-4"></a><span class="an">code-fold:</span><span class="co"> show</span></span>
+<span id="cb120-5"><a href="#cb120-5"></a><span class="co">---</span></span>
+<span id="cb120-6"><a href="#cb120-6"></a></span>
+<span id="cb120-9"><a href="#cb120-9"></a><span class="in">```{r}</span></span>
+<span id="cb120-10"><a href="#cb120-10"></a><span class="co">#| label: "Set up"</span></span>
+<span id="cb120-11"><a href="#cb120-11"></a><span class="co">#| message: false</span></span>
+<span id="cb120-12"><a href="#cb120-12"></a></span>
+<span id="cb120-13"><a href="#cb120-13"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb120-14"><a href="#cb120-14"></a><span class="fu">library</span>(infer)</span>
+<span id="cb120-15"><a href="#cb120-15"></a><span class="fu">library</span>(gssr)</span>
+<span id="cb120-16"><a href="#cb120-16"></a></span>
+<span id="cb120-17"><a href="#cb120-17"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Optima"</span>))</span>
+<span id="cb120-18"><a href="#cb120-18"></a><span class="in">```</span></span>
+<span id="cb120-19"><a href="#cb120-19"></a></span>
+<span id="cb120-20"><a href="#cb120-20"></a><span class="fu">## Contingency Tables</span></span>
+<span id="cb120-21"><a href="#cb120-21"></a></span>
+<span id="cb120-24"><a href="#cb120-24"></a><span class="in">```{r}</span></span>
+<span id="cb120-25"><a href="#cb120-25"></a><span class="co">#| message: false</span></span>
+<span id="cb120-26"><a href="#cb120-26"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
+<span id="cb120-27"><a href="#cb120-27"></a></span>
+<span id="cb120-28"><a href="#cb120-28"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb120-29"><a href="#cb120-29"></a>  <span class="fu">select</span>(attend, polviews) <span class="sc">|&gt;</span> </span>
+<span id="cb120-30"><a href="#cb120-30"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb120-31"><a href="#cb120-31"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb120-32"><a href="#cb120-32"></a>  <span class="fu">mutate</span>(<span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
+<span id="cb120-33"><a href="#cb120-33"></a>         <span class="at">conservative =</span> <span class="fu">if_else</span>(polviews <span class="sc">&gt;=</span> <span class="dv">5</span>, 1L, 0L)) <span class="sc">|&gt;</span> </span>
+<span id="cb120-34"><a href="#cb120-34"></a>  <span class="fu">drop_na</span>() </span>
+<span id="cb120-35"><a href="#cb120-35"></a></span>
+<span id="cb120-36"><a href="#cb120-36"></a>crosstab1 <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">conservative =</span> d<span class="sc">$</span>conservative, <span class="at">weekly =</span> d<span class="sc">$</span>weekly)</span>
+<span id="cb120-37"><a href="#cb120-37"></a>crosstab1</span>
+<span id="cb120-38"><a href="#cb120-38"></a><span class="in">```</span></span>
+<span id="cb120-39"><a href="#cb120-39"></a></span>
+<span id="cb120-40"><a href="#cb120-40"></a><span class="fu">### Exercise</span></span>
+<span id="cb120-41"><a href="#cb120-41"></a></span>
+<span id="cb120-42"><a href="#cb120-42"></a>It might be easier to modify the table so that we look at the margins:</span>
+<span id="cb120-43"><a href="#cb120-43"></a></span>
+<span id="cb120-46"><a href="#cb120-46"></a><span class="in">```{r}</span></span>
+<span id="cb120-47"><a href="#cb120-47"></a><span class="fu">addmargins</span>(crosstab1)</span>
+<span id="cb120-48"><a href="#cb120-48"></a><span class="in">```</span></span>
+<span id="cb120-49"><a href="#cb120-49"></a></span>
+<span id="cb120-50"><a href="#cb120-50"></a>I will provide answers using (1) the contingency table, (2) base R, and (3) tidyverse</span>
+<span id="cb120-51"><a href="#cb120-51"></a></span>
+<span id="cb120-52"><a href="#cb120-52"></a>::: callout-note</span>
+<span id="cb120-53"><a href="#cb120-53"></a>What is the probability that a person attends religious services weekly?</span>
+<span id="cb120-54"><a href="#cb120-54"></a></span>
+<span id="cb120-55"><a href="#cb120-55"></a>I'm asking for $\Pr(W)$</span>
+<span id="cb120-56"><a href="#cb120-56"></a>:::</span>
+<span id="cb120-57"><a href="#cb120-57"></a></span>
+<span id="cb120-60"><a href="#cb120-60"></a><span class="in">```{r}</span></span>
+<span id="cb120-61"><a href="#cb120-61"></a><span class="do">## contingency table</span></span>
+<span id="cb120-62"><a href="#cb120-62"></a><span class="dv">497</span> <span class="sc">/</span> <span class="dv">2235</span></span>
+<span id="cb120-63"><a href="#cb120-63"></a><span class="do">## base R</span></span>
+<span id="cb120-64"><a href="#cb120-64"></a><span class="fu">mean</span>(d<span class="sc">$</span>weekly)</span>
+<span id="cb120-65"><a href="#cb120-65"></a><span class="do">## tidyverse</span></span>
+<span id="cb120-66"><a href="#cb120-66"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb120-67"><a href="#cb120-67"></a>  <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">mean</span>(weekly))</span>
+<span id="cb120-68"><a href="#cb120-68"></a><span class="in">```</span></span>
+<span id="cb120-69"><a href="#cb120-69"></a></span>
+<span id="cb120-70"><a href="#cb120-70"></a>::: callout-note</span>
+<span id="cb120-71"><a href="#cb120-71"></a>What is the probability that a person *does not* attend religious services weekly?</span>
+<span id="cb120-72"><a href="#cb120-72"></a></span>
+<span id="cb120-73"><a href="#cb120-73"></a>I'm asking for $\Pr(W^\complement)$</span>
+<span id="cb120-74"><a href="#cb120-74"></a>:::</span>
+<span id="cb120-75"><a href="#cb120-75"></a></span>
+<span id="cb120-78"><a href="#cb120-78"></a><span class="in">```{r}</span></span>
+<span id="cb120-79"><a href="#cb120-79"></a><span class="do">## contingency table</span></span>
+<span id="cb120-80"><a href="#cb120-80"></a><span class="dv">1738</span> <span class="sc">/</span> <span class="dv">2235</span></span>
+<span id="cb120-81"><a href="#cb120-81"></a><span class="do">## base R</span></span>
+<span id="cb120-82"><a href="#cb120-82"></a><span class="fu">mean</span>(d<span class="sc">$</span>weekly <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb120-83"><a href="#cb120-83"></a><span class="do">## tidyverse</span></span>
+<span id="cb120-84"><a href="#cb120-84"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb120-85"><a href="#cb120-85"></a>  <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">mean</span>(weekly <span class="sc">==</span> <span class="dv">0</span>))</span>
+<span id="cb120-86"><a href="#cb120-86"></a><span class="in">```</span></span>
+<span id="cb120-87"><a href="#cb120-87"></a></span>
+<span id="cb120-88"><a href="#cb120-88"></a>::: callout-note</span>
+<span id="cb120-89"><a href="#cb120-89"></a>What is the probability that a person is conservative, given that they attend religious services weekly?</span>
+<span id="cb120-90"><a href="#cb120-90"></a></span>
+<span id="cb120-91"><a href="#cb120-91"></a>I'm asking for $\Pr(C \mid W)$</span>
+<span id="cb120-92"><a href="#cb120-92"></a>:::</span>
+<span id="cb120-93"><a href="#cb120-93"></a></span>
+<span id="cb120-96"><a href="#cb120-96"></a><span class="in">```{r}</span></span>
+<span id="cb120-97"><a href="#cb120-97"></a><span class="do">## contingency table</span></span>
+<span id="cb120-98"><a href="#cb120-98"></a><span class="dv">240</span> <span class="sc">/</span> <span class="dv">497</span></span>
+<span id="cb120-99"><a href="#cb120-99"></a><span class="do">## base R</span></span>
+<span id="cb120-100"><a href="#cb120-100"></a><span class="fu">mean</span>(d<span class="sc">$</span>conservative[d<span class="sc">$</span>weekly <span class="sc">==</span> <span class="dv">1</span>])</span>
+<span id="cb120-101"><a href="#cb120-101"></a><span class="do">## tidyverse</span></span>
+<span id="cb120-102"><a href="#cb120-102"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb120-103"><a href="#cb120-103"></a>  <span class="fu">filter</span>(weekly <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-104"><a href="#cb120-104"></a>  <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">mean</span>(conservative))</span>
+<span id="cb120-105"><a href="#cb120-105"></a><span class="in">```</span></span>
+<span id="cb120-106"><a href="#cb120-106"></a></span>
+<span id="cb120-107"><a href="#cb120-107"></a>::: callout-note</span>
+<span id="cb120-108"><a href="#cb120-108"></a>$\Pr(W \mid C)$</span>
+<span id="cb120-109"><a href="#cb120-109"></a>:::</span>
+<span id="cb120-110"><a href="#cb120-110"></a></span>
+<span id="cb120-113"><a href="#cb120-113"></a><span class="in">```{r}</span></span>
+<span id="cb120-114"><a href="#cb120-114"></a><span class="do">## contingency table</span></span>
+<span id="cb120-115"><a href="#cb120-115"></a><span class="dv">240</span> <span class="sc">/</span> <span class="dv">735</span></span>
+<span id="cb120-116"><a href="#cb120-116"></a><span class="do">## base R</span></span>
+<span id="cb120-117"><a href="#cb120-117"></a><span class="fu">mean</span>(d<span class="sc">$</span>weekly[d<span class="sc">$</span>conservative <span class="sc">==</span> <span class="dv">1</span>])</span>
+<span id="cb120-118"><a href="#cb120-118"></a><span class="do">## tidyverse</span></span>
+<span id="cb120-119"><a href="#cb120-119"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb120-120"><a href="#cb120-120"></a>  <span class="fu">filter</span>(conservative <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-121"><a href="#cb120-121"></a>  <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">mean</span>(weekly))</span>
+<span id="cb120-122"><a href="#cb120-122"></a><span class="in">```</span></span>
+<span id="cb120-123"><a href="#cb120-123"></a></span>
+<span id="cb120-124"><a href="#cb120-124"></a>::: callout-note</span>
+<span id="cb120-125"><a href="#cb120-125"></a>$\Pr(C \mid W^\complement)$</span>
+<span id="cb120-126"><a href="#cb120-126"></a>:::</span>
+<span id="cb120-127"><a href="#cb120-127"></a></span>
+<span id="cb120-130"><a href="#cb120-130"></a><span class="in">```{r}</span></span>
+<span id="cb120-131"><a href="#cb120-131"></a><span class="do">## contingency table</span></span>
+<span id="cb120-132"><a href="#cb120-132"></a><span class="dv">495</span> <span class="sc">/</span> <span class="dv">1738</span></span>
+<span id="cb120-133"><a href="#cb120-133"></a><span class="do">## base R</span></span>
+<span id="cb120-134"><a href="#cb120-134"></a><span class="fu">mean</span>(d<span class="sc">$</span>conservative[d<span class="sc">$</span>weekly <span class="sc">==</span> <span class="dv">0</span>])</span>
+<span id="cb120-135"><a href="#cb120-135"></a><span class="do">## tidyverse</span></span>
+<span id="cb120-136"><a href="#cb120-136"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb120-137"><a href="#cb120-137"></a>  <span class="fu">filter</span>(weekly <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-138"><a href="#cb120-138"></a>  <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">mean</span>(conservative))</span>
+<span id="cb120-139"><a href="#cb120-139"></a><span class="in">```</span></span>
+<span id="cb120-140"><a href="#cb120-140"></a></span>
+<span id="cb120-141"><a href="#cb120-141"></a>::: callout-note</span>
+<span id="cb120-142"><a href="#cb120-142"></a>$\Pr(W \text{ and } C)$</span>
+<span id="cb120-143"><a href="#cb120-143"></a>:::</span>
+<span id="cb120-144"><a href="#cb120-144"></a></span>
+<span id="cb120-147"><a href="#cb120-147"></a><span class="in">```{r}</span></span>
+<span id="cb120-148"><a href="#cb120-148"></a><span class="do">## contingency table</span></span>
+<span id="cb120-149"><a href="#cb120-149"></a><span class="dv">240</span> <span class="sc">/</span> <span class="dv">2235</span></span>
+<span id="cb120-150"><a href="#cb120-150"></a><span class="do">## base R</span></span>
+<span id="cb120-151"><a href="#cb120-151"></a><span class="fu">mean</span>(d<span class="sc">$</span>weekly <span class="sc">&amp;</span> d<span class="sc">$</span>conservative) <span class="do">## this does implicit coercion, see Week 1!</span></span>
+<span id="cb120-152"><a href="#cb120-152"></a><span class="do">## tidyverse</span></span>
+<span id="cb120-153"><a href="#cb120-153"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb120-154"><a href="#cb120-154"></a>  <span class="fu">count</span>(weekly, conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb120-155"><a href="#cb120-155"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span>
+<span id="cb120-156"><a href="#cb120-156"></a><span class="in">```</span></span>
+<span id="cb120-157"><a href="#cb120-157"></a></span>
+<span id="cb120-158"><a href="#cb120-158"></a>::: callout-note</span>
+<span id="cb120-159"><a href="#cb120-159"></a>$\Pr(W^\complement \text{ and } C^\complement)$</span>
+<span id="cb120-160"><a href="#cb120-160"></a>:::</span>
+<span id="cb120-161"><a href="#cb120-161"></a></span>
+<span id="cb120-164"><a href="#cb120-164"></a><span class="in">```{r}</span></span>
+<span id="cb120-165"><a href="#cb120-165"></a><span class="do">## contingency table</span></span>
+<span id="cb120-166"><a href="#cb120-166"></a><span class="dv">1243</span> <span class="sc">/</span> <span class="dv">2235</span></span>
+<span id="cb120-167"><a href="#cb120-167"></a><span class="do">## base R</span></span>
+<span id="cb120-168"><a href="#cb120-168"></a><span class="fu">mean</span>(d<span class="sc">$</span>weekly <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> d<span class="sc">$</span>conservative <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb120-169"><a href="#cb120-169"></a><span class="do">## tidyverse</span></span>
+<span id="cb120-170"><a href="#cb120-170"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb120-171"><a href="#cb120-171"></a>  <span class="fu">count</span>(weekly, conservative) <span class="sc">|&gt;</span> </span>
+<span id="cb120-172"><a href="#cb120-172"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">|&gt;</span> </span>
+<span id="cb120-173"><a href="#cb120-173"></a>  <span class="fu">filter</span>(weekly <span class="sc">==</span> <span class="dv">0</span>, conservative <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb120-174"><a href="#cb120-174"></a><span class="in">```</span></span>
+<span id="cb120-175"><a href="#cb120-175"></a></span>
+<span id="cb120-176"><a href="#cb120-176"></a>::: callout-note</span>
+<span id="cb120-177"><a href="#cb120-177"></a>Finally, if we *assume* that $W$ and $C$ are independent:</span>
+<span id="cb120-178"><a href="#cb120-178"></a></span>
+<span id="cb120-179"><a href="#cb120-179"></a><span class="ss">-   </span>What *would* be the joint probability of $W$ and $C$ ?</span>
+<span id="cb120-180"><a href="#cb120-180"></a>:::</span>
+<span id="cb120-181"><a href="#cb120-181"></a></span>
+<span id="cb120-184"><a href="#cb120-184"></a><span class="in">```{r}</span></span>
+<span id="cb120-185"><a href="#cb120-185"></a>(<span class="dv">735</span> <span class="sc">/</span> <span class="dv">2235</span>) <span class="sc">*</span> (<span class="dv">497</span> <span class="sc">/</span> <span class="dv">2235</span>)</span>
+<span id="cb120-186"><a href="#cb120-186"></a><span class="in">```</span></span>
+<span id="cb120-187"><a href="#cb120-187"></a></span>
+<span id="cb120-188"><a href="#cb120-188"></a>::: callout-tip</span>
+<span id="cb120-189"><a href="#cb120-189"></a>Hint: These are some useful functions for working with contingency tables.</span>
+<span id="cb120-190"><a href="#cb120-190"></a></span>
+<span id="cb120-193"><a href="#cb120-193"></a><span class="in">```{r}</span></span>
+<span id="cb120-194"><a href="#cb120-194"></a><span class="fu">addmargins</span>(crosstab1)</span>
+<span id="cb120-195"><a href="#cb120-195"></a><span class="fu">rowSums</span>(crosstab1)</span>
+<span id="cb120-196"><a href="#cb120-196"></a><span class="fu">colSums</span>(crosstab1)</span>
+<span id="cb120-197"><a href="#cb120-197"></a><span class="fu">prop.table</span>(crosstab1)</span>
+<span id="cb120-198"><a href="#cb120-198"></a><span class="fu">prop.table</span>(crosstab1, <span class="at">margin =</span> <span class="dv">1</span>) <span class="do">## row percentages</span></span>
+<span id="cb120-199"><a href="#cb120-199"></a><span class="fu">prop.table</span>(crosstab1, <span class="at">margin =</span> <span class="dv">2</span>) <span class="do">## col percentages</span></span>
+<span id="cb120-200"><a href="#cb120-200"></a><span class="in">```</span></span>
+<span id="cb120-201"><a href="#cb120-201"></a>:::</span>
+<span id="cb120-202"><a href="#cb120-202"></a></span>
+<span id="cb120-203"><a href="#cb120-203"></a><span class="fu">### Exercise</span></span>
+<span id="cb120-204"><a href="#cb120-204"></a></span>
+<span id="cb120-205"><a href="#cb120-205"></a>Here I chose the <span class="in">`cappun`</span> variable, which asks *Do you favor or oppose the death penalty for persons convicted of murder?*</span>
+<span id="cb120-206"><a href="#cb120-206"></a></span>
+<span id="cb120-209"><a href="#cb120-209"></a><span class="in">```{r}</span></span>
+<span id="cb120-210"><a href="#cb120-210"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb120-211"><a href="#cb120-211"></a>  <span class="fu">select</span>(attend, polviews, cappun) <span class="sc">|&gt;</span> </span>
+<span id="cb120-212"><a href="#cb120-212"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb120-213"><a href="#cb120-213"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb120-214"><a href="#cb120-214"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb120-215"><a href="#cb120-215"></a>    <span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
+<span id="cb120-216"><a href="#cb120-216"></a>    <span class="at">conservative =</span> <span class="fu">if_else</span>(polviews <span class="sc">&gt;=</span> <span class="dv">5</span>, 1L, 0L),</span>
+<span id="cb120-217"><a href="#cb120-217"></a>    <span class="at">cappun =</span> <span class="fu">if_else</span>(cappun <span class="sc">==</span> <span class="dv">1</span>, 1L, 0L)</span>
+<span id="cb120-218"><a href="#cb120-218"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb120-219"><a href="#cb120-219"></a>  <span class="fu">drop_na</span>() </span>
+<span id="cb120-220"><a href="#cb120-220"></a></span>
+<span id="cb120-221"><a href="#cb120-221"></a>crosstab2 <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">conservative =</span> d<span class="sc">$</span>conservative, <span class="at">capital_punishment =</span> d<span class="sc">$</span>cappun)</span>
+<span id="cb120-222"><a href="#cb120-222"></a><span class="fu">addmargins</span>(crosstab2)</span>
+<span id="cb120-223"><a href="#cb120-223"></a><span class="in">```</span></span>
+<span id="cb120-224"><a href="#cb120-224"></a></span>
+<span id="cb120-225"><a href="#cb120-225"></a>Marginal probabilities:</span>
+<span id="cb120-226"><a href="#cb120-226"></a></span>
+<span id="cb120-229"><a href="#cb120-229"></a><span class="in">```{r}</span></span>
+<span id="cb120-230"><a href="#cb120-230"></a><span class="fu">table</span>(<span class="at">capital_punishment =</span> d<span class="sc">$</span>cappun) <span class="sc">|&gt;</span> </span>
+<span id="cb120-231"><a href="#cb120-231"></a>  <span class="fu">prop.table</span>()</span>
+<span id="cb120-232"><a href="#cb120-232"></a><span class="in">```</span></span>
+<span id="cb120-233"><a href="#cb120-233"></a></span>
+<span id="cb120-234"><a href="#cb120-234"></a><span class="ss">-   </span>The probability that a person favors capital punishment is 0.63</span>
+<span id="cb120-235"><a href="#cb120-235"></a></span>
+<span id="cb120-236"><a href="#cb120-236"></a><span class="ss">-   </span>The probability that a person does *not* favor capital punishment is 0.37</span>
+<span id="cb120-237"><a href="#cb120-237"></a></span>
+<span id="cb120-238"><a href="#cb120-238"></a>Now look at this:</span>
+<span id="cb120-239"><a href="#cb120-239"></a></span>
+<span id="cb120-242"><a href="#cb120-242"></a><span class="in">```{r}</span></span>
+<span id="cb120-243"><a href="#cb120-243"></a><span class="fu">prop.table</span>(crosstab2, <span class="at">margin =</span> <span class="dv">1</span>)</span>
+<span id="cb120-244"><a href="#cb120-244"></a><span class="in">```</span></span>
+<span id="cb120-245"><a href="#cb120-245"></a></span>
+<span id="cb120-246"><a href="#cb120-246"></a>|                                                 |                                                                       |</span>
+<span id="cb120-247"><a href="#cb120-247"></a>|-------------------------------------------------|-----------------------------------------------------------------------|</span>
+<span id="cb120-248"><a href="#cb120-248"></a>| $\Pr(CP \mid C) = 0.75$                         | The probability that a conservative person favors capital punishment. |</span>
+<span id="cb120-249"><a href="#cb120-249"></a>| $\Pr(CP^\complement \mid C) = 0.25$             | The probability that a conservative person opposes capital punishment |</span>
+<span id="cb120-250"><a href="#cb120-250"></a>| $\Pr(CP \mid C^\complement) = 0.57$             | The probability that a non-conservative favors capital punishment.    |</span>
+<span id="cb120-251"><a href="#cb120-251"></a>| $\Pr(CP^\complement \mid C^\complement) = 0.42$ | The probability that a non-conservative opposes capital punishment.   |</span>
+<span id="cb120-252"><a href="#cb120-252"></a></span>
+<span id="cb120-253"><a href="#cb120-253"></a>Now look at this:</span>
+<span id="cb120-254"><a href="#cb120-254"></a></span>
+<span id="cb120-257"><a href="#cb120-257"></a><span class="in">```{r}</span></span>
+<span id="cb120-258"><a href="#cb120-258"></a><span class="fu">prop.table</span>(crosstab2, <span class="at">margin =</span> <span class="dv">2</span>)</span>
+<span id="cb120-259"><a href="#cb120-259"></a><span class="in">```</span></span>
+<span id="cb120-260"><a href="#cb120-260"></a></span>
+<span id="cb120-261"><a href="#cb120-261"></a>|                                                 |                                                                          |</span>
+<span id="cb120-262"><a href="#cb120-262"></a>|-------------------------------------------------|--------------------------------------------------------------------------|</span>
+<span id="cb120-263"><a href="#cb120-263"></a>| $\Pr(C \mid CP) = 0.4$                          | The probability that a capital punishment supporter is conservative.     |</span>
+<span id="cb120-264"><a href="#cb120-264"></a>| $\Pr(C \mid CP^\complement) = 0.22$             | The probability that a capital punishment opposer is conservative.       |</span>
+<span id="cb120-265"><a href="#cb120-265"></a>| $\Pr(C^\complement \mid CP) = 0.6$              | The probability that a capital punishment supporter is non-conservative. |</span>
+<span id="cb120-266"><a href="#cb120-266"></a>| $\Pr(C^\complement \mid CP^\complement) = 0.77$ | The probability that a capital punishment opposer is non-conservative.   |</span>
+<span id="cb120-267"><a href="#cb120-267"></a></span>
+<span id="cb120-268"><a href="#cb120-268"></a>Now look at this:</span>
+<span id="cb120-269"><a href="#cb120-269"></a></span>
+<span id="cb120-272"><a href="#cb120-272"></a><span class="in">```{r}</span></span>
+<span id="cb120-273"><a href="#cb120-273"></a><span class="fu">prop.table</span>(crosstab2)</span>
+<span id="cb120-274"><a href="#cb120-274"></a><span class="in">```</span></span>
+<span id="cb120-275"><a href="#cb120-275"></a></span>
+<span id="cb120-276"><a href="#cb120-276"></a>|                                                         |                                                                                      |</span>
+<span id="cb120-277"><a href="#cb120-277"></a>|---------------------------------------------------------|--------------------------------------------------------------------------------------|</span>
+<span id="cb120-278"><a href="#cb120-278"></a>| $\Pr(C \text{ and } CP) = 0.25$                         | The probability that a person is conservative *and* favors capital punishment.       |</span>
+<span id="cb120-279"><a href="#cb120-279"></a>| $\Pr(C \text{ and } CP^\complement) = 0.08$             | The probability that a person is conservative *and* opposes capital punishment.      |</span>
+<span id="cb120-280"><a href="#cb120-280"></a>| $\Pr(C^\complement \text{ and } CP) = 0.38$             | The probability that a person is non-conservative *and* favors capital punishment.   |</span>
+<span id="cb120-281"><a href="#cb120-281"></a>| $\Pr(C^\complement \text{ and } CP^\complement) = 0.28$ | The probability that a person is non-conservative *and* opposes capital punishment.  |</span>
+<span id="cb120-282"><a href="#cb120-282"></a></span>
+<span id="cb120-283"><a href="#cb120-283"></a>Assuming independence:</span>
+<span id="cb120-284"><a href="#cb120-284"></a></span>
+<span id="cb120-287"><a href="#cb120-287"></a><span class="in">```{r}</span></span>
+<span id="cb120-288"><a href="#cb120-288"></a>conservative <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">conservative =</span> d<span class="sc">$</span>conservative)</span>
+<span id="cb120-289"><a href="#cb120-289"></a>conservative <span class="ot">&lt;-</span> conservative <span class="sc">/</span> <span class="fu">sum</span>(conservative)</span>
+<span id="cb120-290"><a href="#cb120-290"></a>cp <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">capital_punishment =</span> d<span class="sc">$</span>cappun)</span>
+<span id="cb120-291"><a href="#cb120-291"></a>cp <span class="ot">&lt;-</span> cp <span class="sc">/</span> <span class="fu">sum</span>(cp)</span>
+<span id="cb120-292"><a href="#cb120-292"></a><span class="fu">outer</span>(conservative, cp)</span>
+<span id="cb120-293"><a href="#cb120-293"></a><span class="in">```</span></span>
+<span id="cb120-294"><a href="#cb120-294"></a></span>
+<span id="cb120-295"><a href="#cb120-295"></a>*Here, each cell is the product of the marginal probabilities. You probably calculated these probabilities differently. That's OK.*</span>
+<span id="cb120-296"><a href="#cb120-296"></a></span>
+<span id="cb120-297"><a href="#cb120-297"></a><span class="fu">## Four Ways to Make Sense of Dependence</span></span>
+<span id="cb120-298"><a href="#cb120-298"></a></span>
+<span id="cb120-299"><a href="#cb120-299"></a><span class="fu">### Exercise</span></span>
+<span id="cb120-300"><a href="#cb120-300"></a></span>
+<span id="cb120-301"><a href="#cb120-301"></a>::: callout-note</span>
+<span id="cb120-302"><a href="#cb120-302"></a>Take another look at the <span class="in">`weekly`</span> vs <span class="in">`conservative`</span> contingency table.</span>
+<span id="cb120-303"><a href="#cb120-303"></a></span>
+<span id="cb120-304"><a href="#cb120-304"></a>Focus on these two probabilities:</span>
+<span id="cb120-305"><a href="#cb120-305"></a></span>
+<span id="cb120-306"><a href="#cb120-306"></a>$$</span>
+<span id="cb120-307"><a href="#cb120-307"></a>\begin{align}</span>
+<span id="cb120-308"><a href="#cb120-308"></a>\Pr(\text{weekly} \mid \text{conservative}) &amp;&amp;\text{and} &amp;&amp; \Pr(\text{weekly} \mid \text{non-conservative})</span>
+<span id="cb120-309"><a href="#cb120-309"></a>\end{align}</span>
+<span id="cb120-310"><a href="#cb120-310"></a>$$</span>
+<span id="cb120-311"><a href="#cb120-311"></a></span>
+<span id="cb120-312"><a href="#cb120-312"></a>Compare these probabilities using the following summary statistics:</span>
+<span id="cb120-313"><a href="#cb120-313"></a></span>
+<span id="cb120-314"><a href="#cb120-314"></a><span class="ss">1.  </span>Difference in Probabilities</span>
+<span id="cb120-315"><a href="#cb120-315"></a><span class="ss">2.  </span>Relative Risk Ratio</span>
+<span id="cb120-316"><a href="#cb120-316"></a><span class="ss">3.  </span>Odds Ratio</span>
+<span id="cb120-317"><a href="#cb120-317"></a><span class="ss">4.  </span>Log Odds Ratio</span>
+<span id="cb120-318"><a href="#cb120-318"></a>:::</span>
+<span id="cb120-319"><a href="#cb120-319"></a></span>
+<span id="cb120-320"><a href="#cb120-320"></a>*Note. Recall that---under independence---these two probabilities would be the same. So there would be (1) zero difference in probabilities; (2) a relative risk ratio of one; (3) an odds ratio of one; and (4) a log odds ratio of zero.*</span>
+<span id="cb120-321"><a href="#cb120-321"></a></span>
+<span id="cb120-322"><a href="#cb120-322"></a>**Difference in proportions.**</span>
+<span id="cb120-323"><a href="#cb120-323"></a></span>
+<span id="cb120-326"><a href="#cb120-326"></a><span class="in">```{r}</span></span>
+<span id="cb120-327"><a href="#cb120-327"></a><span class="fu">prop.table</span>(crosstab1, <span class="at">margin =</span> <span class="dv">1</span>)</span>
+<span id="cb120-328"><a href="#cb120-328"></a><span class="fl">0.3265306</span> <span class="sc">-</span> <span class="fl">0.1713333</span></span>
+<span id="cb120-329"><a href="#cb120-329"></a><span class="in">```</span></span>
+<span id="cb120-330"><a href="#cb120-330"></a></span>
+<span id="cb120-331"><a href="#cb120-331"></a>Conservatives are 15 percentage points more likely to attend religious ceremonies weekly.</span>
+<span id="cb120-332"><a href="#cb120-332"></a></span>
+<span id="cb120-333"><a href="#cb120-333"></a>**Relative Risk Ratio**</span>
+<span id="cb120-334"><a href="#cb120-334"></a></span>
+<span id="cb120-337"><a href="#cb120-337"></a><span class="in">```{r}</span></span>
+<span id="cb120-338"><a href="#cb120-338"></a><span class="fl">0.3265306</span> <span class="sc">/</span> <span class="fl">0.1713333</span></span>
+<span id="cb120-339"><a href="#cb120-339"></a><span class="in">```</span></span>
+<span id="cb120-340"><a href="#cb120-340"></a></span>
+<span id="cb120-341"><a href="#cb120-341"></a>Conservatives' probability of attending religious ceremonies weekly is almost 2 times greater.</span>
+<span id="cb120-342"><a href="#cb120-342"></a></span>
+<span id="cb120-343"><a href="#cb120-343"></a>*Note the asymmetry. Non-conservatives' probability of not attending weekly is 1.2 times greater.*</span>
+<span id="cb120-344"><a href="#cb120-344"></a></span>
+<span id="cb120-347"><a href="#cb120-347"></a><span class="in">```{r}</span></span>
+<span id="cb120-348"><a href="#cb120-348"></a><span class="fl">0.8286667</span> <span class="sc">/</span> <span class="fl">0.6734694</span></span>
+<span id="cb120-349"><a href="#cb120-349"></a><span class="in">```</span></span>
+<span id="cb120-350"><a href="#cb120-350"></a></span>
+<span id="cb120-351"><a href="#cb120-351"></a>**Odds ratio**</span>
+<span id="cb120-352"><a href="#cb120-352"></a></span>
+<span id="cb120-355"><a href="#cb120-355"></a><span class="in">```{r}</span></span>
+<span id="cb120-356"><a href="#cb120-356"></a><span class="do">## odds that a conservative attends RC weekly</span></span>
+<span id="cb120-357"><a href="#cb120-357"></a>numerator <span class="ot">&lt;-</span> <span class="fl">0.3265306</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.3265306</span>)</span>
+<span id="cb120-358"><a href="#cb120-358"></a>numerator</span>
+<span id="cb120-359"><a href="#cb120-359"></a><span class="do">## odds that a non-conservative attends RC weekly</span></span>
+<span id="cb120-360"><a href="#cb120-360"></a>denominator <span class="ot">&lt;-</span> <span class="fl">0.1713333</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.1713333</span>)</span>
+<span id="cb120-361"><a href="#cb120-361"></a>denominator</span>
+<span id="cb120-362"><a href="#cb120-362"></a><span class="do">## odds ratio</span></span>
+<span id="cb120-363"><a href="#cb120-363"></a>numerator <span class="sc">/</span> denominator</span>
+<span id="cb120-364"><a href="#cb120-364"></a><span class="in">```</span></span>
+<span id="cb120-365"><a href="#cb120-365"></a></span>
+<span id="cb120-366"><a href="#cb120-366"></a>*Note the symmetry now:*</span>
+<span id="cb120-367"><a href="#cb120-367"></a></span>
+<span id="cb120-370"><a href="#cb120-370"></a><span class="in">```{r}</span></span>
+<span id="cb120-371"><a href="#cb120-371"></a>(<span class="fl">0.8286667</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.8286667</span>)) <span class="sc">/</span> (<span class="fl">0.6734694</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.6734694</span>))</span>
+<span id="cb120-372"><a href="#cb120-372"></a><span class="in">```</span></span>
+<span id="cb120-373"><a href="#cb120-373"></a></span>
+<span id="cb120-374"><a href="#cb120-374"></a>**Log Odds Ratio**</span>
+<span id="cb120-375"><a href="#cb120-375"></a></span>
+<span id="cb120-378"><a href="#cb120-378"></a><span class="in">```{r}</span></span>
+<span id="cb120-379"><a href="#cb120-379"></a><span class="fu">log</span>(numerator <span class="sc">/</span> denominator)</span>
+<span id="cb120-380"><a href="#cb120-380"></a><span class="fu">log</span>(denominator <span class="sc">/</span> numerator)</span>
+<span id="cb120-381"><a href="#cb120-381"></a><span class="in">```</span></span>
+<span id="cb120-382"><a href="#cb120-382"></a></span>
+<span id="cb120-383"><a href="#cb120-383"></a><span class="fu">### Exercise</span></span>
+<span id="cb120-384"><a href="#cb120-384"></a></span>
+<span id="cb120-385"><a href="#cb120-385"></a>::: callout-note</span>
+<span id="cb120-386"><a href="#cb120-386"></a>Last week, in class, we used the <span class="in">`infer`</span> package to draw a "simulation-based bootstrap distribution" for the difference in proportions between $\Pr(W \mid C)$ and $\Pr(W \mid C^\complement)$.</span>
+<span id="cb120-387"><a href="#cb120-387"></a></span>
+<span id="cb120-388"><a href="#cb120-388"></a>Now we mix things up a little bit.</span>
+<span id="cb120-389"><a href="#cb120-389"></a></span>
+<span id="cb120-390"><a href="#cb120-390"></a><span class="ss">1.  </span>Draw a sampling distribution for the "relative risk ratio" (Hint: <span class="in">`infer`</span> calls this "ratio of props")</span>
+<span id="cb120-391"><a href="#cb120-391"></a><span class="ss">2.  </span>Draw a sampling distribution for the "odds ratio"</span>
+<span id="cb120-392"><a href="#cb120-392"></a>:::</span>
+<span id="cb120-393"><a href="#cb120-393"></a></span>
+<span id="cb120-394"><a href="#cb120-394"></a>**Using `infer`**</span>
+<span id="cb120-395"><a href="#cb120-395"></a></span>
+<span id="cb120-398"><a href="#cb120-398"></a><span class="in">```{r}</span></span>
+<span id="cb120-399"><a href="#cb120-399"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb120-400"><a href="#cb120-400"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb120-401"><a href="#cb120-401"></a>    <span class="at">CP =</span> <span class="fu">if_else</span>(cappun <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"supports"</span>, <span class="st">"opposes"</span>),</span>
+<span id="cb120-402"><a href="#cb120-402"></a>    <span class="at">C =</span> <span class="fu">if_else</span>(conservative <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"conservative"</span>, <span class="st">"other"</span>),</span>
+<span id="cb120-403"><a href="#cb120-403"></a>    <span class="at">W =</span> <span class="fu">if_else</span>(weekly <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"weekly"</span>, <span class="st">"other"</span>)</span>
+<span id="cb120-404"><a href="#cb120-404"></a>  )</span>
+<span id="cb120-405"><a href="#cb120-405"></a></span>
+<span id="cb120-406"><a href="#cb120-406"></a>boot_diff_in_props <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb120-407"><a href="#cb120-407"></a>  <span class="fu">specify</span>(W <span class="sc">~</span> C, <span class="at">success =</span> <span class="st">"weekly"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-408"><a href="#cb120-408"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">5e3</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-409"><a href="#cb120-409"></a>  <span class="fu">calculate</span>(<span class="st">"diff in props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
+<span id="cb120-410"><a href="#cb120-410"></a></span>
+<span id="cb120-411"><a href="#cb120-411"></a>boot_diff_in_props <span class="sc">|&gt;</span> </span>
+<span id="cb120-412"><a href="#cb120-412"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(stat)) <span class="sc">+</span> </span>
+<span id="cb120-413"><a href="#cb120-413"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">boundary =</span> <span class="fl">0.1</span>, <span class="at">binwidth =</span> <span class="fl">0.005</span>) <span class="sc">+</span> </span>
+<span id="cb120-414"><a href="#cb120-414"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb120-415"><a href="#cb120-415"></a>  <span class="fu">labs</span>(</span>
+<span id="cb120-416"><a href="#cb120-416"></a>    <span class="at">title =</span> <span class="st">"Difference in Proportions"</span>, </span>
+<span id="cb120-417"><a href="#cb120-417"></a>    <span class="at">subtitle =</span> <span class="st">"Simulation-Based Bootstrap Distribution"</span></span>
+<span id="cb120-418"><a href="#cb120-418"></a>  )</span>
+<span id="cb120-419"><a href="#cb120-419"></a></span>
+<span id="cb120-420"><a href="#cb120-420"></a>boot_rrr <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb120-421"><a href="#cb120-421"></a>  <span class="fu">specify</span>(W <span class="sc">~</span> C, <span class="at">success =</span> <span class="st">"weekly"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-422"><a href="#cb120-422"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">5e3</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-423"><a href="#cb120-423"></a>  <span class="fu">calculate</span>(<span class="st">"ratio of props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
+<span id="cb120-424"><a href="#cb120-424"></a></span>
+<span id="cb120-425"><a href="#cb120-425"></a>boot_rrr <span class="sc">|&gt;</span> </span>
+<span id="cb120-426"><a href="#cb120-426"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(stat)) <span class="sc">+</span> </span>
+<span id="cb120-427"><a href="#cb120-427"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb120-428"><a href="#cb120-428"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb120-429"><a href="#cb120-429"></a>  <span class="fu">labs</span>(</span>
+<span id="cb120-430"><a href="#cb120-430"></a>    <span class="at">title =</span> <span class="st">"Relative Risk Ratio"</span>, </span>
+<span id="cb120-431"><a href="#cb120-431"></a>    <span class="at">subtitle =</span> <span class="st">"Simulation-Based Bootstrap Distribution"</span></span>
+<span id="cb120-432"><a href="#cb120-432"></a>  )</span>
+<span id="cb120-433"><a href="#cb120-433"></a></span>
+<span id="cb120-434"><a href="#cb120-434"></a>boot_odds_ratio <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb120-435"><a href="#cb120-435"></a>  <span class="fu">specify</span>(W <span class="sc">~</span> C, <span class="at">success =</span> <span class="st">"weekly"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-436"><a href="#cb120-436"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">5e3</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-437"><a href="#cb120-437"></a>  <span class="fu">calculate</span>(<span class="st">"odds ratio"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
+<span id="cb120-438"><a href="#cb120-438"></a></span>
+<span id="cb120-439"><a href="#cb120-439"></a>boot_odds_ratio <span class="sc">|&gt;</span> </span>
+<span id="cb120-440"><a href="#cb120-440"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(stat)) <span class="sc">+</span> </span>
+<span id="cb120-441"><a href="#cb120-441"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb120-442"><a href="#cb120-442"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span> </span>
+<span id="cb120-443"><a href="#cb120-443"></a>  <span class="fu">labs</span>(</span>
+<span id="cb120-444"><a href="#cb120-444"></a>    <span class="at">title =</span> <span class="st">"Odds Ratio"</span>, </span>
+<span id="cb120-445"><a href="#cb120-445"></a>    <span class="at">subtitle =</span> <span class="st">"Simulation-Based Bootstrap Distribution"</span></span>
+<span id="cb120-446"><a href="#cb120-446"></a>  )</span>
+<span id="cb120-447"><a href="#cb120-447"></a><span class="in">```</span></span>
+<span id="cb120-448"><a href="#cb120-448"></a></span>
+<span id="cb120-449"><a href="#cb120-449"></a>*Note. It's easy to draw the sampling distribution for the log odds!*</span>
+<span id="cb120-450"><a href="#cb120-450"></a></span>
+<span id="cb120-453"><a href="#cb120-453"></a><span class="in">```{r}</span></span>
+<span id="cb120-454"><a href="#cb120-454"></a>boot_odds_ratio <span class="sc">|&gt;</span> </span>
+<span id="cb120-455"><a href="#cb120-455"></a>  <span class="fu">mutate</span>(<span class="at">stat =</span> <span class="fu">log</span>(stat)) <span class="sc">|&gt;</span> </span>
+<span id="cb120-456"><a href="#cb120-456"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(stat)) <span class="sc">+</span> </span>
+<span id="cb120-457"><a href="#cb120-457"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>, <span class="at">binwidth =</span> <span class="fl">0.05</span>) <span class="sc">+</span> </span>
+<span id="cb120-458"><a href="#cb120-458"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb120-459"><a href="#cb120-459"></a>  <span class="fu">labs</span>(</span>
+<span id="cb120-460"><a href="#cb120-460"></a>    <span class="at">title =</span> <span class="st">"Log Odds Ratio"</span>, </span>
+<span id="cb120-461"><a href="#cb120-461"></a>    <span class="at">subtitle =</span> <span class="st">"Simulation-Based Bootstrap Distribution"</span></span>
+<span id="cb120-462"><a href="#cb120-462"></a>  )</span>
+<span id="cb120-463"><a href="#cb120-463"></a><span class="in">```</span></span>
+<span id="cb120-464"><a href="#cb120-464"></a></span>
+<span id="cb120-465"><a href="#cb120-465"></a><span class="fu">### Exercise</span></span>
+<span id="cb120-466"><a href="#cb120-466"></a></span>
+<span id="cb120-467"><a href="#cb120-467"></a>::: callout-note</span>
+<span id="cb120-468"><a href="#cb120-468"></a>Take another look at the <span class="in">`cappun`</span> vs <span class="in">`conservative`</span> contingency table.</span>
+<span id="cb120-469"><a href="#cb120-469"></a></span>
+<span id="cb120-470"><a href="#cb120-470"></a>Focus on these two probabilities:</span>
+<span id="cb120-471"><a href="#cb120-471"></a></span>
+<span id="cb120-472"><a href="#cb120-472"></a>$$</span>
+<span id="cb120-473"><a href="#cb120-473"></a>\begin{align}</span>
+<span id="cb120-474"><a href="#cb120-474"></a>\Pr(\text{supports cappun} \mid \text{conservative}) &amp;&amp;\text{and} &amp;&amp; \Pr(\text{supports cappun} \mid \text{non-conservative})</span>
+<span id="cb120-475"><a href="#cb120-475"></a>\end{align}</span>
+<span id="cb120-476"><a href="#cb120-476"></a>$$</span>
+<span id="cb120-477"><a href="#cb120-477"></a></span>
+<span id="cb120-478"><a href="#cb120-478"></a>Compare these probabilities using the following summary statistics:</span>
+<span id="cb120-479"><a href="#cb120-479"></a></span>
+<span id="cb120-480"><a href="#cb120-480"></a><span class="ss">1.  </span>Difference in Probabilities</span>
+<span id="cb120-481"><a href="#cb120-481"></a><span class="ss">2.  </span>Relative Risk Ratio</span>
+<span id="cb120-482"><a href="#cb120-482"></a><span class="ss">3.  </span>Odds Ratio</span>
+<span id="cb120-483"><a href="#cb120-483"></a><span class="ss">4.  </span>Log Odds Ratio</span>
+<span id="cb120-484"><a href="#cb120-484"></a>:::</span>
+<span id="cb120-485"><a href="#cb120-485"></a></span>
+<span id="cb120-486"><a href="#cb120-486"></a>**Difference in Proportions**</span>
+<span id="cb120-487"><a href="#cb120-487"></a></span>
+<span id="cb120-490"><a href="#cb120-490"></a><span class="in">```{r}</span></span>
+<span id="cb120-491"><a href="#cb120-491"></a><span class="fu">prop.table</span>(crosstab2, <span class="at">margin =</span> <span class="dv">1</span>)</span>
+<span id="cb120-492"><a href="#cb120-492"></a><span class="fl">0.7489240</span> <span class="sc">-</span> <span class="fl">0.5729537</span></span>
+<span id="cb120-493"><a href="#cb120-493"></a><span class="in">```</span></span>
+<span id="cb120-494"><a href="#cb120-494"></a></span>
+<span id="cb120-495"><a href="#cb120-495"></a>Conservatives' support for capital punishment is 17 percentage points higher than non-conservatives'.</span>
+<span id="cb120-496"><a href="#cb120-496"></a></span>
+<span id="cb120-497"><a href="#cb120-497"></a>**Relative Risk Ratio**</span>
+<span id="cb120-498"><a href="#cb120-498"></a></span>
+<span id="cb120-501"><a href="#cb120-501"></a><span class="in">```{r}</span></span>
+<span id="cb120-502"><a href="#cb120-502"></a><span class="fl">0.7489240</span> <span class="sc">/</span> <span class="fl">0.5729537</span></span>
+<span id="cb120-503"><a href="#cb120-503"></a><span class="in">```</span></span>
+<span id="cb120-504"><a href="#cb120-504"></a></span>
+<span id="cb120-505"><a href="#cb120-505"></a>Conservatives' support for capital punishment is 1.3 times greater than non-conservatives'.</span>
+<span id="cb120-506"><a href="#cb120-506"></a></span>
+<span id="cb120-507"><a href="#cb120-507"></a>**Odds ratio**</span>
+<span id="cb120-508"><a href="#cb120-508"></a></span>
+<span id="cb120-511"><a href="#cb120-511"></a><span class="in">```{r}</span></span>
+<span id="cb120-512"><a href="#cb120-512"></a><span class="do">## odds that a conservative supports CP</span></span>
+<span id="cb120-513"><a href="#cb120-513"></a>numerator <span class="ot">&lt;-</span> <span class="fl">0.7489240</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.7489240</span>)</span>
+<span id="cb120-514"><a href="#cb120-514"></a>numerator</span>
+<span id="cb120-515"><a href="#cb120-515"></a><span class="do">## odds that a non-conservative supports CP</span></span>
+<span id="cb120-516"><a href="#cb120-516"></a>denominator <span class="ot">&lt;-</span> <span class="fl">0.5729537</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.5729537</span>)</span>
+<span id="cb120-517"><a href="#cb120-517"></a>denominator</span>
+<span id="cb120-518"><a href="#cb120-518"></a><span class="do">## odds ratio</span></span>
+<span id="cb120-519"><a href="#cb120-519"></a>numerator <span class="sc">/</span> denominator</span>
+<span id="cb120-520"><a href="#cb120-520"></a><span class="in">```</span></span>
+<span id="cb120-521"><a href="#cb120-521"></a></span>
+<span id="cb120-522"><a href="#cb120-522"></a>The odds that a conservative supports capital punishment is 2 times larger than the odds that non-conservative supports capital punishment.</span>
+<span id="cb120-523"><a href="#cb120-523"></a></span>
+<span id="cb120-524"><a href="#cb120-524"></a>**Log Odds Ratio**</span>
+<span id="cb120-525"><a href="#cb120-525"></a></span>
+<span id="cb120-528"><a href="#cb120-528"></a><span class="in">```{r}</span></span>
+<span id="cb120-529"><a href="#cb120-529"></a><span class="fu">log</span>(numerator <span class="sc">/</span> denominator)</span>
+<span id="cb120-530"><a href="#cb120-530"></a><span class="in">```</span></span>
+<span id="cb120-531"><a href="#cb120-531"></a></span>
+<span id="cb120-532"><a href="#cb120-532"></a><span class="fu">### Exercise</span></span>
+<span id="cb120-533"><a href="#cb120-533"></a></span>
+<span id="cb120-534"><a href="#cb120-534"></a>**Sampling distribution for the relative risk ratio**</span>
+<span id="cb120-535"><a href="#cb120-535"></a></span>
+<span id="cb120-538"><a href="#cb120-538"></a><span class="in">```{r}</span></span>
+<span id="cb120-539"><a href="#cb120-539"></a>boot_rrr <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb120-540"><a href="#cb120-540"></a>  <span class="fu">specify</span>(CP <span class="sc">~</span> C, <span class="at">success =</span> <span class="st">"supports"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-541"><a href="#cb120-541"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">5e3</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-542"><a href="#cb120-542"></a>  <span class="fu">calculate</span>(<span class="st">"ratio of props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
+<span id="cb120-543"><a href="#cb120-543"></a></span>
+<span id="cb120-544"><a href="#cb120-544"></a>boot_rrr <span class="sc">|&gt;</span> </span>
+<span id="cb120-545"><a href="#cb120-545"></a>  infer<span class="sc">::</span><span class="fu">visualize</span>() <span class="sc">+</span> </span>
+<span id="cb120-546"><a href="#cb120-546"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb120-547"><a href="#cb120-547"></a><span class="in">```</span></span>
+<span id="cb120-548"><a href="#cb120-548"></a></span>
+<span id="cb120-549"><a href="#cb120-549"></a>**Sampling distribution for the odds ratio**</span>
+<span id="cb120-550"><a href="#cb120-550"></a></span>
+<span id="cb120-553"><a href="#cb120-553"></a><span class="in">```{r}</span></span>
+<span id="cb120-554"><a href="#cb120-554"></a>boot_odds_ratio <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb120-555"><a href="#cb120-555"></a>  <span class="fu">specify</span>(CP <span class="sc">~</span> C, <span class="at">success =</span> <span class="st">"supports"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-556"><a href="#cb120-556"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="fl">5e3</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-557"><a href="#cb120-557"></a>  <span class="fu">calculate</span>(<span class="st">"odds ratio"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"conservative"</span>, <span class="st">"other"</span>))</span>
+<span id="cb120-558"><a href="#cb120-558"></a></span>
+<span id="cb120-559"><a href="#cb120-559"></a>boot_odds_ratio <span class="sc">|&gt;</span> </span>
+<span id="cb120-560"><a href="#cb120-560"></a>  infer<span class="sc">::</span><span class="fu">visualize</span>() <span class="sc">+</span> </span>
+<span id="cb120-561"><a href="#cb120-561"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb120-562"><a href="#cb120-562"></a><span class="in">```</span></span>
+<span id="cb120-563"><a href="#cb120-563"></a></span>
+<span id="cb120-564"><a href="#cb120-564"></a>**How to do this *without* using the `infer` package?**</span>
+<span id="cb120-565"><a href="#cb120-565"></a></span>
+<span id="cb120-568"><a href="#cb120-568"></a><span class="in">```{r}</span></span>
+<span id="cb120-569"><a href="#cb120-569"></a>out <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">5e3</span>, {</span>
+<span id="cb120-570"><a href="#cb120-570"></a>  </span>
+<span id="cb120-571"><a href="#cb120-571"></a>  i <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(d), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb120-572"><a href="#cb120-572"></a>  dr <span class="ot">&lt;-</span> d[i, ]  <span class="do">## integer subsetting (see Week 1)</span></span>
+<span id="cb120-573"><a href="#cb120-573"></a>  </span>
+<span id="cb120-574"><a href="#cb120-574"></a>  out <span class="ot">&lt;-</span> <span class="fu">table</span>(</span>
+<span id="cb120-575"><a href="#cb120-575"></a>    <span class="at">conservative =</span> dr<span class="sc">$</span>conservative, </span>
+<span id="cb120-576"><a href="#cb120-576"></a>    <span class="at">capital_punishment =</span> dr<span class="sc">$</span>cappun</span>
+<span id="cb120-577"><a href="#cb120-577"></a>  ) <span class="sc">|&gt;</span> <span class="fu">prop.table</span>(<span class="at">margin =</span> <span class="dv">1</span>)</span>
+<span id="cb120-578"><a href="#cb120-578"></a>  </span>
+<span id="cb120-579"><a href="#cb120-579"></a>  rrr <span class="ot">&lt;-</span> out[<span class="dv">2</span>, <span class="dv">2</span>] <span class="sc">/</span> out[<span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb120-580"><a href="#cb120-580"></a>  odds_ratio <span class="ot">&lt;-</span> (out[<span class="dv">2</span>, <span class="dv">2</span>] <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> out[<span class="dv">2</span>, <span class="dv">2</span>])) <span class="sc">/</span> (out[<span class="dv">1</span>, <span class="dv">2</span>] <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> out[<span class="dv">1</span>, <span class="dv">2</span>]))</span>
+<span id="cb120-581"><a href="#cb120-581"></a>  </span>
+<span id="cb120-582"><a href="#cb120-582"></a>  <span class="fu">tibble</span>(rrr, odds_ratio)</span>
+<span id="cb120-583"><a href="#cb120-583"></a>  </span>
+<span id="cb120-584"><a href="#cb120-584"></a>}, <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb120-585"><a href="#cb120-585"></a></span>
+<span id="cb120-586"><a href="#cb120-586"></a>boot <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(out) <span class="sc">|&gt;</span> </span>
+<span id="cb120-587"><a href="#cb120-587"></a>  <span class="fu">rowid_to_column</span>(<span class="at">var =</span> <span class="st">"replicate"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb120-588"><a href="#cb120-588"></a>  <span class="fu">mutate</span>(<span class="at">log_odds_ratio =</span> <span class="fu">log</span>(odds_ratio))</span>
+<span id="cb120-589"><a href="#cb120-589"></a></span>
+<span id="cb120-590"><a href="#cb120-590"></a><span class="fu">glimpse</span>(boot)</span>
+<span id="cb120-591"><a href="#cb120-591"></a></span>
+<span id="cb120-592"><a href="#cb120-592"></a>boot <span class="sc">|&gt;</span> </span>
+<span id="cb120-593"><a href="#cb120-593"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(rrr)) <span class="sc">+</span></span>
+<span id="cb120-594"><a href="#cb120-594"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb120-595"><a href="#cb120-595"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb120-596"><a href="#cb120-596"></a></span>
+<span id="cb120-597"><a href="#cb120-597"></a>boot <span class="sc">|&gt;</span> </span>
+<span id="cb120-598"><a href="#cb120-598"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(odds_ratio)) <span class="sc">+</span></span>
+<span id="cb120-599"><a href="#cb120-599"></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb120-600"><a href="#cb120-600"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb120-601"><a href="#cb120-601"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

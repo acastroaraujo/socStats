@@ -270,6 +270,12 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Solutions 6</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Solutions 7</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -389,7 +395,7 @@ conservative    0    1
 <li><p>What is the probability that a person attends religious services weekly?</p>
 <p>I’m asking for <span class="math inline">\(\Pr(W)\)</span></p></li>
 <li><p>What is the probability that a person <em>does not</em> attend religious services weekly?</p>
-<p>I’m asking for <span class="math inline">\(\Pr(W^C)\)</span></p></li>
+<p>I’m asking for <span class="math inline">\(\Pr(W^\complement)\)</span></p></li>
 <li><p>What is the probability that a person is conservative, given that they attend religious services weekly?</p>
 <p>I’m asking for <span class="math inline">\(\Pr(C \mid W)\)</span></p></li>
 <li><p><span class="math inline">\(\Pr(W \mid C)\)</span></p></li>
@@ -480,7 +486,7 @@ conservative    0    1
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Last week we used the <code>infer</code> package to draw a “simulation-based bootstrap distribution” for the difference in proportions between <span class="math inline">\(\Pr(W \mid C)\)</span> and <span class="math inline">\(\Pr(W \mid C^\complement)\)</span>.</p>
+<p>Last week, in class, we used the <code>infer</code> package to draw a “simulation-based bootstrap distribution” for the difference in proportions between <span class="math inline">\(\Pr(W \mid C)\)</span> and <span class="math inline">\(\Pr(W \mid C^\complement)\)</span>.</p>
 <p>Now we mix things up a little bit.</p>
 <ol type="1">
 <li>Draw a sampling distribution for the “relative risk ratio” (Hint: <code>infer</code> calls this “ratio of props”)</li>
@@ -886,7 +892,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-64"><a href="#cb4-64"></a></span>
 <span id="cb4-65"><a href="#cb4-65"></a><span class="ss">2.  </span>What is the probability that a person *does not* attend religious services weekly?</span>
 <span id="cb4-66"><a href="#cb4-66"></a></span>
-<span id="cb4-67"><a href="#cb4-67"></a>    I'm asking for $\Pr(W^C)$</span>
+<span id="cb4-67"><a href="#cb4-67"></a>    I'm asking for $\Pr(W^\complement)$</span>
 <span id="cb4-68"><a href="#cb4-68"></a></span>
 <span id="cb4-69"><a href="#cb4-69"></a><span class="ss">3.  </span>What is the probability that a person is conservative, given that they attend religious services weekly?</span>
 <span id="cb4-70"><a href="#cb4-70"></a></span>
@@ -927,7 +933,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-105"><a href="#cb4-105"></a></span>
 <span id="cb4-106"><a href="#cb4-106"></a><span class="fu">## Four Ways to Make Sense of Dependence</span></span>
 <span id="cb4-107"><a href="#cb4-107"></a></span>
-<span id="cb4-108"><a href="#cb4-108"></a><span class="fu">### Exercise </span></span>
+<span id="cb4-108"><a href="#cb4-108"></a><span class="fu">### Exercise</span></span>
 <span id="cb4-109"><a href="#cb4-109"></a></span>
 <span id="cb4-110"><a href="#cb4-110"></a>::: callout-note</span>
 <span id="cb4-111"><a href="#cb4-111"></a>Take another look at the <span class="in">`weekly`</span> vs <span class="in">`conservative`</span> contingency table.</span>
@@ -951,7 +957,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-129"><a href="#cb4-129"></a><span class="fu">### Exercise</span></span>
 <span id="cb4-130"><a href="#cb4-130"></a></span>
 <span id="cb4-131"><a href="#cb4-131"></a>::: callout-note</span>
-<span id="cb4-132"><a href="#cb4-132"></a>Last week we used the <span class="in">`infer`</span> package to draw a "simulation-based bootstrap distribution" for the difference in proportions between $\Pr(W \mid C)$ and $\Pr(W \mid C^\complement)$.</span>
+<span id="cb4-132"><a href="#cb4-132"></a>Last week, in class, we used the <span class="in">`infer`</span> package to draw a "simulation-based bootstrap distribution" for the difference in proportions between $\Pr(W \mid C)$ and $\Pr(W \mid C^\complement)$.</span>
 <span id="cb4-133"><a href="#cb4-133"></a></span>
 <span id="cb4-134"><a href="#cb4-134"></a>Now we mix things up a little bit.</span>
 <span id="cb4-135"><a href="#cb4-135"></a></span>
@@ -959,13 +965,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb4-137"><a href="#cb4-137"></a><span class="ss">2.  </span>Draw a sampling distribution for the "odds ratio"</span>
 <span id="cb4-138"><a href="#cb4-138"></a>:::</span>
 <span id="cb4-139"><a href="#cb4-139"></a></span>
-<span id="cb4-140"><a href="#cb4-140"></a><span class="fu">### Exercise </span></span>
+<span id="cb4-140"><a href="#cb4-140"></a><span class="fu">### Exercise</span></span>
 <span id="cb4-141"><a href="#cb4-141"></a></span>
 <span id="cb4-142"><a href="#cb4-142"></a>::: callout-note</span>
 <span id="cb4-143"><a href="#cb4-143"></a>Repeat exercise 7.2.1 using the contingency table you created in exercise 7.1.2</span>
 <span id="cb4-144"><a href="#cb4-144"></a>:::</span>
 <span id="cb4-145"><a href="#cb4-145"></a></span>
-<span id="cb4-146"><a href="#cb4-146"></a><span class="fu">### Exercise </span></span>
+<span id="cb4-146"><a href="#cb4-146"></a><span class="fu">### Exercise</span></span>
 <span id="cb4-147"><a href="#cb4-147"></a></span>
 <span id="cb4-148"><a href="#cb4-148"></a>::: callout-note</span>
 <span id="cb4-149"><a href="#cb4-149"></a>Repeat exercise 7.2.2 using the contingency table you created in exercise 7.1.2</span>

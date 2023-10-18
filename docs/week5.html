@@ -251,6 +251,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Solutions 6</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Solutions 7</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -391,16 +397,18 @@ X\Big(\{H\}\Big) = 1, &amp;&amp; X\Big(\{T\}\Big) = 0
 <section id="exercise" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">5.2.1</span> Exercise</h3>
 <p>The Bernoulli distribution is a special case of the <strong>binomial distribution</strong>. If we set the argument <code>size = 1</code>, we basically have a Bernouilli distribution.</p>
-<p>Suppose that <span class="math inline">\(p = 2/3\)</span>.</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Use <code>dbinom()</code> to verify the results in <a href="#eq-bernouilli-pmf">Equation&nbsp;<span>5.1</span></a>.</p>
-<p>Use <code>pbinom()</code> to verify the results in <a href="#eq-bernouilli-cdf">Equation&nbsp;<span>5.2</span></a>.</p>
-<p>Use <code>rbinom()</code> to generate 100 samples from the Bernouilli distribution with <code>prob = 2/3</code>. Plot the results in <code>ggplot</code> using <code>geom_bar</code>.</p>
+<p>Suppose that <span class="math inline">\(p = 2/3\)</span>.</p>
+<ul>
+<li><p>Use <code>dbinom()</code> to verify the results in <a href="#eq-bernouilli-pmf">Equation&nbsp;<span>5.1</span></a>.</p></li>
+<li><p>Use <code>pbinom()</code> to verify the results in <a href="#eq-bernouilli-cdf">Equation&nbsp;<span>5.2</span></a>.</p></li>
+<li><p>Use <code>rbinom()</code> to generate 100 samples from the Bernouilli distribution with <code>prob = 2/3</code>. Plot the results in <code>ggplot</code> using <code>geom_bar</code>.</p></li>
+</ul>
 </div>
 </div>
 </div>
@@ -490,7 +498,7 @@ X\Big(\{H\}\Big) = 1, &amp;&amp; X\Big(\{T\}\Big) = 0
 <p>But what happens when <span class="math inline">\(p \neq 0.5\)</span>?</p>
 <p>If we assume that these coin flips are <strong>independent</strong>—i.e., that getting <span class="math inline">\(H\)</span> during the first flip doesn’t affect the chances of getting <span class="math inline">\(H\)</span> during the second flip—then we have a very convenient of calculating <em>joint probabilities.</em></p>
 <p>We say that two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <strong>independent</strong> if and only if <span class="math inline">\(\Pr(A \cap B) = \Pr(A) \times \Pr(B)\)</span>.</p>
-<p>In terms of fair coin flipes, we would have that the probability of getting a sequence of <span class="math inline">\(HTHH\)</span> is the same as:</p>
+<p>In terms of fair coin flips, we would have that the probability of getting a sequence of <span class="math inline">\(HTHH\)</span> is the same as:</p>
 <p><span class="math display">\[
 \Pr(HTHH) = \Pr(H)\Pr(T)\Pr(H)\Pr(H) = \frac{1}{16}
 \]</span></p>
@@ -510,8 +518,10 @@ X\Big(\{H\}\Big) = 1, &amp;&amp; X\Big(\{T\}\Big) = 0
 </div>
 <div class="callout-body-container">
 <p>Revisit what you did <a href="#sec-four-coins-1"><span>Section&nbsp;5.3.1</span></a> and <a href="#sec-four-coins-2"><span>Section&nbsp;5.3.2</span></a>.</p>
-<p>What is the probability that <span class="math inline">\(X = 2\)</span> when <span class="math inline">\(p = 1/3\)</span> and <span class="math inline">\(n = 4\)</span>?</p>
-<p>Verify this by using the correct R function to calculate the probability that <span class="math inline">\(X = 2\)</span>?</p>
+<ul>
+<li><p>What is the probability that <span class="math inline">\(X = 2\)</span> when <span class="math inline">\(p = 1/3\)</span> and <span class="math inline">\(n = 4\)</span>?</p></li>
+<li><p>Verify this by using the correct R function to calculate the probability that <span class="math inline">\(X = 2\)</span>?</p></li>
+</ul>
 </div>
 </div>
 </div>
@@ -549,15 +559,17 @@ You might remember some of this from the GRE.
 </section>
 <section id="exercise-3" class="level3" data-number="5.3.7">
 <h3 data-number="5.3.7" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">5.3.7</span> Exercise</h3>
-<p>Suppose that <span class="math inline">\(p = 2/3\)</span> and <span class="math inline">\(n = 15\)</span></p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Use <code>dbinom()</code> to verify the results in <a href="#eq-binomial-pmf">Equation&nbsp;<span>5.3</span></a>.</p>
-<p>Use <code>pbinom()</code> to verify the results in <a href="#eq-binomial-cdf">Equation&nbsp;<span>5.4</span></a>.</p>
+<p>Suppose that <span class="math inline">\(p = 2/3\)</span> and <span class="math inline">\(n = 15\)</span></p>
+<ul>
+<li><p>Use <code>dbinom()</code> to verify the results in <a href="#eq-binomial-pmf">Equation&nbsp;<span>5.3</span></a>.</p></li>
+<li><p>Use <code>pbinom()</code> to verify the results in <a href="#eq-binomial-cdf">Equation&nbsp;<span>5.4</span></a>.</p></li>
+</ul>
 </div>
 </div>
 </div>
@@ -1082,14 +1094,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-95"><a href="#cb15-95"></a></span>
 <span id="cb15-96"><a href="#cb15-96"></a>The Bernoulli distribution is a special case of the **binomial distribution**. If we set the argument <span class="in">`size = 1`</span>, we basically have a Bernouilli distribution.</span>
 <span id="cb15-97"><a href="#cb15-97"></a></span>
-<span id="cb15-98"><a href="#cb15-98"></a>Suppose that $p = 2/3$.</span>
-<span id="cb15-99"><a href="#cb15-99"></a></span>
-<span id="cb15-100"><a href="#cb15-100"></a>::: callout-note</span>
-<span id="cb15-101"><a href="#cb15-101"></a>Use <span class="in">`dbinom()`</span> to verify the results in @eq-bernouilli-pmf.</span>
+<span id="cb15-98"><a href="#cb15-98"></a>::: callout-note</span>
+<span id="cb15-99"><a href="#cb15-99"></a>Suppose that $p = 2/3$.</span>
+<span id="cb15-100"><a href="#cb15-100"></a></span>
+<span id="cb15-101"><a href="#cb15-101"></a><span class="ss">-   </span>Use <span class="in">`dbinom()`</span> to verify the results in @eq-bernouilli-pmf.</span>
 <span id="cb15-102"><a href="#cb15-102"></a></span>
-<span id="cb15-103"><a href="#cb15-103"></a>Use <span class="in">`pbinom()`</span> to verify the results in @eq-bernouilli-cdf.</span>
+<span id="cb15-103"><a href="#cb15-103"></a><span class="ss">-   </span>Use <span class="in">`pbinom()`</span> to verify the results in @eq-bernouilli-cdf.</span>
 <span id="cb15-104"><a href="#cb15-104"></a></span>
-<span id="cb15-105"><a href="#cb15-105"></a>Use <span class="in">`rbinom()`</span> to generate 100 samples from the Bernouilli distribution with <span class="in">`prob = 2/3`</span>. Plot the results in <span class="in">`ggplot`</span> using <span class="in">`geom_bar`</span>.</span>
+<span id="cb15-105"><a href="#cb15-105"></a><span class="ss">-   </span>Use <span class="in">`rbinom()`</span> to generate 100 samples from the Bernouilli distribution with <span class="in">`prob = 2/3`</span>. Plot the results in <span class="in">`ggplot`</span> using <span class="in">`geom_bar`</span>.</span>
 <span id="cb15-106"><a href="#cb15-106"></a>:::</span>
 <span id="cb15-107"><a href="#cb15-107"></a></span>
 <span id="cb15-108"><a href="#cb15-108"></a><span class="fu">## Binomial distribution</span></span>
@@ -1150,7 +1162,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-165"><a href="#cb15-165"></a></span>
 <span id="cb15-166"><a href="#cb15-166"></a>We say that two events $A$ and $B$ are **independent** if and only if $\Pr(A \cap B) = \Pr(A) \times \Pr(B)$.</span>
 <span id="cb15-167"><a href="#cb15-167"></a></span>
-<span id="cb15-168"><a href="#cb15-168"></a>In terms of fair coin flipes, we would have that the probability of getting a sequence of $HTHH$ is the same as:</span>
+<span id="cb15-168"><a href="#cb15-168"></a>In terms of fair coin flips, we would have that the probability of getting a sequence of $HTHH$ is the same as:</span>
 <span id="cb15-169"><a href="#cb15-169"></a></span>
 <span id="cb15-170"><a href="#cb15-170"></a>$$</span>
 <span id="cb15-171"><a href="#cb15-171"></a>\Pr(HTHH) = \Pr(H)\Pr(T)\Pr(H)\Pr(H) = \frac{1}{16}</span>
@@ -1171,9 +1183,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-186"><a href="#cb15-186"></a>::: callout-note</span>
 <span id="cb15-187"><a href="#cb15-187"></a>Revisit what you did @sec-four-coins-1 and @sec-four-coins-2.</span>
 <span id="cb15-188"><a href="#cb15-188"></a></span>
-<span id="cb15-189"><a href="#cb15-189"></a>What is the probability that $X = 2$ when $p = 1/3$ and $n = 4$?</span>
+<span id="cb15-189"><a href="#cb15-189"></a><span class="ss">-   </span>What is the probability that $X = 2$ when $p = 1/3$ and $n = 4$?</span>
 <span id="cb15-190"><a href="#cb15-190"></a></span>
-<span id="cb15-191"><a href="#cb15-191"></a>Verify this by using the correct R function to calculate the probability that $X = 2$?</span>
+<span id="cb15-191"><a href="#cb15-191"></a><span class="ss">-   </span>Verify this by using the correct R function to calculate the probability that $X = 2$?</span>
 <span id="cb15-192"><a href="#cb15-192"></a>:::</span>
 <span id="cb15-193"><a href="#cb15-193"></a></span>
 <span id="cb15-194"><a href="#cb15-194"></a><span class="fu">### Binomial distribution, the formula</span></span>
@@ -1217,12 +1229,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-232"><a href="#cb15-232"></a></span>
 <span id="cb15-233"><a href="#cb15-233"></a><span class="fu">### Exercise</span></span>
 <span id="cb15-234"><a href="#cb15-234"></a></span>
-<span id="cb15-235"><a href="#cb15-235"></a>Suppose that $p = 2/3$ and $n = 15$</span>
-<span id="cb15-236"><a href="#cb15-236"></a></span>
-<span id="cb15-237"><a href="#cb15-237"></a>::: callout-note</span>
-<span id="cb15-238"><a href="#cb15-238"></a>Use <span class="in">`dbinom()`</span> to verify the results in @eq-binomial-pmf.</span>
+<span id="cb15-235"><a href="#cb15-235"></a>::: callout-note</span>
+<span id="cb15-236"><a href="#cb15-236"></a>Suppose that $p = 2/3$ and $n = 15$</span>
+<span id="cb15-237"><a href="#cb15-237"></a></span>
+<span id="cb15-238"><a href="#cb15-238"></a><span class="ss">-   </span>Use <span class="in">`dbinom()`</span> to verify the results in @eq-binomial-pmf.</span>
 <span id="cb15-239"><a href="#cb15-239"></a></span>
-<span id="cb15-240"><a href="#cb15-240"></a>Use <span class="in">`pbinom()`</span> to verify the results in @eq-binomial-cdf.</span>
+<span id="cb15-240"><a href="#cb15-240"></a><span class="ss">-   </span>Use <span class="in">`pbinom()`</span> to verify the results in @eq-binomial-cdf.</span>
 <span id="cb15-241"><a href="#cb15-241"></a>:::</span>
 <span id="cb15-242"><a href="#cb15-242"></a></span>
 <span id="cb15-243"><a href="#cb15-243"></a>::: callout-tip</span>
@@ -1286,7 +1298,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb15-309"><a href="#cb15-309"></a></span>
 <span id="cb15-310"><a href="#cb15-310"></a><span class="kw">&lt;aside&gt;</span></span>
 <span id="cb15-311"><a href="#cb15-311"></a></span>
-<span id="cb15-312"><a href="#cb15-312"></a>Modified on <span class="in">`r Sys.Date()`</span>.</span>
+<span id="cb15-312"><a href="#cb15-312"></a>Modified on 2023-10-01.</span>
 <span id="cb15-313"><a href="#cb15-313"></a></span>
 <span id="cb15-314"><a href="#cb15-314"></a>This question used to read "what probability would you assign to <span class="in">`prob`</span> having a value equal to or greater than 0.588?". Hopefully the wording is easier to understand.</span>
 <span id="cb15-315"><a href="#cb15-315"></a></span>

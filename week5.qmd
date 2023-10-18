@@ -95,14 +95,14 @@ $$ {#eq-bernouilli-cdf}
 
 The Bernoulli distribution is a special case of the **binomial distribution**. If we set the argument `size = 1`, we basically have a Bernouilli distribution.
 
+::: callout-note
 Suppose that $p = 2/3$.
 
-::: callout-note
-Use `dbinom()` to verify the results in @eq-bernouilli-pmf.
+-   Use `dbinom()` to verify the results in @eq-bernouilli-pmf.
 
-Use `pbinom()` to verify the results in @eq-bernouilli-cdf.
+-   Use `pbinom()` to verify the results in @eq-bernouilli-cdf.
 
-Use `rbinom()` to generate 100 samples from the Bernouilli distribution with `prob = 2/3`. Plot the results in `ggplot` using `geom_bar`.
+-   Use `rbinom()` to generate 100 samples from the Bernouilli distribution with `prob = 2/3`. Plot the results in `ggplot` using `geom_bar`.
 :::
 
 ## Binomial distribution
@@ -163,7 +163,7 @@ If we assume that these coin flips are **independent**---i.e., that getting $H$ 
 
 We say that two events $A$ and $B$ are **independent** if and only if $\Pr(A \cap B) = \Pr(A) \times \Pr(B)$.
 
-In terms of fair coin flipes, we would have that the probability of getting a sequence of $HTHH$ is the same as:
+In terms of fair coin flips, we would have that the probability of getting a sequence of $HTHH$ is the same as:
 
 $$
 \Pr(HTHH) = \Pr(H)\Pr(T)\Pr(H)\Pr(H) = \frac{1}{16}
@@ -184,9 +184,9 @@ $$
 ::: callout-note
 Revisit what you did @sec-four-coins-1 and @sec-four-coins-2.
 
-What is the probability that $X = 2$ when $p = 1/3$ and $n = 4$?
+-   What is the probability that $X = 2$ when $p = 1/3$ and $n = 4$?
 
-Verify this by using the correct R function to calculate the probability that $X = 2$?
+-   Verify this by using the correct R function to calculate the probability that $X = 2$?
 :::
 
 ### Binomial distribution, the formula
@@ -230,12 +230,12 @@ $$ {#eq-binomial-cdf}
 
 ### Exercise
 
+::: callout-note
 Suppose that $p = 2/3$ and $n = 15$
 
-::: callout-note
-Use `dbinom()` to verify the results in @eq-binomial-pmf.
+-   Use `dbinom()` to verify the results in @eq-binomial-pmf.
 
-Use `pbinom()` to verify the results in @eq-binomial-cdf.
+-   Use `pbinom()` to verify the results in @eq-binomial-cdf.
 :::
 
 ::: callout-tip
@@ -299,7 +299,7 @@ Looking at this data frame, what are the chances that `prob` is equal to or grea
 
 <aside>
 
-Modified on `r Sys.Date()`.
+Modified on 2023-10-01.
 
 This question used to read "what probability would you assign to `prob` having a value equal to or greater than 0.588?". Hopefully the wording is easier to understand.
 
