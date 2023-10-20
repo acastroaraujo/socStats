@@ -1,0 +1,163 @@
+---
+title: "Week 8"
+callout-appearance: simple
+callout-icon: false
+---
+
+## Review
+
+*Assume that both* $y$ *and* $x$ *can only take values of* $0$ *or* $1$*.*
+
+### Linear Probability Model
+
+$$
+\Pr(Y = 1 \mid X = x) = \alpha +\beta x
+$$
+
+Sometimes we simplify the expression such that it's simply:
+
+$$
+p = \alpha + \beta x
+$$
+
+where $p$ is the probability of "success"---i.e., the probability that $y = 1$ .
+
+Example:
+
+| BA / Country Music | No  | Yes | Total |
+|--------------------|-----|-----|-------|
+| No                 | 387 | 819 | 1206  |
+| Yes                | 209 | 157 | 366   |
+| Total              | 596 | 976 | 1572  |
+
+: If we define "Likes Country Music = Yes" as $Y = 1$ and "BA = Yes" as $X = 1$, then we get the following:
+
+$$
+\begin{align}
+&p = 0.68 - 0.25 x \\\\ &\text{where:} \\\\
+&\alpha = \Pr(Y = 1 \mid X = 0), \\
+&\beta = \Pr(Y = 1 \mid X = 1) - \Pr(Y = 1 \mid X = 0)
+\end{align}
+$$
+
+Here, $\alpha$ is a probability and $\beta$ is a difference in probabilities.
+
+### Logistic Regression
+
+All of these expressions contain the same information:
+
+Using $\Pr(Y = 1 \mid X = x)$ notation:
+
+$$
+\begin{align}
+&\text{logit} \Big( \Pr(Y = 1 \mid X = x)  \Big) = \alpha + \beta x, \\\\
+&\Pr(Y = 1 \mid X = x) = \text{logit}^{-1}\Big(\alpha +\beta x \Big), \\\\
+&\log \Bigg( \frac{\Pr(Y = 1 \mid X = x)}{\Pr(Y = 0 \mid X = x)}  \Bigg) = \alpha + \beta x, 
+\end{align}
+$$
+
+Using $p$ notation:
+
+$$
+\begin{align}
+&\text{logit} (p) = \alpha + \beta x, \\\\
+&p = \text{logit}^{-1}\Big(\alpha +\beta x \Big), \\\\
+&\log \bigg( \frac{p}{1-p}  \bigg) = \alpha + \beta x, 
+\end{align}
+$$
+
+*Note. The superscript "-1" on the word "logit" means "inverse logit."*
+
+The inverse logit can be expressed as follows:
+
+$$
+\text{logit}^{-1} (\alpha + \beta x) = \frac{e^{\alpha + \beta x}}{1 + e^{\alpha + \beta x}}
+$$
+
+Example:
+
+| BA / Country Music | No  | Yes | Total |
+|--------------------|-----|-----|-------|
+| No                 | 387 | 819 | 1206  |
+| Yes                | 209 | 157 | 366   |
+| Total              | 596 | 976 | 1572  |
+
+: If we define "Likes Country Music = Yes" as $Y = 1$ and "BA = Yes" as $X = 1$, then we get the following:
+
+$$
+\log \bigg( \frac{p}{1-p} \bigg) = 0.75 - 1.036 x
+$$
+
+Here:
+
+$$
+\begin{align}
+&\alpha = \log \Bigg(\frac{819/1206}{387/1206} \Bigg), \\\\
+&\beta = \log \Bigg(\frac{157/366}{209/366} \Bigg) - \log \Bigg(\frac{819/1206}{387/1206} \Bigg) 
+\end{align}
+$$
+
+Here, $\alpha$ is the log odds of $\Pr(Y = 1 \mid X = 0)$; and $\beta$ is a difference in log odds.
+
+Recall the rules of logarithms:
+
+$$
+\log \Big( \frac{a}{b} \Big) = \log(a) - \log(b)
+$$
+
+This is why $\beta$ is called a log odds ratio.
+
+$$
+\beta = \log \Bigg(\frac{157/209}{819/387} \Bigg)
+$$
+
+## Exercises
+
+For these exercises you are once again going to use the GSS data for 2018.
+
+You are going to make 8 contingency tables from a subset of these variables:
+
+-   `wrkslf`
+-   `attend` (where we got the `weekly` variable last week)
+-   `polviews` (where we got the `conservative` variable last week)
+-   `cappun`
+-   `suicide3`
+-   `xmarsex`
+-   `degree`
+-   `padeg`
+-   `madeg`
+-   `sex`
+-   `race`
+-   `born`
+-   `mcsds6`
+-   `condom`
+-   `marital`
+-   `god`
+
+You can construct ${16 \choose 2} = 120$ contingency tables from this set of variables. *I am asking you to make 8 of them.*
+
+::: callout-note
+For each of the 8 contingency tables, do the following:
+
+-   Describe both variables.
+
+-   If they aren't already, make the variables binary so that each of them consists of values of zero or one.
+
+    This ensures that each constingency table will be a 2x2 table.
+
+-   Choose a variable to call $Y$ and a variable to call $X$.
+
+-   Express the relationship between $Y$ and $X$ as a linear probability model---i.e., calculate the corresponding coefficients.
+
+    Write one sentence interpreting the $\beta$ coefficient.
+
+-   Express the relationship between $Y$ and $X$ as a logistic regression model---i.e., calculate the corresponding coefficients.
+
+    Write one sentence interpreting the $\beta$ coefficient.
+:::
+
+::: callout-tip
+Hint: This homework follows the "choose your own adventure" genre.
+
+*There are 240 possible answers!*
+:::
