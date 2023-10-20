@@ -8,13 +8,13 @@ callout-icon: false
 
 *Assume that both* $y$ *and* $x$ *can only take values of* $0$ *or* $1$*.*
 
-### Linear Probability Model
+### Linear Probability
 
 $$
 \Pr(Y = 1 \mid X = x) = \alpha +\beta x
 $$
 
-Sometimes we simplify the expression such that it's simply:
+Sometimes we simplify the expression as follows:
 
 $$
 p = \alpha + \beta x
@@ -22,7 +22,7 @@ $$
 
 where $p$ is the probability of "success"---i.e., the probability that $y = 1$ .
 
-Example:
+The following example comes from Steve's slides:
 
 | BA / Country Music | No  | Yes | Total |
 |--------------------|-----|-----|-------|
@@ -30,7 +30,27 @@ Example:
 | Yes                | 209 | 157 | 366   |
 | Total              | 596 | 976 | 1572  |
 
-: If we define "Likes Country Music = Yes" as $Y = 1$ and "BA = Yes" as $X = 1$, then we get the following:
+: Country Music and Education {#tbl-country-music tbl-colwidths="\[10,10,10,10\]"}
+
+This is how I define the outcome variable:
+
+$$
+Y = \begin{cases} 
+1 &&\text{if Country Music = Yes} \\
+0 &&\text{if Country Music = No}
+\end{cases} \\\\
+$$
+
+This is how I define the predictor variable:
+
+$$
+X = \begin{cases}
+1 &&\text{if BA = Yes} \\
+0 &&\text{if BA = No}
+\end{cases}
+$$
+
+Having these two variables, we can express the information contained in @tbl-country-music as a *linear probability model*:
 
 $$
 \begin{align}
@@ -74,32 +94,28 @@ $$
 \text{logit}^{-1} (\alpha + \beta x) = \frac{e^{\alpha + \beta x}}{1 + e^{\alpha + \beta x}}
 $$
 
-Example:
-
-| BA / Country Music | No  | Yes | Total |
-|--------------------|-----|-----|-------|
-| No                 | 387 | 819 | 1206  |
-| Yes                | 209 | 157 | 366   |
-| Total              | 596 | 976 | 1572  |
-
-: If we define "Likes Country Music = Yes" as $Y = 1$ and "BA = Yes" as $X = 1$, then we get the following:
+Using the same variables we used earlier, we can express the information contained in @tbl-country-music as a a *logistic regression model*:
 
 $$
 \log \bigg( \frac{p}{1-p} \bigg) = 0.75 - 1.036 x
 $$
 
-Here:
+The intercept is
 
 $$
-\begin{align}
-&\alpha = \log \Bigg(\frac{819/1206}{387/1206} \Bigg), \\\\
-&\beta = \log \Bigg(\frac{157/366}{209/366} \Bigg) - \log \Bigg(\frac{819/1206}{387/1206} \Bigg) 
-\end{align}
+\alpha = \log \Bigg(\frac{819/1206}{387/1206} \Bigg)
 $$
 
-Here, $\alpha$ is the log odds of $\Pr(Y = 1 \mid X = 0)$; and $\beta$ is a difference in log odds.
+and the slope is
 
-Recall the rules of logarithms:
+$$
+\beta = \log \Bigg(\frac{157/366}{209/366} \Bigg) - \log \Bigg(\frac{819/1206}{387/1206} \Bigg) 
+$$
+
+*Note.* $\alpha$ is the log odds of $\Pr(Y = 1 \mid X = 0)$ and $\beta$ is a difference in log odds.
+
+::: callout-tip
+Hint: Recall the "quotient rule" of logarithms.s
 
 $$
 \log \Big( \frac{a}{b} \Big) = \log(a) - \log(b)
@@ -110,6 +126,7 @@ This is why $\beta$ is called a log odds ratio.
 $$
 \beta = \log \Bigg(\frac{157/209}{819/387} \Bigg)
 $$
+:::
 
 ## Exercises
 
@@ -159,5 +176,5 @@ For each of the 8 contingency tables, do the following:
 ::: callout-tip
 Hint: This homework follows the "choose your own adventure" genre.
 
-*There are 240 possible answers!*
+*There are 240 possible paths to take!*
 :::
