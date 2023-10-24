@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./solutions-08.html" rel="next">
 <link href="./solutions-06.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -272,6 +272,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./solutions-07.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Solutions 7</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solutions 8</span></span></a>
   </div>
 </li>
       </ul>
@@ -823,8 +829,8 @@ conservative         0         1
 </div>
 <table class="table">
 <colgroup>
-<col style="width: 41%">
-<col style="width: 58%">
+<col style="width: 40%">
+<col style="width: 59%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -860,8 +866,8 @@ conservative         0         1
 </div>
 <table class="table">
 <colgroup>
-<col style="width: 40%">
-<col style="width: 59%">
+<col style="width: 39%">
+<col style="width: 60%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -1334,9 +1340,9 @@ conservative         0         1
 <pre><code>Rows: 5,000
 Columns: 4
 $ replicate      &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
-$ rrr            &lt;dbl&gt; 1.326948, 1.306634, 1.263640, 1.343691, 1.324253, 1.282…
-$ odds_ratio     &lt;dbl&gt; 2.214378, 2.247443, 1.937528, 2.421817, 2.432848, 2.096…
-$ log_odds_ratio &lt;dbl&gt; 0.7949717, 0.8097932, 0.6614132, 0.8845180, 0.8890625, …</code></pre>
+$ rrr            &lt;dbl&gt; 1.291378, 1.329663, 1.279633, 1.356593, 1.307879, 1.357…
+$ odds_ratio     &lt;dbl&gt; 2.104675, 2.316725, 2.038844, 2.540664, 2.240313, 2.691…
+$ log_odds_ratio &lt;dbl&gt; 0.7441613, 0.8401546, 0.7123828, 0.9324256, 0.8066156, …</code></pre>
 </div>
 <details open="">
 <summary>Code</summary>
@@ -1664,8 +1670,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./solutions-08.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solutions 8</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -1886,7 +1892,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb120-245"><a href="#cb120-245"></a><span class="in">```</span></span>
 <span id="cb120-246"><a href="#cb120-246"></a></span>
 <span id="cb120-247"><a href="#cb120-247"></a>|                                                 |                                                                       |</span>
-<span id="cb120-248"><a href="#cb120-248"></a>|------------------------------|------------------------------------------|</span>
+<span id="cb120-248"><a href="#cb120-248"></a>|-------------------------------------------------|-----------------------------------------------------------------------|</span>
 <span id="cb120-249"><a href="#cb120-249"></a>| $\Pr(CP \mid C) = 0.75$                         | The probability that a conservative person favors capital punishment. |</span>
 <span id="cb120-250"><a href="#cb120-250"></a>| $\Pr(CP^\complement \mid C) = 0.25$             | The probability that a conservative person opposes capital punishment |</span>
 <span id="cb120-251"><a href="#cb120-251"></a>| $\Pr(CP \mid C^\complement) = 0.57$             | The probability that a non-conservative favors capital punishment.    |</span>
@@ -1899,7 +1905,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb120-260"><a href="#cb120-260"></a><span class="in">```</span></span>
 <span id="cb120-261"><a href="#cb120-261"></a></span>
 <span id="cb120-262"><a href="#cb120-262"></a>|                                                 |                                                                          |</span>
-<span id="cb120-263"><a href="#cb120-263"></a>|-----------------------------|-------------------------------------------|</span>
+<span id="cb120-263"><a href="#cb120-263"></a>|-------------------------------------------------|--------------------------------------------------------------------------|</span>
 <span id="cb120-264"><a href="#cb120-264"></a>| $\Pr(C \mid CP) = 0.4$                          | The probability that a capital punishment supporter is conservative.     |</span>
 <span id="cb120-265"><a href="#cb120-265"></a>| $\Pr(C \mid CP^\complement) = 0.22$             | The probability that a capital punishment opposer is conservative.       |</span>
 <span id="cb120-266"><a href="#cb120-266"></a>| $\Pr(C^\complement \mid CP) = 0.6$              | The probability that a capital punishment supporter is non-conservative. |</span>
@@ -1912,7 +1918,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb120-275"><a href="#cb120-275"></a><span class="in">```</span></span>
 <span id="cb120-276"><a href="#cb120-276"></a></span>
 <span id="cb120-277"><a href="#cb120-277"></a>|                                                         |                                                                                     |</span>
-<span id="cb120-278"><a href="#cb120-278"></a>|-----------------------------|-------------------------------------------|</span>
+<span id="cb120-278"><a href="#cb120-278"></a>|---------------------------------------------------------|-------------------------------------------------------------------------------------|</span>
 <span id="cb120-279"><a href="#cb120-279"></a>| $\Pr(C \text{ and } CP) = 0.25$                         | The probability that a person is conservative *and* favors capital punishment.      |</span>
 <span id="cb120-280"><a href="#cb120-280"></a>| $\Pr(C \text{ and } CP^\complement) = 0.08$             | The probability that a person is conservative *and* opposes capital punishment.     |</span>
 <span id="cb120-281"><a href="#cb120-281"></a>| $\Pr(C^\complement \text{ and } CP) = 0.38$             | The probability that a person is non-conservative *and* favors capital punishment.  |</span>

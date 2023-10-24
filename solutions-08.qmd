@@ -1,0 +1,8 @@
+---
+title: "Solutions 8"
+callout-icon: false
+callout-appearance: simple
+code-fold: show
+---
+
+[Click here!](https://acastroaraujo.shinyapps.io/solutions8/)
