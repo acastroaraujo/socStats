@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Social Statistics I (Exercises) - 7&nbsp; Week 7</title>
+<title>Social Statistics I (Exercises) - 9&nbsp; Week 9</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,26 +54,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -83,8 +64,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./sec3.html" rel="next">
-<link href="./week6.html" rel="prev">
+<link href="./sec-solutions.html" rel="next">
+<link href="./week8.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -130,7 +111,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec2.html">Data, sampling, and probability</a></li><li class="breadcrumb-item"><a href="./week7.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Week 7</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec3.html">Models</a></li><li class="breadcrumb-item"><a href="./week9.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Week 9</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -219,7 +200,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week7.html" class="sidebar-item-text sidebar-link active">
+  <a href="./week7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Week 7</span></span></a>
   </div>
 </li>
@@ -242,7 +223,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./week9.html" class="sidebar-item-text sidebar-link">
+  <a href="./week9.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Week 9</span></span></a>
   </div>
 </li>
@@ -323,18 +304,13 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#contingency-tables" id="toc-contingency-tables" class="nav-link active" data-scroll-target="#contingency-tables"><span class="header-section-number">7.1</span> Contingency Tables</a>
+  <li><a href="#times-2-times-2" id="toc-times-2-times-2" class="nav-link active" data-scroll-target="#times-2-times-2"><span class="header-section-number">9.1</span> <span class="math inline">\(2 \times 2 \times 2\)</span></a>
   <ul class="collapse">
-  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">7.1.1</span> Exercise</a></li>
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">7.1.2</span> Exercise</a></li>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link" data-scroll-target="#exercise"><span class="header-section-number">9.1.1</span> Exercise</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">9.1.2</span> Exercise</a></li>
   </ul></li>
-  <li><a href="#four-ways-to-make-sense-of-dependence" id="toc-four-ways-to-make-sense-of-dependence" class="nav-link" data-scroll-target="#four-ways-to-make-sense-of-dependence"><span class="header-section-number">7.2</span> Four Ways to Make Sense of Dependence</a>
-  <ul class="collapse">
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">7.2.1</span> Exercise</a></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">7.2.2</span> Exercise</a></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4"><span class="header-section-number">7.2.3</span> Exercise</a></li>
-  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5"><span class="header-section-number">7.2.4</span> Exercise</a></li>
-  </ul></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">9.2</span> Exercise</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">9.3</span> Exercise</a></li>
   </ul>
 </nav>
     </div>
@@ -343,7 +319,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Week 7</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Week 9</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -358,59 +334,60 @@ div.csl-indent {
 
 </header>
 
-<p>Hi everyone, this week we’ll practice making sense of contingency tables with conditional, joint, and marginal probabilities. You might also want to complement Steve’s materials with other resources.</p>
-<p>For example, this is how <span class="citation" data-cites="imai2022">Imai and Williams (<a href="references.html#ref-imai2022" role="doc-biblioref">2022</a>)</span> define these concepts:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/conditional_probability.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-<p>And:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/independence.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-<p>We will also practice the four ways of making sense of dependence:</p>
-<ol type="1">
-<li>Difference in Probabilities</li>
-<li>Relative Risk Ratio</li>
-<li>Odds Ratio</li>
-<li>Log Odds Ratio</li>
-</ol>
-<p>You can download Steve’s slides by clicking <a href="https://github.com/vaiseys/soc-stats-1/raw/main/old_slides/measures-of-2x2-dependence.pptx"><strong>here</strong></a><strong>.</strong></p>
-<section id="contingency-tables" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="contingency-tables"><span class="header-section-number">7.1</span> Contingency Tables</h2>
-<section id="exercise" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">7.1.1</span> Exercise</h3>
-<p>Load the GSS data for 2018, just like we did last week.</p>
+<p>This week we will review the idea of <strong><em>reconstructing</em></strong> <span class="math inline">\(2 \times 2\)</span> and <span class="math inline">\(2 \times 2 \times 2\)</span> tables using statistical models. This should be a straightforward repeat of the things we did on Tuesday. Don’t forget to look at <a href="https://github.com/vaiseys/soc-stats-1/tree/main/old_slides">Steve’s slides</a> for a refresher.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
+<details open="">
+<summary>Set up</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(gssr)</span>
-<span id="cb1-3"><a href="#cb1-3"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Optima"</span>))</span>
 <span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
-<span id="cb1-6"><a href="#cb1-6"></a>  <span class="fu">select</span>(attend, polviews) <span class="sc">|&gt;</span> </span>
-<span id="cb1-7"><a href="#cb1-7"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb1-8"><a href="#cb1-8"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb1-9"><a href="#cb1-9"></a>  <span class="fu">mutate</span>(<span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
-<span id="cb1-10"><a href="#cb1-10"></a>         <span class="at">conservative =</span> <span class="fu">if_else</span>(polviews <span class="sc">&gt;=</span> <span class="dv">5</span>, 1L, 0L)) <span class="sc">|&gt;</span> </span>
-<span id="cb1-11"><a href="#cb1-11"></a>  <span class="fu">drop_na</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="fu">select</span>(attend, polviews, cappun) <span class="sc">|&gt;</span> </span>
+<span id="cb1-9"><a href="#cb1-9"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb1-10"><a href="#cb1-10"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb1-11"><a href="#cb1-11"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    <span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    <span class="at">conservative =</span> <span class="fu">if_else</span>(polviews <span class="sc">&gt;=</span> <span class="dv">5</span>, 1L, 0L),</span>
+<span id="cb1-14"><a href="#cb1-14"></a>    <span class="at">cappun =</span> <span class="fu">if_else</span>(cappun <span class="sc">==</span> <span class="dv">1</span>, 1L, 0L)</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb1-16"><a href="#cb1-16"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb1-17"><a href="#cb1-17"></a>  <span class="fu">select</span>(cappun, weekly, conservative) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Now take a look a this table:</p>
+<section id="times-2-times-2" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="times-2-times-2"><span class="header-section-number">9.1</span> <span class="math inline">\(2 \times 2 \times 2\)</span></h2>
+<section id="exercise" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">9.1.1</span> Exercise</h3>
+<p>The following contingency table shows the association between 2 variables:</p>
+<ul>
+<li><p><code>cappun</code>: favor or oppose death penalty for murder</p></li>
+<li><p><code>weekly</code>: attends religious ceremonies one or more times a week</p></li>
+</ul>
 <div class="cell">
-<details>
+<details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">table</span>(<span class="at">conservative =</span> d<span class="sc">$</span>conservative, <span class="at">weekly =</span> d<span class="sc">$</span>weekly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>crosstab1 <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">cp =</span> d<span class="sc">$</span>cappun, <span class="at">weekly =</span> d<span class="sc">$</span>weekly)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>crosstab1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>            weekly
-conservative    0    1
-           0 1243  257
-           1  495  240</code></pre>
+<pre><code>   weekly
+cp     0    1
+  0  587  188
+  1 1050  277</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="do">## column percentages</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">prop.table</span>(crosstab1, <span class="at">margin =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   weekly
+cp          0         1
+  0 0.3585828 0.4043011
+  1 0.6414172 0.5956989</code></pre>
 </div>
 </div>
 <div class="callout callout-style-simple callout-note no-icon">
@@ -419,50 +396,84 @@ conservative    0    1
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>In this sample:</strong></p>
-<ol type="1">
-<li><p>What is the probability that a person attends religious services weekly?</p>
-<p>I’m asking for <span class="math inline">\(\Pr(W)\)</span></p></li>
-<li><p>What is the probability that a person <em>does not</em> attend religious services weekly?</p>
-<p>I’m asking for <span class="math inline">\(\Pr(W^\complement)\)</span></p></li>
-<li><p>What is the probability that a person is conservative, given that they attend religious services weekly?</p>
-<p>I’m asking for <span class="math inline">\(\Pr(C \mid W)\)</span></p></li>
-<li><p><span class="math inline">\(\Pr(W \mid C)\)</span></p></li>
-<li><p><span class="math inline">\(\Pr(C \mid W^\complement)\)</span></p></li>
-<li><p><span class="math inline">\(\Pr(W \text{ and } C)\)</span></p></li>
-<li><p><span class="math inline">\(\Pr(W^\complement \text{ and } C^\complement)\)</span></p></li>
-</ol>
-<p>Finally, if we <em>assume</em> that <span class="math inline">\(W\)</span> and <span class="math inline">\(C\)</span> are independent:</p>
-<ol start="8" type="1">
-<li>What <em>would</em> be the joint probability of <span class="math inline">\(W\)</span> and <span class="math inline">\(C\)</span> ?</li>
-</ol>
+<p><strong>Exercise:</strong></p>
+<ul>
+<li><p>Express the relationship between <code>cappun</code> ( <span class="math inline">\(Y\)</span> ) and <code>weekly</code> ( <span class="math inline">\(X\)</span> ) as a linear probability model.</p></li>
+<li><p>Express the relationship between <code>cappun</code> ( <span class="math inline">\(Y\)</span> ) and <code>weekly</code> ( <span class="math inline">\(X\)</span> ) as a logistic regression model.</p></li>
+</ul>
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout callout-style-simple callout-important no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Hint: I introduced the superscript <span class="math inline">\(\complement\)</span> notation, which means “complement.”</p>
-<p>You can think of <span class="math inline">\(C\)</span> as “conservative” and <span class="math inline">\(C^\complement\)</span> as “not conservative.”</p>
+<p><strong>Bonus:</strong></p>
+<p>Calculate the standard error of <span class="math inline">\(\beta\)</span> (in the linear probability model). What is the 95% confidence interval?</p>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-1" class="level3" data-number="7.1.2">
-<h3 data-number="7.1.2" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">7.1.2</span> Exercise</h3>
+<section id="exercise-1" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">9.1.2</span> Exercise</h3>
+<p>The following table adds a third variable to the previous contingency table:</p>
+<ul>
+<li><code>conservative</code>: identifies as either “slightly conservative”, “conservative”, or “extremely conservative.”</li>
+</ul>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>crosstab2 <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">cp =</span> d<span class="sc">$</span>cappun, <span class="at">weekly =</span> d<span class="sc">$</span>weekly, <span class="at">conservative =</span> d<span class="sc">$</span>conservative)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>crosstab2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>, , conservative = 0
+
+   weekly
+cp    0   1
+  0 485 115
+  1 682 123
+
+, , conservative = 1
+
+   weekly
+cp    0   1
+  0 102  73
+  1 368 154</code></pre>
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="do">## column percentages</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">prop.table</span>(crosstab2, <span class="at">margin =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>, , conservative = 0
+
+   weekly
+cp          0         1
+  0 0.4155955 0.4831933
+  1 0.5844045 0.5168067
+
+, , conservative = 1
+
+   weekly
+cp          0         1
+  0 0.2170213 0.3215859
+  1 0.7829787 0.6784141</code></pre>
+</div>
+</div>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Choose 2 new variables in the GSS.</p>
+<p><strong>Exercise:</strong></p>
 <ul>
-<li><p>Show the contingency table for these new variables.</p></li>
-<li><p>Modify the exercise 7.1.1 so that it applies to your new contingency table and answer all 8 questions.</p></li>
+<li><p>Express the relationship between <code>cappun</code> ( <span class="math inline">\(Y\)</span> ), <code>weekly</code> ( <span class="math inline">\(X_1\)</span> ), and <code>conservative</code> ( <span class="math inline">\(X_2\)</span> ) as a linear probability model.</p></li>
+<li><p>Express the relationship between cappun ( <span class="math inline">\(Y\)</span> ), weekly ( <span class="math inline">\(X_1\)</span> ), and conservative ( <span class="math inline">\(X_2\)</span> ) as a logistic regression model.</p></li>
 </ul>
 </div>
 </div>
@@ -473,80 +484,68 @@ conservative    0    1
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Suggestion: You should really make your life easier and either choose two binary variables or create them.</p>
+<p>Hint: You might find it easier to express this <span class="math inline">\(2 \times 2 \times 2\)</span> table so that it corresponds to Steve’s slides.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">as_tibble</span>(crosstab2) <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">mutate</span>(<span class="at">cp =</span> <span class="fu">if_else</span>(cp <span class="sc">==</span> <span class="st">"1"</span>, <span class="st">"favors"</span>, <span class="st">"opposes"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> cp, <span class="at">values_from =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 4
+  weekly conservative opposes favors
+  &lt;chr&gt;  &lt;chr&gt;          &lt;int&gt;  &lt;int&gt;
+1 0      0                485    682
+2 1      0                115    123
+3 0      1                102    368
+4 1      1                 73    154</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Bonus:</strong></p>
+<p>Calculate the standard error of <span class="math inline">\(\beta_\text{weekly}\)</span> (in the linear probability model). What is the 95% confidence interval?</p>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="four-ways-to-make-sense-of-dependence" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="four-ways-to-make-sense-of-dependence"><span class="header-section-number">7.2</span> Four Ways to Make Sense of Dependence</h2>
-<section id="exercise-2" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">7.2.1</span> Exercise</h3>
+<section id="exercise-2" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">9.2</span> Exercise</h2>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Take another look at the <code>weekly</code> vs <code>conservative</code> contingency table.</p>
-<p>Focus on these two probabilities:</p>
-<p><span class="math display">\[
-\begin{align}
-\Pr(W \mid C) &amp;&amp;\text{and} &amp;&amp; \Pr(W \mid C^\complement)
-\end{align}
-\]</span></p>
-<p>Compare these probabilities using the following summary statistics:</p>
-<ol type="1">
-<li>Difference in Probabilities</li>
-<li>Relative Risk Ratio</li>
-<li>Odds Ratio</li>
-<li>Log Odds Ratio</li>
-</ol>
+<p>Look at the GSS data for 2018.</p>
+<ul>
+<li>Repeat the <span class="math inline">\(2 \times 2 \times 2\)</span> table exercise for three variables of your choosing.</li>
+</ul>
 </div>
 </div>
 </div>
 </section>
-<section id="exercise-3" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">7.2.2</span> Exercise</h3>
+<section id="exercise-3" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">9.3</span> Exercise</h2>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Last week, in class, we used the <code>infer</code> package to draw a “simulation-based bootstrap distribution” for the difference in proportions between <span class="math inline">\(\Pr(W \mid C)\)</span> and <span class="math inline">\(\Pr(W \mid C^\complement)\)</span>.</p>
-<p>Now we mix things up a little bit.</p>
-<ol type="1">
-<li>Draw a sampling distribution for the “relative risk ratio” (Hint: <code>infer</code> calls this “ratio of props”)</li>
-<li>Draw a sampling distribution for the “odds ratio”</li>
-</ol>
-</div>
-</div>
-</div>
-</section>
-<section id="exercise-4" class="level3" data-number="7.2.3">
-<h3 data-number="7.2.3" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">7.2.3</span> Exercise</h3>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Repeat exercise 7.2.1 using the contingency table you created in exercise 7.1.2</p>
-</div>
-</div>
-</div>
-</section>
-<section id="exercise-5" class="level3" data-number="7.2.4">
-<h3 data-number="7.2.4" class="anchored" data-anchor-id="exercise-5"><span class="header-section-number">7.2.4</span> Exercise</h3>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Repeat exercise 7.2.2 using the contingency table you created in exercise 7.1.2</p>
+<p>Look at the GSS data for 2018.</p>
+<ul>
+<li>Repeat the <span class="math inline">\(2 \times 2 \times 2\)</span> table exercise for three variables of your choosing.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -554,12 +553,6 @@ conservative    0    1
 
 <!-- -->
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
-<div id="ref-imai2022" class="csl-entry" role="listitem">
-Imai, Kosuke, and Nora Webb Williams. 2022. <em>Quantitative Social Science: An Introduction in Tidyverse</em>. Princeton University Press.
-</div>
-</div>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -849,162 +842,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./week6.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Week 6</span></span>
+      <a href="./week8.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Week 8</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./sec3.html" class="pagination-link">
-        <span class="nav-page-text">Models</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./sec-solutions.html" class="pagination-link">
+        <span class="nav-page-text">Solutions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">---</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> "Week 7"</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="an">callout-appearance:</span><span class="co"> simple</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="an">callout-icon:</span><span class="co"> false</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="an">code-fold:</span><span class="co"> true</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co">---</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a></span>
-<span id="cb4-8"><a href="#cb4-8"></a>Hi everyone, this week we'll practice making sense of contingency tables with conditional, joint, and marginal probabilities. You might also want to complement Steve's materials with other resources.</span>
-<span id="cb4-9"><a href="#cb4-9"></a></span>
-<span id="cb4-10"><a href="#cb4-10"></a>For example, this is how @imai2022 define these concepts:</span>
-<span id="cb4-11"><a href="#cb4-11"></a></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="al">![](images/conditional_probability.png)</span>{fig-align="center" width="100%"}</span>
-<span id="cb4-13"><a href="#cb4-13"></a></span>
-<span id="cb4-14"><a href="#cb4-14"></a>And:</span>
-<span id="cb4-15"><a href="#cb4-15"></a></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="al">![](images/independence.png)</span>{fig-align="center" width="100%"}</span>
-<span id="cb4-17"><a href="#cb4-17"></a></span>
-<span id="cb4-18"><a href="#cb4-18"></a>We will also practice the four ways of making sense of dependence:</span>
-<span id="cb4-19"><a href="#cb4-19"></a></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="ss">1.  </span>Difference in Probabilities</span>
-<span id="cb4-21"><a href="#cb4-21"></a><span class="ss">2.  </span>Relative Risk Ratio</span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="ss">3.  </span>Odds Ratio</span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="ss">4.  </span>Log Odds Ratio</span>
-<span id="cb4-24"><a href="#cb4-24"></a></span>
-<span id="cb4-25"><a href="#cb4-25"></a>You can download Steve's slides by clicking <span class="co">[</span><span class="ot">**here**</span><span class="co">](https://github.com/vaiseys/soc-stats-1/raw/main/old_slides/measures-of-2x2-dependence.pptx)</span>**.**</span>
-<span id="cb4-26"><a href="#cb4-26"></a></span>
-<span id="cb4-27"><a href="#cb4-27"></a><span class="fu">## Contingency Tables</span></span>
-<span id="cb4-28"><a href="#cb4-28"></a></span>
-<span id="cb4-29"><a href="#cb4-29"></a><span class="fu">### Exercise</span></span>
-<span id="cb4-30"><a href="#cb4-30"></a></span>
-<span id="cb4-31"><a href="#cb4-31"></a>Load the GSS data for 2018, just like we did last week.</span>
-<span id="cb4-32"><a href="#cb4-32"></a></span>
-<span id="cb4-35"><a href="#cb4-35"></a><span class="in">```{r}</span></span>
-<span id="cb4-36"><a href="#cb4-36"></a><span class="co">#| message: false</span></span>
-<span id="cb4-37"><a href="#cb4-37"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb4-38"><a href="#cb4-38"></a><span class="fu">library</span>(gssr)</span>
-<span id="cb4-39"><a href="#cb4-39"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
-<span id="cb4-40"><a href="#cb4-40"></a></span>
-<span id="cb4-41"><a href="#cb4-41"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
-<span id="cb4-42"><a href="#cb4-42"></a>  <span class="fu">select</span>(attend, polviews) <span class="sc">|&gt;</span> </span>
-<span id="cb4-43"><a href="#cb4-43"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb4-44"><a href="#cb4-44"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb4-45"><a href="#cb4-45"></a>  <span class="fu">mutate</span>(<span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
-<span id="cb4-46"><a href="#cb4-46"></a>         <span class="at">conservative =</span> <span class="fu">if_else</span>(polviews <span class="sc">&gt;=</span> <span class="dv">5</span>, 1L, 0L)) <span class="sc">|&gt;</span> </span>
-<span id="cb4-47"><a href="#cb4-47"></a>  <span class="fu">drop_na</span>() </span>
-<span id="cb4-48"><a href="#cb4-48"></a><span class="in">```</span></span>
-<span id="cb4-49"><a href="#cb4-49"></a></span>
-<span id="cb4-50"><a href="#cb4-50"></a>Now take a look a this table:</span>
-<span id="cb4-51"><a href="#cb4-51"></a></span>
-<span id="cb4-54"><a href="#cb4-54"></a><span class="in">```{r}</span></span>
-<span id="cb4-55"><a href="#cb4-55"></a><span class="fu">table</span>(<span class="at">conservative =</span> d<span class="sc">$</span>conservative, <span class="at">weekly =</span> d<span class="sc">$</span>weekly)</span>
-<span id="cb4-56"><a href="#cb4-56"></a><span class="in">```</span></span>
-<span id="cb4-57"><a href="#cb4-57"></a></span>
-<span id="cb4-58"><a href="#cb4-58"></a>::: callout-note</span>
-<span id="cb4-59"><a href="#cb4-59"></a>**In this sample:**</span>
-<span id="cb4-60"><a href="#cb4-60"></a></span>
-<span id="cb4-61"><a href="#cb4-61"></a><span class="ss">1.  </span>What is the probability that a person attends religious services weekly?</span>
-<span id="cb4-62"><a href="#cb4-62"></a></span>
-<span id="cb4-63"><a href="#cb4-63"></a>    I'm asking for $\Pr(W)$</span>
-<span id="cb4-64"><a href="#cb4-64"></a></span>
-<span id="cb4-65"><a href="#cb4-65"></a><span class="ss">2.  </span>What is the probability that a person *does not* attend religious services weekly?</span>
-<span id="cb4-66"><a href="#cb4-66"></a></span>
-<span id="cb4-67"><a href="#cb4-67"></a>    I'm asking for $\Pr(W^\complement)$</span>
-<span id="cb4-68"><a href="#cb4-68"></a></span>
-<span id="cb4-69"><a href="#cb4-69"></a><span class="ss">3.  </span>What is the probability that a person is conservative, given that they attend religious services weekly?</span>
-<span id="cb4-70"><a href="#cb4-70"></a></span>
-<span id="cb4-71"><a href="#cb4-71"></a>    I'm asking for $\Pr(C \mid W)$</span>
-<span id="cb4-72"><a href="#cb4-72"></a></span>
-<span id="cb4-73"><a href="#cb4-73"></a><span class="ss">4.  </span>$\Pr(W \mid C)$</span>
-<span id="cb4-74"><a href="#cb4-74"></a></span>
-<span id="cb4-75"><a href="#cb4-75"></a><span class="ss">5.  </span>$\Pr(C \mid W^\complement)$</span>
-<span id="cb4-76"><a href="#cb4-76"></a></span>
-<span id="cb4-77"><a href="#cb4-77"></a><span class="ss">6.  </span>$\Pr(W \text{ and } C)$</span>
-<span id="cb4-78"><a href="#cb4-78"></a></span>
-<span id="cb4-79"><a href="#cb4-79"></a><span class="ss">7.  </span>$\Pr(W^\complement \text{ and } C^\complement)$</span>
-<span id="cb4-80"><a href="#cb4-80"></a></span>
-<span id="cb4-81"><a href="#cb4-81"></a>Finally, if we *assume* that $W$ and $C$ are independent:</span>
-<span id="cb4-82"><a href="#cb4-82"></a></span>
-<span id="cb4-83"><a href="#cb4-83"></a><span class="ss">8.  </span>What *would* be the joint probability of $W$ and $C$ ?</span>
-<span id="cb4-84"><a href="#cb4-84"></a>:::</span>
-<span id="cb4-85"><a href="#cb4-85"></a></span>
-<span id="cb4-86"><a href="#cb4-86"></a>::: callout-tip</span>
-<span id="cb4-87"><a href="#cb4-87"></a>Hint: I introduced the superscript $\complement$ notation, which means "complement."</span>
-<span id="cb4-88"><a href="#cb4-88"></a></span>
-<span id="cb4-89"><a href="#cb4-89"></a>You can think of $C$ as "conservative" and $C^\complement$ as "not conservative."</span>
-<span id="cb4-90"><a href="#cb4-90"></a>:::</span>
-<span id="cb4-91"><a href="#cb4-91"></a></span>
-<span id="cb4-92"><a href="#cb4-92"></a><span class="fu">### Exercise</span></span>
-<span id="cb4-93"><a href="#cb4-93"></a></span>
-<span id="cb4-94"><a href="#cb4-94"></a>::: callout-note</span>
-<span id="cb4-95"><a href="#cb4-95"></a>Choose 2 new variables in the GSS.</span>
-<span id="cb4-96"><a href="#cb4-96"></a></span>
-<span id="cb4-97"><a href="#cb4-97"></a><span class="ss">-   </span>Show the contingency table for these new variables.</span>
-<span id="cb4-98"><a href="#cb4-98"></a></span>
-<span id="cb4-99"><a href="#cb4-99"></a><span class="ss">-   </span>Modify the exercise 7.1.1 so that it applies to your new contingency table and answer all 8 questions.</span>
-<span id="cb4-100"><a href="#cb4-100"></a>:::</span>
-<span id="cb4-101"><a href="#cb4-101"></a></span>
-<span id="cb4-102"><a href="#cb4-102"></a>::: callout-tip</span>
-<span id="cb4-103"><a href="#cb4-103"></a>Suggestion: You should really make your life easier and either choose two binary variables or create them.</span>
-<span id="cb4-104"><a href="#cb4-104"></a>:::</span>
-<span id="cb4-105"><a href="#cb4-105"></a></span>
-<span id="cb4-106"><a href="#cb4-106"></a><span class="fu">## Four Ways to Make Sense of Dependence</span></span>
-<span id="cb4-107"><a href="#cb4-107"></a></span>
-<span id="cb4-108"><a href="#cb4-108"></a><span class="fu">### Exercise</span></span>
-<span id="cb4-109"><a href="#cb4-109"></a></span>
-<span id="cb4-110"><a href="#cb4-110"></a>::: callout-note</span>
-<span id="cb4-111"><a href="#cb4-111"></a>Take another look at the <span class="in">`weekly`</span> vs <span class="in">`conservative`</span> contingency table.</span>
-<span id="cb4-112"><a href="#cb4-112"></a></span>
-<span id="cb4-113"><a href="#cb4-113"></a>Focus on these two probabilities:</span>
-<span id="cb4-114"><a href="#cb4-114"></a></span>
-<span id="cb4-115"><a href="#cb4-115"></a>$$</span>
-<span id="cb4-116"><a href="#cb4-116"></a>\begin{align}</span>
-<span id="cb4-117"><a href="#cb4-117"></a>\Pr(W \mid C) &amp;&amp;\text{and} &amp;&amp; \Pr(W \mid C^\complement)</span>
-<span id="cb4-118"><a href="#cb4-118"></a>\end{align}</span>
-<span id="cb4-119"><a href="#cb4-119"></a>$$</span>
-<span id="cb4-120"><a href="#cb4-120"></a></span>
-<span id="cb4-121"><a href="#cb4-121"></a>Compare these probabilities using the following summary statistics:</span>
-<span id="cb4-122"><a href="#cb4-122"></a></span>
-<span id="cb4-123"><a href="#cb4-123"></a><span class="ss">1.  </span>Difference in Probabilities</span>
-<span id="cb4-124"><a href="#cb4-124"></a><span class="ss">2.  </span>Relative Risk Ratio</span>
-<span id="cb4-125"><a href="#cb4-125"></a><span class="ss">3.  </span>Odds Ratio</span>
-<span id="cb4-126"><a href="#cb4-126"></a><span class="ss">4.  </span>Log Odds Ratio</span>
-<span id="cb4-127"><a href="#cb4-127"></a>:::</span>
-<span id="cb4-128"><a href="#cb4-128"></a></span>
-<span id="cb4-129"><a href="#cb4-129"></a><span class="fu">### Exercise</span></span>
-<span id="cb4-130"><a href="#cb4-130"></a></span>
-<span id="cb4-131"><a href="#cb4-131"></a>::: callout-note</span>
-<span id="cb4-132"><a href="#cb4-132"></a>Last week, in class, we used the <span class="in">`infer`</span> package to draw a "simulation-based bootstrap distribution" for the difference in proportions between $\Pr(W \mid C)$ and $\Pr(W \mid C^\complement)$.</span>
-<span id="cb4-133"><a href="#cb4-133"></a></span>
-<span id="cb4-134"><a href="#cb4-134"></a>Now we mix things up a little bit.</span>
-<span id="cb4-135"><a href="#cb4-135"></a></span>
-<span id="cb4-136"><a href="#cb4-136"></a><span class="ss">1.  </span>Draw a sampling distribution for the "relative risk ratio" (Hint: <span class="in">`infer`</span> calls this "ratio of props")</span>
-<span id="cb4-137"><a href="#cb4-137"></a><span class="ss">2.  </span>Draw a sampling distribution for the "odds ratio"</span>
-<span id="cb4-138"><a href="#cb4-138"></a>:::</span>
-<span id="cb4-139"><a href="#cb4-139"></a></span>
-<span id="cb4-140"><a href="#cb4-140"></a><span class="fu">### Exercise</span></span>
-<span id="cb4-141"><a href="#cb4-141"></a></span>
-<span id="cb4-142"><a href="#cb4-142"></a>::: callout-note</span>
-<span id="cb4-143"><a href="#cb4-143"></a>Repeat exercise 7.2.1 using the contingency table you created in exercise 7.1.2</span>
-<span id="cb4-144"><a href="#cb4-144"></a>:::</span>
-<span id="cb4-145"><a href="#cb4-145"></a></span>
-<span id="cb4-146"><a href="#cb4-146"></a><span class="fu">### Exercise</span></span>
-<span id="cb4-147"><a href="#cb4-147"></a></span>
-<span id="cb4-148"><a href="#cb4-148"></a>::: callout-note</span>
-<span id="cb4-149"><a href="#cb4-149"></a>Repeat exercise 7.2.2 using the contingency table you created in exercise 7.1.2</span>
-<span id="cb4-150"><a href="#cb4-150"></a>:::</span>
+<div class="sourceCode" id="cb12" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">---</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="an">title:</span><span class="co"> "Week 9"</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="an">callout-appearance:</span><span class="co"> simple</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="an">callout-icon:</span><span class="co"> false</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co">---</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a></span>
+<span id="cb12-7"><a href="#cb12-7"></a>This week we will review the idea of ***reconstructing*** $2 \times 2$ and $2 \times 2 \times 2$ tables using statistical models. This should be a straightforward repeat of the things we did on Tuesday. Don't forget to look at <span class="co">[</span><span class="ot">Steve's slides</span><span class="co">](https://github.com/vaiseys/soc-stats-1/tree/main/old_slides)</span> for a refresher.</span>
+<span id="cb12-8"><a href="#cb12-8"></a></span>
+<span id="cb12-11"><a href="#cb12-11"></a><span class="in">```{r}</span></span>
+<span id="cb12-12"><a href="#cb12-12"></a><span class="co">#| code-summary: "Set up"</span></span>
+<span id="cb12-13"><a href="#cb12-13"></a><span class="co">#| message: false</span></span>
+<span id="cb12-14"><a href="#cb12-14"></a></span>
+<span id="cb12-15"><a href="#cb12-15"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-16"><a href="#cb12-16"></a><span class="fu">library</span>(gssr)</span>
+<span id="cb12-17"><a href="#cb12-17"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Optima"</span>))</span>
+<span id="cb12-18"><a href="#cb12-18"></a></span>
+<span id="cb12-19"><a href="#cb12-19"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
+<span id="cb12-20"><a href="#cb12-20"></a></span>
+<span id="cb12-21"><a href="#cb12-21"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb12-22"><a href="#cb12-22"></a>  <span class="fu">select</span>(attend, polviews, cappun) <span class="sc">|&gt;</span> </span>
+<span id="cb12-23"><a href="#cb12-23"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb12-24"><a href="#cb12-24"></a>  haven<span class="sc">::</span><span class="fu">zap_labels</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb12-25"><a href="#cb12-25"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-26"><a href="#cb12-26"></a>    <span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
+<span id="cb12-27"><a href="#cb12-27"></a>    <span class="at">conservative =</span> <span class="fu">if_else</span>(polviews <span class="sc">&gt;=</span> <span class="dv">5</span>, 1L, 0L),</span>
+<span id="cb12-28"><a href="#cb12-28"></a>    <span class="at">cappun =</span> <span class="fu">if_else</span>(cappun <span class="sc">==</span> <span class="dv">1</span>, 1L, 0L)</span>
+<span id="cb12-29"><a href="#cb12-29"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb12-30"><a href="#cb12-30"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb12-31"><a href="#cb12-31"></a>  <span class="fu">select</span>(cappun, weekly, conservative) </span>
+<span id="cb12-32"><a href="#cb12-32"></a><span class="in">```</span></span>
+<span id="cb12-33"><a href="#cb12-33"></a></span>
+<span id="cb12-34"><a href="#cb12-34"></a><span class="fu">## $2 \times 2 \times 2$</span></span>
+<span id="cb12-35"><a href="#cb12-35"></a></span>
+<span id="cb12-36"><a href="#cb12-36"></a><span class="fu">### Exercise</span></span>
+<span id="cb12-37"><a href="#cb12-37"></a></span>
+<span id="cb12-38"><a href="#cb12-38"></a>The following contingency table shows the association between 2 variables:</span>
+<span id="cb12-39"><a href="#cb12-39"></a></span>
+<span id="cb12-40"><a href="#cb12-40"></a><span class="ss">-   </span><span class="in">`cappun`</span>: favor or oppose death penalty for murder</span>
+<span id="cb12-41"><a href="#cb12-41"></a></span>
+<span id="cb12-42"><a href="#cb12-42"></a><span class="ss">-   </span><span class="in">`weekly`</span>: attends religious ceremonies one or more times a week</span>
+<span id="cb12-43"><a href="#cb12-43"></a></span>
+<span id="cb12-46"><a href="#cb12-46"></a><span class="in">```{r}</span></span>
+<span id="cb12-47"><a href="#cb12-47"></a>crosstab1 <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">cp =</span> d<span class="sc">$</span>cappun, <span class="at">weekly =</span> d<span class="sc">$</span>weekly)</span>
+<span id="cb12-48"><a href="#cb12-48"></a>crosstab1</span>
+<span id="cb12-49"><a href="#cb12-49"></a><span class="do">## column percentages</span></span>
+<span id="cb12-50"><a href="#cb12-50"></a><span class="fu">prop.table</span>(crosstab1, <span class="at">margin =</span> <span class="dv">2</span>)</span>
+<span id="cb12-51"><a href="#cb12-51"></a><span class="in">```</span></span>
+<span id="cb12-52"><a href="#cb12-52"></a></span>
+<span id="cb12-53"><a href="#cb12-53"></a>::: callout-note</span>
+<span id="cb12-54"><a href="#cb12-54"></a>**Exercise:**</span>
+<span id="cb12-55"><a href="#cb12-55"></a></span>
+<span id="cb12-56"><a href="#cb12-56"></a><span class="ss">-   </span>Express the relationship between <span class="in">`cappun`</span> ( $Y$ ) and <span class="in">`weekly`</span> ( $X$ ) as a linear probability model.</span>
+<span id="cb12-57"><a href="#cb12-57"></a></span>
+<span id="cb12-58"><a href="#cb12-58"></a><span class="ss">-   </span>Express the relationship between <span class="in">`cappun`</span> ( $Y$ ) and <span class="in">`weekly`</span> ( $X$ ) as a logistic regression model.</span>
+<span id="cb12-59"><a href="#cb12-59"></a>:::</span>
+<span id="cb12-60"><a href="#cb12-60"></a></span>
+<span id="cb12-61"><a href="#cb12-61"></a>::: callout-important</span>
+<span id="cb12-62"><a href="#cb12-62"></a>**Bonus:**</span>
+<span id="cb12-63"><a href="#cb12-63"></a></span>
+<span id="cb12-64"><a href="#cb12-64"></a>Calculate the standard error of $\beta$ (in the linear probability model). What is the 95% confidence interval?</span>
+<span id="cb12-65"><a href="#cb12-65"></a>:::</span>
+<span id="cb12-66"><a href="#cb12-66"></a></span>
+<span id="cb12-67"><a href="#cb12-67"></a><span class="fu">### Exercise</span></span>
+<span id="cb12-68"><a href="#cb12-68"></a></span>
+<span id="cb12-69"><a href="#cb12-69"></a>The following table adds a third variable to the previous contingency table:</span>
+<span id="cb12-70"><a href="#cb12-70"></a></span>
+<span id="cb12-71"><a href="#cb12-71"></a><span class="ss">-   </span><span class="in">`conservative`</span>: identifies as either "slightly conservative", "conservative", or "extremely conservative."</span>
+<span id="cb12-72"><a href="#cb12-72"></a></span>
+<span id="cb12-75"><a href="#cb12-75"></a><span class="in">```{r}</span></span>
+<span id="cb12-76"><a href="#cb12-76"></a>crosstab2 <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="at">cp =</span> d<span class="sc">$</span>cappun, <span class="at">weekly =</span> d<span class="sc">$</span>weekly, <span class="at">conservative =</span> d<span class="sc">$</span>conservative)</span>
+<span id="cb12-77"><a href="#cb12-77"></a>crosstab2</span>
+<span id="cb12-78"><a href="#cb12-78"></a><span class="do">## column percentages</span></span>
+<span id="cb12-79"><a href="#cb12-79"></a><span class="fu">prop.table</span>(crosstab2, <span class="at">margin =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb12-80"><a href="#cb12-80"></a><span class="in">```</span></span>
+<span id="cb12-81"><a href="#cb12-81"></a></span>
+<span id="cb12-82"><a href="#cb12-82"></a>::: callout-note</span>
+<span id="cb12-83"><a href="#cb12-83"></a>**Exercise:**</span>
+<span id="cb12-84"><a href="#cb12-84"></a></span>
+<span id="cb12-85"><a href="#cb12-85"></a><span class="ss">-   </span>Express the relationship between <span class="in">`cappun`</span> ( $Y$ ), <span class="in">`weekly`</span> ( $X_1$ ), and <span class="in">`conservative`</span> ( $X_2$ ) as a linear probability model.</span>
+<span id="cb12-86"><a href="#cb12-86"></a></span>
+<span id="cb12-87"><a href="#cb12-87"></a><span class="ss">-   </span>Express the relationship between cappun ( $Y$ ), weekly ( $X_1$ ), and conservative ( $X_2$ ) as a logistic regression model.</span>
+<span id="cb12-88"><a href="#cb12-88"></a>:::</span>
+<span id="cb12-89"><a href="#cb12-89"></a></span>
+<span id="cb12-90"><a href="#cb12-90"></a>::: callout-tip</span>
+<span id="cb12-91"><a href="#cb12-91"></a>Hint: You might find it easier to express this $2 \times 2 \times 2$ table so that it corresponds to Steve's slides.</span>
+<span id="cb12-92"><a href="#cb12-92"></a></span>
+<span id="cb12-95"><a href="#cb12-95"></a><span class="in">```{r}</span></span>
+<span id="cb12-96"><a href="#cb12-96"></a><span class="fu">as_tibble</span>(crosstab2) <span class="sc">|&gt;</span> </span>
+<span id="cb12-97"><a href="#cb12-97"></a>  <span class="fu">mutate</span>(<span class="at">cp =</span> <span class="fu">if_else</span>(cp <span class="sc">==</span> <span class="st">"1"</span>, <span class="st">"favors"</span>, <span class="st">"opposes"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb12-98"><a href="#cb12-98"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> cp, <span class="at">values_from =</span> n)</span>
+<span id="cb12-99"><a href="#cb12-99"></a><span class="in">```</span></span>
+<span id="cb12-100"><a href="#cb12-100"></a>:::</span>
+<span id="cb12-101"><a href="#cb12-101"></a></span>
+<span id="cb12-102"><a href="#cb12-102"></a>::: callout-important</span>
+<span id="cb12-103"><a href="#cb12-103"></a>**Bonus:**</span>
+<span id="cb12-104"><a href="#cb12-104"></a></span>
+<span id="cb12-105"><a href="#cb12-105"></a>Calculate the standard error of $\beta_\text{weekly}$ (in the linear probability model). What is the 95% confidence interval?</span>
+<span id="cb12-106"><a href="#cb12-106"></a>:::</span>
+<span id="cb12-107"><a href="#cb12-107"></a></span>
+<span id="cb12-108"><a href="#cb12-108"></a><span class="fu">## Exercise</span></span>
+<span id="cb12-109"><a href="#cb12-109"></a></span>
+<span id="cb12-110"><a href="#cb12-110"></a>::: callout-note</span>
+<span id="cb12-111"><a href="#cb12-111"></a>Look at the GSS data for 2018.</span>
+<span id="cb12-112"><a href="#cb12-112"></a></span>
+<span id="cb12-113"><a href="#cb12-113"></a><span class="ss">-   </span>Repeat the $2 \times 2 \times 2$ table exercise for three variables of your choosing.</span>
+<span id="cb12-114"><a href="#cb12-114"></a>:::</span>
+<span id="cb12-115"><a href="#cb12-115"></a></span>
+<span id="cb12-116"><a href="#cb12-116"></a><span class="fu">## Exercise</span></span>
+<span id="cb12-117"><a href="#cb12-117"></a></span>
+<span id="cb12-118"><a href="#cb12-118"></a>::: callout-note</span>
+<span id="cb12-119"><a href="#cb12-119"></a>Look at the GSS data for 2018.</span>
+<span id="cb12-120"><a href="#cb12-120"></a></span>
+<span id="cb12-121"><a href="#cb12-121"></a><span class="ss">-   </span>Repeat the $2 \times 2 \times 2$ table exercise for three variables of your choosing.</span>
+<span id="cb12-122"><a href="#cb12-122"></a>:::</span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -62,6 +62,10 @@ $$
 
 Here, $\alpha$ is a probability and $\beta$ is a difference in probabilities.
 
+::: callout-tip
+Hint: It's useful to think of $\alpha$ as a *point* and $\beta$ as a *distance.*
+:::
+
 ### Logistic Regression
 
 All of these expressions contain the same information:
@@ -126,6 +130,10 @@ This is why $\beta$ is called a log odds ratio.
 $$
 \beta = \log \Bigg(\frac{157/209}{819/387} \Bigg)
 $$
+:::
+
+::: callout-tip
+Hint: It's useful to think of $\alpha$ as a *point* and $\beta$ as a *distance.*
 :::
 
 ## Exercises

@@ -1,0 +1,114 @@
+---
+title: "Week 9"
+callout-appearance: simple
+callout-icon: false
+---
+
+This week we will review the idea of ***reconstructing*** $2 \times 2$ and $2 \times 2 \times 2$ tables using statistical models. This should be a straightforward repeat of the things we did on Tuesday. Don't forget to look at [Steve's slides](https://github.com/vaiseys/soc-stats-1/tree/main/old_slides) for a refresher.
+
+```{r}
+#| code-summary: "Set up"
+#| message: false
+
+library(tidyverse)
+library(gssr)
+theme_set(theme_light(base_family = "Optima"))
+
+gss18 <- gss_get_yr(2018) 
+
+d <- gss18 |> 
+  select(attend, polviews, cappun) |> 
+  haven::zap_missing() |> 
+  haven::zap_labels() |> 
+  mutate(
+    weekly = if_else(attend >= 7, 1L, 0L),
+    conservative = if_else(polviews >= 5, 1L, 0L),
+    cappun = if_else(cappun == 1, 1L, 0L)
+    ) |> 
+  drop_na() |> 
+  select(cappun, weekly, conservative) 
+```
+
+## $2 \times 2 \times 2$
+
+### Exercise
+
+The following contingency table shows the association between 2 variables:
+
+-   `cappun`: favor or oppose death penalty for murder
+
+-   `weekly`: attends religious ceremonies one or more times a week
+
+```{r}
+crosstab1 <- table(cp = d$cappun, weekly = d$weekly)
+crosstab1
+## column percentages
+prop.table(crosstab1, margin = 2)
+```
+
+::: callout-note
+**Exercise:**
+
+-   Express the relationship between `cappun` ( $Y$ ) and `weekly` ( $X$ ) as a linear probability model.
+
+-   Express the relationship between `cappun` ( $Y$ ) and `weekly` ( $X$ ) as a logistic regression model.
+:::
+
+::: callout-important
+**Bonus:**
+
+Calculate the standard error of $\beta$ (in the linear probability model). What is the 95% confidence interval?
+:::
+
+### Exercise
+
+The following table adds a third variable to the previous contingency table:
+
+-   `conservative`: identifies as either "slightly conservative", "conservative", or "extremely conservative."
+
+```{r}
+crosstab2 <- table(cp = d$cappun, weekly = d$weekly, conservative = d$conservative)
+crosstab2
+## column percentages
+prop.table(crosstab2, margin = c(2, 3))
+```
+
+::: callout-note
+**Exercise:**
+
+-   Express the relationship between `cappun` ( $Y$ ), `weekly` ( $X_1$ ), and `conservative` ( $X_2$ ) as a linear probability model.
+
+-   Express the relationship between cappun ( $Y$ ), weekly ( $X_1$ ), and conservative ( $X_2$ ) as a logistic regression model.
+:::
+
+::: callout-tip
+Hint: You might find it easier to express this $2 \times 2 \times 2$ table so that it corresponds to Steve's slides.
+
+```{r}
+as_tibble(crosstab2) |> 
+  mutate(cp = if_else(cp == "1", "favors", "opposes")) |> 
+  pivot_wider(names_from = cp, values_from = n)
+```
+:::
+
+::: callout-important
+**Bonus:**
+
+Calculate the standard error of $\beta_\text{weekly}$ (in the linear probability model). What is the 95% confidence interval?
+:::
+
+## Exercise
+
+::: callout-note
+Look at the GSS data for 2018.
+
+-   Repeat the $2 \times 2 \times 2$ table exercise for three variables of your choosing.
+:::
+
+## Exercise
+
+::: callout-note
+Look at the GSS data for 2018.
+
+-   Repeat the $2 \times 2 \times 2$ table exercise for three variables of your choosing.
+:::
