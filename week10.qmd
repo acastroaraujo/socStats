@@ -25,6 +25,7 @@ theme_set(theme_light(base_family = "Optima"))
 
 library(modelsummary)
 library(broom)
+library(gt)
 
 library(gssr)
 gss18 <- gss_get_yr(2018) 
@@ -59,7 +60,7 @@ $$
 \log \Bigg( \frac{\Pr(\texttt{cappun}_i = 1)}{1-\Pr(\texttt{cappun}_i = 1)} \Bigg) = \alpha + \beta_1 \times \texttt{conservative}_i + \beta_2 \times \texttt{weekly}_i
 $$ {#eq-restricted}
 
-Here, we want to choose the parameters $\alpha$, $\beta_1$, and $\beta_2$ that maximize the *joint probability* of the observed data. Strictly speaking, we want choose the parameters that maximize the following expression:
+We want to choose the parameters $\alpha$, $\beta_1$, and $\beta_2$ that *maximize the joint probability of the observed data*. Strictly speaking, we want choose the parameters that maximize the following expression:
 
 $$
 \text{log-likelihood} = \texttt{sum(dbinom(} \boldsymbol{y} \texttt{, size = 1, prob = } \boldsymbol {\theta} \texttt{, log = TRUE))}
@@ -93,11 +94,15 @@ grid <- expand_grid(
 grid
 ```
 
-We will calculate the sum of log-likelihoods ( $ll$ ) for each row in this grid, and then choose the combination that produces the maximum value in @eq-logLik.
+We will calculate the log-likelihood for each row in this grid and then choose the combination that produces the maximum value in @eq-logLik.
+
+::: callout-tip
+You might sometimes see this mathematical expression:
 
 $$
 \underset{\alpha, \beta_1, \beta_2}{\arg \max} \ \texttt{log-likelihood}
 $$
+:::
 
 To do so I will rely on this custom function (which you'll never see again):
 
@@ -118,7 +123,7 @@ log_likelihood_cappun <- function(alpha, beta1, beta2) {
 }
 ```
 
-Now we apply the function to each row of the grid. There are more than a million rows, so it might take a few minutes!
+Now we apply the function to each row of the grid. There are more than a million rows, so this might take a few minutes!
 
 ```{r}
 #| cache: true
@@ -137,7 +142,7 @@ Finally, we search for the maximum value of `ll` using the `filter()` function f
 grid |> filter(ll == max(ll))
 ```
 
-Hopefully you can see why this form of estimation looks a little bit like mountain climbing.
+Hopefully you can see why maximum likelihood estimation looks a little bit like mountain climbing.
 
 ```{r}
 #| code-fold: true
@@ -165,8 +170,14 @@ The easiest way to estimate this model is with R's built-in `glm` function. This
 To use it we do three things:
 
 1.  Specify a *model formula* with a tilde ( `~` ) separating the outcome variable (left-hand side) from the predictors (right-hand side).
-2.  Specify the `data` argument. An error will show up if the variables you specified in the formula don't exist in the data.
-3.  Specify the `family` argument. For a logistic regression this will always be "binomial."
+
+2.  Specify the `data` argument.
+
+    An error will show up if the variables you specified in the formula don't exist in the data.
+
+3.  Specify the `family` argument.
+
+    For a logistic regression this will always be "binomial."
 
 Let's save the resulting object as `mod`:
 
@@ -189,7 +200,7 @@ As a reminder:
 
 -   The *deviance* is just the log-likelihood multiplied by -2.
 
-    You can look at the log-likelihood by using the `logLik()` function. It should roughly correspond to the `ll` value we calculated earlier doing the grid search.
+    You can look at the log-likelihood by using the `logLik()` function. It should roughly correspond to the `ll` value we found earlier doing the grid search.
 
     ```{r}
     logLik(mod)
@@ -197,7 +208,7 @@ As a reminder:
 
 -   The *null deviance* corresponds to a model with no predictors.
 
-    *You should be able to calculate this very easily! It's going back to univariate statistics!*
+    *You should be able to calculate this very easily. It's going back to univariate statistics!*
 
     ```{r}
     nullll <- sum(dbinom(d$cappun, size = 1, prob = mean(d$cappun), log = TRUE))
@@ -221,7 +232,7 @@ There are also some useful packages that work seamlessly with `glm`.
 
 ------------------------------------------------------------------------
 
-The [broom](https://broom.tidymodels.org/) package, with it's associated three functions.
+The [broom](https://broom.tidymodels.org/) package with it's associated three functions: `tidy()`, `glance()`, and `augment()`.
 
 ```{r}
 broom::tidy(mod)
@@ -235,7 +246,7 @@ broom::augment(mod)
 Note. The `broom::augment()` works very similar to the built-in `predict()` function.
 :::
 
-You can use augment to generate predicted probabilities for each row.
+You can use `augment()` to generate predicted probabilities for each row.
 
 ```{r}
 augment(mod) |> 
@@ -245,10 +256,10 @@ augment(mod) |>
 
 ------------------------------------------------------------------------
 
-The [modelsummary](https://modelsummary.com/index.html) package, which allows for the creation of publication ready tables.
+The [modelsummary](https://modelsummary.com/index.html) package allows for the creation of publication ready tables.
 
 ```{r}
-modelsummary::msummary(list("Model 1" = mod))
+modelsummary::msummary(list("Model 1" = mod), output = "gt")
 ```
 
 ### Looking Under the Hood
@@ -429,7 +440,8 @@ mod4 <- glm(cappun ~ polviews * weekly, data = d, family = "binomial")
 Hint: You can create pretty coefficient tables with the `msummary()` function from the `modelsummary` package.
 
 ```{r}
-msummary(list(mod1, mod2, mod3, mod4), gof_map = "none")
+msummary(list(mod1, mod2, mod3, mod4), gof_map = "none", output = "gt") |> 
+  opt_table_font(font = "Optima") ## this function comes from the gt package
 ```
 :::
 

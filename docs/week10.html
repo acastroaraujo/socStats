@@ -95,9 +95,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link rel="stylesheet" media="screen" href="https://www.cssfontstack.com/Optima" type="text/css">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -370,24 +367,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3"></a></span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(modelsummary)</span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">library</span>(gssr)</span>
-<span id="cb1-8"><a href="#cb1-8"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
-<span id="cb1-9"><a href="#cb1-9"></a></span>
-<span id="cb1-10"><a href="#cb1-10"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
-<span id="cb1-11"><a href="#cb1-11"></a>  <span class="fu">select</span>(attend, polviews, cappun, degree) <span class="sc">|&gt;</span> </span>
-<span id="cb1-12"><a href="#cb1-12"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb1-13"><a href="#cb1-13"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">!</span>degree, haven<span class="sc">::</span>zap_labels)) <span class="sc">|&gt;</span> </span>
-<span id="cb1-14"><a href="#cb1-14"></a>  <span class="fu">mutate</span>(<span class="at">degree =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(degree)) <span class="sc">|&gt;</span> </span>
-<span id="cb1-15"><a href="#cb1-15"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-16"><a href="#cb1-16"></a>    <span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
-<span id="cb1-17"><a href="#cb1-17"></a>    <span class="at">polviews =</span> polviews <span class="sc">-</span> <span class="dv">4</span>,</span>
-<span id="cb1-18"><a href="#cb1-18"></a>    <span class="at">cappun =</span> <span class="fu">if_else</span>(cappun <span class="sc">==</span> <span class="dv">1</span>, 1L, 0L),</span>
-<span id="cb1-19"><a href="#cb1-19"></a>    ) <span class="sc">|&gt;</span> </span>
-<span id="cb1-20"><a href="#cb1-20"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">as.integer</span>(polviews <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb1-21"><a href="#cb1-21"></a>  <span class="fu">drop_na</span>() </span>
-<span id="cb1-22"><a href="#cb1-22"></a></span>
-<span id="cb1-23"><a href="#cb1-23"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">library</span>(gssr)</span>
+<span id="cb1-9"><a href="#cb1-9"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="fu">select</span>(attend, polviews, cappun, degree) <span class="sc">|&gt;</span> </span>
+<span id="cb1-13"><a href="#cb1-13"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">!</span>degree, haven<span class="sc">::</span>zap_labels)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-15"><a href="#cb1-15"></a>  <span class="fu">mutate</span>(<span class="at">degree =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(degree)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-16"><a href="#cb1-16"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-17"><a href="#cb1-17"></a>    <span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
+<span id="cb1-18"><a href="#cb1-18"></a>    <span class="at">polviews =</span> polviews <span class="sc">-</span> <span class="dv">4</span>,</span>
+<span id="cb1-19"><a href="#cb1-19"></a>    <span class="at">cappun =</span> <span class="fu">if_else</span>(cappun <span class="sc">==</span> <span class="dv">1</span>, 1L, 0L),</span>
+<span id="cb1-20"><a href="#cb1-20"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb1-21"><a href="#cb1-21"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">as.integer</span>(polviews <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-22"><a href="#cb1-22"></a>  <span class="fu">drop_na</span>() </span>
+<span id="cb1-23"><a href="#cb1-23"></a></span>
+<span id="cb1-24"><a href="#cb1-24"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2,102 × 6
@@ -416,7 +414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><span id="eq-restricted"><span class="math display">\[
 \log \Bigg( \frac{\Pr(\texttt{cappun}_i = 1)}{1-\Pr(\texttt{cappun}_i = 1)} \Bigg) = \alpha + \beta_1 \times \texttt{conservative}_i + \beta_2 \times \texttt{weekly}_i
 \tag{10.1}\]</span></span></p>
-<p>Here, we want to choose the parameters <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\beta_2\)</span> that maximize the <em>joint probability</em> of the observed data. Strictly speaking, we want choose the parameters that maximize the following expression:</p>
+<p>We want to choose the parameters <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\beta_2\)</span> that <em>maximize the joint probability of the observed data</em>. Strictly speaking, we want choose the parameters that maximize the following expression:</p>
 <p><span id="eq-logLik"><span class="math display">\[
 \text{log-likelihood} = \texttt{sum(dbinom(} \boldsymbol{y} \texttt{, size = 1, prob = } \boldsymbol {\theta} \texttt{, log = TRUE))}
 \tag{10.2}\]</span></span></p>
@@ -467,10 +465,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ 1,030,291 more rows</code></pre>
 </div>
 </div>
-<p>We will calculate the sum of log-likelihoods ( <span class="math inline">\(ll\)</span> ) for each row in this grid, and then choose the combination that produces the maximum value in <a href="#eq-logLik">Equation&nbsp;<span>10.2</span></a>.</p>
+<p>We will calculate the log-likelihood for each row in this grid and then choose the combination that produces the maximum value in <a href="#eq-logLik">Equation&nbsp;<span>10.2</span></a>.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>You might sometimes see this mathematical expression:</p>
 <p><span class="math display">\[
 \underset{\alpha, \beta_1, \beta_2}{\arg \max} \ \texttt{log-likelihood}
 \]</span></p>
+</div>
+</div>
+</div>
 <p>To do so I will rely on this custom function (which you’ll never see again):</p>
 <div class="cell">
 <details open="">
@@ -491,7 +499,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-14"><a href="#cb5-14"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Now we apply the function to each row of the grid. There are more than a million rows, so it might take a few minutes!</p>
+<p>Now we apply the function to each row of the grid. There are more than a million rows, so this might take a few minutes!</p>
 <div class="cell" data-hash="week10_cache/html/unnamed-chunk-4_ff70164ec4a51171c3adae24d442f3fc">
 <details open="">
 <summary>Code</summary>
@@ -517,7 +525,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1  0.36  0.86 -0.38 -1346.</code></pre>
 </div>
 </div>
-<p>Hopefully you can see why this form of estimation looks a little bit like mountain climbing.</p>
+<p>Hopefully you can see why maximum likelihood estimation looks a little bit like mountain climbing.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -546,9 +554,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The easiest way to estimate this model is with R’s built-in <code>glm</code> function. This stands for <em>generalized linear regression</em>. The word “generalized” should serve as foreshadowing. <em>Everything we learn here can be extended to the modeling other types of outcome variables (not just binary).</em></p>
 <p>To use it we do three things:</p>
 <ol type="1">
-<li>Specify a <em>model formula</em> with a tilde ( <code>~</code> ) separating the outcome variable (left-hand side) from the predictors (right-hand side).</li>
-<li>Specify the <code>data</code> argument. An error will show up if the variables you specified in the formula don’t exist in the data.</li>
-<li>Specify the <code>family</code> argument. For a logistic regression this will always be “binomial.”</li>
+<li><p>Specify a <em>model formula</em> with a tilde ( <code>~</code> ) separating the outcome variable (left-hand side) from the predictors (right-hand side).</p></li>
+<li><p>Specify the <code>data</code> argument.</p>
+<p>An error will show up if the variables you specified in the formula don’t exist in the data.</p></li>
+<li><p>Specify the <code>family</code> argument.</p>
+<p>For a logistic regression this will always be “binomial.”</p></li>
 </ol>
 <p>Let’s save the resulting object as <code>mod</code>:</p>
 <div class="cell">
@@ -580,7 +590,7 @@ Residual Deviance: 2692     AIC: 2698</code></pre>
 \]</span></p>
 <p>So 2692 + 6.</p></li>
 <li><p>The <em>deviance</em> is just the log-likelihood multiplied by -2.</p>
-<p>You can look at the log-likelihood by using the <code>logLik()</code> function. It should roughly correspond to the <code>ll</code> value we calculated earlier doing the grid search.</p>
+<p>You can look at the log-likelihood by using the <code>logLik()</code> function. It should roughly correspond to the <code>ll</code> value we found earlier doing the grid search.</p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
@@ -591,7 +601,7 @@ Residual Deviance: 2692     AIC: 2698</code></pre>
 </div>
 </div></li>
 <li><p>The <em>null deviance</em> corresponds to a model with no predictors.</p>
-<p><em>You should be able to calculate this very easily! It’s going back to univariate statistics!</em></p>
+<p><em>You should be able to calculate this very easily. It’s going back to univariate statistics!</em></p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
@@ -653,7 +663,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
 </div>
 <p>There are also some useful packages that work seamlessly with <code>glm</code>.</p>
 <hr>
-<p>The <a href="https://broom.tidymodels.org/">broom</a> package, with it’s associated three functions.</p>
+<p>The <a href="https://broom.tidymodels.org/">broom</a> package with it’s associated three functions: <code>tidy()</code>, <code>glance()</code>, and <code>augment()</code>.</p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
@@ -710,7 +720,7 @@ Number of Fisher Scoring iterations: 4</code></pre>
 </div>
 </div>
 </div>
-<p>You can use augment to generate predicted probabilities for each row.</p>
+<p>You can use <code>augment()</code> to generate predicted probabilities for each row.</p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
@@ -729,69 +739,490 @@ Number of Fisher Scoring iterations: 4</code></pre>
 </div>
 </div>
 <hr>
-<p>The <a href="https://modelsummary.com/index.html">modelsummary</a> package, which allows for the creation of publication ready tables.</p>
+<p>The <a href="https://modelsummary.com/index.html">modelsummary</a> package allows for the creation of publication ready tables.</p>
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>modelsummary<span class="sc">::</span><span class="fu">msummary</span>(<span class="fu">list</span>(<span class="st">"Model 1"</span> <span class="ot">=</span> mod))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>modelsummary<span class="sc">::</span><span class="fu">msummary</span>(<span class="fu">list</span>(<span class="st">"Model 1"</span> <span class="ot">=</span> mod), <span class="at">output =</span> <span class="st">"gt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">Model 1</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: center;">0.358</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.057)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">conservative</td>
-<td style="text-align: center;">0.864</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.105)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">weekly</td>
-<td style="text-align: center;">−0.374</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; box-shadow: 0px 1.5px;"></td>
-<td style="text-align: center; box-shadow: 0px 1.5px;">(0.112)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Num.Obs.</td>
-<td style="text-align: center;">2102</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">AIC</td>
-<td style="text-align: center;">2698.2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">BIC</td>
-<td style="text-align: center;">2715.2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Log.Lik.</td>
-<td style="text-align: center;">−1346.112</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">RMSE</td>
-<td style="text-align: center;">0.47</td>
-</tr>
-</tbody>
+
+<div id="yadcerdwyk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yadcerdwyk table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#yadcerdwyk thead, #yadcerdwyk tbody, #yadcerdwyk tfoot, #yadcerdwyk tr, #yadcerdwyk td, #yadcerdwyk th {
+  border-style: none;
+}
+
+#yadcerdwyk p {
+  margin: 0;
+  padding: 0;
+}
+
+#yadcerdwyk .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#yadcerdwyk .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#yadcerdwyk .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#yadcerdwyk .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#yadcerdwyk .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#yadcerdwyk .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yadcerdwyk .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#yadcerdwyk .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#yadcerdwyk .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#yadcerdwyk .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#yadcerdwyk .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#yadcerdwyk .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#yadcerdwyk .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#yadcerdwyk .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#yadcerdwyk .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#yadcerdwyk .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#yadcerdwyk .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#yadcerdwyk .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#yadcerdwyk .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yadcerdwyk .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#yadcerdwyk .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#yadcerdwyk .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#yadcerdwyk .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yadcerdwyk .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#yadcerdwyk .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#yadcerdwyk .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yadcerdwyk .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yadcerdwyk .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#yadcerdwyk .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yadcerdwyk .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#yadcerdwyk .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#yadcerdwyk .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#yadcerdwyk .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yadcerdwyk .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#yadcerdwyk .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#yadcerdwyk .gt_left {
+  text-align: left;
+}
+
+#yadcerdwyk .gt_center {
+  text-align: center;
+}
+
+#yadcerdwyk .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#yadcerdwyk .gt_font_normal {
+  font-weight: normal;
+}
+
+#yadcerdwyk .gt_font_bold {
+  font-weight: bold;
+}
+
+#yadcerdwyk .gt_font_italic {
+  font-style: italic;
+}
+
+#yadcerdwyk .gt_super {
+  font-size: 65%;
+}
+
+#yadcerdwyk .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#yadcerdwyk .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#yadcerdwyk .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#yadcerdwyk .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#yadcerdwyk .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#yadcerdwyk .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#yadcerdwyk .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=" "> </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="Model 1">Model 1</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="" class="gt_row gt_left">(Intercept)</td>
+<td headers="Model 1" class="gt_row gt_center">0.358</td></tr>
+    <tr><td headers="" class="gt_row gt_left"></td>
+<td headers="Model 1" class="gt_row gt_center">(0.057)</td></tr>
+    <tr><td headers="" class="gt_row gt_left">conservative</td>
+<td headers="Model 1" class="gt_row gt_center">0.864</td></tr>
+    <tr><td headers="" class="gt_row gt_left"></td>
+<td headers="Model 1" class="gt_row gt_center">(0.105)</td></tr>
+    <tr><td headers="" class="gt_row gt_left">weekly</td>
+<td headers="Model 1" class="gt_row gt_center">-0.374</td></tr>
+    <tr><td headers="" class="gt_row gt_left" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;"></td>
+<td headers="Model 1" class="gt_row gt_center" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #000000;">(0.112)</td></tr>
+    <tr><td headers="" class="gt_row gt_left">Num.Obs.</td>
+<td headers="Model 1" class="gt_row gt_center">2102</td></tr>
+    <tr><td headers="" class="gt_row gt_left">AIC</td>
+<td headers="Model 1" class="gt_row gt_center">2698.2</td></tr>
+    <tr><td headers="" class="gt_row gt_left">BIC</td>
+<td headers="Model 1" class="gt_row gt_center">2715.2</td></tr>
+    <tr><td headers="" class="gt_row gt_left">Log.Lik.</td>
+<td headers="Model 1" class="gt_row gt_center">-1346.112</td></tr>
+    <tr><td headers="" class="gt_row gt_left">RMSE</td>
+<td headers="Model 1" class="gt_row gt_center">0.47</td></tr>
+  </tbody>
+  
+  
 </table>
-
-
+</div>
 </div>
 </div>
 </section>
@@ -990,108 +1421,528 @@ D = \log(\text{likelihood}) \times -2
 <div class="cell">
 <details open="">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">msummary</span>(<span class="fu">list</span>(mod1, mod2, mod3, mod4), <span class="at">gof_map =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">msummary</span>(<span class="fu">list</span>(mod1, mod2, mod3, mod4), <span class="at">gof_map =</span> <span class="st">"none"</span>, <span class="at">output =</span> <span class="st">"gt"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">opt_table_font</span>(<span class="at">font =</span> <span class="st">"Optima"</span>) <span class="do">## this function comes from the gt package</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;(1)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;&nbsp;(2)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;&nbsp;(3)</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;&nbsp;(4)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">(Intercept)</td>
-<td style="text-align: center;">0.358</td>
-<td style="text-align: center;">0.341</td>
-<td style="text-align: center;">0.666</td>
-<td style="text-align: center;">0.677</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.057)</td>
-<td style="text-align: center;">(0.059)</td>
-<td style="text-align: center;">(0.054)</td>
-<td style="text-align: center;">(0.055)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">conservative</td>
-<td style="text-align: center;">0.864</td>
-<td style="text-align: center;">0.942</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.105)</td>
-<td style="text-align: center;">(0.127)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">weekly</td>
-<td style="text-align: center;">−0.374</td>
-<td style="text-align: center;">−0.274</td>
-<td style="text-align: center;">−0.488</td>
-<td style="text-align: center;">−0.451</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;">(0.112)</td>
-<td style="text-align: center;">(0.143)</td>
-<td style="text-align: center;">(0.115)</td>
-<td style="text-align: center;">(0.116)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">conservative × weekly</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">−0.263</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">(0.230)</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">polviews</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">0.405</td>
-<td style="text-align: center;">0.441</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">(0.034)</td>
-<td style="text-align: center;">(0.039)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">polviews × weekly</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">−0.138</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;">(0.076)</td>
-</tr>
-</tbody>
+
+<div id="bkdrkommfg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bkdrkommfg table {
+  font-family: Optima, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#bkdrkommfg thead, #bkdrkommfg tbody, #bkdrkommfg tfoot, #bkdrkommfg tr, #bkdrkommfg td, #bkdrkommfg th {
+  border-style: none;
+}
+
+#bkdrkommfg p {
+  margin: 0;
+  padding: 0;
+}
+
+#bkdrkommfg .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#bkdrkommfg .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#bkdrkommfg .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#bkdrkommfg .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#bkdrkommfg .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bkdrkommfg .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bkdrkommfg .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#bkdrkommfg .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#bkdrkommfg .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#bkdrkommfg .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#bkdrkommfg .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#bkdrkommfg .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#bkdrkommfg .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#bkdrkommfg .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#bkdrkommfg .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#bkdrkommfg .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#bkdrkommfg .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#bkdrkommfg .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#bkdrkommfg .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bkdrkommfg .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#bkdrkommfg .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#bkdrkommfg .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#bkdrkommfg .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bkdrkommfg .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#bkdrkommfg .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#bkdrkommfg .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bkdrkommfg .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bkdrkommfg .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#bkdrkommfg .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bkdrkommfg .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#bkdrkommfg .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#bkdrkommfg .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bkdrkommfg .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bkdrkommfg .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#bkdrkommfg .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#bkdrkommfg .gt_left {
+  text-align: left;
+}
+
+#bkdrkommfg .gt_center {
+  text-align: center;
+}
+
+#bkdrkommfg .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#bkdrkommfg .gt_font_normal {
+  font-weight: normal;
+}
+
+#bkdrkommfg .gt_font_bold {
+  font-weight: bold;
+}
+
+#bkdrkommfg .gt_font_italic {
+  font-style: italic;
+}
+
+#bkdrkommfg .gt_super {
+  font-size: 65%;
+}
+
+#bkdrkommfg .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#bkdrkommfg .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#bkdrkommfg .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#bkdrkommfg .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#bkdrkommfg .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#bkdrkommfg .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#bkdrkommfg .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id=" "> </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="(1)">(1)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="(2)">(2)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="(3)">(3)</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="(4)">(4)</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="" class="gt_row gt_left">(Intercept)</td>
+<td headers="(1)" class="gt_row gt_center">0.358</td>
+<td headers="(2)" class="gt_row gt_center">0.341</td>
+<td headers="(3)" class="gt_row gt_center">0.666</td>
+<td headers="(4)" class="gt_row gt_center">0.677</td></tr>
+    <tr><td headers="" class="gt_row gt_left"></td>
+<td headers="(1)" class="gt_row gt_center">(0.057)</td>
+<td headers="(2)" class="gt_row gt_center">(0.059)</td>
+<td headers="(3)" class="gt_row gt_center">(0.054)</td>
+<td headers="(4)" class="gt_row gt_center">(0.055)</td></tr>
+    <tr><td headers="" class="gt_row gt_left">conservative</td>
+<td headers="(1)" class="gt_row gt_center">0.864</td>
+<td headers="(2)" class="gt_row gt_center">0.942</td>
+<td headers="(3)" class="gt_row gt_center"></td>
+<td headers="(4)" class="gt_row gt_center"></td></tr>
+    <tr><td headers="" class="gt_row gt_left"></td>
+<td headers="(1)" class="gt_row gt_center">(0.105)</td>
+<td headers="(2)" class="gt_row gt_center">(0.127)</td>
+<td headers="(3)" class="gt_row gt_center"></td>
+<td headers="(4)" class="gt_row gt_center"></td></tr>
+    <tr><td headers="" class="gt_row gt_left">weekly</td>
+<td headers="(1)" class="gt_row gt_center">-0.374</td>
+<td headers="(2)" class="gt_row gt_center">-0.274</td>
+<td headers="(3)" class="gt_row gt_center">-0.488</td>
+<td headers="(4)" class="gt_row gt_center">-0.451</td></tr>
+    <tr><td headers="" class="gt_row gt_left"></td>
+<td headers="(1)" class="gt_row gt_center">(0.112)</td>
+<td headers="(2)" class="gt_row gt_center">(0.143)</td>
+<td headers="(3)" class="gt_row gt_center">(0.115)</td>
+<td headers="(4)" class="gt_row gt_center">(0.116)</td></tr>
+    <tr><td headers="" class="gt_row gt_left">conservative × weekly</td>
+<td headers="(1)" class="gt_row gt_center"></td>
+<td headers="(2)" class="gt_row gt_center">-0.263</td>
+<td headers="(3)" class="gt_row gt_center"></td>
+<td headers="(4)" class="gt_row gt_center"></td></tr>
+    <tr><td headers="" class="gt_row gt_left"></td>
+<td headers="(1)" class="gt_row gt_center"></td>
+<td headers="(2)" class="gt_row gt_center">(0.230)</td>
+<td headers="(3)" class="gt_row gt_center"></td>
+<td headers="(4)" class="gt_row gt_center"></td></tr>
+    <tr><td headers="" class="gt_row gt_left">polviews</td>
+<td headers="(1)" class="gt_row gt_center"></td>
+<td headers="(2)" class="gt_row gt_center"></td>
+<td headers="(3)" class="gt_row gt_center">0.405</td>
+<td headers="(4)" class="gt_row gt_center">0.441</td></tr>
+    <tr><td headers="" class="gt_row gt_left"></td>
+<td headers="(1)" class="gt_row gt_center"></td>
+<td headers="(2)" class="gt_row gt_center"></td>
+<td headers="(3)" class="gt_row gt_center">(0.034)</td>
+<td headers="(4)" class="gt_row gt_center">(0.039)</td></tr>
+    <tr><td headers="" class="gt_row gt_left">polviews × weekly</td>
+<td headers="(1)" class="gt_row gt_center"></td>
+<td headers="(2)" class="gt_row gt_center"></td>
+<td headers="(3)" class="gt_row gt_center"></td>
+<td headers="(4)" class="gt_row gt_center">-0.138</td></tr>
+    <tr><td headers="" class="gt_row gt_left"></td>
+<td headers="(1)" class="gt_row gt_center"></td>
+<td headers="(2)" class="gt_row gt_center"></td>
+<td headers="(3)" class="gt_row gt_center"></td>
+<td headers="(4)" class="gt_row gt_center">(0.076)</td></tr>
+  </tbody>
+  
+  
 </table>
-
-
+</div>
 </div>
 </div>
 </div>
@@ -1639,523 +2490,535 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb50-27"><a href="#cb50-27"></a></span>
 <span id="cb50-28"><a href="#cb50-28"></a><span class="fu">library</span>(modelsummary)</span>
 <span id="cb50-29"><a href="#cb50-29"></a><span class="fu">library</span>(broom)</span>
-<span id="cb50-30"><a href="#cb50-30"></a></span>
-<span id="cb50-31"><a href="#cb50-31"></a><span class="fu">library</span>(gssr)</span>
-<span id="cb50-32"><a href="#cb50-32"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
-<span id="cb50-33"><a href="#cb50-33"></a></span>
-<span id="cb50-34"><a href="#cb50-34"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
-<span id="cb50-35"><a href="#cb50-35"></a>  <span class="fu">select</span>(attend, polviews, cappun, degree) <span class="sc">|&gt;</span> </span>
-<span id="cb50-36"><a href="#cb50-36"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb50-37"><a href="#cb50-37"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">!</span>degree, haven<span class="sc">::</span>zap_labels)) <span class="sc">|&gt;</span> </span>
-<span id="cb50-38"><a href="#cb50-38"></a>  <span class="fu">mutate</span>(<span class="at">degree =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(degree)) <span class="sc">|&gt;</span> </span>
-<span id="cb50-39"><a href="#cb50-39"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb50-40"><a href="#cb50-40"></a>    <span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
-<span id="cb50-41"><a href="#cb50-41"></a>    <span class="at">polviews =</span> polviews <span class="sc">-</span> <span class="dv">4</span>,</span>
-<span id="cb50-42"><a href="#cb50-42"></a>    <span class="at">cappun =</span> <span class="fu">if_else</span>(cappun <span class="sc">==</span> <span class="dv">1</span>, 1L, 0L),</span>
-<span id="cb50-43"><a href="#cb50-43"></a>    ) <span class="sc">|&gt;</span> </span>
-<span id="cb50-44"><a href="#cb50-44"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">as.integer</span>(polviews <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb50-45"><a href="#cb50-45"></a>  <span class="fu">drop_na</span>() </span>
-<span id="cb50-46"><a href="#cb50-46"></a></span>
-<span id="cb50-47"><a href="#cb50-47"></a>d</span>
-<span id="cb50-48"><a href="#cb50-48"></a><span class="in">```</span></span>
-<span id="cb50-49"><a href="#cb50-49"></a></span>
-<span id="cb50-50"><a href="#cb50-50"></a>Note that in the previous code we created two additional variables and *transformed* <span class="in">`polviews`</span>:</span>
-<span id="cb50-51"><a href="#cb50-51"></a></span>
-<span id="cb50-52"><a href="#cb50-52"></a><span class="ss">-   </span><span class="in">`weekly`</span>: attends religious ceremonies one or more times a week</span>
-<span id="cb50-53"><a href="#cb50-53"></a></span>
-<span id="cb50-54"><a href="#cb50-54"></a><span class="ss">-   </span><span class="in">`polviews`</span>: this variable is now centered at 0.</span>
-<span id="cb50-55"><a href="#cb50-55"></a></span>
-<span id="cb50-56"><a href="#cb50-56"></a><span class="ss">-   </span><span class="in">`conservative`</span>: slightly conservative, conservative, and extremely conservative.</span>
-<span id="cb50-57"><a href="#cb50-57"></a></span>
-<span id="cb50-58"><a href="#cb50-58"></a>Last week we learned that we could estimate a "saturated model" by hand by looking at the conditional probabilities in a $2 \times 2 \times 2$ contingency table. This week, we learned how to estimated a "restricted model" like the one in @eq-restricted. This time, however, we can't calculate the parameters in the model by hand.</span>
-<span id="cb50-59"><a href="#cb50-59"></a></span>
-<span id="cb50-60"><a href="#cb50-60"></a>$$</span>
-<span id="cb50-61"><a href="#cb50-61"></a>\log \Bigg( \frac{\Pr(\texttt{cappun}_i = 1)}{1-\Pr(\texttt{cappun}_i = 1)} \Bigg) = \alpha + \beta_1 \times \texttt{conservative}_i + \beta_2 \times \texttt{weekly}_i</span>
-<span id="cb50-62"><a href="#cb50-62"></a>$$ {#eq-restricted}</span>
-<span id="cb50-63"><a href="#cb50-63"></a></span>
-<span id="cb50-64"><a href="#cb50-64"></a>Here, we want to choose the parameters $\alpha$, $\beta_1$, and $\beta_2$ that maximize the *joint probability* of the observed data. Strictly speaking, we want choose the parameters that maximize the following expression:</span>
-<span id="cb50-65"><a href="#cb50-65"></a></span>
-<span id="cb50-66"><a href="#cb50-66"></a>$$</span>
-<span id="cb50-67"><a href="#cb50-67"></a>\text{log-likelihood} = \texttt{sum(dbinom(} \boldsymbol{y} \texttt{, size = 1, prob = } \boldsymbol {\theta} \texttt{, log = TRUE))}</span>
-<span id="cb50-68"><a href="#cb50-68"></a>$$ {#eq-logLik}</span>
-<span id="cb50-69"><a href="#cb50-69"></a></span>
-<span id="cb50-70"><a href="#cb50-70"></a>::: callout-tip</span>
-<span id="cb50-71"><a href="#cb50-71"></a>We usually refer to this expression like this as a "probability" when the parameter $\theta$ is fixed and we are interested in making inferences about *unknown observations*; we refer to it as a "likelihood" when the data $y$ is fixed and we are interested in making inferences about *unknown parameters*.</span>
-<span id="cb50-72"><a href="#cb50-72"></a>:::</span>
-<span id="cb50-73"><a href="#cb50-73"></a></span>
-<span id="cb50-74"><a href="#cb50-74"></a>Note that both $\boldsymbol y$ and $\theta$ are vectors of size 2102 (the number of observations in the data frame). Each individual $\theta_i$ is modeled as a function of our *predictors,* which are linear in the "logit" scale.</span>
-<span id="cb50-75"><a href="#cb50-75"></a></span>
-<span id="cb50-76"><a href="#cb50-76"></a>$$</span>
-<span id="cb50-77"><a href="#cb50-77"></a>\text{logit}(\theta_i) = \alpha + \beta_1 \times \texttt{conservative}_i + \beta_2 \times \texttt{weekly}_i</span>
-<span id="cb50-78"><a href="#cb50-78"></a>$$</span>
-<span id="cb50-79"><a href="#cb50-79"></a></span>
-<span id="cb50-80"><a href="#cb50-80"></a>How, then, do we estimate the parameters in our restricted model?</span>
-<span id="cb50-81"><a href="#cb50-81"></a></span>
-<span id="cb50-82"><a href="#cb50-82"></a><span class="fu">### Grid Search</span></span>
-<span id="cb50-83"><a href="#cb50-83"></a></span>
-<span id="cb50-84"><a href="#cb50-84"></a>Conceptually, the easiest way to estimate these parameters is by doing what's called a "grid search." This is also the *most inefficient* way to do it from a computational point of view.</span>
-<span id="cb50-85"><a href="#cb50-85"></a></span>
-<span id="cb50-86"><a href="#cb50-86"></a>We can create a "grid" like this:</span>
-<span id="cb50-87"><a href="#cb50-87"></a></span>
-<span id="cb50-90"><a href="#cb50-90"></a><span class="in">```{r}</span></span>
-<span id="cb50-91"><a href="#cb50-91"></a>grid <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
-<span id="cb50-92"><a href="#cb50-92"></a>  <span class="at">alpha =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.02</span>), </span>
-<span id="cb50-93"><a href="#cb50-93"></a>  <span class="at">beta1 =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.02</span>),</span>
-<span id="cb50-94"><a href="#cb50-94"></a>  <span class="at">beta2 =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.02</span>)</span>
-<span id="cb50-95"><a href="#cb50-95"></a>)</span>
-<span id="cb50-96"><a href="#cb50-96"></a></span>
-<span id="cb50-97"><a href="#cb50-97"></a>grid</span>
-<span id="cb50-98"><a href="#cb50-98"></a><span class="in">```</span></span>
-<span id="cb50-99"><a href="#cb50-99"></a></span>
-<span id="cb50-100"><a href="#cb50-100"></a>We will calculate the sum of log-likelihoods ( $ll$ ) for each row in this grid, and then choose the combination that produces the maximum value in @eq-logLik.</span>
-<span id="cb50-101"><a href="#cb50-101"></a></span>
-<span id="cb50-102"><a href="#cb50-102"></a>$$</span>
-<span id="cb50-103"><a href="#cb50-103"></a>\underset{\alpha, \beta_1, \beta_2}{\arg \max} \ \texttt{log-likelihood}</span>
-<span id="cb50-104"><a href="#cb50-104"></a>$$</span>
+<span id="cb50-30"><a href="#cb50-30"></a><span class="fu">library</span>(gt)</span>
+<span id="cb50-31"><a href="#cb50-31"></a></span>
+<span id="cb50-32"><a href="#cb50-32"></a><span class="fu">library</span>(gssr)</span>
+<span id="cb50-33"><a href="#cb50-33"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
+<span id="cb50-34"><a href="#cb50-34"></a></span>
+<span id="cb50-35"><a href="#cb50-35"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb50-36"><a href="#cb50-36"></a>  <span class="fu">select</span>(attend, polviews, cappun, degree) <span class="sc">|&gt;</span> </span>
+<span id="cb50-37"><a href="#cb50-37"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb50-38"><a href="#cb50-38"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">!</span>degree, haven<span class="sc">::</span>zap_labels)) <span class="sc">|&gt;</span> </span>
+<span id="cb50-39"><a href="#cb50-39"></a>  <span class="fu">mutate</span>(<span class="at">degree =</span> haven<span class="sc">::</span><span class="fu">as_factor</span>(degree)) <span class="sc">|&gt;</span> </span>
+<span id="cb50-40"><a href="#cb50-40"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb50-41"><a href="#cb50-41"></a>    <span class="at">weekly =</span> <span class="fu">if_else</span>(attend <span class="sc">&gt;=</span> <span class="dv">7</span>, 1L, 0L),</span>
+<span id="cb50-42"><a href="#cb50-42"></a>    <span class="at">polviews =</span> polviews <span class="sc">-</span> <span class="dv">4</span>,</span>
+<span id="cb50-43"><a href="#cb50-43"></a>    <span class="at">cappun =</span> <span class="fu">if_else</span>(cappun <span class="sc">==</span> <span class="dv">1</span>, 1L, 0L),</span>
+<span id="cb50-44"><a href="#cb50-44"></a>    ) <span class="sc">|&gt;</span> </span>
+<span id="cb50-45"><a href="#cb50-45"></a>  <span class="fu">mutate</span>(<span class="at">conservative =</span> <span class="fu">as.integer</span>(polviews <span class="sc">&gt;</span> <span class="dv">0</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb50-46"><a href="#cb50-46"></a>  <span class="fu">drop_na</span>() </span>
+<span id="cb50-47"><a href="#cb50-47"></a></span>
+<span id="cb50-48"><a href="#cb50-48"></a>d</span>
+<span id="cb50-49"><a href="#cb50-49"></a><span class="in">```</span></span>
+<span id="cb50-50"><a href="#cb50-50"></a></span>
+<span id="cb50-51"><a href="#cb50-51"></a>Note that in the previous code we created two additional variables and *transformed* <span class="in">`polviews`</span>:</span>
+<span id="cb50-52"><a href="#cb50-52"></a></span>
+<span id="cb50-53"><a href="#cb50-53"></a><span class="ss">-   </span><span class="in">`weekly`</span>: attends religious ceremonies one or more times a week</span>
+<span id="cb50-54"><a href="#cb50-54"></a></span>
+<span id="cb50-55"><a href="#cb50-55"></a><span class="ss">-   </span><span class="in">`polviews`</span>: this variable is now centered at 0.</span>
+<span id="cb50-56"><a href="#cb50-56"></a></span>
+<span id="cb50-57"><a href="#cb50-57"></a><span class="ss">-   </span><span class="in">`conservative`</span>: slightly conservative, conservative, and extremely conservative.</span>
+<span id="cb50-58"><a href="#cb50-58"></a></span>
+<span id="cb50-59"><a href="#cb50-59"></a>Last week we learned that we could estimate a "saturated model" by hand by looking at the conditional probabilities in a $2 \times 2 \times 2$ contingency table. This week, we learned how to estimated a "restricted model" like the one in @eq-restricted. This time, however, we can't calculate the parameters in the model by hand.</span>
+<span id="cb50-60"><a href="#cb50-60"></a></span>
+<span id="cb50-61"><a href="#cb50-61"></a>$$</span>
+<span id="cb50-62"><a href="#cb50-62"></a>\log \Bigg( \frac{\Pr(\texttt{cappun}_i = 1)}{1-\Pr(\texttt{cappun}_i = 1)} \Bigg) = \alpha + \beta_1 \times \texttt{conservative}_i + \beta_2 \times \texttt{weekly}_i</span>
+<span id="cb50-63"><a href="#cb50-63"></a>$$ {#eq-restricted}</span>
+<span id="cb50-64"><a href="#cb50-64"></a></span>
+<span id="cb50-65"><a href="#cb50-65"></a>We want to choose the parameters $\alpha$, $\beta_1$, and $\beta_2$ that *maximize the joint probability of the observed data*. Strictly speaking, we want choose the parameters that maximize the following expression:</span>
+<span id="cb50-66"><a href="#cb50-66"></a></span>
+<span id="cb50-67"><a href="#cb50-67"></a>$$</span>
+<span id="cb50-68"><a href="#cb50-68"></a>\text{log-likelihood} = \texttt{sum(dbinom(} \boldsymbol{y} \texttt{, size = 1, prob = } \boldsymbol {\theta} \texttt{, log = TRUE))}</span>
+<span id="cb50-69"><a href="#cb50-69"></a>$$ {#eq-logLik}</span>
+<span id="cb50-70"><a href="#cb50-70"></a></span>
+<span id="cb50-71"><a href="#cb50-71"></a>::: callout-tip</span>
+<span id="cb50-72"><a href="#cb50-72"></a>We usually refer to this expression like this as a "probability" when the parameter $\theta$ is fixed and we are interested in making inferences about *unknown observations*; we refer to it as a "likelihood" when the data $y$ is fixed and we are interested in making inferences about *unknown parameters*.</span>
+<span id="cb50-73"><a href="#cb50-73"></a>:::</span>
+<span id="cb50-74"><a href="#cb50-74"></a></span>
+<span id="cb50-75"><a href="#cb50-75"></a>Note that both $\boldsymbol y$ and $\theta$ are vectors of size 2102 (the number of observations in the data frame). Each individual $\theta_i$ is modeled as a function of our *predictors,* which are linear in the "logit" scale.</span>
+<span id="cb50-76"><a href="#cb50-76"></a></span>
+<span id="cb50-77"><a href="#cb50-77"></a>$$</span>
+<span id="cb50-78"><a href="#cb50-78"></a>\text{logit}(\theta_i) = \alpha + \beta_1 \times \texttt{conservative}_i + \beta_2 \times \texttt{weekly}_i</span>
+<span id="cb50-79"><a href="#cb50-79"></a>$$</span>
+<span id="cb50-80"><a href="#cb50-80"></a></span>
+<span id="cb50-81"><a href="#cb50-81"></a>How, then, do we estimate the parameters in our restricted model?</span>
+<span id="cb50-82"><a href="#cb50-82"></a></span>
+<span id="cb50-83"><a href="#cb50-83"></a><span class="fu">### Grid Search</span></span>
+<span id="cb50-84"><a href="#cb50-84"></a></span>
+<span id="cb50-85"><a href="#cb50-85"></a>Conceptually, the easiest way to estimate these parameters is by doing what's called a "grid search." This is also the *most inefficient* way to do it from a computational point of view.</span>
+<span id="cb50-86"><a href="#cb50-86"></a></span>
+<span id="cb50-87"><a href="#cb50-87"></a>We can create a "grid" like this:</span>
+<span id="cb50-88"><a href="#cb50-88"></a></span>
+<span id="cb50-91"><a href="#cb50-91"></a><span class="in">```{r}</span></span>
+<span id="cb50-92"><a href="#cb50-92"></a>grid <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
+<span id="cb50-93"><a href="#cb50-93"></a>  <span class="at">alpha =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.02</span>), </span>
+<span id="cb50-94"><a href="#cb50-94"></a>  <span class="at">beta1 =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.02</span>),</span>
+<span id="cb50-95"><a href="#cb50-95"></a>  <span class="at">beta2 =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.02</span>)</span>
+<span id="cb50-96"><a href="#cb50-96"></a>)</span>
+<span id="cb50-97"><a href="#cb50-97"></a></span>
+<span id="cb50-98"><a href="#cb50-98"></a>grid</span>
+<span id="cb50-99"><a href="#cb50-99"></a><span class="in">```</span></span>
+<span id="cb50-100"><a href="#cb50-100"></a></span>
+<span id="cb50-101"><a href="#cb50-101"></a>We will calculate the log-likelihood for each row in this grid and then choose the combination that produces the maximum value in @eq-logLik.</span>
+<span id="cb50-102"><a href="#cb50-102"></a></span>
+<span id="cb50-103"><a href="#cb50-103"></a>::: callout-tip</span>
+<span id="cb50-104"><a href="#cb50-104"></a>You might sometimes see this mathematical expression:</span>
 <span id="cb50-105"><a href="#cb50-105"></a></span>
-<span id="cb50-106"><a href="#cb50-106"></a>To do so I will rely on this custom function (which you'll never see again):</span>
-<span id="cb50-107"><a href="#cb50-107"></a></span>
-<span id="cb50-110"><a href="#cb50-110"></a><span class="in">```{r}</span></span>
-<span id="cb50-111"><a href="#cb50-111"></a>log_likelihood_cappun <span class="ot">&lt;-</span> <span class="cf">function</span>(alpha, beta1, beta2) {</span>
-<span id="cb50-112"><a href="#cb50-112"></a>  </span>
-<span id="cb50-113"><a href="#cb50-113"></a>  <span class="do">## the linear part of the model</span></span>
-<span id="cb50-114"><a href="#cb50-114"></a>  <span class="do">## make sure that `d` exists in the global environment!</span></span>
-<span id="cb50-115"><a href="#cb50-115"></a>  linpred <span class="ot">&lt;-</span> alpha <span class="sc">+</span> beta1 <span class="sc">*</span> d<span class="sc">$</span>conservative <span class="sc">+</span> beta2 <span class="sc">*</span> d<span class="sc">$</span>weekly</span>
-<span id="cb50-116"><a href="#cb50-116"></a>  </span>
-<span id="cb50-117"><a href="#cb50-117"></a>  <span class="do">## the inverse-logit transformation</span></span>
-<span id="cb50-118"><a href="#cb50-118"></a>  theta <span class="ot">&lt;-</span> <span class="fu">exp</span>(linpred) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(linpred))</span>
-<span id="cb50-119"><a href="#cb50-119"></a>  </span>
-<span id="cb50-120"><a href="#cb50-120"></a>  <span class="do">## the sum of the log-likelihoods;</span></span>
-<span id="cb50-121"><a href="#cb50-121"></a>  <span class="do">## we ultimately want coefficients that maximize this value</span></span>
-<span id="cb50-122"><a href="#cb50-122"></a>  <span class="fu">return</span>(<span class="fu">sum</span>(<span class="fu">dbinom</span>(d<span class="sc">$</span>cappun, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> theta, <span class="at">log =</span> <span class="cn">TRUE</span>)))</span>
-<span id="cb50-123"><a href="#cb50-123"></a>  </span>
-<span id="cb50-124"><a href="#cb50-124"></a>}</span>
-<span id="cb50-125"><a href="#cb50-125"></a><span class="in">```</span></span>
-<span id="cb50-126"><a href="#cb50-126"></a></span>
-<span id="cb50-127"><a href="#cb50-127"></a>Now we apply the function to each row of the grid. There are more than a million rows, so it might take a few minutes!</span>
-<span id="cb50-128"><a href="#cb50-128"></a></span>
-<span id="cb50-131"><a href="#cb50-131"></a><span class="in">```{r}</span></span>
-<span id="cb50-132"><a href="#cb50-132"></a><span class="co">#| cache: true</span></span>
-<span id="cb50-133"><a href="#cb50-133"></a>out <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"double"</span>, <span class="fu">nrow</span>(grid)) <span class="do">## create empty vector</span></span>
-<span id="cb50-134"><a href="#cb50-134"></a></span>
-<span id="cb50-135"><a href="#cb50-135"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(out)) {  <span class="do">## this will be a slow process!!</span></span>
-<span id="cb50-136"><a href="#cb50-136"></a>  out[[i]] <span class="ot">&lt;-</span> <span class="fu">log_likelihood_cappun</span>(grid<span class="sc">$</span>alpha[[i]], grid<span class="sc">$</span>beta1[[i]], grid<span class="sc">$</span>beta2[[i]])</span>
-<span id="cb50-137"><a href="#cb50-137"></a>}</span>
-<span id="cb50-138"><a href="#cb50-138"></a></span>
-<span id="cb50-139"><a href="#cb50-139"></a>grid<span class="sc">$</span>ll <span class="ot">&lt;-</span> out</span>
-<span id="cb50-140"><a href="#cb50-140"></a><span class="in">```</span></span>
-<span id="cb50-141"><a href="#cb50-141"></a></span>
-<span id="cb50-142"><a href="#cb50-142"></a>Finally, we search for the maximum value of <span class="in">`ll`</span> using the <span class="in">`filter()`</span> function from the dplyr package.</span>
+<span id="cb50-106"><a href="#cb50-106"></a>$$</span>
+<span id="cb50-107"><a href="#cb50-107"></a>\underset{\alpha, \beta_1, \beta_2}{\arg \max} \ \texttt{log-likelihood}</span>
+<span id="cb50-108"><a href="#cb50-108"></a>$$</span>
+<span id="cb50-109"><a href="#cb50-109"></a>:::</span>
+<span id="cb50-110"><a href="#cb50-110"></a></span>
+<span id="cb50-111"><a href="#cb50-111"></a>To do so I will rely on this custom function (which you'll never see again):</span>
+<span id="cb50-112"><a href="#cb50-112"></a></span>
+<span id="cb50-115"><a href="#cb50-115"></a><span class="in">```{r}</span></span>
+<span id="cb50-116"><a href="#cb50-116"></a>log_likelihood_cappun <span class="ot">&lt;-</span> <span class="cf">function</span>(alpha, beta1, beta2) {</span>
+<span id="cb50-117"><a href="#cb50-117"></a>  </span>
+<span id="cb50-118"><a href="#cb50-118"></a>  <span class="do">## the linear part of the model</span></span>
+<span id="cb50-119"><a href="#cb50-119"></a>  <span class="do">## make sure that `d` exists in the global environment!</span></span>
+<span id="cb50-120"><a href="#cb50-120"></a>  linpred <span class="ot">&lt;-</span> alpha <span class="sc">+</span> beta1 <span class="sc">*</span> d<span class="sc">$</span>conservative <span class="sc">+</span> beta2 <span class="sc">*</span> d<span class="sc">$</span>weekly</span>
+<span id="cb50-121"><a href="#cb50-121"></a>  </span>
+<span id="cb50-122"><a href="#cb50-122"></a>  <span class="do">## the inverse-logit transformation</span></span>
+<span id="cb50-123"><a href="#cb50-123"></a>  theta <span class="ot">&lt;-</span> <span class="fu">exp</span>(linpred) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(linpred))</span>
+<span id="cb50-124"><a href="#cb50-124"></a>  </span>
+<span id="cb50-125"><a href="#cb50-125"></a>  <span class="do">## the sum of the log-likelihoods;</span></span>
+<span id="cb50-126"><a href="#cb50-126"></a>  <span class="do">## we ultimately want coefficients that maximize this value</span></span>
+<span id="cb50-127"><a href="#cb50-127"></a>  <span class="fu">return</span>(<span class="fu">sum</span>(<span class="fu">dbinom</span>(d<span class="sc">$</span>cappun, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> theta, <span class="at">log =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb50-128"><a href="#cb50-128"></a>  </span>
+<span id="cb50-129"><a href="#cb50-129"></a>}</span>
+<span id="cb50-130"><a href="#cb50-130"></a><span class="in">```</span></span>
+<span id="cb50-131"><a href="#cb50-131"></a></span>
+<span id="cb50-132"><a href="#cb50-132"></a>Now we apply the function to each row of the grid. There are more than a million rows, so this might take a few minutes!</span>
+<span id="cb50-133"><a href="#cb50-133"></a></span>
+<span id="cb50-136"><a href="#cb50-136"></a><span class="in">```{r}</span></span>
+<span id="cb50-137"><a href="#cb50-137"></a><span class="co">#| cache: true</span></span>
+<span id="cb50-138"><a href="#cb50-138"></a>out <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"double"</span>, <span class="fu">nrow</span>(grid)) <span class="do">## create empty vector</span></span>
+<span id="cb50-139"><a href="#cb50-139"></a></span>
+<span id="cb50-140"><a href="#cb50-140"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(out)) {  <span class="do">## this will be a slow process!!</span></span>
+<span id="cb50-141"><a href="#cb50-141"></a>  out[[i]] <span class="ot">&lt;-</span> <span class="fu">log_likelihood_cappun</span>(grid<span class="sc">$</span>alpha[[i]], grid<span class="sc">$</span>beta1[[i]], grid<span class="sc">$</span>beta2[[i]])</span>
+<span id="cb50-142"><a href="#cb50-142"></a>}</span>
 <span id="cb50-143"><a href="#cb50-143"></a></span>
-<span id="cb50-146"><a href="#cb50-146"></a><span class="in">```{r}</span></span>
-<span id="cb50-147"><a href="#cb50-147"></a>grid <span class="sc">|&gt;</span> <span class="fu">filter</span>(ll <span class="sc">==</span> <span class="fu">max</span>(ll))</span>
-<span id="cb50-148"><a href="#cb50-148"></a><span class="in">```</span></span>
-<span id="cb50-149"><a href="#cb50-149"></a></span>
-<span id="cb50-150"><a href="#cb50-150"></a>Hopefully you can see why this form of estimation looks a little bit like mountain climbing.</span>
-<span id="cb50-151"><a href="#cb50-151"></a></span>
-<span id="cb50-154"><a href="#cb50-154"></a><span class="in">```{r}</span></span>
-<span id="cb50-155"><a href="#cb50-155"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb50-156"><a href="#cb50-156"></a>grid <span class="sc">|&gt;</span> </span>
-<span id="cb50-157"><a href="#cb50-157"></a>  <span class="fu">filter</span>(<span class="fu">near</span>(alpha, <span class="fl">0.36</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb50-158"><a href="#cb50-158"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(beta1, beta2)) <span class="sc">+</span> </span>
-<span id="cb50-159"><a href="#cb50-159"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> ll)) <span class="sc">+</span> </span>
-<span id="cb50-160"><a href="#cb50-160"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">filter</span>(grid, ll <span class="sc">==</span> <span class="fu">max</span>(ll)), <span class="at">size =</span> <span class="dv">4</span>, <span class="at">pch =</span> <span class="dv">13</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb50-161"><a href="#cb50-161"></a>  <span class="fu">geom_contour</span>(<span class="fu">aes</span>(<span class="at">z =</span> ll), <span class="at">bins =</span> <span class="dv">30</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
-<span id="cb50-162"><a href="#cb50-162"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
-<span id="cb50-163"><a href="#cb50-163"></a>  <span class="fu">labs</span>(</span>
-<span id="cb50-164"><a href="#cb50-164"></a>    <span class="at">title =</span> <span class="st">"Mountain Climbing"</span>, </span>
-<span id="cb50-165"><a href="#cb50-165"></a>    <span class="at">fill =</span> <span class="st">"log-likelihood"</span>,</span>
-<span id="cb50-166"><a href="#cb50-166"></a>    <span class="at">x =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">beta_1$"</span>), </span>
-<span id="cb50-167"><a href="#cb50-167"></a>    <span class="at">y =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">beta_2$"</span>)</span>
-<span id="cb50-168"><a href="#cb50-168"></a>  )</span>
-<span id="cb50-169"><a href="#cb50-169"></a><span class="in">```</span></span>
-<span id="cb50-170"><a href="#cb50-170"></a></span>
-<span id="cb50-171"><a href="#cb50-171"></a>*Note. Unlike what we did last week, there's no way to calculate these parameter values by hand.*</span>
-<span id="cb50-172"><a href="#cb50-172"></a></span>
-<span id="cb50-173"><a href="#cb50-173"></a><span class="fu">### The Easy Way</span></span>
-<span id="cb50-174"><a href="#cb50-174"></a></span>
-<span id="cb50-175"><a href="#cb50-175"></a>The easiest way to estimate this model is with R's built-in <span class="in">`glm`</span> function. This stands for *generalized linear regression*. The word "generalized" should serve as foreshadowing. *Everything we learn here can be extended to the modeling other types of outcome variables (not just binary).*</span>
-<span id="cb50-176"><a href="#cb50-176"></a></span>
-<span id="cb50-177"><a href="#cb50-177"></a>To use it we do three things:</span>
-<span id="cb50-178"><a href="#cb50-178"></a></span>
-<span id="cb50-179"><a href="#cb50-179"></a><span class="ss">1.  </span>Specify a *model formula* with a tilde ( <span class="in">`~`</span> ) separating the outcome variable (left-hand side) from the predictors (right-hand side).</span>
-<span id="cb50-180"><a href="#cb50-180"></a><span class="ss">2.  </span>Specify the <span class="in">`data`</span> argument. An error will show up if the variables you specified in the formula don't exist in the data.</span>
-<span id="cb50-181"><a href="#cb50-181"></a><span class="ss">3.  </span>Specify the <span class="in">`family`</span> argument. For a logistic regression this will always be "binomial."</span>
-<span id="cb50-182"><a href="#cb50-182"></a></span>
-<span id="cb50-183"><a href="#cb50-183"></a>Let's save the resulting object as <span class="in">`mod`</span>:</span>
-<span id="cb50-184"><a href="#cb50-184"></a></span>
-<span id="cb50-187"><a href="#cb50-187"></a><span class="in">```{r}</span></span>
-<span id="cb50-188"><a href="#cb50-188"></a>mod <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> conservative <span class="sc">+</span> weekly, <span class="at">data =</span> d, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb50-189"><a href="#cb50-189"></a>mod</span>
-<span id="cb50-190"><a href="#cb50-190"></a><span class="in">```</span></span>
+<span id="cb50-144"><a href="#cb50-144"></a>grid<span class="sc">$</span>ll <span class="ot">&lt;-</span> out</span>
+<span id="cb50-145"><a href="#cb50-145"></a><span class="in">```</span></span>
+<span id="cb50-146"><a href="#cb50-146"></a></span>
+<span id="cb50-147"><a href="#cb50-147"></a>Finally, we search for the maximum value of <span class="in">`ll`</span> using the <span class="in">`filter()`</span> function from the dplyr package.</span>
+<span id="cb50-148"><a href="#cb50-148"></a></span>
+<span id="cb50-151"><a href="#cb50-151"></a><span class="in">```{r}</span></span>
+<span id="cb50-152"><a href="#cb50-152"></a>grid <span class="sc">|&gt;</span> <span class="fu">filter</span>(ll <span class="sc">==</span> <span class="fu">max</span>(ll))</span>
+<span id="cb50-153"><a href="#cb50-153"></a><span class="in">```</span></span>
+<span id="cb50-154"><a href="#cb50-154"></a></span>
+<span id="cb50-155"><a href="#cb50-155"></a>Hopefully you can see why maximum likelihood estimation looks a little bit like mountain climbing.</span>
+<span id="cb50-156"><a href="#cb50-156"></a></span>
+<span id="cb50-159"><a href="#cb50-159"></a><span class="in">```{r}</span></span>
+<span id="cb50-160"><a href="#cb50-160"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb50-161"><a href="#cb50-161"></a>grid <span class="sc">|&gt;</span> </span>
+<span id="cb50-162"><a href="#cb50-162"></a>  <span class="fu">filter</span>(<span class="fu">near</span>(alpha, <span class="fl">0.36</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb50-163"><a href="#cb50-163"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(beta1, beta2)) <span class="sc">+</span> </span>
+<span id="cb50-164"><a href="#cb50-164"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> ll)) <span class="sc">+</span> </span>
+<span id="cb50-165"><a href="#cb50-165"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">filter</span>(grid, ll <span class="sc">==</span> <span class="fu">max</span>(ll)), <span class="at">size =</span> <span class="dv">4</span>, <span class="at">pch =</span> <span class="dv">13</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb50-166"><a href="#cb50-166"></a>  <span class="fu">geom_contour</span>(<span class="fu">aes</span>(<span class="at">z =</span> ll), <span class="at">bins =</span> <span class="dv">30</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
+<span id="cb50-167"><a href="#cb50-167"></a>  <span class="fu">scale_fill_viridis_c</span>() <span class="sc">+</span></span>
+<span id="cb50-168"><a href="#cb50-168"></a>  <span class="fu">labs</span>(</span>
+<span id="cb50-169"><a href="#cb50-169"></a>    <span class="at">title =</span> <span class="st">"Mountain Climbing"</span>, </span>
+<span id="cb50-170"><a href="#cb50-170"></a>    <span class="at">fill =</span> <span class="st">"log-likelihood"</span>,</span>
+<span id="cb50-171"><a href="#cb50-171"></a>    <span class="at">x =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">beta_1$"</span>), </span>
+<span id="cb50-172"><a href="#cb50-172"></a>    <span class="at">y =</span> latex2exp<span class="sc">::</span><span class="fu">TeX</span>(<span class="st">"$</span><span class="sc">\\</span><span class="st">beta_2$"</span>)</span>
+<span id="cb50-173"><a href="#cb50-173"></a>  )</span>
+<span id="cb50-174"><a href="#cb50-174"></a><span class="in">```</span></span>
+<span id="cb50-175"><a href="#cb50-175"></a></span>
+<span id="cb50-176"><a href="#cb50-176"></a>*Note. Unlike what we did last week, there's no way to calculate these parameter values by hand.*</span>
+<span id="cb50-177"><a href="#cb50-177"></a></span>
+<span id="cb50-178"><a href="#cb50-178"></a><span class="fu">### The Easy Way</span></span>
+<span id="cb50-179"><a href="#cb50-179"></a></span>
+<span id="cb50-180"><a href="#cb50-180"></a>The easiest way to estimate this model is with R's built-in <span class="in">`glm`</span> function. This stands for *generalized linear regression*. The word "generalized" should serve as foreshadowing. *Everything we learn here can be extended to the modeling other types of outcome variables (not just binary).*</span>
+<span id="cb50-181"><a href="#cb50-181"></a></span>
+<span id="cb50-182"><a href="#cb50-182"></a>To use it we do three things:</span>
+<span id="cb50-183"><a href="#cb50-183"></a></span>
+<span id="cb50-184"><a href="#cb50-184"></a><span class="ss">1.  </span>Specify a *model formula* with a tilde ( <span class="in">`~`</span> ) separating the outcome variable (left-hand side) from the predictors (right-hand side).</span>
+<span id="cb50-185"><a href="#cb50-185"></a></span>
+<span id="cb50-186"><a href="#cb50-186"></a><span class="ss">2.  </span>Specify the <span class="in">`data`</span> argument.</span>
+<span id="cb50-187"><a href="#cb50-187"></a></span>
+<span id="cb50-188"><a href="#cb50-188"></a>    An error will show up if the variables you specified in the formula don't exist in the data.</span>
+<span id="cb50-189"><a href="#cb50-189"></a></span>
+<span id="cb50-190"><a href="#cb50-190"></a><span class="ss">3.  </span>Specify the <span class="in">`family`</span> argument.</span>
 <span id="cb50-191"><a href="#cb50-191"></a></span>
-<span id="cb50-192"><a href="#cb50-192"></a>You can see a lot of useful information here, including the Deviance, the Null Deviance, and the AIC.</span>
+<span id="cb50-192"><a href="#cb50-192"></a>    For a logistic regression this will always be "binomial."</span>
 <span id="cb50-193"><a href="#cb50-193"></a></span>
-<span id="cb50-194"><a href="#cb50-194"></a>As a reminder:</span>
+<span id="cb50-194"><a href="#cb50-194"></a>Let's save the resulting object as <span class="in">`mod`</span>:</span>
 <span id="cb50-195"><a href="#cb50-195"></a></span>
-<span id="cb50-196"><a href="#cb50-196"></a><span class="ss">-   </span>The AIC is the *deviance* plus twice the number of parameters:</span>
-<span id="cb50-197"><a href="#cb50-197"></a></span>
-<span id="cb50-198"><a href="#cb50-198"></a>    $$</span>
-<span id="cb50-199"><a href="#cb50-199"></a>    \text{AIC} = D + 2k</span>
-<span id="cb50-200"><a href="#cb50-200"></a>    $$</span>
-<span id="cb50-201"><a href="#cb50-201"></a></span>
-<span id="cb50-202"><a href="#cb50-202"></a>    So 2692 + 6.</span>
-<span id="cb50-203"><a href="#cb50-203"></a></span>
-<span id="cb50-204"><a href="#cb50-204"></a><span class="ss">-   </span>The *deviance* is just the log-likelihood multiplied by -2.</span>
-<span id="cb50-205"><a href="#cb50-205"></a></span>
-<span id="cb50-206"><a href="#cb50-206"></a>    You can look at the log-likelihood by using the <span class="in">`logLik()`</span> function. It should roughly correspond to the <span class="in">`ll`</span> value we calculated earlier doing the grid search.</span>
-<span id="cb50-207"><a href="#cb50-207"></a></span>
-<span id="cb50-208"><a href="#cb50-208"></a>    <span class="in">```{r}</span></span>
-<span id="cb50-209"><a href="#cb50-209"></a>    <span class="fu">logLik</span>(mod)</span>
-<span id="cb50-210"><a href="#cb50-210"></a>    <span class="in">```</span></span>
-<span id="cb50-211"><a href="#cb50-211"></a></span>
-<span id="cb50-212"><a href="#cb50-212"></a><span class="ss">-   </span>The *null deviance* corresponds to a model with no predictors.</span>
-<span id="cb50-213"><a href="#cb50-213"></a></span>
-<span id="cb50-214"><a href="#cb50-214"></a>    *You should be able to calculate this very easily! It's going back to univariate statistics!*</span>
-<span id="cb50-215"><a href="#cb50-215"></a></span>
-<span id="cb50-216"><a href="#cb50-216"></a>    <span class="in">```{r}</span></span>
-<span id="cb50-217"><a href="#cb50-217"></a>    nullll <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dbinom</span>(d<span class="sc">$</span>cappun, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">mean</span>(d<span class="sc">$</span>cappun), <span class="at">log =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb50-218"><a href="#cb50-218"></a>    nullll <span class="sc">*</span> <span class="sc">-</span><span class="dv">2</span></span>
-<span id="cb50-219"><a href="#cb50-219"></a>    <span class="in">```</span></span>
-<span id="cb50-220"><a href="#cb50-220"></a></span>
-<span id="cb50-221"><a href="#cb50-221"></a>Sometimes you'll see people use the <span class="in">`summary()`</span> function to get even *more* information.</span>
+<span id="cb50-198"><a href="#cb50-198"></a><span class="in">```{r}</span></span>
+<span id="cb50-199"><a href="#cb50-199"></a>mod <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> conservative <span class="sc">+</span> weekly, <span class="at">data =</span> d, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb50-200"><a href="#cb50-200"></a>mod</span>
+<span id="cb50-201"><a href="#cb50-201"></a><span class="in">```</span></span>
+<span id="cb50-202"><a href="#cb50-202"></a></span>
+<span id="cb50-203"><a href="#cb50-203"></a>You can see a lot of useful information here, including the Deviance, the Null Deviance, and the AIC.</span>
+<span id="cb50-204"><a href="#cb50-204"></a></span>
+<span id="cb50-205"><a href="#cb50-205"></a>As a reminder:</span>
+<span id="cb50-206"><a href="#cb50-206"></a></span>
+<span id="cb50-207"><a href="#cb50-207"></a><span class="ss">-   </span>The AIC is the *deviance* plus twice the number of parameters:</span>
+<span id="cb50-208"><a href="#cb50-208"></a></span>
+<span id="cb50-209"><a href="#cb50-209"></a>    $$</span>
+<span id="cb50-210"><a href="#cb50-210"></a>    \text{AIC} = D + 2k</span>
+<span id="cb50-211"><a href="#cb50-211"></a>    $$</span>
+<span id="cb50-212"><a href="#cb50-212"></a></span>
+<span id="cb50-213"><a href="#cb50-213"></a>    So 2692 + 6.</span>
+<span id="cb50-214"><a href="#cb50-214"></a></span>
+<span id="cb50-215"><a href="#cb50-215"></a><span class="ss">-   </span>The *deviance* is just the log-likelihood multiplied by -2.</span>
+<span id="cb50-216"><a href="#cb50-216"></a></span>
+<span id="cb50-217"><a href="#cb50-217"></a>    You can look at the log-likelihood by using the <span class="in">`logLik()`</span> function. It should roughly correspond to the <span class="in">`ll`</span> value we found earlier doing the grid search.</span>
+<span id="cb50-218"><a href="#cb50-218"></a></span>
+<span id="cb50-219"><a href="#cb50-219"></a>    <span class="in">```{r}</span></span>
+<span id="cb50-220"><a href="#cb50-220"></a>    <span class="fu">logLik</span>(mod)</span>
+<span id="cb50-221"><a href="#cb50-221"></a>    <span class="in">```</span></span>
 <span id="cb50-222"><a href="#cb50-222"></a></span>
-<span id="cb50-225"><a href="#cb50-225"></a><span class="in">```{r}</span></span>
-<span id="cb50-226"><a href="#cb50-226"></a><span class="fu">summary</span>(mod)</span>
-<span id="cb50-227"><a href="#cb50-227"></a><span class="in">```</span></span>
-<span id="cb50-228"><a href="#cb50-228"></a></span>
-<span id="cb50-229"><a href="#cb50-229"></a>Or you'll see people using the <span class="in">`coef()`</span>---or <span class="in">`coefficients()`</span>---functions to extract the parameter values.</span>
-<span id="cb50-230"><a href="#cb50-230"></a></span>
-<span id="cb50-233"><a href="#cb50-233"></a><span class="in">```{r}</span></span>
-<span id="cb50-234"><a href="#cb50-234"></a><span class="fu">coef</span>(mod)</span>
-<span id="cb50-235"><a href="#cb50-235"></a><span class="fu">coefficients</span>(mod)</span>
-<span id="cb50-236"><a href="#cb50-236"></a><span class="in">```</span></span>
-<span id="cb50-237"><a href="#cb50-237"></a></span>
-<span id="cb50-238"><a href="#cb50-238"></a>There are also some useful packages that work seamlessly with <span class="in">`glm`</span>.</span>
+<span id="cb50-223"><a href="#cb50-223"></a><span class="ss">-   </span>The *null deviance* corresponds to a model with no predictors.</span>
+<span id="cb50-224"><a href="#cb50-224"></a></span>
+<span id="cb50-225"><a href="#cb50-225"></a>    *You should be able to calculate this very easily. It's going back to univariate statistics!*</span>
+<span id="cb50-226"><a href="#cb50-226"></a></span>
+<span id="cb50-227"><a href="#cb50-227"></a>    <span class="in">```{r}</span></span>
+<span id="cb50-228"><a href="#cb50-228"></a>    nullll <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dbinom</span>(d<span class="sc">$</span>cappun, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">mean</span>(d<span class="sc">$</span>cappun), <span class="at">log =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb50-229"><a href="#cb50-229"></a>    nullll <span class="sc">*</span> <span class="sc">-</span><span class="dv">2</span></span>
+<span id="cb50-230"><a href="#cb50-230"></a>    <span class="in">```</span></span>
+<span id="cb50-231"><a href="#cb50-231"></a></span>
+<span id="cb50-232"><a href="#cb50-232"></a>Sometimes you'll see people use the <span class="in">`summary()`</span> function to get even *more* information.</span>
+<span id="cb50-233"><a href="#cb50-233"></a></span>
+<span id="cb50-236"><a href="#cb50-236"></a><span class="in">```{r}</span></span>
+<span id="cb50-237"><a href="#cb50-237"></a><span class="fu">summary</span>(mod)</span>
+<span id="cb50-238"><a href="#cb50-238"></a><span class="in">```</span></span>
 <span id="cb50-239"><a href="#cb50-239"></a></span>
-<span id="cb50-240"><a href="#cb50-240"></a>------------------------------------------------------------------------</span>
+<span id="cb50-240"><a href="#cb50-240"></a>Or you'll see people using the <span class="in">`coef()`</span>---or <span class="in">`coefficients()`</span>---functions to extract the parameter values.</span>
 <span id="cb50-241"><a href="#cb50-241"></a></span>
-<span id="cb50-242"><a href="#cb50-242"></a>The <span class="co">[</span><span class="ot">broom</span><span class="co">](https://broom.tidymodels.org/)</span> package, with it's associated three functions.</span>
-<span id="cb50-243"><a href="#cb50-243"></a></span>
-<span id="cb50-246"><a href="#cb50-246"></a><span class="in">```{r}</span></span>
-<span id="cb50-247"><a href="#cb50-247"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(mod)</span>
-<span id="cb50-248"><a href="#cb50-248"></a>broom<span class="sc">::</span><span class="fu">glance</span>(mod)</span>
-<span id="cb50-249"><a href="#cb50-249"></a><span class="do">## the .fitted values are predictions in log-odds</span></span>
-<span id="cb50-250"><a href="#cb50-250"></a><span class="do">## add type.predict = "response" to get predicted probabilities for each row.</span></span>
-<span id="cb50-251"><a href="#cb50-251"></a>broom<span class="sc">::</span><span class="fu">augment</span>(mod) </span>
-<span id="cb50-252"><a href="#cb50-252"></a><span class="in">```</span></span>
-<span id="cb50-253"><a href="#cb50-253"></a></span>
-<span id="cb50-254"><a href="#cb50-254"></a>::: callout-tip</span>
-<span id="cb50-255"><a href="#cb50-255"></a>Note. The <span class="in">`broom::augment()`</span> works very similar to the built-in <span class="in">`predict()`</span> function.</span>
-<span id="cb50-256"><a href="#cb50-256"></a>:::</span>
-<span id="cb50-257"><a href="#cb50-257"></a></span>
-<span id="cb50-258"><a href="#cb50-258"></a>You can use augment to generate predicted probabilities for each row.</span>
-<span id="cb50-259"><a href="#cb50-259"></a></span>
-<span id="cb50-262"><a href="#cb50-262"></a><span class="in">```{r}</span></span>
-<span id="cb50-263"><a href="#cb50-263"></a><span class="fu">augment</span>(mod) <span class="sc">|&gt;</span> </span>
-<span id="cb50-264"><a href="#cb50-264"></a>  <span class="fu">distinct</span>(conservative, weekly, .fitted) <span class="sc">|&gt;</span> </span>
-<span id="cb50-265"><a href="#cb50-265"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">plogis</span>(.fitted))</span>
-<span id="cb50-266"><a href="#cb50-266"></a><span class="in">```</span></span>
-<span id="cb50-267"><a href="#cb50-267"></a></span>
-<span id="cb50-268"><a href="#cb50-268"></a>------------------------------------------------------------------------</span>
-<span id="cb50-269"><a href="#cb50-269"></a></span>
-<span id="cb50-270"><a href="#cb50-270"></a>The <span class="co">[</span><span class="ot">modelsummary</span><span class="co">](https://modelsummary.com/index.html)</span> package, which allows for the creation of publication ready tables.</span>
-<span id="cb50-271"><a href="#cb50-271"></a></span>
-<span id="cb50-274"><a href="#cb50-274"></a><span class="in">```{r}</span></span>
-<span id="cb50-275"><a href="#cb50-275"></a>modelsummary<span class="sc">::</span><span class="fu">msummary</span>(<span class="fu">list</span>(<span class="st">"Model 1"</span> <span class="ot">=</span> mod))</span>
-<span id="cb50-276"><a href="#cb50-276"></a><span class="in">```</span></span>
-<span id="cb50-277"><a href="#cb50-277"></a></span>
-<span id="cb50-278"><a href="#cb50-278"></a><span class="fu">### Looking Under the Hood</span></span>
-<span id="cb50-279"><a href="#cb50-279"></a></span>
-<span id="cb50-280"><a href="#cb50-280"></a>I think it's important to know how the *model formula* is reshaping your data frame.</span>
-<span id="cb50-281"><a href="#cb50-281"></a></span>
-<span id="cb50-282"><a href="#cb50-282"></a>The <span class="in">`glm()`</span> function will create a matrix based on your data and the formula. You can see this by using the <span class="in">`model.matrix()`</span> function.</span>
-<span id="cb50-283"><a href="#cb50-283"></a></span>
-<span id="cb50-286"><a href="#cb50-286"></a><span class="in">```{r}</span></span>
-<span id="cb50-287"><a href="#cb50-287"></a>X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(cappun <span class="sc">~</span> conservative <span class="sc">+</span> weekly, <span class="at">data =</span> d)</span>
-<span id="cb50-288"><a href="#cb50-288"></a><span class="fu">head</span>(X)</span>
-<span id="cb50-289"><a href="#cb50-289"></a><span class="in">```</span></span>
+<span id="cb50-244"><a href="#cb50-244"></a><span class="in">```{r}</span></span>
+<span id="cb50-245"><a href="#cb50-245"></a><span class="fu">coef</span>(mod)</span>
+<span id="cb50-246"><a href="#cb50-246"></a><span class="fu">coefficients</span>(mod)</span>
+<span id="cb50-247"><a href="#cb50-247"></a><span class="in">```</span></span>
+<span id="cb50-248"><a href="#cb50-248"></a></span>
+<span id="cb50-249"><a href="#cb50-249"></a>There are also some useful packages that work seamlessly with <span class="in">`glm`</span>.</span>
+<span id="cb50-250"><a href="#cb50-250"></a></span>
+<span id="cb50-251"><a href="#cb50-251"></a>------------------------------------------------------------------------</span>
+<span id="cb50-252"><a href="#cb50-252"></a></span>
+<span id="cb50-253"><a href="#cb50-253"></a>The <span class="co">[</span><span class="ot">broom</span><span class="co">](https://broom.tidymodels.org/)</span> package with it's associated three functions: <span class="in">`tidy()`</span>, <span class="in">`glance()`</span>, and <span class="in">`augment()`</span>.</span>
+<span id="cb50-254"><a href="#cb50-254"></a></span>
+<span id="cb50-257"><a href="#cb50-257"></a><span class="in">```{r}</span></span>
+<span id="cb50-258"><a href="#cb50-258"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(mod)</span>
+<span id="cb50-259"><a href="#cb50-259"></a>broom<span class="sc">::</span><span class="fu">glance</span>(mod)</span>
+<span id="cb50-260"><a href="#cb50-260"></a><span class="do">## the .fitted values are predictions in log-odds</span></span>
+<span id="cb50-261"><a href="#cb50-261"></a><span class="do">## add type.predict = "response" to get predicted probabilities for each row.</span></span>
+<span id="cb50-262"><a href="#cb50-262"></a>broom<span class="sc">::</span><span class="fu">augment</span>(mod) </span>
+<span id="cb50-263"><a href="#cb50-263"></a><span class="in">```</span></span>
+<span id="cb50-264"><a href="#cb50-264"></a></span>
+<span id="cb50-265"><a href="#cb50-265"></a>::: callout-tip</span>
+<span id="cb50-266"><a href="#cb50-266"></a>Note. The <span class="in">`broom::augment()`</span> works very similar to the built-in <span class="in">`predict()`</span> function.</span>
+<span id="cb50-267"><a href="#cb50-267"></a>:::</span>
+<span id="cb50-268"><a href="#cb50-268"></a></span>
+<span id="cb50-269"><a href="#cb50-269"></a>You can use <span class="in">`augment()`</span> to generate predicted probabilities for each row.</span>
+<span id="cb50-270"><a href="#cb50-270"></a></span>
+<span id="cb50-273"><a href="#cb50-273"></a><span class="in">```{r}</span></span>
+<span id="cb50-274"><a href="#cb50-274"></a><span class="fu">augment</span>(mod) <span class="sc">|&gt;</span> </span>
+<span id="cb50-275"><a href="#cb50-275"></a>  <span class="fu">distinct</span>(conservative, weekly, .fitted) <span class="sc">|&gt;</span> </span>
+<span id="cb50-276"><a href="#cb50-276"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> <span class="fu">plogis</span>(.fitted))</span>
+<span id="cb50-277"><a href="#cb50-277"></a><span class="in">```</span></span>
+<span id="cb50-278"><a href="#cb50-278"></a></span>
+<span id="cb50-279"><a href="#cb50-279"></a>------------------------------------------------------------------------</span>
+<span id="cb50-280"><a href="#cb50-280"></a></span>
+<span id="cb50-281"><a href="#cb50-281"></a>The <span class="co">[</span><span class="ot">modelsummary</span><span class="co">](https://modelsummary.com/index.html)</span> package allows for the creation of publication ready tables.</span>
+<span id="cb50-282"><a href="#cb50-282"></a></span>
+<span id="cb50-285"><a href="#cb50-285"></a><span class="in">```{r}</span></span>
+<span id="cb50-286"><a href="#cb50-286"></a>modelsummary<span class="sc">::</span><span class="fu">msummary</span>(<span class="fu">list</span>(<span class="st">"Model 1"</span> <span class="ot">=</span> mod), <span class="at">output =</span> <span class="st">"gt"</span>)</span>
+<span id="cb50-287"><a href="#cb50-287"></a><span class="in">```</span></span>
+<span id="cb50-288"><a href="#cb50-288"></a></span>
+<span id="cb50-289"><a href="#cb50-289"></a><span class="fu">### Looking Under the Hood</span></span>
 <span id="cb50-290"><a href="#cb50-290"></a></span>
-<span id="cb50-291"><a href="#cb50-291"></a>Matrix notation allows us to express our model more succinctly.</span>
+<span id="cb50-291"><a href="#cb50-291"></a>I think it's important to know how the *model formula* is reshaping your data frame.</span>
 <span id="cb50-292"><a href="#cb50-292"></a></span>
-<span id="cb50-293"><a href="#cb50-293"></a>This expression</span>
+<span id="cb50-293"><a href="#cb50-293"></a>The <span class="in">`glm()`</span> function will create a matrix based on your data and the formula. You can see this by using the <span class="in">`model.matrix()`</span> function.</span>
 <span id="cb50-294"><a href="#cb50-294"></a></span>
-<span id="cb50-295"><a href="#cb50-295"></a>$$</span>
-<span id="cb50-296"><a href="#cb50-296"></a>\begin{align}</span>
-<span id="cb50-297"><a href="#cb50-297"></a>&amp;\text{logit}(\theta_i) = \alpha + \beta_1 \times \texttt{conservative}_i + \beta_2 \times \texttt{weekly}_i <span class="sc">\\\\</span></span>
-<span id="cb50-298"><a href="#cb50-298"></a>&amp;\text{for } i = 1, 2, ..., n</span>
-<span id="cb50-299"><a href="#cb50-299"></a>\end{align}</span>
-<span id="cb50-300"><a href="#cb50-300"></a>$$</span>
+<span id="cb50-297"><a href="#cb50-297"></a><span class="in">```{r}</span></span>
+<span id="cb50-298"><a href="#cb50-298"></a>X <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(cappun <span class="sc">~</span> conservative <span class="sc">+</span> weekly, <span class="at">data =</span> d)</span>
+<span id="cb50-299"><a href="#cb50-299"></a><span class="fu">head</span>(X)</span>
+<span id="cb50-300"><a href="#cb50-300"></a><span class="in">```</span></span>
 <span id="cb50-301"><a href="#cb50-301"></a></span>
-<span id="cb50-302"><a href="#cb50-302"></a>can be written as a matrix multiplication</span>
+<span id="cb50-302"><a href="#cb50-302"></a>Matrix notation allows us to express our model more succinctly.</span>
 <span id="cb50-303"><a href="#cb50-303"></a></span>
-<span id="cb50-304"><a href="#cb50-304"></a>$$</span>
-<span id="cb50-305"><a href="#cb50-305"></a>\text{logit}(\boldsymbol \theta) = \mathbf{X} \boldsymbol \beta</span>
+<span id="cb50-304"><a href="#cb50-304"></a>This expression</span>
+<span id="cb50-305"><a href="#cb50-305"></a></span>
 <span id="cb50-306"><a href="#cb50-306"></a>$$</span>
-<span id="cb50-307"><a href="#cb50-307"></a></span>
-<span id="cb50-308"><a href="#cb50-308"></a>where $\mathbf{X}$ is a $2102 \times 3$ matrix and $\boldsymbol \beta$ (in bold) is a vector that holds three parameters.</span>
-<span id="cb50-309"><a href="#cb50-309"></a></span>
-<span id="cb50-312"><a href="#cb50-312"></a><span class="in">```{r}</span></span>
-<span id="cb50-313"><a href="#cb50-313"></a><span class="fu">dim</span>(X)</span>
-<span id="cb50-314"><a href="#cb50-314"></a><span class="in">```</span></span>
-<span id="cb50-315"><a href="#cb50-315"></a></span>
-<span id="cb50-316"><a href="#cb50-316"></a>Finally, R will use *some* optimization algorithm to efficiently find the three values contained in $\boldsymbol \beta$.</span>
-<span id="cb50-317"><a href="#cb50-317"></a></span>
-<span id="cb50-318"><a href="#cb50-318"></a>------------------------------------------------------------------------</span>
-<span id="cb50-319"><a href="#cb50-319"></a></span>
-<span id="cb50-320"><a href="#cb50-320"></a>Click "Show me" if you want to see how this *might* happen. However, this is pretty advanced and you don't really need to see "under the hood" to be able to drive a car. *I don't expect anyone to fully understand what's going on here.* However, I hope you can at least gain some appreciation for all the things the <span class="in">`glm()`</span> function is doing for you.</span>
-<span id="cb50-321"><a href="#cb50-321"></a></span>
-<span id="cb50-324"><a href="#cb50-324"></a><span class="in">```{r}</span></span>
-<span id="cb50-325"><a href="#cb50-325"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb50-326"><a href="#cb50-326"></a><span class="co">#| code-summary: "Show me"</span></span>
-<span id="cb50-327"><a href="#cb50-327"></a></span>
-<span id="cb50-328"><a href="#cb50-328"></a><span class="do">## a more general likelihood function</span></span>
-<span id="cb50-329"><a href="#cb50-329"></a>log_likelihood_bernoulli <span class="ot">&lt;-</span> <span class="cf">function</span>(beta, outcome, X) {</span>
-<span id="cb50-330"><a href="#cb50-330"></a>  linpred <span class="ot">&lt;-</span> X <span class="sc">%*%</span> beta </span>
-<span id="cb50-331"><a href="#cb50-331"></a>  theta <span class="ot">&lt;-</span> <span class="fu">plogis</span>(linpred)     </span>
-<span id="cb50-332"><a href="#cb50-332"></a>  <span class="fu">return</span>(<span class="fu">sum</span>(<span class="fu">dbinom</span>(outcome, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> theta, <span class="at">log =</span> <span class="cn">TRUE</span>)))</span>
-<span id="cb50-333"><a href="#cb50-333"></a>}</span>
-<span id="cb50-334"><a href="#cb50-334"></a></span>
-<span id="cb50-335"><a href="#cb50-335"></a>opt <span class="ot">&lt;-</span> <span class="fu">optim</span>(</span>
-<span id="cb50-336"><a href="#cb50-336"></a>  <span class="at">par =</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">ncol</span>(X)),   <span class="do">## Sets all initial parameter values at zero</span></span>
-<span id="cb50-337"><a href="#cb50-337"></a>  <span class="at">method =</span> <span class="st">"BFGS"</span>,         <span class="do">## The method used for optimization</span></span>
-<span id="cb50-338"><a href="#cb50-338"></a>  <span class="do">## The Bernoulli log-likelihood function;</span></span>
-<span id="cb50-339"><a href="#cb50-339"></a>  <span class="do">## it provides the stuff we want to maximize</span></span>
-<span id="cb50-340"><a href="#cb50-340"></a>  <span class="at">fn =</span> log_likelihood_bernoulli,  </span>
-<span id="cb50-341"><a href="#cb50-341"></a>  <span class="do">## These are the arguments for log_likelihood_bernoulli which we </span></span>
-<span id="cb50-342"><a href="#cb50-342"></a>  <span class="do">## DO NOT want to estimate. This means optim() will look for</span></span>
-<span id="cb50-343"><a href="#cb50-343"></a>  <span class="do">## the values of "beta" that maximize the log-likelihood.</span></span>
-<span id="cb50-344"><a href="#cb50-344"></a>  <span class="at">outcome =</span> d<span class="sc">$</span>cappun, <span class="at">X =</span> X,</span>
-<span id="cb50-345"><a href="#cb50-345"></a>  <span class="co"># This next line is critical: </span></span>
-<span id="cb50-346"><a href="#cb50-346"></a>  <span class="co"># it tells R to maximize rather than minimize</span></span>
-<span id="cb50-347"><a href="#cb50-347"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">fnscale =</span> <span class="sc">-</span><span class="dv">1</span>),</span>
-<span id="cb50-348"><a href="#cb50-348"></a>  <span class="do">## this is used to calculate standard errors (if you wanted to)</span></span>
-<span id="cb50-349"><a href="#cb50-349"></a>  <span class="at">hessian =</span> <span class="cn">TRUE</span> </span>
-<span id="cb50-350"><a href="#cb50-350"></a>)</span>
-<span id="cb50-351"><a href="#cb50-351"></a></span>
-<span id="cb50-352"><a href="#cb50-352"></a><span class="fu">names</span>(opt<span class="sc">$</span>par) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(X)</span>
-<span id="cb50-353"><a href="#cb50-353"></a>opt<span class="sc">$</span>par</span>
-<span id="cb50-354"><a href="#cb50-354"></a><span class="in">```</span></span>
-<span id="cb50-355"><a href="#cb50-355"></a></span>
-<span id="cb50-356"><a href="#cb50-356"></a><span class="fu">## Model Comparison</span></span>
-<span id="cb50-357"><a href="#cb50-357"></a></span>
-<span id="cb50-358"><a href="#cb50-358"></a>We will focus on two measurements that will allow you to adjudicate between models based on their *predictive accuracy.*</span>
-<span id="cb50-359"><a href="#cb50-359"></a></span>
-<span id="cb50-360"><a href="#cb50-360"></a>Both of them build upon the notion of ***deviance**:*</span>
-<span id="cb50-361"><a href="#cb50-361"></a></span>
-<span id="cb50-362"><a href="#cb50-362"></a>$$</span>
-<span id="cb50-363"><a href="#cb50-363"></a>D = \log(\text{likelihood}) \times -2</span>
-<span id="cb50-364"><a href="#cb50-364"></a>$$</span>
-<span id="cb50-365"><a href="#cb50-365"></a></span>
-<span id="cb50-366"><a href="#cb50-366"></a>**The Akaike Information Criteria**</span>
-<span id="cb50-367"><a href="#cb50-367"></a></span>
-<span id="cb50-368"><a href="#cb50-368"></a>$$</span>
-<span id="cb50-369"><a href="#cb50-369"></a>\text{AIC} = D + k \times 2</span>
-<span id="cb50-370"><a href="#cb50-370"></a>$$</span>
-<span id="cb50-371"><a href="#cb50-371"></a></span>
-<span id="cb50-372"><a href="#cb50-372"></a><span class="kw">&lt;aside&gt;</span>$k$ is the number of parameters in the model<span class="kw">&lt;/aside&gt;</span></span>
-<span id="cb50-373"><a href="#cb50-373"></a></span>
-<span id="cb50-374"><a href="#cb50-374"></a>**The Bayesian Information Criteria**</span>
-<span id="cb50-375"><a href="#cb50-375"></a></span>
-<span id="cb50-376"><a href="#cb50-376"></a>$$</span>
-<span id="cb50-377"><a href="#cb50-377"></a>\text{BIC} = D + k \times \log(n)</span>
-<span id="cb50-378"><a href="#cb50-378"></a>$$</span>
-<span id="cb50-379"><a href="#cb50-379"></a></span>
-<span id="cb50-380"><a href="#cb50-380"></a>***Out-of-sample deviance***</span>
-<span id="cb50-381"><a href="#cb50-381"></a></span>
-<span id="cb50-382"><a href="#cb50-382"></a>Steve keeps saying that we *should* really care about how these models perform out-of-sample---i.e., how they are able to describe new observations. We don't want to learn *too much* from our sample; otherwise it will perform poorly on new data *(over-fitting).* We also don't want to learn *too little* from our sample *(under-fitting).*</span>
-<span id="cb50-383"><a href="#cb50-383"></a></span>
-<span id="cb50-384"><a href="#cb50-384"></a>As it turns out, the AIC approximates the *out-of-sample deviance* of a model.</span>
-<span id="cb50-385"><a href="#cb50-385"></a></span>
-<span id="cb50-386"><a href="#cb50-386"></a>*The AIC is "asymptotically" equivalent to the so-called leave-one-out cross validation (LOOCV).*</span>
-<span id="cb50-387"><a href="#cb50-387"></a></span>
-<span id="cb50-388"><a href="#cb50-388"></a>With LOOCV we fit the same model repeatedly to a dataset that excludes one observation and then use the resulting model to calculate the log-likelihood on the observation we left out. Finally, we add up the log-likelihoods and multiply them by $-2$, which means we are actually calculating a *deviance* based on the left-out observations.</span>
-<span id="cb50-389"><a href="#cb50-389"></a></span>
-<span id="cb50-390"><a href="#cb50-390"></a>The following chunk of code demonstrates this result.</span>
-<span id="cb50-391"><a href="#cb50-391"></a></span>
-<span id="cb50-394"><a href="#cb50-394"></a><span class="in">```{r}</span></span>
-<span id="cb50-395"><a href="#cb50-395"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb50-396"><a href="#cb50-396"></a><span class="co">#| code-summary: "Show me"</span></span>
-<span id="cb50-397"><a href="#cb50-397"></a><span class="co">#| cache: true</span></span>
+<span id="cb50-307"><a href="#cb50-307"></a>\begin{align}</span>
+<span id="cb50-308"><a href="#cb50-308"></a>&amp;\text{logit}(\theta_i) = \alpha + \beta_1 \times \texttt{conservative}_i + \beta_2 \times \texttt{weekly}_i <span class="sc">\\\\</span></span>
+<span id="cb50-309"><a href="#cb50-309"></a>&amp;\text{for } i = 1, 2, ..., n</span>
+<span id="cb50-310"><a href="#cb50-310"></a>\end{align}</span>
+<span id="cb50-311"><a href="#cb50-311"></a>$$</span>
+<span id="cb50-312"><a href="#cb50-312"></a></span>
+<span id="cb50-313"><a href="#cb50-313"></a>can be written as a matrix multiplication</span>
+<span id="cb50-314"><a href="#cb50-314"></a></span>
+<span id="cb50-315"><a href="#cb50-315"></a>$$</span>
+<span id="cb50-316"><a href="#cb50-316"></a>\text{logit}(\boldsymbol \theta) = \mathbf{X} \boldsymbol \beta</span>
+<span id="cb50-317"><a href="#cb50-317"></a>$$</span>
+<span id="cb50-318"><a href="#cb50-318"></a></span>
+<span id="cb50-319"><a href="#cb50-319"></a>where $\mathbf{X}$ is a $2102 \times 3$ matrix and $\boldsymbol \beta$ (in bold) is a vector that holds three parameters.</span>
+<span id="cb50-320"><a href="#cb50-320"></a></span>
+<span id="cb50-323"><a href="#cb50-323"></a><span class="in">```{r}</span></span>
+<span id="cb50-324"><a href="#cb50-324"></a><span class="fu">dim</span>(X)</span>
+<span id="cb50-325"><a href="#cb50-325"></a><span class="in">```</span></span>
+<span id="cb50-326"><a href="#cb50-326"></a></span>
+<span id="cb50-327"><a href="#cb50-327"></a>Finally, R will use *some* optimization algorithm to efficiently find the three values contained in $\boldsymbol \beta$.</span>
+<span id="cb50-328"><a href="#cb50-328"></a></span>
+<span id="cb50-329"><a href="#cb50-329"></a>------------------------------------------------------------------------</span>
+<span id="cb50-330"><a href="#cb50-330"></a></span>
+<span id="cb50-331"><a href="#cb50-331"></a>Click "Show me" if you want to see how this *might* happen. However, this is pretty advanced and you don't really need to see "under the hood" to be able to drive a car. *I don't expect anyone to fully understand what's going on here.* However, I hope you can at least gain some appreciation for all the things the <span class="in">`glm()`</span> function is doing for you.</span>
+<span id="cb50-332"><a href="#cb50-332"></a></span>
+<span id="cb50-335"><a href="#cb50-335"></a><span class="in">```{r}</span></span>
+<span id="cb50-336"><a href="#cb50-336"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb50-337"><a href="#cb50-337"></a><span class="co">#| code-summary: "Show me"</span></span>
+<span id="cb50-338"><a href="#cb50-338"></a></span>
+<span id="cb50-339"><a href="#cb50-339"></a><span class="do">## a more general likelihood function</span></span>
+<span id="cb50-340"><a href="#cb50-340"></a>log_likelihood_bernoulli <span class="ot">&lt;-</span> <span class="cf">function</span>(beta, outcome, X) {</span>
+<span id="cb50-341"><a href="#cb50-341"></a>  linpred <span class="ot">&lt;-</span> X <span class="sc">%*%</span> beta </span>
+<span id="cb50-342"><a href="#cb50-342"></a>  theta <span class="ot">&lt;-</span> <span class="fu">plogis</span>(linpred)     </span>
+<span id="cb50-343"><a href="#cb50-343"></a>  <span class="fu">return</span>(<span class="fu">sum</span>(<span class="fu">dbinom</span>(outcome, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> theta, <span class="at">log =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb50-344"><a href="#cb50-344"></a>}</span>
+<span id="cb50-345"><a href="#cb50-345"></a></span>
+<span id="cb50-346"><a href="#cb50-346"></a>opt <span class="ot">&lt;-</span> <span class="fu">optim</span>(</span>
+<span id="cb50-347"><a href="#cb50-347"></a>  <span class="at">par =</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">ncol</span>(X)),   <span class="do">## Sets all initial parameter values at zero</span></span>
+<span id="cb50-348"><a href="#cb50-348"></a>  <span class="at">method =</span> <span class="st">"BFGS"</span>,         <span class="do">## The method used for optimization</span></span>
+<span id="cb50-349"><a href="#cb50-349"></a>  <span class="do">## The Bernoulli log-likelihood function;</span></span>
+<span id="cb50-350"><a href="#cb50-350"></a>  <span class="do">## it provides the stuff we want to maximize</span></span>
+<span id="cb50-351"><a href="#cb50-351"></a>  <span class="at">fn =</span> log_likelihood_bernoulli,  </span>
+<span id="cb50-352"><a href="#cb50-352"></a>  <span class="do">## These are the arguments for log_likelihood_bernoulli which we </span></span>
+<span id="cb50-353"><a href="#cb50-353"></a>  <span class="do">## DO NOT want to estimate. This means optim() will look for</span></span>
+<span id="cb50-354"><a href="#cb50-354"></a>  <span class="do">## the values of "beta" that maximize the log-likelihood.</span></span>
+<span id="cb50-355"><a href="#cb50-355"></a>  <span class="at">outcome =</span> d<span class="sc">$</span>cappun, <span class="at">X =</span> X,</span>
+<span id="cb50-356"><a href="#cb50-356"></a>  <span class="co"># This next line is critical: </span></span>
+<span id="cb50-357"><a href="#cb50-357"></a>  <span class="co"># it tells R to maximize rather than minimize</span></span>
+<span id="cb50-358"><a href="#cb50-358"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">fnscale =</span> <span class="sc">-</span><span class="dv">1</span>),</span>
+<span id="cb50-359"><a href="#cb50-359"></a>  <span class="do">## this is used to calculate standard errors (if you wanted to)</span></span>
+<span id="cb50-360"><a href="#cb50-360"></a>  <span class="at">hessian =</span> <span class="cn">TRUE</span> </span>
+<span id="cb50-361"><a href="#cb50-361"></a>)</span>
+<span id="cb50-362"><a href="#cb50-362"></a></span>
+<span id="cb50-363"><a href="#cb50-363"></a><span class="fu">names</span>(opt<span class="sc">$</span>par) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(X)</span>
+<span id="cb50-364"><a href="#cb50-364"></a>opt<span class="sc">$</span>par</span>
+<span id="cb50-365"><a href="#cb50-365"></a><span class="in">```</span></span>
+<span id="cb50-366"><a href="#cb50-366"></a></span>
+<span id="cb50-367"><a href="#cb50-367"></a><span class="fu">## Model Comparison</span></span>
+<span id="cb50-368"><a href="#cb50-368"></a></span>
+<span id="cb50-369"><a href="#cb50-369"></a>We will focus on two measurements that will allow you to adjudicate between models based on their *predictive accuracy.*</span>
+<span id="cb50-370"><a href="#cb50-370"></a></span>
+<span id="cb50-371"><a href="#cb50-371"></a>Both of them build upon the notion of ***deviance**:*</span>
+<span id="cb50-372"><a href="#cb50-372"></a></span>
+<span id="cb50-373"><a href="#cb50-373"></a>$$</span>
+<span id="cb50-374"><a href="#cb50-374"></a>D = \log(\text{likelihood}) \times -2</span>
+<span id="cb50-375"><a href="#cb50-375"></a>$$</span>
+<span id="cb50-376"><a href="#cb50-376"></a></span>
+<span id="cb50-377"><a href="#cb50-377"></a>**The Akaike Information Criteria**</span>
+<span id="cb50-378"><a href="#cb50-378"></a></span>
+<span id="cb50-379"><a href="#cb50-379"></a>$$</span>
+<span id="cb50-380"><a href="#cb50-380"></a>\text{AIC} = D + k \times 2</span>
+<span id="cb50-381"><a href="#cb50-381"></a>$$</span>
+<span id="cb50-382"><a href="#cb50-382"></a></span>
+<span id="cb50-383"><a href="#cb50-383"></a><span class="kw">&lt;aside&gt;</span>$k$ is the number of parameters in the model<span class="kw">&lt;/aside&gt;</span></span>
+<span id="cb50-384"><a href="#cb50-384"></a></span>
+<span id="cb50-385"><a href="#cb50-385"></a>**The Bayesian Information Criteria**</span>
+<span id="cb50-386"><a href="#cb50-386"></a></span>
+<span id="cb50-387"><a href="#cb50-387"></a>$$</span>
+<span id="cb50-388"><a href="#cb50-388"></a>\text{BIC} = D + k \times \log(n)</span>
+<span id="cb50-389"><a href="#cb50-389"></a>$$</span>
+<span id="cb50-390"><a href="#cb50-390"></a></span>
+<span id="cb50-391"><a href="#cb50-391"></a>***Out-of-sample deviance***</span>
+<span id="cb50-392"><a href="#cb50-392"></a></span>
+<span id="cb50-393"><a href="#cb50-393"></a>Steve keeps saying that we *should* really care about how these models perform out-of-sample---i.e., how they are able to describe new observations. We don't want to learn *too much* from our sample; otherwise it will perform poorly on new data *(over-fitting).* We also don't want to learn *too little* from our sample *(under-fitting).*</span>
+<span id="cb50-394"><a href="#cb50-394"></a></span>
+<span id="cb50-395"><a href="#cb50-395"></a>As it turns out, the AIC approximates the *out-of-sample deviance* of a model.</span>
+<span id="cb50-396"><a href="#cb50-396"></a></span>
+<span id="cb50-397"><a href="#cb50-397"></a>*The AIC is "asymptotically" equivalent to the so-called leave-one-out cross validation (LOOCV).*</span>
 <span id="cb50-398"><a href="#cb50-398"></a></span>
-<span id="cb50-399"><a href="#cb50-399"></a><span class="do">## we create an empty vessel to store the log-likelihoods for left-out obs</span></span>
-<span id="cb50-400"><a href="#cb50-400"></a>out <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"double"</span>, <span class="fu">nrow</span>(d))</span>
-<span id="cb50-401"><a href="#cb50-401"></a></span>
-<span id="cb50-402"><a href="#cb50-402"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(d)) {</span>
-<span id="cb50-403"><a href="#cb50-403"></a>  <span class="do">## note how we exclude the i observation using integer subsetting.</span></span>
-<span id="cb50-404"><a href="#cb50-404"></a>  m <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> conservative <span class="sc">+</span> weekly, <span class="at">family =</span> <span class="st">"binomial"</span>, <span class="at">data =</span> d[<span class="sc">-</span>i, ])</span>
-<span id="cb50-405"><a href="#cb50-405"></a>  <span class="do">## then we get a prediction for the left-out observation</span></span>
-<span id="cb50-406"><a href="#cb50-406"></a>  theta <span class="ot">&lt;-</span> <span class="fu">predict</span>(m, <span class="at">newdata =</span> d[i, ], <span class="at">type =</span> <span class="st">"response"</span>)</span>
-<span id="cb50-407"><a href="#cb50-407"></a>  <span class="do">## then we calculate the log-likelihood for the left-out observation</span></span>
-<span id="cb50-408"><a href="#cb50-408"></a>  out[[i]] <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(d<span class="sc">$</span>cappun[[i]], <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> theta, <span class="at">log =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb50-409"><a href="#cb50-409"></a>}</span>
-<span id="cb50-410"><a href="#cb50-410"></a></span>
-<span id="cb50-411"><a href="#cb50-411"></a><span class="do">## deviance for the left-out observations</span></span>
-<span id="cb50-412"><a href="#cb50-412"></a><span class="fu">sum</span>(out) <span class="sc">*</span> <span class="sc">-</span><span class="dv">2</span></span>
-<span id="cb50-413"><a href="#cb50-413"></a><span class="in">```</span></span>
-<span id="cb50-414"><a href="#cb50-414"></a></span>
-<span id="cb50-415"><a href="#cb50-415"></a>As a reminder, this is the AIC for the model we calculated earlier:</span>
-<span id="cb50-416"><a href="#cb50-416"></a></span>
-<span id="cb50-419"><a href="#cb50-419"></a><span class="in">```{r}</span></span>
-<span id="cb50-420"><a href="#cb50-420"></a><span class="fu">AIC</span>(mod)</span>
-<span id="cb50-421"><a href="#cb50-421"></a><span class="in">```</span></span>
-<span id="cb50-422"><a href="#cb50-422"></a></span>
-<span id="cb50-423"><a href="#cb50-423"></a>*They are almost the same!*</span>
-<span id="cb50-424"><a href="#cb50-424"></a></span>
-<span id="cb50-425"><a href="#cb50-425"></a>Thus, for most purposes, the AIC provides a good approximation for the out-of-sample deviance.<span class="ot">[^week10-1]</span></span>
-<span id="cb50-426"><a href="#cb50-426"></a></span>
-<span id="cb50-427"><a href="#cb50-427"></a><span class="ot">[^week10-1]: </span>This will not be the case if the data is structured weirdly---e.g., time-series, nested observations, etc.</span>
-<span id="cb50-428"><a href="#cb50-428"></a></span>
-<span id="cb50-429"><a href="#cb50-429"></a><span class="fu">## Exercises</span></span>
-<span id="cb50-430"><a href="#cb50-430"></a></span>
-<span id="cb50-431"><a href="#cb50-431"></a><span class="fu">### Exercise</span></span>
-<span id="cb50-432"><a href="#cb50-432"></a></span>
-<span id="cb50-433"><a href="#cb50-433"></a>::: callout-note</span>
-<span id="cb50-434"><a href="#cb50-434"></a>Describe how the following formulas are reshaping your data frame:</span>
+<span id="cb50-399"><a href="#cb50-399"></a>With LOOCV we fit the same model repeatedly to a dataset that excludes one observation and then use the resulting model to calculate the log-likelihood on the observation we left out. Finally, we add up the log-likelihoods and multiply them by $-2$, which means we are actually calculating a *deviance* based on the left-out observations.</span>
+<span id="cb50-400"><a href="#cb50-400"></a></span>
+<span id="cb50-401"><a href="#cb50-401"></a>The following chunk of code demonstrates this result.</span>
+<span id="cb50-402"><a href="#cb50-402"></a></span>
+<span id="cb50-405"><a href="#cb50-405"></a><span class="in">```{r}</span></span>
+<span id="cb50-406"><a href="#cb50-406"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb50-407"><a href="#cb50-407"></a><span class="co">#| code-summary: "Show me"</span></span>
+<span id="cb50-408"><a href="#cb50-408"></a><span class="co">#| cache: true</span></span>
+<span id="cb50-409"><a href="#cb50-409"></a></span>
+<span id="cb50-410"><a href="#cb50-410"></a><span class="do">## we create an empty vessel to store the log-likelihoods for left-out obs</span></span>
+<span id="cb50-411"><a href="#cb50-411"></a>out <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"double"</span>, <span class="fu">nrow</span>(d))</span>
+<span id="cb50-412"><a href="#cb50-412"></a></span>
+<span id="cb50-413"><a href="#cb50-413"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(d)) {</span>
+<span id="cb50-414"><a href="#cb50-414"></a>  <span class="do">## note how we exclude the i observation using integer subsetting.</span></span>
+<span id="cb50-415"><a href="#cb50-415"></a>  m <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> conservative <span class="sc">+</span> weekly, <span class="at">family =</span> <span class="st">"binomial"</span>, <span class="at">data =</span> d[<span class="sc">-</span>i, ])</span>
+<span id="cb50-416"><a href="#cb50-416"></a>  <span class="do">## then we get a prediction for the left-out observation</span></span>
+<span id="cb50-417"><a href="#cb50-417"></a>  theta <span class="ot">&lt;-</span> <span class="fu">predict</span>(m, <span class="at">newdata =</span> d[i, ], <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb50-418"><a href="#cb50-418"></a>  <span class="do">## then we calculate the log-likelihood for the left-out observation</span></span>
+<span id="cb50-419"><a href="#cb50-419"></a>  out[[i]] <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(d<span class="sc">$</span>cappun[[i]], <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> theta, <span class="at">log =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb50-420"><a href="#cb50-420"></a>}</span>
+<span id="cb50-421"><a href="#cb50-421"></a></span>
+<span id="cb50-422"><a href="#cb50-422"></a><span class="do">## deviance for the left-out observations</span></span>
+<span id="cb50-423"><a href="#cb50-423"></a><span class="fu">sum</span>(out) <span class="sc">*</span> <span class="sc">-</span><span class="dv">2</span></span>
+<span id="cb50-424"><a href="#cb50-424"></a><span class="in">```</span></span>
+<span id="cb50-425"><a href="#cb50-425"></a></span>
+<span id="cb50-426"><a href="#cb50-426"></a>As a reminder, this is the AIC for the model we calculated earlier:</span>
+<span id="cb50-427"><a href="#cb50-427"></a></span>
+<span id="cb50-430"><a href="#cb50-430"></a><span class="in">```{r}</span></span>
+<span id="cb50-431"><a href="#cb50-431"></a><span class="fu">AIC</span>(mod)</span>
+<span id="cb50-432"><a href="#cb50-432"></a><span class="in">```</span></span>
+<span id="cb50-433"><a href="#cb50-433"></a></span>
+<span id="cb50-434"><a href="#cb50-434"></a>*They are almost the same!*</span>
 <span id="cb50-435"><a href="#cb50-435"></a></span>
-<span id="cb50-436"><a href="#cb50-436"></a><span class="ss">-   </span><span class="in">`cappun ~ polviews + weekly + polviews:weekly`</span></span>
+<span id="cb50-436"><a href="#cb50-436"></a>Thus, for most purposes, the AIC provides a good approximation for the out-of-sample deviance.<span class="ot">[^week10-1]</span></span>
 <span id="cb50-437"><a href="#cb50-437"></a></span>
-<span id="cb50-438"><a href="#cb50-438"></a><span class="ss">-   </span><span class="in">`cappun ~ polviews * weekly`</span></span>
+<span id="cb50-438"><a href="#cb50-438"></a><span class="ot">[^week10-1]: </span>This will not be the case if the data is structured weirdly---e.g., time-series, nested observations, etc.</span>
 <span id="cb50-439"><a href="#cb50-439"></a></span>
-<span id="cb50-440"><a href="#cb50-440"></a><span class="ss">-   </span><span class="in">`cappun ~ degree`</span></span>
+<span id="cb50-440"><a href="#cb50-440"></a><span class="fu">## Exercises</span></span>
 <span id="cb50-441"><a href="#cb50-441"></a></span>
-<span id="cb50-442"><a href="#cb50-442"></a>Use the <span class="in">`model.matrix()`</span> function to complement your answers.</span>
-<span id="cb50-443"><a href="#cb50-443"></a>:::</span>
-<span id="cb50-444"><a href="#cb50-444"></a></span>
-<span id="cb50-445"><a href="#cb50-445"></a><span class="fu">### Exercise</span></span>
+<span id="cb50-442"><a href="#cb50-442"></a><span class="fu">### Exercise</span></span>
+<span id="cb50-443"><a href="#cb50-443"></a></span>
+<span id="cb50-444"><a href="#cb50-444"></a>::: callout-note</span>
+<span id="cb50-445"><a href="#cb50-445"></a>Describe how the following formulas are reshaping your data frame:</span>
 <span id="cb50-446"><a href="#cb50-446"></a></span>
-<span id="cb50-447"><a href="#cb50-447"></a>::: callout-note</span>
-<span id="cb50-448"><a href="#cb50-448"></a>*Compare the following models using AIC and BIC.*</span>
-<span id="cb50-449"><a href="#cb50-449"></a></span>
-<span id="cb50-452"><a href="#cb50-452"></a><span class="in">```{r}</span></span>
-<span id="cb50-453"><a href="#cb50-453"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> conservative <span class="sc">+</span> weekly, <span class="at">data =</span> d, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb50-454"><a href="#cb50-454"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> conservative <span class="sc">*</span> weekly, <span class="at">data =</span> d, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb50-455"><a href="#cb50-455"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> polviews <span class="sc">+</span> weekly, <span class="at">data =</span> d, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb50-456"><a href="#cb50-456"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> polviews <span class="sc">*</span> weekly, <span class="at">data =</span> d, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb50-457"><a href="#cb50-457"></a><span class="in">```</span></span>
-<span id="cb50-458"><a href="#cb50-458"></a></span>
-<span id="cb50-459"><a href="#cb50-459"></a>*Interpret the intercept in all models.*</span>
+<span id="cb50-447"><a href="#cb50-447"></a><span class="ss">-   </span><span class="in">`cappun ~ polviews + weekly + polviews:weekly`</span></span>
+<span id="cb50-448"><a href="#cb50-448"></a></span>
+<span id="cb50-449"><a href="#cb50-449"></a><span class="ss">-   </span><span class="in">`cappun ~ polviews * weekly`</span></span>
+<span id="cb50-450"><a href="#cb50-450"></a></span>
+<span id="cb50-451"><a href="#cb50-451"></a><span class="ss">-   </span><span class="in">`cappun ~ degree`</span></span>
+<span id="cb50-452"><a href="#cb50-452"></a></span>
+<span id="cb50-453"><a href="#cb50-453"></a>Use the <span class="in">`model.matrix()`</span> function to complement your answers.</span>
+<span id="cb50-454"><a href="#cb50-454"></a>:::</span>
+<span id="cb50-455"><a href="#cb50-455"></a></span>
+<span id="cb50-456"><a href="#cb50-456"></a><span class="fu">### Exercise</span></span>
+<span id="cb50-457"><a href="#cb50-457"></a></span>
+<span id="cb50-458"><a href="#cb50-458"></a>::: callout-note</span>
+<span id="cb50-459"><a href="#cb50-459"></a>*Compare the following models using AIC and BIC.*</span>
 <span id="cb50-460"><a href="#cb50-460"></a></span>
-<span id="cb50-461"><a href="#cb50-461"></a>*Looking at `mod4`, what is the predicted probability that a "slightly conservative" individual that attends religious ceremonies weekly favors capital punishment?*</span>
-<span id="cb50-462"><a href="#cb50-462"></a>:::</span>
-<span id="cb50-463"><a href="#cb50-463"></a></span>
-<span id="cb50-464"><a href="#cb50-464"></a>::: callout-tip</span>
-<span id="cb50-465"><a href="#cb50-465"></a>Hint: You can create pretty coefficient tables with the <span class="in">`msummary()`</span> function from the <span class="in">`modelsummary`</span> package.</span>
-<span id="cb50-466"><a href="#cb50-466"></a></span>
-<span id="cb50-469"><a href="#cb50-469"></a><span class="in">```{r}</span></span>
-<span id="cb50-470"><a href="#cb50-470"></a><span class="fu">msummary</span>(<span class="fu">list</span>(mod1, mod2, mod3, mod4), <span class="at">gof_map =</span> <span class="st">"none"</span>)</span>
-<span id="cb50-471"><a href="#cb50-471"></a><span class="in">```</span></span>
-<span id="cb50-472"><a href="#cb50-472"></a>:::</span>
-<span id="cb50-473"><a href="#cb50-473"></a></span>
-<span id="cb50-474"><a href="#cb50-474"></a><span class="fu">### Exercise</span></span>
-<span id="cb50-475"><a href="#cb50-475"></a></span>
-<span id="cb50-476"><a href="#cb50-476"></a>::: callout-note</span>
-<span id="cb50-477"><a href="#cb50-477"></a>Transform <span class="in">`polviews`</span> into a new variable that has the following three values:</span>
-<span id="cb50-478"><a href="#cb50-478"></a></span>
-<span id="cb50-479"><a href="#cb50-479"></a>$$</span>
-<span id="cb50-480"><a href="#cb50-480"></a>\texttt{polviews2} = \begin{cases}</span>
-<span id="cb50-481"><a href="#cb50-481"></a>\text{liberal} &amp;\text{if} &amp;\text{polviews} &lt; 0 <span class="sc">\\</span></span>
-<span id="cb50-482"><a href="#cb50-482"></a>\text{moderate} &amp;\text{if} &amp;\text{polviews} == 0 <span class="sc">\\</span></span>
-<span id="cb50-483"><a href="#cb50-483"></a>\text{conservative} &amp;\text{if} &amp;\text{polviews} &gt; 0</span>
-<span id="cb50-484"><a href="#cb50-484"></a>\end{cases}</span>
-<span id="cb50-485"><a href="#cb50-485"></a>$$</span>
-<span id="cb50-486"><a href="#cb50-486"></a></span>
-<span id="cb50-487"><a href="#cb50-487"></a>Fit the following model three times, choosing with a new reference category each time.</span>
-<span id="cb50-488"><a href="#cb50-488"></a></span>
-<span id="cb50-489"><a href="#cb50-489"></a><span class="ss">-   </span><span class="in">`cappun ~ polviews2 + weekly`</span></span>
+<span id="cb50-463"><a href="#cb50-463"></a><span class="in">```{r}</span></span>
+<span id="cb50-464"><a href="#cb50-464"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> conservative <span class="sc">+</span> weekly, <span class="at">data =</span> d, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb50-465"><a href="#cb50-465"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> conservative <span class="sc">*</span> weekly, <span class="at">data =</span> d, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb50-466"><a href="#cb50-466"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> polviews <span class="sc">+</span> weekly, <span class="at">data =</span> d, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb50-467"><a href="#cb50-467"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> polviews <span class="sc">*</span> weekly, <span class="at">data =</span> d, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb50-468"><a href="#cb50-468"></a><span class="in">```</span></span>
+<span id="cb50-469"><a href="#cb50-469"></a></span>
+<span id="cb50-470"><a href="#cb50-470"></a>*Interpret the intercept in all models.*</span>
+<span id="cb50-471"><a href="#cb50-471"></a></span>
+<span id="cb50-472"><a href="#cb50-472"></a>*Looking at `mod4`, what is the predicted probability that a "slightly conservative" individual that attends religious ceremonies weekly favors capital punishment?*</span>
+<span id="cb50-473"><a href="#cb50-473"></a>:::</span>
+<span id="cb50-474"><a href="#cb50-474"></a></span>
+<span id="cb50-475"><a href="#cb50-475"></a>::: callout-tip</span>
+<span id="cb50-476"><a href="#cb50-476"></a>Hint: You can create pretty coefficient tables with the <span class="in">`msummary()`</span> function from the <span class="in">`modelsummary`</span> package.</span>
+<span id="cb50-477"><a href="#cb50-477"></a></span>
+<span id="cb50-480"><a href="#cb50-480"></a><span class="in">```{r}</span></span>
+<span id="cb50-481"><a href="#cb50-481"></a><span class="fu">msummary</span>(<span class="fu">list</span>(mod1, mod2, mod3, mod4), <span class="at">gof_map =</span> <span class="st">"none"</span>, <span class="at">output =</span> <span class="st">"gt"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb50-482"><a href="#cb50-482"></a>  <span class="fu">opt_table_font</span>(<span class="at">font =</span> <span class="st">"Optima"</span>) <span class="do">## this function comes from the gt package</span></span>
+<span id="cb50-483"><a href="#cb50-483"></a><span class="in">```</span></span>
+<span id="cb50-484"><a href="#cb50-484"></a>:::</span>
+<span id="cb50-485"><a href="#cb50-485"></a></span>
+<span id="cb50-486"><a href="#cb50-486"></a><span class="fu">### Exercise</span></span>
+<span id="cb50-487"><a href="#cb50-487"></a></span>
+<span id="cb50-488"><a href="#cb50-488"></a>::: callout-note</span>
+<span id="cb50-489"><a href="#cb50-489"></a>Transform <span class="in">`polviews`</span> into a new variable that has the following three values:</span>
 <span id="cb50-490"><a href="#cb50-490"></a></span>
-<span id="cb50-491"><a href="#cb50-491"></a>Interpret the coefficients.</span>
-<span id="cb50-492"><a href="#cb50-492"></a>:::</span>
-<span id="cb50-493"><a href="#cb50-493"></a></span>
-<span id="cb50-494"><a href="#cb50-494"></a>::: callout-tip</span>
-<span id="cb50-495"><a href="#cb50-495"></a>Hint: You can create this variable by using two nested <span class="in">`if_else()`</span> statements, but you might want to prefer using the <span class="in">`case_when()`</span> function.</span>
-<span id="cb50-496"><a href="#cb50-496"></a></span>
-<span id="cb50-497"><a href="#cb50-497"></a><span class="ot">&lt;https://dplyr.tidyverse.org/reference/case_when.html&gt;</span></span>
-<span id="cb50-498"><a href="#cb50-498"></a>:::</span>
-<span id="cb50-499"><a href="#cb50-499"></a></span>
-<span id="cb50-500"><a href="#cb50-500"></a>::: callout-tip</span>
-<span id="cb50-501"><a href="#cb50-501"></a>Hint: You can change the reference category using the <span class="in">`fct_relevel()`</span></span>
+<span id="cb50-491"><a href="#cb50-491"></a>$$</span>
+<span id="cb50-492"><a href="#cb50-492"></a>\texttt{polviews2} = \begin{cases}</span>
+<span id="cb50-493"><a href="#cb50-493"></a>\text{liberal} &amp;\text{if} &amp;\text{polviews} &lt; 0 <span class="sc">\\</span></span>
+<span id="cb50-494"><a href="#cb50-494"></a>\text{moderate} &amp;\text{if} &amp;\text{polviews} == 0 <span class="sc">\\</span></span>
+<span id="cb50-495"><a href="#cb50-495"></a>\text{conservative} &amp;\text{if} &amp;\text{polviews} &gt; 0</span>
+<span id="cb50-496"><a href="#cb50-496"></a>\end{cases}</span>
+<span id="cb50-497"><a href="#cb50-497"></a>$$</span>
+<span id="cb50-498"><a href="#cb50-498"></a></span>
+<span id="cb50-499"><a href="#cb50-499"></a>Fit the following model three times, choosing with a new reference category each time.</span>
+<span id="cb50-500"><a href="#cb50-500"></a></span>
+<span id="cb50-501"><a href="#cb50-501"></a><span class="ss">-   </span><span class="in">`cappun ~ polviews2 + weekly`</span></span>
 <span id="cb50-502"><a href="#cb50-502"></a></span>
-<span id="cb50-503"><a href="#cb50-503"></a><span class="ot">&lt;https://forcats.tidyverse.org/reference/fct_relevel.html&gt;</span></span>
+<span id="cb50-503"><a href="#cb50-503"></a>Interpret the coefficients.</span>
 <span id="cb50-504"><a href="#cb50-504"></a>:::</span>
 <span id="cb50-505"><a href="#cb50-505"></a></span>
-<span id="cb50-506"><a href="#cb50-506"></a><span class="fu">### Exercise</span></span>
-<span id="cb50-507"><a href="#cb50-507"></a></span>
-<span id="cb50-508"><a href="#cb50-508"></a>::: callout-note</span>
-<span id="cb50-509"><a href="#cb50-509"></a>Fill in the conditional probabilities in the following table:</span>
-<span id="cb50-510"><a href="#cb50-510"></a></span>
-<span id="cb50-511"><a href="#cb50-511"></a>| <span class="in">`weekly`</span> | <span class="in">`polviews2`</span>  | Saturated Model | Restricted Model |</span>
-<span id="cb50-512"><a href="#cb50-512"></a>|----------|--------------|-----------------|------------------|</span>
-<span id="cb50-513"><a href="#cb50-513"></a>| 0        | liberal      |                 |                  |</span>
-<span id="cb50-514"><a href="#cb50-514"></a>| 0        | moderate     |                 |                  |</span>
-<span id="cb50-515"><a href="#cb50-515"></a>| 0        | conservative |                 |                  |</span>
-<span id="cb50-516"><a href="#cb50-516"></a>| 1        | liberal      |                 |                  |</span>
-<span id="cb50-517"><a href="#cb50-517"></a>| 1        | moderate     |                 |                  |</span>
-<span id="cb50-518"><a href="#cb50-518"></a>| 1        | conservative |                 |                  |</span>
+<span id="cb50-506"><a href="#cb50-506"></a>::: callout-tip</span>
+<span id="cb50-507"><a href="#cb50-507"></a>Hint: You can create this variable by using two nested <span class="in">`if_else()`</span> statements, but you might want to prefer using the <span class="in">`case_when()`</span> function.</span>
+<span id="cb50-508"><a href="#cb50-508"></a></span>
+<span id="cb50-509"><a href="#cb50-509"></a><span class="ot">&lt;https://dplyr.tidyverse.org/reference/case_when.html&gt;</span></span>
+<span id="cb50-510"><a href="#cb50-510"></a>:::</span>
+<span id="cb50-511"><a href="#cb50-511"></a></span>
+<span id="cb50-512"><a href="#cb50-512"></a>::: callout-tip</span>
+<span id="cb50-513"><a href="#cb50-513"></a>Hint: You can change the reference category using the <span class="in">`fct_relevel()`</span></span>
+<span id="cb50-514"><a href="#cb50-514"></a></span>
+<span id="cb50-515"><a href="#cb50-515"></a><span class="ot">&lt;https://forcats.tidyverse.org/reference/fct_relevel.html&gt;</span></span>
+<span id="cb50-516"><a href="#cb50-516"></a>:::</span>
+<span id="cb50-517"><a href="#cb50-517"></a></span>
+<span id="cb50-518"><a href="#cb50-518"></a><span class="fu">### Exercise</span></span>
 <span id="cb50-519"><a href="#cb50-519"></a></span>
-<span id="cb50-520"><a href="#cb50-520"></a>: Probability that a respondent favors capital punishment ( $\texttt{cappun} = 1$ )</span>
-<span id="cb50-521"><a href="#cb50-521"></a>:::</span>
+<span id="cb50-520"><a href="#cb50-520"></a>::: callout-note</span>
+<span id="cb50-521"><a href="#cb50-521"></a>Fill in the conditional probabilities in the following table:</span>
 <span id="cb50-522"><a href="#cb50-522"></a></span>
-<span id="cb50-523"><a href="#cb50-523"></a>::: callout-tip</span>
-<span id="cb50-524"><a href="#cb50-524"></a>Hint: There are two ways to estimate the "saturated model".</span>
-<span id="cb50-525"><a href="#cb50-525"></a></span>
-<span id="cb50-526"><a href="#cb50-526"></a><span class="ss">-   </span>Using the model formula that includes all interactions: <span class="in">`cappun ~ weekly*polviews2`</span>.</span>
-<span id="cb50-527"><a href="#cb50-527"></a></span>
-<span id="cb50-528"><a href="#cb50-528"></a>    Then you can use either <span class="in">`predict()`</span> or <span class="in">`broom::augment()`</span></span>
-<span id="cb50-529"><a href="#cb50-529"></a></span>
-<span id="cb50-530"><a href="#cb50-530"></a><span class="ss">-   </span>Using <span class="in">`dplyr`</span></span>
+<span id="cb50-523"><a href="#cb50-523"></a>| <span class="in">`weekly`</span> | <span class="in">`polviews2`</span>  | Saturated Model | Restricted Model |</span>
+<span id="cb50-524"><a href="#cb50-524"></a>|----------|--------------|-----------------|------------------|</span>
+<span id="cb50-525"><a href="#cb50-525"></a>| 0        | liberal      |                 |                  |</span>
+<span id="cb50-526"><a href="#cb50-526"></a>| 0        | moderate     |                 |                  |</span>
+<span id="cb50-527"><a href="#cb50-527"></a>| 0        | conservative |                 |                  |</span>
+<span id="cb50-528"><a href="#cb50-528"></a>| 1        | liberal      |                 |                  |</span>
+<span id="cb50-529"><a href="#cb50-529"></a>| 1        | moderate     |                 |                  |</span>
+<span id="cb50-530"><a href="#cb50-530"></a>| 1        | conservative |                 |                  |</span>
 <span id="cb50-531"><a href="#cb50-531"></a></span>
-<span id="cb50-532"><a href="#cb50-532"></a>    <span class="in">```{r}</span></span>
-<span id="cb50-533"><a href="#cb50-533"></a>    <span class="co">#| eval: false</span></span>
-<span id="cb50-534"><a href="#cb50-534"></a>    d <span class="sc">|&gt;</span> </span>
-<span id="cb50-535"><a href="#cb50-535"></a>      <span class="fu">group_by</span>(weekly, polviews2) <span class="sc">|&gt;</span> </span>
-<span id="cb50-536"><a href="#cb50-536"></a>      <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">mean</span>(cappun))</span>
-<span id="cb50-537"><a href="#cb50-537"></a>    <span class="in">```</span></span>
-<span id="cb50-538"><a href="#cb50-538"></a>:::</span>
+<span id="cb50-532"><a href="#cb50-532"></a>: Probability that a respondent favors capital punishment ( $\texttt{cappun} = 1$ )</span>
+<span id="cb50-533"><a href="#cb50-533"></a>:::</span>
+<span id="cb50-534"><a href="#cb50-534"></a></span>
+<span id="cb50-535"><a href="#cb50-535"></a>::: callout-tip</span>
+<span id="cb50-536"><a href="#cb50-536"></a>Hint: There are two ways to estimate the "saturated model".</span>
+<span id="cb50-537"><a href="#cb50-537"></a></span>
+<span id="cb50-538"><a href="#cb50-538"></a><span class="ss">-   </span>Using the model formula that includes all interactions: <span class="in">`cappun ~ weekly*polviews2`</span>.</span>
 <span id="cb50-539"><a href="#cb50-539"></a></span>
-<span id="cb50-540"><a href="#cb50-540"></a><span class="fu">### Exercise</span></span>
+<span id="cb50-540"><a href="#cb50-540"></a>    Then you can use either <span class="in">`predict()`</span> or <span class="in">`broom::augment()`</span></span>
 <span id="cb50-541"><a href="#cb50-541"></a></span>
-<span id="cb50-542"><a href="#cb50-542"></a>::: callout-note</span>
-<span id="cb50-543"><a href="#cb50-543"></a>Do the following:</span>
-<span id="cb50-544"><a href="#cb50-544"></a></span>
-<span id="cb50-545"><a href="#cb50-545"></a><span class="ss">-   </span>Look at the GSS data and choose an outcome variable that interests you.</span>
-<span id="cb50-546"><a href="#cb50-546"></a></span>
-<span id="cb50-547"><a href="#cb50-547"></a><span class="ss">-   </span>Choose 2 or 3 predictors that interests you.</span>
-<span id="cb50-548"><a href="#cb50-548"></a></span>
-<span id="cb50-549"><a href="#cb50-549"></a><span class="ss">-   </span>Create at least two models and then compare them using AIC and BIC.</span>
-<span id="cb50-550"><a href="#cb50-550"></a></span>
-<span id="cb50-551"><a href="#cb50-551"></a>    Which model has a better out-of-sample predictive accuracy?</span>
-<span id="cb50-552"><a href="#cb50-552"></a></span>
-<span id="cb50-553"><a href="#cb50-553"></a><span class="ss">-   </span>What is the relationship between your outcome and your predictors?</span>
-<span id="cb50-554"><a href="#cb50-554"></a></span>
-<span id="cb50-555"><a href="#cb50-555"></a>    *Don't worry about making causal claims unless you think they are reasonable.*</span>
+<span id="cb50-542"><a href="#cb50-542"></a><span class="ss">-   </span>Using <span class="in">`dplyr`</span></span>
+<span id="cb50-543"><a href="#cb50-543"></a></span>
+<span id="cb50-544"><a href="#cb50-544"></a>    <span class="in">```{r}</span></span>
+<span id="cb50-545"><a href="#cb50-545"></a>    <span class="co">#| eval: false</span></span>
+<span id="cb50-546"><a href="#cb50-546"></a>    d <span class="sc">|&gt;</span> </span>
+<span id="cb50-547"><a href="#cb50-547"></a>      <span class="fu">group_by</span>(weekly, polviews2) <span class="sc">|&gt;</span> </span>
+<span id="cb50-548"><a href="#cb50-548"></a>      <span class="fu">summarize</span>(<span class="at">p =</span> <span class="fu">mean</span>(cappun))</span>
+<span id="cb50-549"><a href="#cb50-549"></a>    <span class="in">```</span></span>
+<span id="cb50-550"><a href="#cb50-550"></a>:::</span>
+<span id="cb50-551"><a href="#cb50-551"></a></span>
+<span id="cb50-552"><a href="#cb50-552"></a><span class="fu">### Exercise</span></span>
+<span id="cb50-553"><a href="#cb50-553"></a></span>
+<span id="cb50-554"><a href="#cb50-554"></a>::: callout-note</span>
+<span id="cb50-555"><a href="#cb50-555"></a>Do the following:</span>
 <span id="cb50-556"><a href="#cb50-556"></a></span>
-<span id="cb50-557"><a href="#cb50-557"></a><span class="ss">-   </span>*Keep it simple! This is only a class exercise!*</span>
-<span id="cb50-558"><a href="#cb50-558"></a>:::</span>
-<span id="cb50-559"><a href="#cb50-559"></a></span>
-<span id="cb50-560"><a href="#cb50-560"></a><span class="fu">### Extra</span></span>
-<span id="cb50-561"><a href="#cb50-561"></a></span>
-<span id="cb50-562"><a href="#cb50-562"></a>I was originally going to ask you to calculate the standard deviations for bootstrap sampling distributions corresponding to $\alpha$, $\beta_1$, and $\beta_2$ in @eq-restricted. The plan was to show you that these values correspond to the "standard errors" shown in the regression output.</span>
-<span id="cb50-563"><a href="#cb50-563"></a></span>
-<span id="cb50-564"><a href="#cb50-564"></a>Unfortunately, I couldn't find a way to do this easily with the <span class="in">`infer`</span> package, so here's the code to do it:</span>
-<span id="cb50-565"><a href="#cb50-565"></a></span>
-<span id="cb50-568"><a href="#cb50-568"></a><span class="in">```{r}</span></span>
-<span id="cb50-569"><a href="#cb50-569"></a><span class="co">#| cache: true</span></span>
-<span id="cb50-570"><a href="#cb50-570"></a>boot_coef <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="at">n =</span> <span class="fl">2e3</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>, <span class="at">expr =</span> {</span>
-<span id="cb50-571"><a href="#cb50-571"></a>  i <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(d), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb50-572"><a href="#cb50-572"></a>  m <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> conservative <span class="sc">+</span> weekly, <span class="at">family =</span> <span class="st">"binomial"</span>, <span class="at">data =</span> d[i, ])</span>
-<span id="cb50-573"><a href="#cb50-573"></a>  <span class="fu">coefficients</span>(m)</span>
-<span id="cb50-574"><a href="#cb50-574"></a>}) <span class="sc">|&gt;</span> <span class="fu">bind_rows</span>()</span>
+<span id="cb50-557"><a href="#cb50-557"></a><span class="ss">-   </span>Look at the GSS data and choose an outcome variable that interests you.</span>
+<span id="cb50-558"><a href="#cb50-558"></a></span>
+<span id="cb50-559"><a href="#cb50-559"></a><span class="ss">-   </span>Choose 2 or 3 predictors that interests you.</span>
+<span id="cb50-560"><a href="#cb50-560"></a></span>
+<span id="cb50-561"><a href="#cb50-561"></a><span class="ss">-   </span>Create at least two models and then compare them using AIC and BIC.</span>
+<span id="cb50-562"><a href="#cb50-562"></a></span>
+<span id="cb50-563"><a href="#cb50-563"></a>    Which model has a better out-of-sample predictive accuracy?</span>
+<span id="cb50-564"><a href="#cb50-564"></a></span>
+<span id="cb50-565"><a href="#cb50-565"></a><span class="ss">-   </span>What is the relationship between your outcome and your predictors?</span>
+<span id="cb50-566"><a href="#cb50-566"></a></span>
+<span id="cb50-567"><a href="#cb50-567"></a>    *Don't worry about making causal claims unless you think they are reasonable.*</span>
+<span id="cb50-568"><a href="#cb50-568"></a></span>
+<span id="cb50-569"><a href="#cb50-569"></a><span class="ss">-   </span>*Keep it simple! This is only a class exercise!*</span>
+<span id="cb50-570"><a href="#cb50-570"></a>:::</span>
+<span id="cb50-571"><a href="#cb50-571"></a></span>
+<span id="cb50-572"><a href="#cb50-572"></a><span class="fu">### Extra</span></span>
+<span id="cb50-573"><a href="#cb50-573"></a></span>
+<span id="cb50-574"><a href="#cb50-574"></a>I was originally going to ask you to calculate the standard deviations for bootstrap sampling distributions corresponding to $\alpha$, $\beta_1$, and $\beta_2$ in @eq-restricted. The plan was to show you that these values correspond to the "standard errors" shown in the regression output.</span>
 <span id="cb50-575"><a href="#cb50-575"></a></span>
-<span id="cb50-576"><a href="#cb50-576"></a><span class="fu">glimpse</span>(boot_coef)</span>
+<span id="cb50-576"><a href="#cb50-576"></a>Unfortunately, I couldn't find a way to do this easily with the <span class="in">`infer`</span> package, so here's the code to do it:</span>
 <span id="cb50-577"><a href="#cb50-577"></a></span>
-<span id="cb50-578"><a href="#cb50-578"></a>boot_coef <span class="sc">|&gt;</span> </span>
-<span id="cb50-579"><a href="#cb50-579"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"term"</span>, <span class="at">values_to =</span> <span class="st">"stat"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb50-580"><a href="#cb50-580"></a>  <span class="fu">group_by</span>(term) <span class="sc">|&gt;</span> </span>
-<span id="cb50-581"><a href="#cb50-581"></a>  <span class="fu">summarize</span>(<span class="at">estimate =</span> <span class="fu">mean</span>(stat), <span class="at">std.error =</span> <span class="fu">sd</span>(stat))</span>
-<span id="cb50-582"><a href="#cb50-582"></a></span>
-<span id="cb50-583"><a href="#cb50-583"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(mod)</span>
-<span id="cb50-584"><a href="#cb50-584"></a><span class="in">```</span></span>
+<span id="cb50-580"><a href="#cb50-580"></a><span class="in">```{r}</span></span>
+<span id="cb50-581"><a href="#cb50-581"></a><span class="co">#| cache: true</span></span>
+<span id="cb50-582"><a href="#cb50-582"></a>boot_coef <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="at">n =</span> <span class="fl">2e3</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>, <span class="at">expr =</span> {</span>
+<span id="cb50-583"><a href="#cb50-583"></a>  i <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(d), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb50-584"><a href="#cb50-584"></a>  m <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> conservative <span class="sc">+</span> weekly, <span class="at">family =</span> <span class="st">"binomial"</span>, <span class="at">data =</span> d[i, ])</span>
+<span id="cb50-585"><a href="#cb50-585"></a>  <span class="fu">coefficients</span>(m)</span>
+<span id="cb50-586"><a href="#cb50-586"></a>}) <span class="sc">|&gt;</span> <span class="fu">bind_rows</span>()</span>
+<span id="cb50-587"><a href="#cb50-587"></a></span>
+<span id="cb50-588"><a href="#cb50-588"></a><span class="fu">glimpse</span>(boot_coef)</span>
+<span id="cb50-589"><a href="#cb50-589"></a></span>
+<span id="cb50-590"><a href="#cb50-590"></a>boot_coef <span class="sc">|&gt;</span> </span>
+<span id="cb50-591"><a href="#cb50-591"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"term"</span>, <span class="at">values_to =</span> <span class="st">"stat"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb50-592"><a href="#cb50-592"></a>  <span class="fu">group_by</span>(term) <span class="sc">|&gt;</span> </span>
+<span id="cb50-593"><a href="#cb50-593"></a>  <span class="fu">summarize</span>(<span class="at">estimate =</span> <span class="fu">mean</span>(stat), <span class="at">std.error =</span> <span class="fu">sd</span>(stat))</span>
+<span id="cb50-594"><a href="#cb50-594"></a></span>
+<span id="cb50-595"><a href="#cb50-595"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(mod)</span>
+<span id="cb50-596"><a href="#cb50-596"></a><span class="in">```</span></span>
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
