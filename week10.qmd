@@ -70,7 +70,7 @@ $$ {#eq-logLik}
 We usually refer to this expression like this as a "probability" when the parameter $\theta$ is fixed and we are interested in making inferences about *unknown observations*; we refer to it as a "likelihood" when the data $y$ is fixed and we are interested in making inferences about *unknown parameters*.
 :::
 
-Note that both $\boldsymbol y$ and $\theta$ are vectors of size 2102 (the number of observations in the data frame). Each individual $\theta_i$ is modeled as a function of our *predictors,* which are linear in the "logit" scale.
+Note that both $\boldsymbol y$ and $\boldsymbol \theta$ (in bold) are vectors of size 2102 (the number of observations in the data frame). Each individual $\theta_i$ is modeled as a function of our *predictors,* which are linear in the "logit" scale.
 
 $$
 \text{logit}(\theta_i) = \alpha + \beta_1 \times \texttt{conservative}_i + \beta_2 \times \texttt{weekly}_i
