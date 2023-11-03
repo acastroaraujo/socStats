@@ -65,6 +65,8 @@ ggplot() +
 What is the probability of observing the "true" value ( $p = 0.53$ ) under the null?
 
 What is the probability of observing `prop_hat` under the null? Is this statistically significant if the confidence level ( $\alpha$ ) is set to 0.05?
+
+**Note. The wording of this question is not great. Change for future iteration.**
 :::
 
 In this exercise, we had a sample size of 1000.

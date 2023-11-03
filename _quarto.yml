@@ -10,19 +10,20 @@ book:
     - index.qmd
     - part: sec1.qmd
       chapters: 
-        - week1.qmd
-        - week2.qmd
+        - week01.qmd
+        - week02.qmd
     - part: sec2.qmd
       chapters: 
-        - week3.qmd
-        - week4.qmd
-        - week5.qmd
-        - week6.qmd
-        - week7.qmd
+        - week03.qmd
+        - week04.qmd
+        - week05.qmd
+        - week06.qmd
+        - week07.qmd
     - part: sec3.qmd
       chapters:
-        - week8.qmd
-        - week9.qmd
+        - week08.qmd
+        - week09.qmd
+        - week10.qmd
     - part: sec-solutions.qmd
       chapters:
         - solutions-01.qmd
