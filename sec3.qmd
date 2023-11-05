@@ -24,6 +24,10 @@ code-fold: true
 
 From: Jorge Luis Borges, Collected Fictions, translated by Andrew Hurley.
 
+Also check out **Funes the Memorious**, a short story in which the main character acquires the ability of remembering absolutely everything---i.e., he's condemned to *overfitting.*
+
+> I suspect, however, that he was not very capable of thought. To think is to forget differences, generalize, make abstractions. In the teeming world of Funes, there were only details, almost immediate in their presence.
+
 ------------------------------------------------------------------------
 
 Three features of models:
