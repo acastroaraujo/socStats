@@ -221,7 +221,7 @@ Sometimes you'll see people use the `summary()` function to get even *more* info
 summary(mod)
 ```
 
-Or you'll see people using the `coef()`---or `coefficients()`---functions to extract the parameter values.
+Or you'll see people using the `coef()`---or `coefficients()`---function to extract the parameter values.
 
 ```{r}
 coef(mod)
@@ -545,7 +545,7 @@ boot_coef <- replicate(n = 2e3, simplify = FALSE, expr = {
   coefficients(m)
 }) |> bind_rows()
 
-glimpse(boot_coef)
+# glimpse(boot_coef)
 
 boot_coef |> 
   pivot_longer(everything(), names_to = "term", values_to = "stat") |> 
@@ -553,4 +553,27 @@ boot_coef |>
   summarize(estimate = mean(stat), std.error = sd(stat))
 
 broom::tidy(mod)
+```
+
+------------------------------------------------------------------------
+
+*Update. There was---after all---a way to do this easily with the infer package.*
+
+*Here it is:*
+
+```{r}
+#| cache: true
+
+library(infer)
+boot <- d |> 
+  specify(cappun ~ weekly + conservative) |> 
+  generate(reps = 5000, type = "bootstrap") |> 
+  fit(family = "binomial")
+
+boot |> 
+  group_by(term) |> 
+  summarize(mean = mean(estimate), std.error = sd(estimate))
+
+boot |> 
+  visualize(bins = 30)
 ```

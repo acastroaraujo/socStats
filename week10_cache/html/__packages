@@ -8,6 +8,8 @@ dplyr
 stringr
 forcats
 lubridate
-gssr
 modelsummary
 broom
+gt
+gssr
+infer
