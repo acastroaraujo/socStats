@@ -1,5 +1,5 @@
 ---
-title: "Solutions 8"
+title: "Solutions 9"
 callout-icon: false
 callout-appearance: simple
 code-fold: show
@@ -7,7 +7,7 @@ code-fold: show
 
 ```{r}
 knitr::include_app(
-  url = "https://acastroaraujo.shinyapps.io/solutions8/", 
+  url = "https://acastroaraujo.shinyapps.io/solutions9/", 
   height = "1200px"
 )
 ```

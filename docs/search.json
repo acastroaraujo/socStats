@@ -424,7 +424,7 @@
     "href": "solutions-08.html",
     "title": "18  Solutions 8",
     "section": "",
-    "text": "Click here!"
+    "text": "Code\nknitr::include_app(\n  url = \"https://acastroaraujo.shinyapps.io/solutions8/\", \n  height = \"1200px\"\n)"
   },
   {
     "objectID": "references.html",
@@ -432,5 +432,12 @@
     "title": "References",
     "section": "",
     "text": "Blitzstein, Joseph K., and Jessica Hwang. 2019. Introduction to\nProbability. CRC Press.\n\n\nGelman, Andrew, Jennifer Hill, and Aki Vehtari. 2020. Regression and\nOther Stories. Cambridge University Press.\n\n\nHealy, Kieran. 2018. Data\nVisualization: A Practical Introduction.\n\n\nImai, Kosuke, and Nora Webb Williams. 2022. Quantitative Social\nScience: An Introduction in Tidyverse. Princeton University Press.\n\n\nIsmay, Chester, and Albert Y. Kim. 2019. Statistical Inference via\nData Science: A ModernDive into r and the Tidyverse. CRC Press.\n\n\nLlaudet, Elena, and Kosuke Imai. 2022. Data Analysis for Social\nScience: A Friendly and Practical Introduction. Princeton\nUniversity Press.\n\n\nMcElreath, Richard. 2020. Statistical Rethinking: A Bayesian Course\nwith Examples in r and Stan. CRC press.\n\n\nWasserman, Larry. 2004. All of Statistics: A Concise Course in\nStatistical Inference. Springer.\n\n\nWickham, Hadley. 2019. Advanced R. CRC Press.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023.\nR for Data Science. \" O’Reilly Media,\nInc.\"."
+  },
+  {
+    "objectID": "solutions-09.html",
+    "href": "solutions-09.html",
+    "title": "19  Solutions 9",
+    "section": "",
+    "text": "Code\nknitr::include_app(\n  url = \"https://acastroaraujo.shinyapps.io/solutions9/\", \n  height = \"1200px\"\n)"
   }
 ]

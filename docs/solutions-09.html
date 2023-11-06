@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Social Statistics I (Exercises) - Models</title>
+<title>Social Statistics I (Exercises) - 19&nbsp; Solutions 9</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./week08.html" rel="next">
-<link href="./week07.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./solutions-08.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -109,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec3.html">Models</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec-solutions.html">Solutions</a></li><li class="breadcrumb-item"><a href="./solutions-09.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Solutions 9</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -206,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./sec3.html" class="sidebar-item-text sidebar-link active">
+            <a href="./sec3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Models</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -292,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./solutions-09.html" class="sidebar-item-text sidebar-link">
+  <a href="./solutions-09.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Solutions 9</span></span></a>
   </div>
 </li>
@@ -317,7 +317,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Models</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Solutions 9</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -332,36 +332,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<blockquote class="blockquote">
-<p>Remember that all models are wrong; the practical question is how wrong do they have to be to not be useful.</p>
-<p>—Box &amp; Draper (1987)</p>
-</blockquote>
-<hr>
-<p><strong>Abstraction</strong></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/picasso.png" class="img-fluid figure-img" style="width:80.0%"></p>
-</figure>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>knitr<span class="sc">::</span><span class="fu">include_app</span>(</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="at">url =</span> <span class="st">"https://acastroaraujo.shinyapps.io/solutions9/"</span>, </span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="at">height =</span> <span class="st">"1200px"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<iframe src="https://acastroaraujo.shinyapps.io/solutions9/?showcase=0" width="672" height="1200px" data-external="1">
+</iframe>
 </div>
-<hr>
-<p><strong>On Exactitude in Science</strong></p>
-<blockquote class="blockquote">
-<p>…In that Empire, the Art of Cartography attained such Perfection that the map of a single Province occupied the entirety of a City, and the map of the Empire, the entirety of a Province. In time, those Unconscionable Maps no longer satisfied, and the Cartographers Guilds struck a Map of the Empire whose size was that of the Empire, and which coincided point for point with it. The following Generations, who were not so fond of the Study of Cartography as their Forebears had been, saw that that vast Map was Useless, and not without some Pitilessness was it, that they delivered it up to the Inclemencies of Sun and Winters. In the Deserts of the West, still today, there are Tattered Ruins of that Map, inhabited by Animals and Beggars; in all the Land there is no other Relic of the Disciplines of Geography.</p>
-<p>—Suarez Miranda,Viajes devarones prudentes, Libro IV,Cap. XLV, Lerida, 1658</p>
-</blockquote>
-<p>From: Jorge Luis Borges, Collected Fictions, translated by Andrew Hurley.</p>
-<p>Also check out <strong>Funes the Memorious</strong>, a short story in which the main character acquires the ability of remembering absolutely everything—i.e., he’s condemned to <em>overfitting.</em></p>
-<blockquote class="blockquote">
-<p>I suspect, however, that he was not very capable of thought. To think is to forget differences, generalize, make abstractions. In the teeming world of Funes, there were only details, almost immediate in their presence.</p>
-</blockquote>
-<hr>
-<p>Three features of models:</p>
-<ul>
-<li><p><em>They simplify —</em>i.e., “stripping away unnecessary details, abstracting from reality.”</p></li>
-<li><p><em>They formalize</em>, they use precise definitions in mathematical form</p></li>
-<li><p><em>They are wrong</em>, this is true of all models—i.e., they omit details (sometimes crucial ones).</p></li>
-</ul>
-<hr>
 
 
 <!-- -->
@@ -654,57 +635,30 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./week07.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Week 7</span></span>
+      <a href="./solutions-08.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Solutions 8</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./week08.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Week 8</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="an">title:</span><span class="co"> "Models"</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="an">callout-icon:</span><span class="co"> false</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="an">code-fold:</span><span class="co"> true</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co">---</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="at">&gt; Remember that all models are wrong; the practical question is how wrong do they have to be to not be useful.</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="at">&gt;</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="at">&gt; ---Box &amp; Draper (1987)</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a>------------------------------------------------------------------------</span>
-<span id="cb1-12"><a href="#cb1-12"></a></span>
-<span id="cb1-13"><a href="#cb1-13"></a>**Abstraction**</span>
-<span id="cb1-14"><a href="#cb1-14"></a></span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="al">![](images/picasso.png)</span>{fig-align="center" width="80%"}</span>
-<span id="cb1-16"><a href="#cb1-16"></a></span>
-<span id="cb1-17"><a href="#cb1-17"></a>------------------------------------------------------------------------</span>
-<span id="cb1-18"><a href="#cb1-18"></a></span>
-<span id="cb1-19"><a href="#cb1-19"></a>**On Exactitude in Science**</span>
-<span id="cb1-20"><a href="#cb1-20"></a></span>
-<span id="cb1-21"><a href="#cb1-21"></a><span class="at">&gt; ...In that Empire, the Art of Cartography attained such Perfection that the map of a single Province occupied the entirety of a City, and the map of the Empire, the entirety of a Province. In time, those Unconscionable Maps no longer satisfied, and the Cartographers Guilds struck a Map of the Empire whose size was that of the Empire, and which coincided point for point with it. The following Generations, who were not so fond of the Study of Cartography as their Forebears had been, saw that that vast Map was Useless, and not without some Pitilessness was it, that they delivered it up to the Inclemencies of Sun and Winters. In the Deserts of the West, still today, there are Tattered Ruins of that Map, inhabited by Animals and Beggars; in all the Land there is no other Relic of the Disciplines of Geography.</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a><span class="at">&gt;</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="at">&gt; ---Suarez Miranda,Viajes devarones prudentes, Libro IV,Cap. XLV, Lerida, 1658</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a></span>
-<span id="cb1-25"><a href="#cb1-25"></a>From: Jorge Luis Borges, Collected Fictions, translated by Andrew Hurley.</span>
-<span id="cb1-26"><a href="#cb1-26"></a></span>
-<span id="cb1-27"><a href="#cb1-27"></a>Also check out **Funes the Memorious**, a short story in which the main character acquires the ability of remembering absolutely everything---i.e., he's condemned to *overfitting.*</span>
-<span id="cb1-28"><a href="#cb1-28"></a></span>
-<span id="cb1-29"><a href="#cb1-29"></a><span class="at">&gt; I suspect, however, that he was not very capable of thought. To think is to forget differences, generalize, make abstractions. In the teeming world of Funes, there were only details, almost immediate in their presence.</span></span>
-<span id="cb1-30"><a href="#cb1-30"></a></span>
-<span id="cb1-31"><a href="#cb1-31"></a>------------------------------------------------------------------------</span>
-<span id="cb1-32"><a href="#cb1-32"></a></span>
-<span id="cb1-33"><a href="#cb1-33"></a>Three features of models:</span>
-<span id="cb1-34"><a href="#cb1-34"></a></span>
-<span id="cb1-35"><a href="#cb1-35"></a><span class="ss">-   </span>*They simplify ---*i.e., "stripping away unnecessary details, abstracting from reality."</span>
-<span id="cb1-36"><a href="#cb1-36"></a></span>
-<span id="cb1-37"><a href="#cb1-37"></a><span class="ss">-   </span>*They formalize*, they use precise definitions in mathematical form</span>
-<span id="cb1-38"><a href="#cb1-38"></a></span>
-<span id="cb1-39"><a href="#cb1-39"></a><span class="ss">-   </span>*They are wrong*, this is true of all models---i.e., they omit details (sometimes crucial ones).</span>
-<span id="cb1-40"><a href="#cb1-40"></a></span>
-<span id="cb1-41"><a href="#cb1-41"></a>------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">---</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="an">title:</span><span class="co"> "Solutions 9"</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="an">callout-icon:</span><span class="co"> false</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="an">callout-appearance:</span><span class="co"> simple</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="an">code-fold:</span><span class="co"> show</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">---</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="in">```{r}</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>knitr<span class="sc">::</span><span class="fu">include_app</span>(</span>
+<span id="cb2-12"><a href="#cb2-12"></a>  <span class="at">url =</span> <span class="st">"https://acastroaraujo.shinyapps.io/solutions9/"</span>, </span>
+<span id="cb2-13"><a href="#cb2-13"></a>  <span class="at">height =</span> <span class="st">"1200px"</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>)</span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="in">```</span></span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
