@@ -9,3 +9,4 @@ _freeze
 _zoo.qmd
 utils.R
 *_cache/
+*_files/

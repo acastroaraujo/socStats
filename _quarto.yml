@@ -35,6 +35,7 @@ book:
         - solutions-07.qmd
         - solutions-08.qmd
         - solutions-09.qmd
+        - solutions-10.qmd
     - references.qmd
 
 bibliography: references.bib
