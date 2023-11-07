@@ -200,7 +200,11 @@ coef_labels <- c(
   "polviews2conservative" = "conservative"
 )
 
-msummary(list(mod_liberal, mod_moderate, mod_conservative), coef_map = coef_labels)
+msummary(
+  models = list(mod_liberal, mod_moderate, mod_conservative), 
+  coef_map = coef_labels,
+  output = "gt"
+)
 ```
 
 The intercepts vary a lot because each has a different reference category. In model one, it corresponds to the log-odds that a liberal respondent that doesn't go to church weekly favors capital punishment; in model two the reference category is moderate; and in model three the reference category is conservative. They estimates are in increasing order because conservative tend to favor `cappun` more than moderate, who in turn tend to favor `cappun` more than liberals.
