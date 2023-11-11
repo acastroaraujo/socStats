@@ -1,0 +1,105 @@
+---
+title: "Week 11"
+callout-appearance: simple
+callout-icon: false
+---
+
+Hi everyone, for this homework we will keep things simple. Part 1 will ask you to use the goodness of fit strategies that Steve showed last class. The intuition for most of this strategies is simple: *if the model fits, then the predictions generated from the model should look similar to observed data.* *And any systematic differences between the simulations and the data indicate potential failings of the model.*
+
+Part 2 will ask you to do a Poisson regression. I will come back to this next week when I find a good dataset that shows the importance of including *offsets.*
+
+I've selected a few variables for you from the 2018 GSS for convenience.
+
+```{r}
+#| message: false
+#| label: "Set up"
+
+library(tidyverse)
+theme_set(theme_light(base_family = "Optima"))
+
+library(modelsummary)
+library(broom)
+library(gt)
+library(performance)
+
+library(gssr)
+gss18 <- gss_get_yr(2018) 
+
+vars <- c(
+  "hompop", "sibs", "numwomen", "nummen", "age", "sex", "race", "attend", "polviews", "degree", 
+  "happy", "sexornt", "premarsx", "condom", "wrkslf", "fefam", "cappun", "padeg", "madeg"
+)
+
+d <- gss18 |> 
+  select(all_of(vars)) |> 
+  haven::zap_missing() |> 
+  ## continuous vars 
+  mutate(across(all_of(vars[1:5]), haven::zap_labels)) |> 
+  ## categorical vars
+  mutate(across(!vars[1:5], haven::as_factor)) |>
+  mutate(numtot = numwomen + nummen)
+
+
+```
+
+## Goodness of Fit
+
+### Exercise
+
+::: callout-note
+Create a logistic regression model predicting some binary variable. Use the `performance_hosmer()` function from the `performance` package to asses how well the model is fitting.
+
+Why are larger p-values an indication of good fit here?
+
+If it doesn't fit well, try modifying your model and repeat.
+:::
+
+### Exercise
+
+::: callout-note
+Do a "link test" on the same model. What is the $\beta$ coefficient? What does it mean in terms of goodness of fit?
+
+If the model doesn't fit well, try modifying it until you get a better fit.
+:::
+
+## Poisson Regression
+
+### Exercise
+
+::: callout-note
+Use the `rpois()` function to generate 1000 draws from the Poisson distribution for different values of $\lambda$ (e.g., 1, 2, 3, 4, 5).
+
+Plot the results using ggplot.
+:::
+
+::: callout-tip
+Hint: Use `geom_bar()` instead of `geom_histogram()`
+:::
+
+### Exercise
+
+::: callout-note
+Create at least three models that predict `numtot` (the sum of male and female sexual partners) from a subset of predictors. Keep it simple.
+
+Choose the one that fits the data best using AIC and BIC.
+
+Interpret at least one of the coefficients in the model that's not the intercept.
+:::
+
+::: callout-tip
+Hint: For the love of god, please don't include `numwomen` or `nummen` as predictors.
+:::
+
+::: callout-tip
+Hint: Make sure that the models you compare have the same number of observations. R will silently drop out NAs for you, which renders model comparison meaningless using AIC and BIC.
+:::
+
+### Exercise
+
+::: callout-note
+Create at least three models that predict `sibs` (the respondent's number of siblings) from a subset of predictors. Keep it simple.
+
+Choose the one that fits the data best using AIC and BIC.
+
+Interpret at least one of the coefficients in the model that's not the intercept.
+:::
