@@ -4,7 +4,7 @@ callout-appearance: simple
 callout-icon: false
 ---
 
-Hi everyone, for this homework we will keep things simple. Part 1 will ask you to use the goodness of fit strategies that Steve showed last class. The intuition for most of this strategies is simple: *if the model fits, then the predictions generated from the model should look similar to observed data.* *And any systematic differences between the simulations and the data indicate potential failings of the model.*
+Hi everyone, for this homework we will keep things simple. Part 1 will ask you to use the goodness of fit strategies that Steve showed last class. The intuition for most of this strategies is simple: *if the model fits, then the predictions generated from the model should look similar to observed data.* *And any systematic differences between the predictions and the data indicate potential failings of the model.*
 
 Part 2 will ask you to do a Poisson regression. I will come back to this next week when I find a good dataset that shows the importance of including *offsets.*
 
@@ -36,7 +36,7 @@ d <- gss18 |>
   ## continuous vars 
   mutate(across(all_of(vars[1:5]), haven::zap_labels)) |> 
   ## categorical vars
-  mutate(across(!vars[1:5], haven::as_factor)) |>
+  mutate(across(!all_of(vars[1:5]), haven::as_factor)) |>
   mutate(numtot = numwomen + nummen)
 
 

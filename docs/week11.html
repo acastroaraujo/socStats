@@ -362,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Hi everyone, for this homework we will keep things simple. Part 1 will ask you to use the goodness of fit strategies that Steve showed last class. The intuition for most of this strategies is simple: <em>if the model fits, then the predictions generated from the model should look similar to observed data.</em> <em>And any systematic differences between the simulations and the data indicate potential failings of the model.</em></p>
+<p>Hi everyone, for this homework we will keep things simple. Part 1 will ask you to use the goodness of fit strategies that Steve showed last class. The intuition for most of this strategies is simple: <em>if the model fits, then the predictions generated from the model should look similar to observed data.</em> <em>And any systematic differences between the predictions and the data indicate potential failings of the model.</em></p>
 <p>Part 2 will ask you to do a Poisson regression. I will come back to this next week when I find a good dataset that shows the importance of including <em>offsets.</em></p>
 <p>I’ve selected a few variables for you from the 2018 GSS for convenience.</p>
 <div class="cell">
@@ -390,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-20"><a href="#cb1-20"></a>  <span class="do">## continuous vars </span></span>
 <span id="cb1-21"><a href="#cb1-21"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(vars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]), haven<span class="sc">::</span>zap_labels)) <span class="sc">|&gt;</span> </span>
 <span id="cb1-22"><a href="#cb1-22"></a>  <span class="do">## categorical vars</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">!</span>vars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], haven<span class="sc">::</span>as_factor)) <span class="sc">|&gt;</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">!</span><span class="fu">all_of</span>(vars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]), haven<span class="sc">::</span>as_factor)) <span class="sc">|&gt;</span></span>
 <span id="cb1-24"><a href="#cb1-24"></a>  <span class="fu">mutate</span>(<span class="at">numtot =</span> numwomen <span class="sc">+</span> nummen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -811,7 +811,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-4"><a href="#cb2-4"></a><span class="an">callout-icon:</span><span class="co"> false</span></span>
 <span id="cb2-5"><a href="#cb2-5"></a><span class="co">---</span></span>
 <span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a>Hi everyone, for this homework we will keep things simple. Part 1 will ask you to use the goodness of fit strategies that Steve showed last class. The intuition for most of this strategies is simple: *if the model fits, then the predictions generated from the model should look similar to observed data.* *And any systematic differences between the simulations and the data indicate potential failings of the model.*</span>
+<span id="cb2-7"><a href="#cb2-7"></a>Hi everyone, for this homework we will keep things simple. Part 1 will ask you to use the goodness of fit strategies that Steve showed last class. The intuition for most of this strategies is simple: *if the model fits, then the predictions generated from the model should look similar to observed data.* *And any systematic differences between the predictions and the data indicate potential failings of the model.*</span>
 <span id="cb2-8"><a href="#cb2-8"></a></span>
 <span id="cb2-9"><a href="#cb2-9"></a>Part 2 will ask you to do a Poisson regression. I will come back to this next week when I find a good dataset that shows the importance of including *offsets.*</span>
 <span id="cb2-10"><a href="#cb2-10"></a></span>
@@ -843,7 +843,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-38"><a href="#cb2-38"></a>  <span class="do">## continuous vars </span></span>
 <span id="cb2-39"><a href="#cb2-39"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(vars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]), haven<span class="sc">::</span>zap_labels)) <span class="sc">|&gt;</span> </span>
 <span id="cb2-40"><a href="#cb2-40"></a>  <span class="do">## categorical vars</span></span>
-<span id="cb2-41"><a href="#cb2-41"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">!</span>vars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], haven<span class="sc">::</span>as_factor)) <span class="sc">|&gt;</span></span>
+<span id="cb2-41"><a href="#cb2-41"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">!</span><span class="fu">all_of</span>(vars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]), haven<span class="sc">::</span>as_factor)) <span class="sc">|&gt;</span></span>
 <span id="cb2-42"><a href="#cb2-42"></a>  <span class="fu">mutate</span>(<span class="at">numtot =</span> numwomen <span class="sc">+</span> nummen)</span>
 <span id="cb2-43"><a href="#cb2-43"></a></span>
 <span id="cb2-44"><a href="#cb2-44"></a></span>
