@@ -1,0 +1,585 @@
+---
+title: "Week 12"
+callout-appearance: simple
+callout-icon: false
+---
+
+```{r}
+#| message: false
+library(tidyverse)
+theme_set(theme_light(base_family = "Optima"))
+```
+
+## Generalized Linear Models
+
+GLMs are a very general framework that allows us to model different types of outcome variables (e.g., binary, count, continuous).
+
+They all involve the following components:
+
+-   A vector of outcome data $\boldsymbol y = (y_1, y_2, \dots, y_n)$
+
+-   A probability distribution for $\boldsymbol y$---e.g., Binomial, Multinomial, Poisson, Normal, etc.
+
+-   A matrix of predictors $\mathbf X$ and a vector of coefficients $\boldsymbol \beta$, that together form the *linear predictor* $\mathbf X \boldsymbol \beta$.
+
+-   A *link function* $g$ that maps the linear predictor to the outcome data via the chosen probability distribution.
+
+Taken together, we have the following:
+
+$$
+\begin{align}
+\overset{\text{Linear Predictor}}{\boldsymbol{\eta} = \mathbf{X} \boldsymbol{\beta}} 
+&&\overset{\text{Link Function}}{\boldsymbol \eta =g(\boldsymbol \theta)}
+&&\overset{\text{Probability Distribution}}{\boldsymbol y \sim f_Y(\boldsymbol \theta, ...)}
+\end{align}
+$$
+
+*Note. The reason I chose* $f_Y$ *to denote probability distribution is because if the data is modeled as continuous (e.g., with a Normal distribution), then* $f_Y$ *will be a probability **density** function.*
+
+### Logistic
+
+|              Outcome Type              |                                                                                                                 Distribution                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                Link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          Inverse Link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+|:---------------:|:--------------------:|:---------------:|:---------------:|
+|                *Binary*                |                                                                                                     $\small Y \sim \text{Bernoulli}(p)$                                                                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               *Logit*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         *Inverse Logit*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|    $$                                  
+                  Y \in \{0, 1\}         
+                                   $$    |                                      $$                                                                                                                                                                                                      
+                                                                                                                                                                                                                                                            \small                      
+                                                                                                                                                                                                                                                  \Pr(Y = y) = \begin{cases}            
+                                                                                                                                                                                                                                                    1- p &\text{if } \ y = 0 \\         
+                                                                                                                                                                                                                                                     p &\text{if } \ y = 1 \\           
+                                                                                                                                                                                                                                                        0 &\text{otherwise}             
+                                                                                                                                                                                                                                                          \end{cases}                   
+                                                                                                                                                                                                                                                                                  $$    |                                                                                                                                                                                                          $$                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          \log\bigg(\frac{p}{1-p}\bigg) = \mathbf X \boldsymbol \beta         
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        $$    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             $$                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        p = \frac{e^{\mathbf X \boldsymbol \beta}}{1 + e^{\mathbf X \boldsymbol \beta}}         
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          $$    |
+
+: {.bordered tbl-colwidths="\[25,25,25,25\]"}
+
+```{r}
+#| echo: false
+#| label: fig-logistic
+#| fig-cap: "Logistic"
+#| fig-subcap: 
+#|   - "Outcome"
+#|   - "Link"
+#| layout-ncol: 2
+
+tibble(y = 0:1) |> 
+  mutate(
+    p = dbinom(y, size = 1, prob = 1/3),
+    y = factor(y)
+  ) |> 
+  ggplot(aes(y, p)) + 
+  geom_col(width = 1/2) + 
+  labs(caption = "p = 1/3", y = "probability") +
+  theme(text = element_text(size = 20))
+
+ggplot() + 
+  xlim(-5, 5) + 
+  geom_function(fun = plogis) + 
+  geom_hline(yintercept = c(0, 1), linetype = "dashed", color = "grey") +
+  geom_point(aes(y = 1/3, x = qlogis(1/3)), color = "red", size = 3) +
+  labs(y = "p", x = "linear predictor") +
+  theme(text = element_text(size = 20)) 
+```
+
+**Formula Syntax**
+
+`glm(y ~ x1 + x2 + ..., family = binomial(link = "logit"))`
+
+**Coefficients**
+
+For a 1 unit increase in $x$, we expect the log-odds of $y$ to increase by $\beta$.
+
+**Example**
+
+### Poisson
+
+|                  Outcome Type                  |                                                                                                              Distribution                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  Link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Inverse Link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|:----------------:|:----------------:|:----------------:|:------------------:|
+|              *Counts (Integers)*               |                                                                                                $\small Y \sim \text{Poisson}(\lambda)$                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 *Log*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         *Exponent*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|    $$                                          
+                  Y \in \{0, 1, 2, ...\}         
+                                           $$    |                                              $$                                                                                                                                                                                        
+                                                                                                                                                                                                                                 \small \Pr(Y = y) = \frac{\lambda^ye^{-\lambda}}{y!}     
+                                                                                                                                                                                                                                                                                   $$     |                                                                                                                                                                                                 $$                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 \log(\lambda) = \mathbf X \boldsymbol \beta       
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             $$    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         $$                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 \lambda = e^{\mathbf X \boldsymbol \beta}       
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           $$    |
+
+: {.bordered tbl-colwidths="\[25,25,25,25\]"}
+
+```{r}
+#| echo: false
+#| label: fig-poisson
+#| fig-cap: "Poisson"
+#| fig-subcap: 
+#|   - "Outcome (Hypothetical)"
+#|   - "Link"
+#| layout-ncol: 2
+
+
+tibble(y = 0:10) |> 
+  mutate(
+    p = dpois(y, lambda = 1.2),
+    y = factor(y)
+  ) |> 
+  ggplot(aes(y, p)) + 
+  geom_col(width = 1/2) + 
+  labs(caption = latex2exp::TeX("\\lambda = 1.2"), y = "probability") +
+  theme(text = element_text(size = 20))
+
+ggplot() + 
+  xlim(-5, 2) + 
+  geom_function(fun = exp) + 
+  geom_point(aes(x = log(1.2), y = 1.2), color = "red", size = 3) +
+  labs(y = latex2exp::TeX("\\lambda"), x = "linear predictor") +
+  theme(text = element_text(size = 20))
+```
+
+**Formula Syntax**
+
+`glm(y ~ x1 + x2 + ..., family = poisson(link = "log"))`
+
+**Coefficients**
+
+For a 1 unit increase in $x$, we expect the log of $y$ to increase by $\beta$.
+
+**Example**
+
+Suppose we want to model traffic accidents, $i$ could index street intersections in a city and $y_i$ could be the number of traffic accidents at intersection $i$ in a given year. We include two predictors: `mph` measures the average speed of traffic near the intersection and `signal` is an indicator for whether the intersection has a traffic signal or not.
+
+After estimating the model via maximum likelihood estimate, we get the following:
+
+$$
+\begin{align}
+y_i &\sim \text{Poisson}(\lambda_i) \\
+\log(\lambda_i) &= 2.8 + 0.012 \cdot \text{mph}_i - 0.12 \cdot \text{signal}_i 
+\end{align}
+$$
+
+Remeber that $\lambda$ is the expected number of counts. If we exponentiate both sides, we get the following expression:
+
+$$
+\begin{align}
+\lambda_i &= e^{(2.8 + 0.012 \cdot \text{mph}_i - 0.12 \cdot \text{signal}_i)} \\
+&= e^{(2.8)} e^{ (0.012 \cdot \text{mph}_i)} e^{(- 0.12 \cdot \text{signal}_i)}
+\end{align}
+$$
+
+> We can then interpret each coefficient as follows:
+>
+> -   The constant term gives the intercept of the regression, that is, the prediction if $\text{mph}_i = 0$ and $\text{signal}_i = 0$. Since this is not possible (no street will have an average traffic speed of 0), we will not try to interpret the constant term.
+>
+> -   The coefficient of $\text{mph}_i$ is the expected difference in y (on the logarithmic scale) for each additional mph of traffic speed. Thus, the expected multiplicative increase is $e^{0.012} = 1.012$ , or a 1.2% positive difference in the rate of traffic accidents per mph. Since traffic speeds vary by tens of mph, it would make sense to define $\text{mph}_i$ as speed in tens of mph, in which case its coefficient would be 0.12, corresponding to a 12% increase (more precisely, $e^{0.12} = 1.127$: a 12.7% increase) in accident rate per ten mph.
+>
+> -   The coefficient of $\text{signal}_i$ tells us that the predictive difference of having a traffic signal can be found by multiplying the accident rate by $e^{−0.20} = 0.82$ yielding a reduction of 18%.
+>
+> As usual, each regression coefficient is interpreted as a comparison in which one predictor differs by one unit while all the other predictors remain at the same level, which is not necessarily the most appropriate assumption when extending the model to new settings. For example, installing traffic signals in all the intersections in the city would not necessarily be expected to reduce accidents by 18%.
+>
+> @gelman2020 [pp. 267]
+
+### Gaussian (Normal)
+
+|                  Outcome Type                  |                                                                                                                                Distribution                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                            Link                                                                                                                                                                                                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Inverse Link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|:----------------:|:----------------:|:----------------:|:-----------------:|
+|                  *Continuous*                  |                                                                                                                $\small Y \sim \text{Normal}(\mu, \sigma^2)$                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                         *Identity*                                                                                                                                                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  *Identity*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|    $$                                          
+                  Y \in (-\infty,  + \infty)     
+                                           $$    |                                                       $$                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                 f(y) = \frac{1}{\sigma \sqrt{2 \pi}} e^{- \frac{1}{2} \big(\frac{y - \mu}{\sigma}\big)^2}     
+                                                                                                                                                                                                                                                                                                               $$              |                                                                                                                                                                                                              $$                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       \mu = \mathbf X \boldsymbol \beta     
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       $$    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 $$                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      \mu = \mathbf X \boldsymbol \beta     
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      $$    |
+
+: {.bordered tbl-colwidths="\[25,25,25,25\]"}
+
+```{r}
+#| echo: false
+#| label: fig-normal
+#| fig-cap: "Gaussian (or Normal)"
+#| fig-subcap: 
+#|   - "Outcome (Hypothetical)"
+#|   - "Link"
+#| layout-ncol: 2
+
+
+ggplot() + 
+  xlim(-10, 10) + 
+  stat_function(fun = \(x) dnorm(x, 1, 2), geom = "area") + 
+  labs(y = "density", x = "y", caption = latex2exp::TeX(r"($\mu = 1, \sigma = 2$)")) +
+  geom_vline(xintercept = 1, linetype = "dashed", color = "red") +
+  theme(text = element_text(size = 20))
+
+ggplot() + 
+  xlim(-5, 5) + 
+  geom_function(fun = identity) + 
+  geom_point(aes(y = 0, x = 0), color = "red", size = 3) +
+  labs(y = latex2exp::TeX("\\mu"), x = "linear predictor")
+```
+
+**Model Syntax in R**
+
+`glm(y ~ x1 + x2 + ..., family = gaussian(link = "identity"))`
+
+**Coefficients**
+
+For a 1 unit increase in $x$, we expect $y$ to increase by $\beta$.
+
+::: callout-tip
+**Farewell to epsilon**
+
+Some of you might be familiar with an alternative notation for the Gaussian linear model, in which the "error term" is part of the equation linking the linear predictor to the outcome variable.
+
+$$
+\begin{align}
+y_i &= \alpha + \beta_1 x_{1i} + \beta_2 x_{2i} + \varepsilon_i, \\
+\varepsilon_i &\sim \text{Normal}(0, \sigma)
+\end{align}
+$$
+
+This is equivalent to the more general notation used above.
+
+$$
+\begin{align}
+y_i &\sim \text{Normal}(\mu, \sigma), \\
+\mu &= \beta_0 + \beta_1 x_i
+\end{align}
+$$
+
+Since both are equivalent, you can use whichever you want. However, it does not make sense to include the "error term" in other types of models like logistic or Poisson.
+:::
+
+### Exercise
+
+::: callout-note
+**Some intuition behind the math**
+
+The formula for the normal distribution is awkward, but it's a good idea to spend some time figuring out why it looks like that.
+
+Plot the following functions in R:
+
+-   $f(x) = (x - \mu)^2$
+
+    You will have to choose a value for $\mu$. I suggest you pick $\mu = 0$.
+
+-   $f(x) = -(x - \mu)^2$
+
+-   $f(x) = e^{-(x - \mu)^2}$
+:::
+
+::: callout-tip
+Hint:
+
+You can plot functions like this in R using ggplot2 with code like this:
+
+```{r}
+#| eval: false
+ggplot() + 
+  xlim(-5, 5) + 
+  geom_function(fun = \(x) x^3) + 
+  labs(x = "x", y = "f(x)")
+```
+:::
+
+### Exercise
+
+The function $f(x) = e^{-x^2}$ already looks a lot like the normal distribution, but we're not quite there yet. It is *not* a probability distribution because the *area under the curve* is larger than 1; probabilities can only add up to 1!
+
+Using some [integral calculus](https://www.integral-calculator.com/#expr=e%5E-x%5E2&lbound=minf&ubound=inf), we can tell that this area adds up to approximately 1.77.
+
+```{r}
+integrate(f = \(x) exp(-x^2), lower = -Inf, upper = Inf)
+```
+
+::: callout-note
+Answer these two questions:
+
+-   What is the squared root of $\pi$ ?
+
+-   What is the area under the curve for this function?
+
+    $$
+    f(x) = \frac{1}{\sqrt{\pi}} e^{-x^2}
+    $$
+:::
+
+*Note. We didn't prove anything in the last two exercises, but hopefully the formula doesn't look as mysterious anymore. All that we are missing is to adding the parameter that controls the spread of the curve, which we achieve by adding* $2\sigma^2$ *in two separate places.*
+
+$$
+f(x) = \frac{1}{\sqrt{\pi 2 \sigma^2}} \exp \bigg( -\frac{(x - \mu)^2}{2\sigma^2} \bigg)
+$$
+
+### OLS
+
+If you've seen linear regression before, you probably started with the Gaussian linear model and estimated the parameters using something called "ordinary least squares" instead of "maximum likelihood."
+
+These approaches give equivalent answers.
+
+| Ordinary Least Squares                                      | Maximum Likelihood                                |
+|-------------------------------------------------------------|---------------------------------------------------|
+| Find parameters that minimize the sum of squared residuals. | Find parameters that maximize the log-likelihood. |
+
+The reason they give equivalent answers is because the log-likelihood is maximized when the sum of $(y_i - \mu_i)^2$ is minimized.
+
+### Exercise
+
+::: callout-note
+Go to the GSS data for 2018 and use a normal linear regression to estimate `height` from `male` (an indicator variable equals 1 when `sex == "male"`).
+
+Interpret the intercept and the slope coefficients ( $\alpha$ and $\beta$ ).
+
+After doing this add `age` as a second predictor.
+
+Interpret the intercept and the slope coefficients ( $\alpha$, $\beta_1$, and $\beta_2$ ).
+:::
+
+### Exercise
+
+**Polynomial Regression**
+
+::: callout-note
+Using the same GSS data, predict `coninc` (inflation-adjusted family income) from `age` and `age_squared`.
+
+$$
+\text{coninc}_i = \beta_0 + \beta_1 \text{age}_i + \beta_2 \text{age}^2_i
+$$
+
+What does the $\beta_0$ coefficient mean here?
+
+Plot the predictions from this model using a new dataset that contains ages 18 to 85.
+:::
+
+::: callout-tip
+Hint:
+
+You can create the new dataset using code like this:
+
+```{r}
+grid <- tibble(age = 18:80)
+```
+
+You can generate predictions using `predict(model, newdata = grid)` or `broom::augment(model, newdata = grid)`.
+:::
+
+### Exercise
+
+**Transformations**
+
+::: callout-note
+Transform the age variable so that it's centered around the mean.
+
+```{r}
+#| eval: false
+d <- d |> 
+  mutate(age_centered = age - mean(age, na.rm = TRUE))
+```
+
+Fit the same model you fitted earlier:
+
+$$
+\text{coninc}_i = \beta_0 + \beta_1 \text{age}_i + \beta_2 \text{age}^2_i
+$$
+
+What changed and what remained the same?
+
+What does the $\beta_0$ coefficient mean here?
+:::
+
+### Exercise
+
+**Transformations**
+
+::: callout-note
+Transform the age variable so that it's in standard deviations away from the mean.
+
+```{r}
+#| eval: false
+d <- d |> 
+  mutate(age_std = (age - mean(age, na.rm = TRUE)) / sd(age, na.rm = TRUE))
+```
+
+Fit the same model you fitted earlier:
+
+$$
+\text{coninc}_i = \beta_0 + \beta_1 \text{age}_i + \beta_2 \text{age}^2_i
+$$
+
+What changed and what remained the same?
+
+What does the $\beta_0$ coefficient mean here?
+
+How would you interpret the $\beta_1$ and $\beta_2$ coefficients?
+:::
+
+### Exercise
+
+**Comparisons and Regression**
+
+Simple averages and comparisons can be be interpreted as special cases of linear regression.
+
+Take the comparison of `coninc` among married and unmarried individuals.
+
+I've included some code to make your life easier.
+
+```{r}
+#| message: false
+library(gssr)
+gss18 <- gss_get_yr(2018) 
+
+d <- gss18 |> 
+  select(marital, coninc, sex) |> 
+  mutate(
+    coninc = haven::zap_label(coninc),
+    sex = haven::as_factor(sex),
+    marital = haven::as_factor(marital)
+  ) |> 
+  drop_na() |> 
+  mutate(married = if_else(marital == "married", 1L, 0L)) |> 
+  mutate(male = if_else(sex == "male", 1L, 0L))
+
+d |> 
+  group_by(married) |> 
+  summarize(
+    avg_coninc = mean(coninc, na.rm = TRUE), 
+    sd = sd(coninc, na.rm = TRUE),
+    n = n()
+  ) |> 
+  mutate(std_error = sd / n())
+```
+
+::: callout-note
+Fit a regression model that predicts `coninc` from `married`.
+
+$$
+\begin{align}
+\text{coninc}_i &\sim \text{Normal}(\mu_i, \sigma_i) \\
+\mu_i &= \beta_0 + \beta_1 \text{married}_i
+\end{align}
+$$
+
+Compare the results to the previous `dplyr` table. What do you notice?
+
+**Standard Errors**
+
+The formula for the standard error for a comparison of means is given by:
+
+$$
+\text{se}(\overline x_1 - \overline x_2) = \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} 
+$$
+
+Calculate the standard error by plugging in the corresponding values in the `dplyr` table. Compare this value to the standard error corresponding to the `married` coefficient. Do they look similar?
+:::
+
+### Exercise
+
+**Binary Interactions**
+
+::: callout-note
+Just as we did with logistic regression, we can use interactions to reconstruct a $2\times 2$ table. The difference is that the cells contain averages instead of counts.
+
+For example:
+
+```{r}
+d |> 
+  group_by(male, married) |> 
+  summarize(coninc = mean(coninc, na.rm = TRUE))
+```
+
+Fit a normal linear regression that predicts `coninc` from `sex` and `married`.
+
+$$
+\begin{align}
+\text{coninc}_i &\sim \text{Normal}(\mu_i, \sigma_i) \\
+\mu_i &= \beta_0 + \beta_1 \text{male}_i + \beta_2 \text{married}_i + \beta_3 \text{male}_i \times \text{married}_i
+\end{align}
+$$
+
+Fill in the following empty spaces with corresponding coefficient values:
+
+| male | married | coninc   | regression output   |
+|------|---------|----------|---------------------|
+| 0    | 0       | 33560.78 | FILL THIS           |
+| 0    | 1       | 66759.76 | FILL THIS           |
+| 1    | 0       | 41014.66 | $\beta_0 + \beta_1$ |
+| 1    | 1       | 68292.14 | FILL THIS           |
+:::
+
+### Exercise
+
+For this exercise I am going to ask you to import the `bikes` dataset from the `bayesrules` package. You will probably need to install this package first.
+
+```{r}
+data(bikes, package = "bayesrules")
+```
+
+Here's the documentation for the dataset:
+
+```{r}
+#| echo: false
+getHTMLhelp <- function(...){
+  capture.output(tools:::Rd2HTML(utils:::.getHelpFile(help(...))))
+}
+
+library(bayesrules)
+shiny::HTML(getHTMLhelp("bikes"))
+```
+
+::: callout-note
+You will have to fit a normal linear regression that predicts the number of bikeshare rides using `windspeed`, `weekend`, and `temp_feel` as predictors.
+
+Before doing that, make sure you center `windspeed` and `temp_feel` around their mean values.
+
+If the temperature and the wind speed are average, what is the expected ridership for a weekend day? What is the expected ridership for a weekday? Show the code that gets you your answers.
+:::
+
+### Exercise
+
+::: callout-note
+Repeat the exercise above, but fit a Poisson model instead.
+
+If the temperature and the wind speed are average, what is the expected ridership for a weekend day? What is the expected ridership for a weekday? Show the code that gets you your answers.
+:::
+
+### Exercise
+
+::: callout-note
+In order to assess goodness of fit, it is sometimes useful to plot the residuals against some predictor.
+
+$$
+\varepsilon_i = y_i - \hat y_i
+$$
+
+If the model fits well, we should expect to see the residuals to be normally distributed around zero.
+
+For example:
+
+```{r}
+#| code-fold: true
+mod_normal <- glm(rides ~ windspeed + temp_feel + weekend, data = bikes, family = "gaussian")
+bikes$resid <- residuals(mod_normal)
+
+bikes |> 
+  ggplot(aes(date, resid)) + 
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+  geom_point(
+    data = filter(bikes, abs(resid) == max(abs(resid))),
+    color = "red", shape = 21, size = 3
+  )
+```
+
+What can you tell me about the model fit? Why do you think the model fits poorly?
+
+Use `dplyr` to figure out the date of the observation with the largest residual (shown circled in red). Why is the model so poor at predicting the number of number of bikeshare rides this day?
+:::
+
+::: callout-tip
+Hint: Try Googling what happened that day.
+:::

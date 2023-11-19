@@ -306,10 +306,18 @@ Click "Show me" if you want to see how this *might* happen. However, this is pre
 #| code-fold: true
 #| code-summary: "Show me"
 
+## the "design matrix"
+X <- model.matrix(cappun ~ conservative + weekly, data = d)
+
+## the inverse-link function
+inv_logit <- function(linpred) {
+  exp(linpred) / (1 + exp(linpred))
+}
+
 ## a more general likelihood function
 log_likelihood_bernoulli <- function(beta, outcome, X) {
   linpred <- X %*% beta 
-  theta <- plogis(linpred)     
+  theta <- inv_logit(linpred)     
   return(sum(dbinom(outcome, size = 1, prob = theta, log = TRUE)))
 }
 
