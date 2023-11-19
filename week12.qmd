@@ -220,7 +220,7 @@ ggplot() +
 ggplot() + 
   xlim(-5, 5) + 
   geom_function(fun = identity) + 
-  geom_point(aes(y = 0, x = 0), color = "red", size = 3) +
+  geom_point(aes(y = 1, x = 1), color = "red", size = 3) +
   labs(y = latex2exp::TeX("\\mu"), x = "linear predictor")
 ```
 
@@ -577,7 +577,7 @@ bikes |>
 
 What can you tell me about the model fit? Why do you think the model fits poorly?
 
-Use `dplyr` to figure out the date of the observation with the largest residual (shown circled in red). Why is the model so poor at predicting the number of number of bikeshare rides this day?
+Use `dplyr` to figure out the date of the observation with the largest residual (shown circled in red). Why is the model so poor at predicting the number of bikeshare rides this day?
 :::
 
 ::: callout-tip
