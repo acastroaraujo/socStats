@@ -63,7 +63,10 @@ d_mod <- d |>
  )) 
 
 m1 <- glm(cappun ~ polviews + weekly + age + I(age^2), data = d_mod, family = "binomial")
-modelsummary(m1, gof_map = "nobs")
+
+modelsummary(m1, gof_map = "nobs", output = "gt") |> 
+  opt_table_font(font = "Optima")
+
 out <- performance_hosmer(m1, n_bins = 10)
 out
 ```
@@ -91,7 +94,8 @@ d_mod <- augment(m1, type.predict = "link")
 
 lt0 <- glm(cappun ~ .fitted, data = d_mod, family = "binomial")
 lt1 <- glm(cappun ~ .fitted + I(.fitted^2), data = d_mod, family = "binomial")
-modelsummary(list(lt0, lt1), gof_map = "none", stars = TRUE)
+modelsummary(list(lt0, lt1), gof_map = "none", stars = TRUE, output = "gt") |> 
+  opt_table_font(font = "Optima")
 ```
 
 The link test reveals no problems.
@@ -151,7 +155,8 @@ m1 <- glm(numtot ~ polviews + premarsx_wrong + age, data = d_mod, family = "pois
 m2 <- glm(numtot ~ polviews + premarsx_wrong + age + sexornt, data = d_mod, family = "poisson")
 m3 <- glm(numtot ~ polviews + premarsx_wrong + age + I(age^2) + sexornt, data = d_mod, family = "poisson")
 
-modelsummary(list(m1, m2, m3))
+modelsummary(list(m1, m2, m3), output = "gt") |> 
+  opt_table_font(font = "Optima")
 ```
 
 Model 3 has lower AIC and BIC scores, indicating a better out-of-sample predictive accuracy.
@@ -195,7 +200,8 @@ m1 <- glm(numtot ~ polviews + premarsx_wrong + age, data = d_mod, family = "pois
 m2 <- glm(numtot ~ polviews + premarsx_wrong + age + sexornt, data = d_mod, family = "poisson")
 m3 <- glm(numtot ~ polviews + premarsx_wrong + age + I(age^2) + sexornt, data = d_mod, family = "poisson")
 
-modelsummary(list(m1, m2, m3))
+modelsummary(list(m1, m2, m3), output = "gt") |> 
+  opt_table_font(font = "Optima")
 ```
 
 The new exponentiated coefficient is:
@@ -222,7 +228,7 @@ d |>
 
 ### Exercise
 
-::: callout-tip
+::: callout-note
 Create at least three models that predict `sibs` (the respondent's number of siblings) from a subset of predictors. Keep it simple.
 
 Choose the one that fits the data best using AIC and BIC.
@@ -243,7 +249,8 @@ m2 <- glm(sibs ~ polviews + mom_bs, family = "poisson", data = d_mod)
 m3 <- glm(sibs ~ polviews + mom_bs + fefam_agree, family = "poisson", data = d_mod)
 m4 <- glm(sibs ~ mom_bs + fefam_agree, family = "poisson", data = d_mod)
 
-modelsummary(list(m1, m2, m3, m4))
+modelsummary(list(m1, m2, m3, m4), output = "gt") |> 
+  opt_table_font(font = "Optima")
 ```
 
 Model 4 has a better out-of-sample predictive accuracy according to both BIC and AIC.
