@@ -258,10 +258,10 @@ augment(m4, newdata = grid) |>
 Perhaps some simple high school math can help
 
 $$
-\frac{\Delta y}{\Delta x} = \Delta x (3691.355 − 8711.331 \cdot \Delta x)
+\Delta y = \Delta x (3691.355 − 8711.331 \cdot  x)
 $$
 
-When age changes by 1 unit ( $\Delta x = 1$ ), the corresponding effect is $-5019.976$, which is the slope of the red line in the previous graph.
+When age changes by 1 unit ( $\Delta x = 1$ ), starting at 0 ( $x = 0$ ) the corresponding effect is $-5019.976$, which is the slope of the red line in the previous graph.
 
 ## Exercise
 
