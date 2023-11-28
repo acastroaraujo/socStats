@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Social Statistics I (Exercises) - 23&nbsp; Solutions 11</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./solutions-12.html" rel="next">
+<link href="./solutions-10.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="stylesheet" media="screen" href="https://www.cssfontstack.com/Optima" type="text/css">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sec-solutions.html">Solutions</a></li><li class="breadcrumb-item"><a href="./solutions-11.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Solutions 11</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Social Statistics I (Exercises)</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sec1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Computing preliminaries</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Week 1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Week 2</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sec2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data, sampling, and probability</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Week 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Week 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Week 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Week 6</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Week 7</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sec3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Week 8</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Week 9</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Week 10</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Week 11</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./week12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Week 12</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./sec-solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Solutions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Solutions 1</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Solutions 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Solutions 3</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Solutions 4</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Solutions 5</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-06.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Solutions 6</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Solutions 7</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-08.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Solutions 8</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-09.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Solutions 9</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-10.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Solutions 10</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-11.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Solutions 11</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions-12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Solutions 12</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#exercise" id="toc-exercise" class="nav-link active" data-scroll-target="#exercise"><span class="header-section-number">23.0.1</span> Exercise</a></li>
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1"><span class="header-section-number">23.0.2</span> Exercise</a></li>
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2"><span class="header-section-number">23.0.3</span> Exercise</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3"><span class="header-section-number">23.0.4</span> Exercise</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4"><span class="header-section-number">23.0.5</span> Exercise</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Solutions 11</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Optima"</span>))</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">library</span>(performance)</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">library</span>(gssr)</span>
+<span id="cb1-10"><a href="#cb1-10"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="st">"hompop"</span>, <span class="st">"sibs"</span>, <span class="st">"numwomen"</span>, <span class="st">"nummen"</span>, <span class="st">"age"</span>, <span class="st">"sex"</span>, <span class="st">"race"</span>, <span class="st">"attend"</span>, <span class="st">"polviews"</span>, <span class="st">"degree"</span>,</span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="st">"happy"</span>, <span class="st">"sexornt"</span>, <span class="st">"premarsx"</span>, <span class="st">"condom"</span>, <span class="st">"wrkslf"</span>, <span class="st">"fefam"</span>, <span class="st">"cappun"</span>, <span class="st">"padeg"</span>, <span class="st">"madeg"</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>)</span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb1-18"><a href="#cb1-18"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(vars)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-19"><a href="#cb1-19"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb1-20"><a href="#cb1-20"></a>  <span class="do">## continuous vars </span></span>
+<span id="cb1-21"><a href="#cb1-21"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(vars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]), haven<span class="sc">::</span>zap_labels)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-22"><a href="#cb1-22"></a>  <span class="do">## categorical vars</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">!</span><span class="fu">all_of</span>(vars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]), haven<span class="sc">::</span>as_factor)) <span class="sc">|&gt;</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a>  <span class="fu">mutate</span>(<span class="at">numtot =</span> numwomen <span class="sc">+</span> nummen)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="exercise" class="level3" data-number="23.0.1">
+<h3 data-number="23.0.1" class="anchored" data-anchor-id="exercise"><span class="header-section-number">23.0.1</span> Exercise</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Create a logistic regression model predicting some binary variable. Use the <code>performance_hosmer()</code> function from the <code>performance</code> package to asses how well the model is fitting.</p>
+<p>Why are larger p-values an indication of good fit here?</p>
+<p>If it doesn’t fit well, try modifying your model and repeat.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>not_weekly <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="st">"never"</span>, <span class="st">"less than once a year"</span>, <span class="st">"about once or twice a year"</span>, </span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="st">"several times a year"</span>, <span class="st">"about once a month"</span>, <span class="st">"2-3 times a month"</span>, <span class="st">"nearly every week"</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a>d_mod <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="fu">select</span>(cappun, polviews, age, attend) <span class="sc">|&gt;</span> </span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="fu">mutate</span>(<span class="at">cappun =</span> <span class="fu">if_else</span>(cappun <span class="sc">==</span> <span class="st">"favor"</span>, 1L, 0L)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-10"><a href="#cb2-10"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as.integer</span>(polviews) <span class="sc">-</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-11"><a href="#cb2-11"></a>  <span class="fu">mutate</span>(<span class="at">age =</span> age <span class="sc">-</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-12"><a href="#cb2-12"></a>  <span class="fu">mutate</span>(<span class="at">weekly =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-13"><a href="#cb2-13"></a>   attend <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"every week"</span>, <span class="st">"several times a week"</span>) <span class="sc">~</span> 1L,</span>
+<span id="cb2-14"><a href="#cb2-14"></a>   attend <span class="sc">%in%</span> not_weekly <span class="sc">~</span> 0L</span>
+<span id="cb2-15"><a href="#cb2-15"></a> )) </span>
+<span id="cb2-16"><a href="#cb2-16"></a></span>
+<span id="cb2-17"><a href="#cb2-17"></a>m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> polviews <span class="sc">+</span> weekly <span class="sc">+</span> age <span class="sc">+</span> <span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="fu">modelsummary</span>(m1, <span class="at">gof_map =</span> <span class="st">"nobs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;(1)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: center;">0.706</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.071)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">polviews</td>
+<td style="text-align: center;">0.405</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.034)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">weekly</td>
+<td style="text-align: center;">−0.486</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.118)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">age</td>
+<td style="text-align: center;">0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.003)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">I(age^2)</td>
+<td style="text-align: center;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; box-shadow: 0px 1.5px;"></td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">(0.000)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Num.Obs.</td>
+<td style="text-align: center;">2097</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>out <span class="ot">&lt;-</span> <span class="fu">performance_hosmer</span>(m1, <span class="at">n_bins =</span> <span class="dv">10</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># Hosmer-Lemeshow Goodness-of-Fit Test
+
+  Chi-squared: 3.990
+           df: 8    
+      p-value: 0.858</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Summary: model seems to fit well.</code></pre>
+</div>
+</div>
+<p>The model seems to have a good fit. The p-value is 0.86, which in this case is good because the null-hypothesis is that the expected and observed proportions are the same across all bins. Looking at the following graph, we would want the dashed line to be somewhere close to where there is a higher probability density. (The p-value is the area under the curve starting at the dashed line).</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">30</span>) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> \(x) <span class="fu">dchisq</span>(x, <span class="at">df =</span> out<span class="sc">$</span>df)) <span class="sc">+</span> </span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> out<span class="sc">$</span>chisq, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-11_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercise-1" class="level3" data-number="23.0.2">
+<h3 data-number="23.0.2" class="anchored" data-anchor-id="exercise-1"><span class="header-section-number">23.0.2</span> Exercise</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Do a “link test” on the same model. What is the <span class="math inline">\(\beta\)</span> coefficient? What does it mean in terms of goodness of fit?</p>
+<p>If the model doesn’t fit well, try modifying it until you get a better fit.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>d_mod <span class="ot">&lt;-</span> <span class="fu">augment</span>(m1, <span class="at">type.predict =</span> <span class="st">"link"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a>lt0 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> .fitted, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>lt1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> .fitted <span class="sc">+</span> <span class="fu">I</span>(.fitted<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(lt0, lt1), <span class="at">gof_map =</span> <span class="st">"none"</span>, <span class="at">stars =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;(1)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;&nbsp;(2)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: center;">0.000</td>
+<td style="text-align: center;">0.010</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.063)</td>
+<td style="text-align: center;">(0.064)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">.fitted</td>
+<td style="text-align: center;">1.000***</td>
+<td style="text-align: center;">1.094***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.082)</td>
+<td style="text-align: center;">(0.134)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">I(.fitted^2)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">−0.097</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(0.109)</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><sup></sup> + p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+
+
+</div>
+</div>
+<p>The link test reveals no problems.</p>
+<p>Explanation of the link test from the Stata manual:</p>
+<blockquote class="blockquote">
+<p>The link test is based on the idea that if a regression or regression-like equation is properly specified, you should be able to find no additional independent variables that are significant except by chance. One kind of specification error is called a link error. In regression, this means that the dependent variable needs a transformation or “link” function to properly relate to the independent variables. The idea of a link test is to add an independent variable to the equation that is especially likely to be significant if there is a link error.</p>
+</blockquote>
+</section>
+<section id="exercise-2" class="level3" data-number="23.0.3">
+<h3 data-number="23.0.3" class="anchored" data-anchor-id="exercise-2"><span class="header-section-number">23.0.3</span> Exercise</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Use the <code>rpois()</code> function to generate 1000 draws from the Poisson distribution for different values of <span class="math inline">\(\lambda\)</span> (e.g., 1, 2, 3, 4, 5).</p>
+<p>Plot the results using ggplot.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>N <span class="ot">&lt;-</span> <span class="fl">1e3</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">tibble</span>(<span class="at">lambda =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">rowwise</span>(lambda) <span class="sc">|&gt;</span> </span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">list</span>(<span class="fu">rpois</span>(N, lambda))) <span class="sc">|&gt;</span> </span>
+<span id="cb8-6"><a href="#cb8-6"></a>  <span class="fu">unnest</span>(x) <span class="sc">|&gt;</span> </span>
+<span id="cb8-7"><a href="#cb8-7"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> </span>
+<span id="cb8-8"><a href="#cb8-8"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb8-9"><a href="#cb8-9"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> lambda, <span class="at">labeller =</span> label_both)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-11_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercise-3" class="level3" data-number="23.0.4">
+<h3 data-number="23.0.4" class="anchored" data-anchor-id="exercise-3"><span class="header-section-number">23.0.4</span> Exercise</h3>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Create at least three models that predict <code>numtot</code> (the sum of male and female sexual partners) from a subset of predictors. Keep it simple.</p>
+<p>Choose the one that fits the data best using AIC and BIC.</p>
+<p>Interpret at least one of the coefficients in the model that’s not the intercept.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>d_mod <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">select</span>(numtot, polviews, age, attend, premarsx, sexornt) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">mutate</span>(<span class="at">premarsx_wrong =</span> <span class="fu">if_else</span>(</span>
+<span id="cb9-5"><a href="#cb9-5"></a>    <span class="at">condition =</span> premarsx <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"always wrong"</span>, <span class="st">"almost always wrong"</span>), </span>
+<span id="cb9-6"><a href="#cb9-6"></a>    <span class="at">true =</span> 1L, </span>
+<span id="cb9-7"><a href="#cb9-7"></a>    <span class="at">false =</span> 0L</span>
+<span id="cb9-8"><a href="#cb9-8"></a>    )) <span class="sc">|&gt;</span> </span>
+<span id="cb9-9"><a href="#cb9-9"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as.integer</span>(polviews) <span class="sc">-</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-10"><a href="#cb9-10"></a>  <span class="fu">mutate</span>(<span class="at">age =</span> age <span class="sc">-</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb9-11"><a href="#cb9-11"></a>  <span class="fu">mutate</span>(<span class="at">weekly =</span> <span class="fu">case_when</span>(</span>
+<span id="cb9-12"><a href="#cb9-12"></a>   attend <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"every week"</span>, <span class="st">"several times a week"</span>) <span class="sc">~</span> 1L,</span>
+<span id="cb9-13"><a href="#cb9-13"></a>   attend <span class="sc">%in%</span> not_weekly <span class="sc">~</span> 0L</span>
+<span id="cb9-14"><a href="#cb9-14"></a> )) <span class="sc">|&gt;</span> </span>
+<span id="cb9-15"><a href="#cb9-15"></a>  <span class="fu">mutate</span>(<span class="at">sexornt =</span> <span class="fu">fct_relevel</span>(sexornt, <span class="st">"heterosexual or straight"</span>))</span>
+<span id="cb9-16"><a href="#cb9-16"></a></span>
+<span id="cb9-17"><a href="#cb9-17"></a>m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(numtot <span class="sc">~</span> polviews <span class="sc">+</span> premarsx_wrong <span class="sc">+</span> age, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb9-18"><a href="#cb9-18"></a>m2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(numtot <span class="sc">~</span> polviews <span class="sc">+</span> premarsx_wrong <span class="sc">+</span> age <span class="sc">+</span> sexornt, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb9-19"><a href="#cb9-19"></a>m3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(numtot <span class="sc">~</span> polviews <span class="sc">+</span> premarsx_wrong <span class="sc">+</span> age <span class="sc">+</span> <span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> sexornt, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb9-20"><a href="#cb9-20"></a></span>
+<span id="cb9-21"><a href="#cb9-21"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(m1, m2, m3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;(1)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;&nbsp;(2)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;&nbsp;(3)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: center;">3.383</td>
+<td style="text-align: center;">3.420</td>
+<td style="text-align: center;">3.605</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.008)</td>
+<td style="text-align: center;">(0.008)</td>
+<td style="text-align: center;">(0.010)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">polviews</td>
+<td style="text-align: center;">0.010</td>
+<td style="text-align: center;">0.003</td>
+<td style="text-align: center;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.005)</td>
+<td style="text-align: center;">(0.005)</td>
+<td style="text-align: center;">(0.005)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">premarsx_wrong</td>
+<td style="text-align: center;">0.544</td>
+<td style="text-align: center;">0.530</td>
+<td style="text-align: center;">0.536</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.016)</td>
+<td style="text-align: center;">(0.016)</td>
+<td style="text-align: center;">(0.016)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">age</td>
+<td style="text-align: center;">0.001</td>
+<td style="text-align: center;">0.001</td>
+<td style="text-align: center;">0.003</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.000)</td>
+<td style="text-align: center;">(0.000)</td>
+<td style="text-align: center;">(0.000)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sexorntgay, lesbian, or homosexual</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">−1.467</td>
+<td style="text-align: center;">−1.457</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(0.134)</td>
+<td style="text-align: center;">(0.134)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sexorntbisexual</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">−1.635</td>
+<td style="text-align: center;">−1.527</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(0.096)</td>
+<td style="text-align: center;">(0.096)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">I(age^2)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">−0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; box-shadow: 0px 1.5px;"></td>
+<td style="text-align: center; box-shadow: 0px 1.5px;"></td>
+<td style="text-align: center; box-shadow: 0px 1.5px;"></td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">(0.000)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Num.Obs.</td>
+<td style="text-align: center;">604</td>
+<td style="text-align: center;">604</td>
+<td style="text-align: center;">604</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AIC</td>
+<td style="text-align: center;">94021.8</td>
+<td style="text-align: center;">93300.2</td>
+<td style="text-align: center;">92488.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BIC</td>
+<td style="text-align: center;">94039.4</td>
+<td style="text-align: center;">93326.6</td>
+<td style="text-align: center;">92519.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Log.Lik.</td>
+<td style="text-align: center;">−47006.885</td>
+<td style="text-align: center;">−46644.113</td>
+<td style="text-align: center;">−46237.282</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RMSE</td>
+<td style="text-align: center;">151.00</td>
+<td style="text-align: center;">150.89</td>
+<td style="text-align: center;">150.82</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Model 3 has lower AIC and BIC scores, indicating a better out-of-sample predictive accuracy.</p>
+<p>I’ll just interpret the <span class="math inline">\(\beta\)</span> coefficient associated with <code>premarsx_wrong</code>, an indicator variable I create that equals “1” when the respondent thinks that premarital sex is “always wrong” or “almost always wrong” and equals “0” otherwise.</p>
+<p><span class="math display">\[
+e^{0.536} = 1.71
+\]</span></p>
+<p>This means that people who think having premarital sex is wrong are expected to have (on average) 71% <em>more</em> sexual partners than people who think it’s OK. Honestly, I did not expect this pattern.</p>
+<p>Looking at the data I noticed that there are a bunch of weird outliers. It turns out that the data is truncated at 989 and that any value above that should be disregarded.</p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>d_mod <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(numtot)) <span class="sc">+</span> </span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb10-4"><a href="#cb10-4"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">989</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="solutions-11_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>d_mod <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">filter</span>(numwomen <span class="sc">&lt;</span> <span class="dv">990</span>, nummen <span class="sc">&lt;</span> <span class="dv">990</span>) <span class="sc">|&gt;</span> <span class="do">## This should fix the problem</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">select</span>(numtot, polviews, age, attend, premarsx, sexornt) <span class="sc">|&gt;</span> </span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">mutate</span>(<span class="at">premarsx_wrong =</span> <span class="fu">if_else</span>(</span>
+<span id="cb12-6"><a href="#cb12-6"></a>    <span class="at">condition =</span> premarsx <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"always wrong"</span>, <span class="st">"almost always wrong"</span>), </span>
+<span id="cb12-7"><a href="#cb12-7"></a>    <span class="at">true =</span> 1L, </span>
+<span id="cb12-8"><a href="#cb12-8"></a>    <span class="at">false =</span> 0L</span>
+<span id="cb12-9"><a href="#cb12-9"></a>    )) <span class="sc">|&gt;</span> </span>
+<span id="cb12-10"><a href="#cb12-10"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as.integer</span>(polviews) <span class="sc">-</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-11"><a href="#cb12-11"></a>  <span class="fu">mutate</span>(<span class="at">age =</span> age <span class="sc">-</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb12-12"><a href="#cb12-12"></a>  <span class="fu">mutate</span>(<span class="at">weekly =</span> <span class="fu">case_when</span>(</span>
+<span id="cb12-13"><a href="#cb12-13"></a>   attend <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"every week"</span>, <span class="st">"several times a week"</span>) <span class="sc">~</span> 1L,</span>
+<span id="cb12-14"><a href="#cb12-14"></a>   attend <span class="sc">%in%</span> not_weekly <span class="sc">~</span> 0L</span>
+<span id="cb12-15"><a href="#cb12-15"></a> )) <span class="sc">|&gt;</span> </span>
+<span id="cb12-16"><a href="#cb12-16"></a>  <span class="fu">mutate</span>(<span class="at">sexornt =</span> <span class="fu">fct_relevel</span>(sexornt, <span class="st">"heterosexual or straight"</span>))</span>
+<span id="cb12-17"><a href="#cb12-17"></a></span>
+<span id="cb12-18"><a href="#cb12-18"></a>m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(numtot <span class="sc">~</span> polviews <span class="sc">+</span> premarsx_wrong <span class="sc">+</span> age, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb12-19"><a href="#cb12-19"></a>m2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(numtot <span class="sc">~</span> polviews <span class="sc">+</span> premarsx_wrong <span class="sc">+</span> age <span class="sc">+</span> sexornt, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb12-20"><a href="#cb12-20"></a>m3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(numtot <span class="sc">~</span> polviews <span class="sc">+</span> premarsx_wrong <span class="sc">+</span> age <span class="sc">+</span> <span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> sexornt, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb12-21"><a href="#cb12-21"></a></span>
+<span id="cb12-22"><a href="#cb12-22"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(m1, m2, m3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;(1)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;&nbsp;(2)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;&nbsp;(3)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: center;">2.557</td>
+<td style="text-align: center;">2.578</td>
+<td style="text-align: center;">2.785</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.013)</td>
+<td style="text-align: center;">(0.013)</td>
+<td style="text-align: center;">(0.016)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">polviews</td>
+<td style="text-align: center;">0.002</td>
+<td style="text-align: center;">0.000</td>
+<td style="text-align: center;">−0.008</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.008)</td>
+<td style="text-align: center;">(0.008)</td>
+<td style="text-align: center;">(0.008)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">premarsx_wrong</td>
+<td style="text-align: center;">−0.156</td>
+<td style="text-align: center;">−0.164</td>
+<td style="text-align: center;">−0.144</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.030)</td>
+<td style="text-align: center;">(0.030)</td>
+<td style="text-align: center;">(0.030)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">age</td>
+<td style="text-align: center;">0.016</td>
+<td style="text-align: center;">0.016</td>
+<td style="text-align: center;">0.022</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.001)</td>
+<td style="text-align: center;">(0.001)</td>
+<td style="text-align: center;">(0.001)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sexorntgay, lesbian, or homosexual</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">−0.518</td>
+<td style="text-align: center;">−0.488</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(0.134)</td>
+<td style="text-align: center;">(0.135)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sexorntbisexual</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">−0.629</td>
+<td style="text-align: center;">−0.448</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(0.097)</td>
+<td style="text-align: center;">(0.097)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">I(age^2)</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">−0.001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; box-shadow: 0px 1.5px;"></td>
+<td style="text-align: center; box-shadow: 0px 1.5px;"></td>
+<td style="text-align: center; box-shadow: 0px 1.5px;"></td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">(0.000)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Num.Obs.</td>
+<td style="text-align: center;">591</td>
+<td style="text-align: center;">591</td>
+<td style="text-align: center;">591</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AIC</td>
+<td style="text-align: center;">22529.7</td>
+<td style="text-align: center;">22464.8</td>
+<td style="text-align: center;">22014.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BIC</td>
+<td style="text-align: center;">22547.2</td>
+<td style="text-align: center;">22491.1</td>
+<td style="text-align: center;">22045.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Log.Lik.</td>
+<td style="text-align: center;">−11260.852</td>
+<td style="text-align: center;">−11226.399</td>
+<td style="text-align: center;">−11000.397</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RMSE</td>
+<td style="text-align: center;">52.54</td>
+<td style="text-align: center;">52.52</td>
+<td style="text-align: center;">52.41</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>The new exponentiated coefficient is:</p>
+<p><span class="math display">\[
+e^{-0.144} = 0.86
+\]</span></p>
+<p>This roughly indicated 14% <em>less</em> sexual partners.</p>
+<hr>
+<p><em>Note. The patterns with regard to sexual orientation are super interesting and indicate some kind of cohort effect. Someone should definitely see if there’s something written out there about this.</em></p>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">filter</span>(numwomen <span class="sc">&lt;</span> <span class="dv">990</span>, nummen <span class="sc">&lt;</span> <span class="dv">990</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">select</span>(age, numtot, sexornt) <span class="sc">|&gt;</span> </span>
+<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">mutate</span>(<span class="at">cohort =</span> <span class="fu">cut</span>(age, <span class="fu">quantile</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(cohort, numtot, <span class="at">color =</span> sexornt)) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">stat_summary</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>), <span class="at">fun.data =</span> mean_cl_boot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="solutions-11_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="exercise-4" class="level3" data-number="23.0.5">
+<h3 data-number="23.0.5" class="anchored" data-anchor-id="exercise-4"><span class="header-section-number">23.0.5</span> Exercise</h3>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Create at least three models that predict <code>sibs</code> (the respondent’s number of siblings) from a subset of predictors. Keep it simple.</p>
+<p>Choose the one that fits the data best using AIC and BIC.</p>
+<p>Interpret at least one of the coefficients in the model that’s not the intercept.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details open="">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>d_mod <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">select</span>(sibs, madeg, fefam, polviews) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as.integer</span>(polviews) <span class="sc">-</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">mutate</span>(<span class="at">fefam_agree =</span> <span class="fu">if_else</span>(fefam <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"strongly agree"</span>, <span class="st">"agree"</span>), 1L, 0L)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">mutate</span>(<span class="at">mom_bs =</span> <span class="fu">ifelse</span>(madeg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"bachelor's"</span>, <span class="st">"graduate"</span>), 1L, 0L))</span>
+<span id="cb14-7"><a href="#cb14-7"></a></span>
+<span id="cb14-8"><a href="#cb14-8"></a>m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(sibs <span class="sc">~</span> polviews, <span class="at">family =</span> <span class="st">"poisson"</span>, <span class="at">data =</span> d_mod)</span>
+<span id="cb14-9"><a href="#cb14-9"></a>m2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(sibs <span class="sc">~</span> polviews <span class="sc">+</span> mom_bs, <span class="at">family =</span> <span class="st">"poisson"</span>, <span class="at">data =</span> d_mod)</span>
+<span id="cb14-10"><a href="#cb14-10"></a>m3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(sibs <span class="sc">~</span> polviews <span class="sc">+</span> mom_bs <span class="sc">+</span> fefam_agree, <span class="at">family =</span> <span class="st">"poisson"</span>, <span class="at">data =</span> d_mod)</span>
+<span id="cb14-11"><a href="#cb14-11"></a>m4 <span class="ot">&lt;-</span> <span class="fu">glm</span>(sibs <span class="sc">~</span> mom_bs <span class="sc">+</span> fefam_agree, <span class="at">family =</span> <span class="st">"poisson"</span>, <span class="at">data =</span> d_mod)</span>
+<span id="cb14-12"><a href="#cb14-12"></a></span>
+<span id="cb14-13"><a href="#cb14-13"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(m1, m2, m3, m4))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;(1)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;&nbsp;(2)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;&nbsp;(3)</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">&nbsp;&nbsp;(4)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: center;">1.264</td>
+<td style="text-align: center;">1.317</td>
+<td style="text-align: center;">1.259</td>
+<td style="text-align: center;">1.259</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.014)</td>
+<td style="text-align: center;">(0.016)</td>
+<td style="text-align: center;">(0.018)</td>
+<td style="text-align: center;">(0.018)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">polviews</td>
+<td style="text-align: center;">0.026</td>
+<td style="text-align: center;">0.019</td>
+<td style="text-align: center;">0.013</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">(0.010)</td>
+<td style="text-align: center;">(0.010)</td>
+<td style="text-align: center;">(0.010)</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mom_bs</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">−0.330</td>
+<td style="text-align: center;">−0.300</td>
+<td style="text-align: center;">−0.304</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">(0.042)</td>
+<td style="text-align: center;">(0.042)</td>
+<td style="text-align: center;">(0.042)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">fefam_agree</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.198</td>
+<td style="text-align: center;">0.203</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; box-shadow: 0px 1.5px;"></td>
+<td style="text-align: center; box-shadow: 0px 1.5px;"></td>
+<td style="text-align: center; box-shadow: 0px 1.5px;"></td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">(0.032)</td>
+<td style="text-align: center; box-shadow: 0px 1.5px;">(0.032)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Num.Obs.</td>
+<td style="text-align: center;">1370</td>
+<td style="text-align: center;">1370</td>
+<td style="text-align: center;">1370</td>
+<td style="text-align: center;">1370</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AIC</td>
+<td style="text-align: center;">6692.7</td>
+<td style="text-align: center;">6627.9</td>
+<td style="text-align: center;">6592.3</td>
+<td style="text-align: center;">6592.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BIC</td>
+<td style="text-align: center;">6703.1</td>
+<td style="text-align: center;">6643.6</td>
+<td style="text-align: center;">6613.2</td>
+<td style="text-align: center;">6607.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Log.Lik.</td>
+<td style="text-align: center;">−3344.325</td>
+<td style="text-align: center;">−3310.973</td>
+<td style="text-align: center;">−3292.173</td>
+<td style="text-align: center;">−3293.048</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RMSE</td>
+<td style="text-align: center;">2.85</td>
+<td style="text-align: center;">2.83</td>
+<td style="text-align: center;">2.81</td>
+<td style="text-align: center;">2.81</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Model 4 has a better out-of-sample predictive accuracy according to both BIC and AIC.</p>
+<p>The variable <code>fefam_agree</code> indicates that the respondent agrees with the phrase “It is much better for everyone involved if the man is the achiever outside the home and the woman takes care of the home and family.” The variable <code>mom_bs</code> indicates that the respondent’s mother has a bachelor’s degree.</p>
+<p><span class="math display">\[
+e^{-0.304} = 0.734
+\]</span></p>
+<p>The exponentiated <span class="math inline">\(\beta\)</span> coefficient on <code>mom_bs</code> indicates that respondent’s whose mother has a bachelor’s degree have (on average) 27% less siblings than respondent’s whose mother does not have a bachelor’s degree.</p>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./solutions-10.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Solutions 10</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./solutions-12.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Solutions 12</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb15" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">---</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="an">title:</span><span class="co"> "Solutions 11"</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="an">callout-icon:</span><span class="co"> false</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="an">callout-appearance:</span><span class="co"> simple</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="an">code-fold:</span><span class="co"> show</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="co">---</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a></span>
+<span id="cb15-10"><a href="#cb15-10"></a><span class="in">```{r}</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a><span class="co">#| message: false</span></span>
+<span id="cb15-12"><a href="#cb15-12"></a><span class="co">#| label: "Set up"</span></span>
+<span id="cb15-13"><a href="#cb15-13"></a></span>
+<span id="cb15-14"><a href="#cb15-14"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb15-15"><a href="#cb15-15"></a><span class="fu">theme_set</span>(<span class="fu">theme_light</span>(<span class="at">base_family =</span> <span class="st">"Optima"</span>))</span>
+<span id="cb15-16"><a href="#cb15-16"></a></span>
+<span id="cb15-17"><a href="#cb15-17"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb15-18"><a href="#cb15-18"></a><span class="fu">library</span>(broom)</span>
+<span id="cb15-19"><a href="#cb15-19"></a><span class="fu">library</span>(gt)</span>
+<span id="cb15-20"><a href="#cb15-20"></a><span class="fu">library</span>(performance)</span>
+<span id="cb15-21"><a href="#cb15-21"></a></span>
+<span id="cb15-22"><a href="#cb15-22"></a><span class="fu">library</span>(gssr)</span>
+<span id="cb15-23"><a href="#cb15-23"></a>gss18 <span class="ot">&lt;-</span> <span class="fu">gss_get_yr</span>(<span class="dv">2018</span>) </span>
+<span id="cb15-24"><a href="#cb15-24"></a></span>
+<span id="cb15-25"><a href="#cb15-25"></a>vars <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb15-26"><a href="#cb15-26"></a>  <span class="st">"hompop"</span>, <span class="st">"sibs"</span>, <span class="st">"numwomen"</span>, <span class="st">"nummen"</span>, <span class="st">"age"</span>, <span class="st">"sex"</span>, <span class="st">"race"</span>, <span class="st">"attend"</span>, <span class="st">"polviews"</span>, <span class="st">"degree"</span>,</span>
+<span id="cb15-27"><a href="#cb15-27"></a>  <span class="st">"happy"</span>, <span class="st">"sexornt"</span>, <span class="st">"premarsx"</span>, <span class="st">"condom"</span>, <span class="st">"wrkslf"</span>, <span class="st">"fefam"</span>, <span class="st">"cappun"</span>, <span class="st">"padeg"</span>, <span class="st">"madeg"</span></span>
+<span id="cb15-28"><a href="#cb15-28"></a>)</span>
+<span id="cb15-29"><a href="#cb15-29"></a></span>
+<span id="cb15-30"><a href="#cb15-30"></a>d <span class="ot">&lt;-</span> gss18 <span class="sc">|&gt;</span> </span>
+<span id="cb15-31"><a href="#cb15-31"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(vars)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-32"><a href="#cb15-32"></a>  haven<span class="sc">::</span><span class="fu">zap_missing</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb15-33"><a href="#cb15-33"></a>  <span class="do">## continuous vars </span></span>
+<span id="cb15-34"><a href="#cb15-34"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(vars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]), haven<span class="sc">::</span>zap_labels)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-35"><a href="#cb15-35"></a>  <span class="do">## categorical vars</span></span>
+<span id="cb15-36"><a href="#cb15-36"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="sc">!</span><span class="fu">all_of</span>(vars[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]), haven<span class="sc">::</span>as_factor)) <span class="sc">|&gt;</span></span>
+<span id="cb15-37"><a href="#cb15-37"></a>  <span class="fu">mutate</span>(<span class="at">numtot =</span> numwomen <span class="sc">+</span> nummen)</span>
+<span id="cb15-38"><a href="#cb15-38"></a><span class="in">```</span></span>
+<span id="cb15-39"><a href="#cb15-39"></a></span>
+<span id="cb15-40"><a href="#cb15-40"></a><span class="fu">### Exercise</span></span>
+<span id="cb15-41"><a href="#cb15-41"></a></span>
+<span id="cb15-42"><a href="#cb15-42"></a>::: callout-note</span>
+<span id="cb15-43"><a href="#cb15-43"></a>Create a logistic regression model predicting some binary variable. Use the <span class="in">`performance_hosmer()`</span> function from the <span class="in">`performance`</span> package to asses how well the model is fitting.</span>
+<span id="cb15-44"><a href="#cb15-44"></a></span>
+<span id="cb15-45"><a href="#cb15-45"></a>Why are larger p-values an indication of good fit here?</span>
+<span id="cb15-46"><a href="#cb15-46"></a></span>
+<span id="cb15-47"><a href="#cb15-47"></a>If it doesn't fit well, try modifying your model and repeat.</span>
+<span id="cb15-48"><a href="#cb15-48"></a>:::</span>
+<span id="cb15-49"><a href="#cb15-49"></a></span>
+<span id="cb15-52"><a href="#cb15-52"></a><span class="in">```{r}</span></span>
+<span id="cb15-53"><a href="#cb15-53"></a>not_weekly <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb15-54"><a href="#cb15-54"></a>  <span class="st">"never"</span>, <span class="st">"less than once a year"</span>, <span class="st">"about once or twice a year"</span>, </span>
+<span id="cb15-55"><a href="#cb15-55"></a>  <span class="st">"several times a year"</span>, <span class="st">"about once a month"</span>, <span class="st">"2-3 times a month"</span>, <span class="st">"nearly every week"</span></span>
+<span id="cb15-56"><a href="#cb15-56"></a>)</span>
+<span id="cb15-57"><a href="#cb15-57"></a></span>
+<span id="cb15-58"><a href="#cb15-58"></a>d_mod <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb15-59"><a href="#cb15-59"></a>  <span class="fu">select</span>(cappun, polviews, age, attend) <span class="sc">|&gt;</span> </span>
+<span id="cb15-60"><a href="#cb15-60"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb15-61"><a href="#cb15-61"></a>  <span class="fu">mutate</span>(<span class="at">cappun =</span> <span class="fu">if_else</span>(cappun <span class="sc">==</span> <span class="st">"favor"</span>, 1L, 0L)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-62"><a href="#cb15-62"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as.integer</span>(polviews) <span class="sc">-</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-63"><a href="#cb15-63"></a>  <span class="fu">mutate</span>(<span class="at">age =</span> age <span class="sc">-</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-64"><a href="#cb15-64"></a>  <span class="fu">mutate</span>(<span class="at">weekly =</span> <span class="fu">case_when</span>(</span>
+<span id="cb15-65"><a href="#cb15-65"></a>   attend <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"every week"</span>, <span class="st">"several times a week"</span>) <span class="sc">~</span> 1L,</span>
+<span id="cb15-66"><a href="#cb15-66"></a>   attend <span class="sc">%in%</span> not_weekly <span class="sc">~</span> 0L</span>
+<span id="cb15-67"><a href="#cb15-67"></a> )) </span>
+<span id="cb15-68"><a href="#cb15-68"></a></span>
+<span id="cb15-69"><a href="#cb15-69"></a>m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> polviews <span class="sc">+</span> weekly <span class="sc">+</span> age <span class="sc">+</span> <span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb15-70"><a href="#cb15-70"></a><span class="fu">modelsummary</span>(m1, <span class="at">gof_map =</span> <span class="st">"nobs"</span>)</span>
+<span id="cb15-71"><a href="#cb15-71"></a>out <span class="ot">&lt;-</span> <span class="fu">performance_hosmer</span>(m1, <span class="at">n_bins =</span> <span class="dv">10</span>)</span>
+<span id="cb15-72"><a href="#cb15-72"></a>out</span>
+<span id="cb15-73"><a href="#cb15-73"></a><span class="in">```</span></span>
+<span id="cb15-74"><a href="#cb15-74"></a></span>
+<span id="cb15-75"><a href="#cb15-75"></a>The model seems to have a good fit. The p-value is <span class="in">`r round(out$p.value, 2)`</span>, which in this case is good because the null-hypothesis is that the expected and observed proportions are the same across all bins. Looking at the following graph, we would want the dashed line to be somewhere close to where there is a higher probability density. (The p-value is the area under the curve starting at the dashed line).</span>
+<span id="cb15-76"><a href="#cb15-76"></a></span>
+<span id="cb15-79"><a href="#cb15-79"></a><span class="in">```{r}</span></span>
+<span id="cb15-80"><a href="#cb15-80"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb15-81"><a href="#cb15-81"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">30</span>) <span class="sc">+</span> </span>
+<span id="cb15-82"><a href="#cb15-82"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> \(x) <span class="fu">dchisq</span>(x, <span class="at">df =</span> out<span class="sc">$</span>df)) <span class="sc">+</span> </span>
+<span id="cb15-83"><a href="#cb15-83"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> out<span class="sc">$</span>chisq, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb15-84"><a href="#cb15-84"></a><span class="in">```</span></span>
+<span id="cb15-85"><a href="#cb15-85"></a></span>
+<span id="cb15-86"><a href="#cb15-86"></a><span class="fu">### Exercise</span></span>
+<span id="cb15-87"><a href="#cb15-87"></a></span>
+<span id="cb15-88"><a href="#cb15-88"></a>::: callout-note</span>
+<span id="cb15-89"><a href="#cb15-89"></a>Do a "link test" on the same model. What is the $\beta$ coefficient? What does it mean in terms of goodness of fit?</span>
+<span id="cb15-90"><a href="#cb15-90"></a></span>
+<span id="cb15-91"><a href="#cb15-91"></a>If the model doesn't fit well, try modifying it until you get a better fit.</span>
+<span id="cb15-92"><a href="#cb15-92"></a>:::</span>
+<span id="cb15-93"><a href="#cb15-93"></a></span>
+<span id="cb15-96"><a href="#cb15-96"></a><span class="in">```{r}</span></span>
+<span id="cb15-97"><a href="#cb15-97"></a>d_mod <span class="ot">&lt;-</span> <span class="fu">augment</span>(m1, <span class="at">type.predict =</span> <span class="st">"link"</span>)</span>
+<span id="cb15-98"><a href="#cb15-98"></a></span>
+<span id="cb15-99"><a href="#cb15-99"></a>lt0 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> .fitted, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb15-100"><a href="#cb15-100"></a>lt1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(cappun <span class="sc">~</span> .fitted <span class="sc">+</span> <span class="fu">I</span>(.fitted<span class="sc">^</span><span class="dv">2</span>), <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb15-101"><a href="#cb15-101"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(lt0, lt1), <span class="at">gof_map =</span> <span class="st">"none"</span>, <span class="at">stars =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-102"><a href="#cb15-102"></a><span class="in">```</span></span>
+<span id="cb15-103"><a href="#cb15-103"></a></span>
+<span id="cb15-104"><a href="#cb15-104"></a>The link test reveals no problems.</span>
+<span id="cb15-105"><a href="#cb15-105"></a></span>
+<span id="cb15-106"><a href="#cb15-106"></a>Explanation of the link test from the Stata manual:</span>
+<span id="cb15-107"><a href="#cb15-107"></a></span>
+<span id="cb15-108"><a href="#cb15-108"></a><span class="at">&gt; The link test is based on the idea that if a regression or regression-like equation is properly specified, you should be able to find no additional independent variables that are significant except by chance. One kind of specification error is called a link error. In regression, this means that the dependent variable needs a transformation or "link" function to properly relate to the independent variables. The idea of a link test is to add an independent variable to the equation that is especially likely to be significant if there is a link error.</span></span>
+<span id="cb15-109"><a href="#cb15-109"></a></span>
+<span id="cb15-110"><a href="#cb15-110"></a><span class="fu">### Exercise</span></span>
+<span id="cb15-111"><a href="#cb15-111"></a></span>
+<span id="cb15-112"><a href="#cb15-112"></a>::: callout-note</span>
+<span id="cb15-113"><a href="#cb15-113"></a>Use the <span class="in">`rpois()`</span> function to generate 1000 draws from the Poisson distribution for different values of $\lambda$ (e.g., 1, 2, 3, 4, 5).</span>
+<span id="cb15-114"><a href="#cb15-114"></a></span>
+<span id="cb15-115"><a href="#cb15-115"></a>Plot the results using ggplot.</span>
+<span id="cb15-116"><a href="#cb15-116"></a>:::</span>
+<span id="cb15-117"><a href="#cb15-117"></a></span>
+<span id="cb15-120"><a href="#cb15-120"></a><span class="in">```{r}</span></span>
+<span id="cb15-121"><a href="#cb15-121"></a>N <span class="ot">&lt;-</span> <span class="fl">1e3</span></span>
+<span id="cb15-122"><a href="#cb15-122"></a></span>
+<span id="cb15-123"><a href="#cb15-123"></a><span class="fu">tibble</span>(<span class="at">lambda =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-124"><a href="#cb15-124"></a>  <span class="fu">rowwise</span>(lambda) <span class="sc">|&gt;</span> </span>
+<span id="cb15-125"><a href="#cb15-125"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">list</span>(<span class="fu">rpois</span>(N, lambda))) <span class="sc">|&gt;</span> </span>
+<span id="cb15-126"><a href="#cb15-126"></a>  <span class="fu">unnest</span>(x) <span class="sc">|&gt;</span> </span>
+<span id="cb15-127"><a href="#cb15-127"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x)) <span class="sc">+</span> </span>
+<span id="cb15-128"><a href="#cb15-128"></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb15-129"><a href="#cb15-129"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> lambda, <span class="at">labeller =</span> label_both)</span>
+<span id="cb15-130"><a href="#cb15-130"></a><span class="in">```</span></span>
+<span id="cb15-131"><a href="#cb15-131"></a></span>
+<span id="cb15-132"><a href="#cb15-132"></a><span class="fu">### Exercise</span></span>
+<span id="cb15-133"><a href="#cb15-133"></a></span>
+<span id="cb15-134"><a href="#cb15-134"></a>::: callout-note</span>
+<span id="cb15-135"><a href="#cb15-135"></a>Create at least three models that predict <span class="in">`numtot`</span> (the sum of male and female sexual partners) from a subset of predictors. Keep it simple.</span>
+<span id="cb15-136"><a href="#cb15-136"></a></span>
+<span id="cb15-137"><a href="#cb15-137"></a>Choose the one that fits the data best using AIC and BIC.</span>
+<span id="cb15-138"><a href="#cb15-138"></a></span>
+<span id="cb15-139"><a href="#cb15-139"></a>Interpret at least one of the coefficients in the model that's not the intercept.</span>
+<span id="cb15-140"><a href="#cb15-140"></a>:::</span>
+<span id="cb15-141"><a href="#cb15-141"></a></span>
+<span id="cb15-144"><a href="#cb15-144"></a><span class="in">```{r}</span></span>
+<span id="cb15-145"><a href="#cb15-145"></a>d_mod <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb15-146"><a href="#cb15-146"></a>  <span class="fu">select</span>(numtot, polviews, age, attend, premarsx, sexornt) <span class="sc">|&gt;</span> </span>
+<span id="cb15-147"><a href="#cb15-147"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb15-148"><a href="#cb15-148"></a>  <span class="fu">mutate</span>(<span class="at">premarsx_wrong =</span> <span class="fu">if_else</span>(</span>
+<span id="cb15-149"><a href="#cb15-149"></a>    <span class="at">condition =</span> premarsx <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"always wrong"</span>, <span class="st">"almost always wrong"</span>), </span>
+<span id="cb15-150"><a href="#cb15-150"></a>    <span class="at">true =</span> 1L, </span>
+<span id="cb15-151"><a href="#cb15-151"></a>    <span class="at">false =</span> 0L</span>
+<span id="cb15-152"><a href="#cb15-152"></a>    )) <span class="sc">|&gt;</span> </span>
+<span id="cb15-153"><a href="#cb15-153"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as.integer</span>(polviews) <span class="sc">-</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-154"><a href="#cb15-154"></a>  <span class="fu">mutate</span>(<span class="at">age =</span> age <span class="sc">-</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-155"><a href="#cb15-155"></a>  <span class="fu">mutate</span>(<span class="at">weekly =</span> <span class="fu">case_when</span>(</span>
+<span id="cb15-156"><a href="#cb15-156"></a>   attend <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"every week"</span>, <span class="st">"several times a week"</span>) <span class="sc">~</span> 1L,</span>
+<span id="cb15-157"><a href="#cb15-157"></a>   attend <span class="sc">%in%</span> not_weekly <span class="sc">~</span> 0L</span>
+<span id="cb15-158"><a href="#cb15-158"></a> )) <span class="sc">|&gt;</span> </span>
+<span id="cb15-159"><a href="#cb15-159"></a>  <span class="fu">mutate</span>(<span class="at">sexornt =</span> <span class="fu">fct_relevel</span>(sexornt, <span class="st">"heterosexual or straight"</span>))</span>
+<span id="cb15-160"><a href="#cb15-160"></a></span>
+<span id="cb15-161"><a href="#cb15-161"></a>m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(numtot <span class="sc">~</span> polviews <span class="sc">+</span> premarsx_wrong <span class="sc">+</span> age, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb15-162"><a href="#cb15-162"></a>m2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(numtot <span class="sc">~</span> polviews <span class="sc">+</span> premarsx_wrong <span class="sc">+</span> age <span class="sc">+</span> sexornt, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb15-163"><a href="#cb15-163"></a>m3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(numtot <span class="sc">~</span> polviews <span class="sc">+</span> premarsx_wrong <span class="sc">+</span> age <span class="sc">+</span> <span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> sexornt, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb15-164"><a href="#cb15-164"></a></span>
+<span id="cb15-165"><a href="#cb15-165"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(m1, m2, m3))</span>
+<span id="cb15-166"><a href="#cb15-166"></a><span class="in">```</span></span>
+<span id="cb15-167"><a href="#cb15-167"></a></span>
+<span id="cb15-168"><a href="#cb15-168"></a>Model 3 has lower AIC and BIC scores, indicating a better out-of-sample predictive accuracy.</span>
+<span id="cb15-169"><a href="#cb15-169"></a></span>
+<span id="cb15-170"><a href="#cb15-170"></a>I'll just interpret the $\beta$ coefficient associated with <span class="in">`premarsx_wrong`</span>, an indicator variable I create that equals "1" when the respondent thinks that premarital sex is "always wrong" or "almost always wrong" and equals "0" otherwise.</span>
+<span id="cb15-171"><a href="#cb15-171"></a></span>
+<span id="cb15-172"><a href="#cb15-172"></a>$$</span>
+<span id="cb15-173"><a href="#cb15-173"></a>e^{0.536} = 1.71</span>
+<span id="cb15-174"><a href="#cb15-174"></a>$$</span>
+<span id="cb15-175"><a href="#cb15-175"></a></span>
+<span id="cb15-176"><a href="#cb15-176"></a>This means that people who think having premarital sex is wrong are expected to have (on average) 71% *more* sexual partners than people who think it's OK. Honestly, I did not expect this pattern.</span>
+<span id="cb15-177"><a href="#cb15-177"></a></span>
+<span id="cb15-178"><a href="#cb15-178"></a>Looking at the data I noticed that there are a bunch of weird outliers. It turns out that the data is truncated at 989 and that any value above that should be disregarded.</span>
+<span id="cb15-179"><a href="#cb15-179"></a></span>
+<span id="cb15-182"><a href="#cb15-182"></a><span class="in">```{r}</span></span>
+<span id="cb15-183"><a href="#cb15-183"></a>d_mod <span class="sc">|&gt;</span> </span>
+<span id="cb15-184"><a href="#cb15-184"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(numtot)) <span class="sc">+</span> </span>
+<span id="cb15-185"><a href="#cb15-185"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb15-186"><a href="#cb15-186"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">989</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb15-187"><a href="#cb15-187"></a><span class="in">```</span></span>
+<span id="cb15-188"><a href="#cb15-188"></a></span>
+<span id="cb15-191"><a href="#cb15-191"></a><span class="in">```{r}</span></span>
+<span id="cb15-192"><a href="#cb15-192"></a>d_mod <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb15-193"><a href="#cb15-193"></a>  <span class="fu">filter</span>(numwomen <span class="sc">&lt;</span> <span class="dv">990</span>, nummen <span class="sc">&lt;</span> <span class="dv">990</span>) <span class="sc">|&gt;</span> <span class="do">## This should fix the problem</span></span>
+<span id="cb15-194"><a href="#cb15-194"></a>  <span class="fu">select</span>(numtot, polviews, age, attend, premarsx, sexornt) <span class="sc">|&gt;</span> </span>
+<span id="cb15-195"><a href="#cb15-195"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb15-196"><a href="#cb15-196"></a>  <span class="fu">mutate</span>(<span class="at">premarsx_wrong =</span> <span class="fu">if_else</span>(</span>
+<span id="cb15-197"><a href="#cb15-197"></a>    <span class="at">condition =</span> premarsx <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"always wrong"</span>, <span class="st">"almost always wrong"</span>), </span>
+<span id="cb15-198"><a href="#cb15-198"></a>    <span class="at">true =</span> 1L, </span>
+<span id="cb15-199"><a href="#cb15-199"></a>    <span class="at">false =</span> 0L</span>
+<span id="cb15-200"><a href="#cb15-200"></a>    )) <span class="sc">|&gt;</span> </span>
+<span id="cb15-201"><a href="#cb15-201"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as.integer</span>(polviews) <span class="sc">-</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-202"><a href="#cb15-202"></a>  <span class="fu">mutate</span>(<span class="at">age =</span> age <span class="sc">-</span> <span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-203"><a href="#cb15-203"></a>  <span class="fu">mutate</span>(<span class="at">weekly =</span> <span class="fu">case_when</span>(</span>
+<span id="cb15-204"><a href="#cb15-204"></a>   attend <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"every week"</span>, <span class="st">"several times a week"</span>) <span class="sc">~</span> 1L,</span>
+<span id="cb15-205"><a href="#cb15-205"></a>   attend <span class="sc">%in%</span> not_weekly <span class="sc">~</span> 0L</span>
+<span id="cb15-206"><a href="#cb15-206"></a> )) <span class="sc">|&gt;</span> </span>
+<span id="cb15-207"><a href="#cb15-207"></a>  <span class="fu">mutate</span>(<span class="at">sexornt =</span> <span class="fu">fct_relevel</span>(sexornt, <span class="st">"heterosexual or straight"</span>))</span>
+<span id="cb15-208"><a href="#cb15-208"></a></span>
+<span id="cb15-209"><a href="#cb15-209"></a>m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(numtot <span class="sc">~</span> polviews <span class="sc">+</span> premarsx_wrong <span class="sc">+</span> age, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb15-210"><a href="#cb15-210"></a>m2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(numtot <span class="sc">~</span> polviews <span class="sc">+</span> premarsx_wrong <span class="sc">+</span> age <span class="sc">+</span> sexornt, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb15-211"><a href="#cb15-211"></a>m3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(numtot <span class="sc">~</span> polviews <span class="sc">+</span> premarsx_wrong <span class="sc">+</span> age <span class="sc">+</span> <span class="fu">I</span>(age<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> sexornt, <span class="at">data =</span> d_mod, <span class="at">family =</span> <span class="st">"poisson"</span>)</span>
+<span id="cb15-212"><a href="#cb15-212"></a></span>
+<span id="cb15-213"><a href="#cb15-213"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(m1, m2, m3))</span>
+<span id="cb15-214"><a href="#cb15-214"></a><span class="in">```</span></span>
+<span id="cb15-215"><a href="#cb15-215"></a></span>
+<span id="cb15-216"><a href="#cb15-216"></a>The new exponentiated coefficient is:</span>
+<span id="cb15-217"><a href="#cb15-217"></a></span>
+<span id="cb15-218"><a href="#cb15-218"></a>$$</span>
+<span id="cb15-219"><a href="#cb15-219"></a>e^{-0.144} = 0.86</span>
+<span id="cb15-220"><a href="#cb15-220"></a>$$</span>
+<span id="cb15-221"><a href="#cb15-221"></a></span>
+<span id="cb15-222"><a href="#cb15-222"></a>This roughly indicated 14% *less* sexual partners.</span>
+<span id="cb15-223"><a href="#cb15-223"></a></span>
+<span id="cb15-224"><a href="#cb15-224"></a>------------------------------------------------------------------------</span>
+<span id="cb15-225"><a href="#cb15-225"></a></span>
+<span id="cb15-226"><a href="#cb15-226"></a>*Note. The patterns with regard to sexual orientation are super interesting and indicate some kind of cohort effect. Someone should definitely see if there's something written out there about this.*</span>
+<span id="cb15-227"><a href="#cb15-227"></a></span>
+<span id="cb15-230"><a href="#cb15-230"></a><span class="in">```{r}</span></span>
+<span id="cb15-231"><a href="#cb15-231"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb15-232"><a href="#cb15-232"></a>  <span class="fu">filter</span>(numwomen <span class="sc">&lt;</span> <span class="dv">990</span>, nummen <span class="sc">&lt;</span> <span class="dv">990</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-233"><a href="#cb15-233"></a>  <span class="fu">select</span>(age, numtot, sexornt) <span class="sc">|&gt;</span> </span>
+<span id="cb15-234"><a href="#cb15-234"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb15-235"><a href="#cb15-235"></a>  <span class="fu">mutate</span>(<span class="at">cohort =</span> <span class="fu">cut</span>(age, <span class="fu">quantile</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-236"><a href="#cb15-236"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(cohort, numtot, <span class="at">color =</span> sexornt)) <span class="sc">+</span></span>
+<span id="cb15-237"><a href="#cb15-237"></a>  <span class="fu">stat_summary</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>), <span class="at">fun.data =</span> mean_cl_boot)</span>
+<span id="cb15-238"><a href="#cb15-238"></a><span class="in">```</span></span>
+<span id="cb15-239"><a href="#cb15-239"></a></span>
+<span id="cb15-240"><a href="#cb15-240"></a><span class="fu">### Exercise</span></span>
+<span id="cb15-241"><a href="#cb15-241"></a></span>
+<span id="cb15-242"><a href="#cb15-242"></a>::: callout-tip</span>
+<span id="cb15-243"><a href="#cb15-243"></a>Create at least three models that predict <span class="in">`sibs`</span> (the respondent's number of siblings) from a subset of predictors. Keep it simple.</span>
+<span id="cb15-244"><a href="#cb15-244"></a></span>
+<span id="cb15-245"><a href="#cb15-245"></a>Choose the one that fits the data best using AIC and BIC.</span>
+<span id="cb15-246"><a href="#cb15-246"></a></span>
+<span id="cb15-247"><a href="#cb15-247"></a>Interpret at least one of the coefficients in the model that's not the intercept.</span>
+<span id="cb15-248"><a href="#cb15-248"></a>:::</span>
+<span id="cb15-249"><a href="#cb15-249"></a></span>
+<span id="cb15-252"><a href="#cb15-252"></a><span class="in">```{r}</span></span>
+<span id="cb15-253"><a href="#cb15-253"></a>d_mod <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb15-254"><a href="#cb15-254"></a>  <span class="fu">select</span>(sibs, madeg, fefam, polviews) <span class="sc">|&gt;</span> </span>
+<span id="cb15-255"><a href="#cb15-255"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb15-256"><a href="#cb15-256"></a>  <span class="fu">mutate</span>(<span class="at">polviews =</span> <span class="fu">as.integer</span>(polviews) <span class="sc">-</span> <span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb15-257"><a href="#cb15-257"></a>  <span class="fu">mutate</span>(<span class="at">fefam_agree =</span> <span class="fu">if_else</span>(fefam <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"strongly agree"</span>, <span class="st">"agree"</span>), 1L, 0L)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-258"><a href="#cb15-258"></a>  <span class="fu">mutate</span>(<span class="at">mom_bs =</span> <span class="fu">ifelse</span>(madeg <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"bachelor's"</span>, <span class="st">"graduate"</span>), 1L, 0L))</span>
+<span id="cb15-259"><a href="#cb15-259"></a></span>
+<span id="cb15-260"><a href="#cb15-260"></a>m1 <span class="ot">&lt;-</span> <span class="fu">glm</span>(sibs <span class="sc">~</span> polviews, <span class="at">family =</span> <span class="st">"poisson"</span>, <span class="at">data =</span> d_mod)</span>
+<span id="cb15-261"><a href="#cb15-261"></a>m2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(sibs <span class="sc">~</span> polviews <span class="sc">+</span> mom_bs, <span class="at">family =</span> <span class="st">"poisson"</span>, <span class="at">data =</span> d_mod)</span>
+<span id="cb15-262"><a href="#cb15-262"></a>m3 <span class="ot">&lt;-</span> <span class="fu">glm</span>(sibs <span class="sc">~</span> polviews <span class="sc">+</span> mom_bs <span class="sc">+</span> fefam_agree, <span class="at">family =</span> <span class="st">"poisson"</span>, <span class="at">data =</span> d_mod)</span>
+<span id="cb15-263"><a href="#cb15-263"></a>m4 <span class="ot">&lt;-</span> <span class="fu">glm</span>(sibs <span class="sc">~</span> mom_bs <span class="sc">+</span> fefam_agree, <span class="at">family =</span> <span class="st">"poisson"</span>, <span class="at">data =</span> d_mod)</span>
+<span id="cb15-264"><a href="#cb15-264"></a></span>
+<span id="cb15-265"><a href="#cb15-265"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(m1, m2, m3, m4))</span>
+<span id="cb15-266"><a href="#cb15-266"></a><span class="in">```</span></span>
+<span id="cb15-267"><a href="#cb15-267"></a></span>
+<span id="cb15-268"><a href="#cb15-268"></a>Model 4 has a better out-of-sample predictive accuracy according to both BIC and AIC.</span>
+<span id="cb15-269"><a href="#cb15-269"></a></span>
+<span id="cb15-270"><a href="#cb15-270"></a>The variable <span class="in">`fefam_agree`</span> indicates that the respondent agrees with the phrase "It is much better for everyone involved if the man is the achiever outside the home and the woman takes care of the home and family." The variable <span class="in">`mom_bs`</span> indicates that the respondent's mother has a bachelor's degree.</span>
+<span id="cb15-271"><a href="#cb15-271"></a></span>
+<span id="cb15-272"><a href="#cb15-272"></a>$$</span>
+<span id="cb15-273"><a href="#cb15-273"></a>e^{-0.304} = 0.734</span>
+<span id="cb15-274"><a href="#cb15-274"></a>$$</span>
+<span id="cb15-275"><a href="#cb15-275"></a></span>
+<span id="cb15-276"><a href="#cb15-276"></a>The exponentiated $\beta$ coefficient on <span class="in">`mom_bs`</span> indicates that respondent's whose mother has a bachelor's degree have (on average) 27% less siblings than respondent's whose mother does not have a bachelor's degree.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+</body></html>

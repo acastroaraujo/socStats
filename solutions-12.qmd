@@ -1,0 +1,485 @@
+---
+title: "Solutions 12"
+callout-icon: false
+callout-appearance: simple
+code-fold: show
+---
+
+```{r}
+#| message: false
+#| label: "Set up"
+
+library(tidyverse)
+theme_set(theme_light(base_family = "Optima"))
+
+library(modelsummary)
+library(broom)
+library(gt)
+library(performance)
+
+library(gssr)
+gss18 <- gss_get_yr(2018) 
+
+vars <- c(
+  "coninc", "height", "hompop", "sibs", "numwomen", "nummen", "age", "sex", "race", "attend", "polviews", "degree",
+  "happy", "sexornt", "premarsx", "condom", "wrkslf", "fefam", "cappun", "padeg", "madeg"
+)
+
+d <- gss18 |> 
+  select(all_of(vars)) |> 
+  haven::zap_missing() |> 
+  ## continuous vars 
+  mutate(across(all_of(vars[1:7]), haven::zap_labels)) |> 
+  ## categorical vars
+  mutate(across(!all_of(vars[1:7]), haven::as_factor)) |>
+  mutate(numtot = numwomen + nummen)
+```
+
+## Exercise
+
+**Some intuition behind the math**
+
+The formula for the normal distribution is awkward, but it's a good idea to spend some time figuring out why it looks like that.
+
+Plot the following functions in R:
+
+-   $f(x) = (x - \mu)^2$
+
+```{r}
+ggplot() + 
+  xlim(-5, 5) + 
+  geom_function(fun = \(x) x^2)
+```
+
+-   $f(x) = -(x - \mu)^2$
+
+```{r}
+ggplot() + 
+  xlim(-5, 5) + 
+  geom_function(fun = \(x) -x^2)
+
+
+```
+
+-   $f(x) = e^{-(x - \mu)^2}$
+
+```{r}
+ggplot() + 
+  xlim(-5, 5) + 
+  geom_function(fun = \(x) exp(-x^2))
+```
+
+## Exercise
+
+The function $f(x) = e^{-x^2}$ already looks a lot like the normal distribution, but we're not quite there yet. It is *not* a probability distribution because the *area under the curve* is larger than 1; probabilities can only add up to 1!
+
+Using some [integral calculus](https://www.integral-calculator.com/#expr=e%5E-x%5E2&lbound=minf&ubound=inf), we can tell that this area adds up to approximately 1.77.
+
+```{r}
+integrate(f = \(x) exp(-x^2), lower = -Inf, upper = Inf)
+```
+
+Answer these two questions:
+
+-   What is the squared root of $\pi$ ?
+
+```{r}
+sqrt(pi)
+```
+
+-   What is the area under the curve for this function?
+
+    $$
+    f(x) = \frac{1}{\sqrt{\pi}} e^{-x^2}
+    $$
+
+```{r}
+integrate(f = \(x) exp(-x^2) / sqrt(pi), lower = -Inf, upper = Inf)
+```
+
+## Exercise
+
+::: callout-note
+Go to the GSS data for 2018 and use a normal linear regression to estimate `height` from `male` (an indicator variable equals 1 when `sex == "male"`).
+
+Interpret the intercept and the slope coefficients ( $\alpha$ and $\beta$ ).
+
+After doing this add `age` as a second predictor.
+
+Interpret the intercept and the slope coefficients ( $\alpha$, $\beta_1$, and $\beta_2$ ).
+:::
+
+```{r}
+d <- d |> 
+  mutate(male = as.integer(sex == "male")) 
+  
+ols <- lm(height ~ male, data = d)
+
+modelsummary(ols, gof_map = "none", output = "gt") |> 
+  opt_table_font(font = "Optima")
+```
+
+The $\alpha$ indicates the average height for women. The $\beta$ indicates the associated increase in height for men (compared to women)---i.e., men are (on average) 5.7 (inches?) taller than women.
+
+## Exercise
+
+::: callout-note
+**Polynomial Regression**
+
+Using the same GSS data, predict `coninc` (inflation-adjusted family income) from `age` and `age_squared`.
+
+$$
+\text{coninc}_i = \beta_0 + \beta_1 \text{age}_i + \beta_2 \text{age}^2_i
+$$
+
+What does the $\beta_0$ coefficient mean here?
+
+Plot the predictions from this model using a new dataset that contains ages 18 to 85.
+:::
+
+```{r}
+m2 <- glm(coninc ~ age + I(age^2), data = d, family = "gaussian")
+modelsummary(m2, gof_map = "none", output = "gt") |> 
+  opt_table_font(font = "Optima")
+```
+
+The $\alpha$ is kinda meaningless. It corresponds to the average income of a person of age zero.
+
+```{r}
+grid <- tibble(age = 18:80)
+
+augment(m2, newdata = grid) |> 
+  ggplot(aes(age, .fitted)) + 
+  geom_line() + 
+  scale_y_continuous(labels = scales::dollar)
+```
+
+## Exercise
+
+**Transformations**
+
+Transform the age variable so that it's centered around the mean.
+
+```{r}
+d <- d |> 
+  mutate(age_centered = age - mean(age, na.rm = TRUE))
+```
+
+::: callout-note
+Fit the same model you fitted earlier:
+
+$$
+\text{coninc}_i = \beta_0 + \beta_1 \text{age}_i + \beta_2 \text{age}^2_i
+$$
+
+What changed and what remained the same?
+
+What does the $\beta_0$ coefficient mean here?
+:::
+
+```{r}
+m3 <- glm(coninc ~ age_centered + I(age_centered^2), data = d, family = "gaussian")
+modelsummary(m3, gof_map = "none", output = "gt") |> 
+  opt_table_font(font = "Optima")
+```
+
+The $\beta_0$ coefficient now means the expected income for a person of average age (in the sample).
+
+The average person is 49 years old.
+
+```{r}
+mean(d$age, na.rm = TRUE)
+```
+
+The average person is expected to have an income of \$58,427.
+
+```{r}
+grid <- tibble(age_centered = 18:80 - mean(d$age, na.rm = TRUE))
+
+augment(m3, newdata = grid) |> 
+  ggplot(aes(age_centered, .fitted)) + 
+  geom_line() + 
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  scale_y_continuous(labels = scales::dollar)
+```
+
+## Exercise
+
+**Transformations**
+
+Transform the age variable so that it's in standard deviations away from the mean.
+
+```{r}
+d <- d |> 
+  mutate(age_std = (age - mean(age, na.rm = TRUE)) / sd(age, na.rm = TRUE))
+```
+
+::: callout-note
+Fit the same model you fitted earlier:
+
+$$
+\text{coninc}_i = \beta_0 + \beta_1 \text{age}_i + \beta_2 \text{age}^2_i
+$$
+
+What changed and what remained the same?
+
+What does the $\beta_0$ coefficient mean here?
+
+How would you interpret the $\beta_1$ and $\beta_2$ coefficients?
+:::
+
+```{r}
+m4 <- glm(coninc ~ age_std + I(age_std^2), data = d, family = "gaussian")
+modelsummary(m4, gof_map = "none", output = "gt") |> 
+  opt_table_font(font = "Optima")
+```
+
+The $\beta_0$ coefficient is the same as before because `age_std` is also centered around zero.
+
+The standard deviation of `age` is 18.
+
+```{r}
+sd(d$age, na.rm = TRUE)
+```
+
+The other coefficients are a little bit harder to interpret because they work in tandem. The following graph shows the change in expected income that comes from a 1 unit increase in `age_std`:
+
+```{r}
+grid <- tibble(age_std = (18:80 - mean(d$age, na.rm = TRUE)) / sd(d$age, na.rm = TRUE))
+
+augment(m4, newdata = grid) |> 
+  ggplot(aes(age_std, .fitted)) + 
+  geom_line() + 
+  geom_vline(xintercept = 0, linetype = "dashed") +
+  geom_segment(x = 0, xend = 1, y = 58428, yend = 58428 + 3691 - 8711, color = "red") +
+  scale_y_continuous(labels = scales::dollar)
+```
+
+Perhaps some simple high school math can help
+
+$$
+\frac{\Delta y}{\Delta x} = \Delta x (3691.355 − 8711.331 \cdot \Delta x)
+$$
+
+When age changes by 1 unit ( $\Delta x = 1$ ), the corresponding effect is $-5019.976$, which is the slope of the red line in the previous graph.
+
+## Exercise
+
+**Comparisons and Regression**
+
+Simple averages and comparisons can be be interpreted as special cases of linear regression.
+
+Take the comparison of `coninc` among married and unmarried individuals.
+
+I've included some code to make your life easier.
+
+```{r}
+#| message: false
+
+d2 <- gss18 |> 
+  select(marital, coninc, sex) |> 
+  mutate(
+    coninc = haven::zap_label(coninc),
+    sex = haven::as_factor(sex),
+    marital = haven::as_factor(marital)
+  ) |> 
+  drop_na() |> 
+  mutate(married = if_else(marital == "married", 1L, 0L)) |> 
+  mutate(male = if_else(sex == "male", 1L, 0L))
+
+d2 |> 
+  group_by(married) |> 
+  summarize(
+    avg_coninc = mean(coninc), 
+    sd = sd(coninc),
+    n = n()
+  ) |> 
+  mutate(std_error = sd / sqrt(n()))
+```
+
+::: callout-note
+Fit a regression model that predicts `coninc` from `married`.
+
+$$
+\begin{align}
+\text{coninc}_i &\sim \text{Normal}(\mu_i, \sigma_i) \\
+\mu_i &= \beta_0 + \beta_1 \text{married}_i
+\end{align}
+$$
+
+Compare the results to the previous `dplyr` table. What do you notice?
+:::
+
+```{r}
+m5 <- glm(coninc ~ married, data = d2)
+modelsummary(m5, gof_map = "none", output = "gt") |> 
+  opt_table_font(font = "Optima")
+```
+
+The $\beta_0$ coefficient is the value of `avg_inc` in the first row.
+
+The $\beta_1$ coefficient is the the difference between both values of `avg_inc` in the table---i.e., it is the difference in average *family income* between married and unmarried people.
+
+**Standard Errors**
+
+The formula for the standard error for a comparison of means is given by:
+
+$$
+\text{se}(\overline x_1 - \overline x_2) = \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} 
+$$
+
+::: callout-note
+Calculate the standard error by plugging in the corresponding values in the `dplyr` table. Compare this value to the standard error corresponding to the `married` coefficient. Do they look similar?
+:::
+
+```{r}
+sqrt((34642.61^2 / 1229) + (45378.47^2 / 923))
+```
+
+Yes, they look similar. I am actually a little annoyed because I was expecting them to be the same... I guess there's still some gaps in my knowledge 😳
+
+## Exercise
+
+**Binary Interactions**
+
+Just as we did with logistic regression, we can use interactions to reconstruct a $2\times 2$ table. The difference is that the cells contain averages instead of counts.
+
+For example:
+
+```{r}
+d2 |> 
+  group_by(male, married) |> 
+  summarize(coninc = mean(coninc, na.rm = TRUE))
+```
+
+Fit a normal linear regression that predicts `coninc` from `sex` and `married`.
+
+$$
+\begin{align}
+\text{coninc}_i &\sim \text{Normal}(\mu_i, \sigma_i) \\
+\mu_i &= \beta_0 + \beta_1 \text{male}_i + \beta_2 \text{married}_i + \beta_3 \text{male}_i \times \text{married}_i
+\end{align}
+$$
+
+```{r}
+m6 <- glm(coninc ~ male*married, data = d2) 
+modelsummary(m6, gof_map = "none", output = "gt") |> 
+  opt_table_font(font = "Optima")
+```
+
+Fill in the following empty spaces with corresponding coefficient values:
+
+| male | married | coninc   | regression output                       |
+|------|---------|----------|-----------------------------------------|
+| 0    | 0       | 33560.78 | $\beta_0$                               |
+| 0    | 1       | 66759.76 | $\beta_0 + \beta_2$                     |
+| 1    | 0       | 41014.66 | $\beta_0 + \beta_1$                     |
+| 1    | 1       | 68292.14 | $\beta_0 + \beta_1 + \beta_2 + \beta_3$ |
+
+## Exercise
+
+For this exercise I am going to ask you to import the `bikes` dataset from the `bayesrules` package. You will probably need to install this package first.
+
+```{r}
+data(bikes, package = "bayesrules")
+```
+
+::: callout-note
+You will have to fit a normal linear regression that predicts the number of bikeshare rides using `windspeed`, `weekend`, and `temp_feel` as predictors.
+
+Before doing that, make sure you center `windspeed` and `temp_feel` around their mean values.
+
+If the temperature and the wind speed are average, what is the expected ridership for a weekend day? What is the expected ridership for a weekday? Show the code that gets you your answers.
+:::
+
+```{r}
+bikes <- bikes |> 
+  mutate(windspeed = windspeed - mean(windspeed)) |> 
+  mutate(temp_feel = temp_feel - mean(temp_feel))
+
+m7 <- glm(rides ~ windspeed + temp_feel + weekend, data = bikes)
+modelsummary(m7, gof_map = "nobs", output = "gt") |> 
+  opt_table_font(font = "Optima")
+```
+
+-   If the temperature and the wind speed are average, the expected ridership for a weekend day is:
+
+```{r}
+coefficients(m7)[-c(2, 3)]
+sum(coefficients(m7)[-c(2, 3)]) 
+```
+
+*Note. I can get away with this because the other variables are centered.*
+
+-   What is the expected ridership for a weekday?
+
+That's just given by the intercept. It's 3683.442 rides (in average).
+
+## Exercise
+
+::: callout-note
+Repeat the exercise above, but fit a Poisson model instead.
+
+If the temperature and the wind speed are average, what is the expected ridership for a weekend day? What is the expected ridership for a weekday? Show the code that gets you your answers.
+:::
+
+```{r}
+m8 <- glm(rides ~ windspeed + temp_feel + weekend, data = bikes, family = "poisson")
+modelsummary(m8, gof_map = "nobs", output = "gt") |> 
+  opt_table_font(font = "Optima")
+```
+
+-   If the temperature and the wind speed are average, the expected ridership for a weekend day is:
+
+```{r}
+coefficients(m8)[-c(2, 3)]
+exp(sum(coefficients(m8)[-c(2, 3)]))
+```
+
+-   That's just given by the intercept.
+
+```{r}
+exp(coefficients(m8)[[1]])
+```
+
+## Exercise
+
+In order to assess goodness of fit, it is sometimes useful to plot the residuals against some predictor.
+
+$$
+\varepsilon_i = y_i - \hat y_i
+$$
+
+If the model fits well, we should expect to see the residuals to be normally distributed around zero.
+
+For example:
+
+```{r}
+#| code-fold: true
+mod_normal <- glm(rides ~ windspeed + temp_feel + weekend, data = bikes, family = "gaussian")
+bikes$resid <- residuals(mod_normal)
+
+bikes |> 
+  ggplot(aes(date, resid)) + 
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed") + 
+  geom_point(
+    data = filter(bikes, abs(resid) == max(abs(resid))),
+    color = "red", shape = 21, size = 3
+  )
+```
+
+::: callout-note
+What can you tell me about the model fit? Why do you think the model fits poorly?
+
+Use `dplyr` to figure out the date of the observation with the largest residual (shown circled in red). Why is the model so poor at predicting the number of bikeshare rides this day?
+:::
+
+The model fits poorly because the number of rides seems to have been increasing steadily over the course of three years. There's probably also some seasonality in the data (although it is not easy to spot in the graph).
+
+```{r}
+filter(bikes, abs(resid) == max(abs(resid))) |> 
+  pull(date)
+```
+
+![The answer](images/hurricane.png){fig-align="center" width="80%"}

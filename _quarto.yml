@@ -38,6 +38,8 @@ book:
         - solutions-08.qmd
         - solutions-09.qmd
         - solutions-10.qmd
+        - solutions-11.qmd
+        - solutions-12.qmd
     - references.qmd
 
 bibliography: references.bib

@@ -1,0 +1,257 @@
+---
+title: "Solutions 11"
+callout-icon: false
+callout-appearance: simple
+code-fold: show
+---
+
+```{r}
+#| message: false
+#| label: "Set up"
+
+library(tidyverse)
+theme_set(theme_light(base_family = "Optima"))
+
+library(modelsummary)
+library(broom)
+library(gt)
+library(performance)
+
+library(gssr)
+gss18 <- gss_get_yr(2018) 
+
+vars <- c(
+  "hompop", "sibs", "numwomen", "nummen", "age", "sex", "race", "attend", "polviews", "degree",
+  "happy", "sexornt", "premarsx", "condom", "wrkslf", "fefam", "cappun", "padeg", "madeg"
+)
+
+d <- gss18 |> 
+  select(all_of(vars)) |> 
+  haven::zap_missing() |> 
+  ## continuous vars 
+  mutate(across(all_of(vars[1:5]), haven::zap_labels)) |> 
+  ## categorical vars
+  mutate(across(!all_of(vars[1:5]), haven::as_factor)) |>
+  mutate(numtot = numwomen + nummen)
+```
+
+### Exercise
+
+::: callout-note
+Create a logistic regression model predicting some binary variable. Use the `performance_hosmer()` function from the `performance` package to asses how well the model is fitting.
+
+Why are larger p-values an indication of good fit here?
+
+If it doesn't fit well, try modifying your model and repeat.
+:::
+
+```{r}
+not_weekly <- c(
+  "never", "less than once a year", "about once or twice a year", 
+  "several times a year", "about once a month", "2-3 times a month", "nearly every week"
+)
+
+d_mod <- d |> 
+  select(cappun, polviews, age, attend) |> 
+  drop_na() |> 
+  mutate(cappun = if_else(cappun == "favor", 1L, 0L)) |> 
+  mutate(polviews = as.integer(polviews) - 4) |> 
+  mutate(age = age - mean(age, na.rm = TRUE)) |> 
+  mutate(weekly = case_when(
+   attend %in% c("every week", "several times a week") ~ 1L,
+   attend %in% not_weekly ~ 0L
+ )) 
+
+m1 <- glm(cappun ~ polviews + weekly + age + I(age^2), data = d_mod, family = "binomial")
+modelsummary(m1, gof_map = "nobs")
+out <- performance_hosmer(m1, n_bins = 10)
+out
+```
+
+The model seems to have a good fit. The p-value is `r round(out$p.value, 2)`, which in this case is good because the null-hypothesis is that the expected and observed proportions are the same across all bins. Looking at the following graph, we would want the dashed line to be somewhere close to where there is a higher probability density. (The p-value is the area under the curve starting at the dashed line).
+
+```{r}
+ggplot() + 
+  xlim(0, 30) + 
+  geom_function(fun = \(x) dchisq(x, df = out$df)) + 
+  geom_vline(xintercept = out$chisq, linetype = "dashed")
+```
+
+### Exercise
+
+::: callout-note
+Do a "link test" on the same model. What is the $\beta$ coefficient? What does it mean in terms of goodness of fit?
+
+If the model doesn't fit well, try modifying it until you get a better fit.
+:::
+
+```{r}
+
+d_mod <- augment(m1, type.predict = "link")
+
+lt0 <- glm(cappun ~ .fitted, data = d_mod, family = "binomial")
+lt1 <- glm(cappun ~ .fitted + I(.fitted^2), data = d_mod, family = "binomial")
+modelsummary(list(lt0, lt1), gof_map = "none", stars = TRUE)
+```
+
+The link test reveals no problems.
+
+Explanation of the link test from the Stata manual:
+
+> The link test is based on the idea that if a regression or regression-like equation is properly specified, you should be able to find no additional independent variables that are significant except by chance. One kind of specification error is called a link error. In regression, this means that the dependent variable needs a transformation or "link" function to properly relate to the independent variables. The idea of a link test is to add an independent variable to the equation that is especially likely to be significant if there is a link error.
+
+### Exercise
+
+::: callout-note
+Use the `rpois()` function to generate 1000 draws from the Poisson distribution for different values of $\lambda$ (e.g., 1, 2, 3, 4, 5).
+
+Plot the results using ggplot.
+:::
+
+```{r}
+N <- 1e3
+
+tibble(lambda = 1:6) |> 
+  rowwise(lambda) |> 
+  mutate(x = list(rpois(N, lambda))) |> 
+  unnest(x) |> 
+  ggplot(aes(x)) + 
+  geom_bar(width = 1/2) + 
+  facet_wrap(~ lambda, labeller = label_both)
+```
+
+### Exercise
+
+::: callout-note
+Create at least three models that predict `numtot` (the sum of male and female sexual partners) from a subset of predictors. Keep it simple.
+
+Choose the one that fits the data best using AIC and BIC.
+
+Interpret at least one of the coefficients in the model that's not the intercept.
+:::
+
+```{r}
+d_mod <- d |> 
+  select(numtot, polviews, age, attend, premarsx, sexornt) |> 
+  drop_na() |> 
+  mutate(premarsx_wrong = if_else(
+    condition = premarsx %in% c("always wrong", "almost always wrong"), 
+    true = 1L, 
+    false = 0L
+    )) |> 
+  mutate(polviews = as.integer(polviews) - 4) |> 
+  mutate(age = age - mean(age, na.rm = TRUE)) |> 
+  mutate(weekly = case_when(
+   attend %in% c("every week", "several times a week") ~ 1L,
+   attend %in% not_weekly ~ 0L
+ )) |> 
+  mutate(sexornt = fct_relevel(sexornt, "heterosexual or straight"))
+
+m1 <- glm(numtot ~ polviews + premarsx_wrong + age, data = d_mod, family = "poisson")
+m2 <- glm(numtot ~ polviews + premarsx_wrong + age + sexornt, data = d_mod, family = "poisson")
+m3 <- glm(numtot ~ polviews + premarsx_wrong + age + I(age^2) + sexornt, data = d_mod, family = "poisson")
+
+modelsummary(list(m1, m2, m3))
+```
+
+Model 3 has lower AIC and BIC scores, indicating a better out-of-sample predictive accuracy.
+
+I'll just interpret the $\beta$ coefficient associated with `premarsx_wrong`, an indicator variable I create that equals "1" when the respondent thinks that premarital sex is "always wrong" or "almost always wrong" and equals "0" otherwise.
+
+$$
+e^{0.536} = 1.71
+$$
+
+This means that people who think having premarital sex is wrong are expected to have (on average) 71% *more* sexual partners than people who think it's OK. Honestly, I did not expect this pattern.
+
+Looking at the data I noticed that there are a bunch of weird outliers. It turns out that the data is truncated at 989 and that any value above that should be disregarded.
+
+```{r}
+d_mod |> 
+  ggplot(aes(numtot)) + 
+  geom_histogram() + 
+  geom_vline(xintercept = 989, linetype = "dashed")
+```
+
+```{r}
+d_mod <- d |> 
+  filter(numwomen < 990, nummen < 990) |> ## This should fix the problem
+  select(numtot, polviews, age, attend, premarsx, sexornt) |> 
+  drop_na() |> 
+  mutate(premarsx_wrong = if_else(
+    condition = premarsx %in% c("always wrong", "almost always wrong"), 
+    true = 1L, 
+    false = 0L
+    )) |> 
+  mutate(polviews = as.integer(polviews) - 4) |> 
+  mutate(age = age - mean(age, na.rm = TRUE)) |> 
+  mutate(weekly = case_when(
+   attend %in% c("every week", "several times a week") ~ 1L,
+   attend %in% not_weekly ~ 0L
+ )) |> 
+  mutate(sexornt = fct_relevel(sexornt, "heterosexual or straight"))
+
+m1 <- glm(numtot ~ polviews + premarsx_wrong + age, data = d_mod, family = "poisson")
+m2 <- glm(numtot ~ polviews + premarsx_wrong + age + sexornt, data = d_mod, family = "poisson")
+m3 <- glm(numtot ~ polviews + premarsx_wrong + age + I(age^2) + sexornt, data = d_mod, family = "poisson")
+
+modelsummary(list(m1, m2, m3))
+```
+
+The new exponentiated coefficient is:
+
+$$
+e^{-0.144} = 0.86
+$$
+
+This roughly indicated 14% *less* sexual partners.
+
+------------------------------------------------------------------------
+
+*Note. The patterns with regard to sexual orientation are super interesting and indicate some kind of cohort effect. Someone should definitely see if there's something written out there about this.*
+
+```{r}
+d |> 
+  filter(numwomen < 990, nummen < 990) |> 
+  select(age, numtot, sexornt) |> 
+  drop_na() |> 
+  mutate(cohort = cut(age, quantile(age, na.rm = TRUE), include.lowest = TRUE)) |> 
+  ggplot(aes(cohort, numtot, color = sexornt)) +
+  stat_summary(position = position_dodge(width = 1/2), fun.data = mean_cl_boot)
+```
+
+### Exercise
+
+::: callout-tip
+Create at least three models that predict `sibs` (the respondent's number of siblings) from a subset of predictors. Keep it simple.
+
+Choose the one that fits the data best using AIC and BIC.
+
+Interpret at least one of the coefficients in the model that's not the intercept.
+:::
+
+```{r}
+d_mod <- d |> 
+  select(sibs, madeg, fefam, polviews) |> 
+  drop_na() |> 
+  mutate(polviews = as.integer(polviews) - 4) |> 
+  mutate(fefam_agree = if_else(fefam %in% c("strongly agree", "agree"), 1L, 0L)) |> 
+  mutate(mom_bs = ifelse(madeg %in% c("bachelor's", "graduate"), 1L, 0L))
+
+m1 <- glm(sibs ~ polviews, family = "poisson", data = d_mod)
+m2 <- glm(sibs ~ polviews + mom_bs, family = "poisson", data = d_mod)
+m3 <- glm(sibs ~ polviews + mom_bs + fefam_agree, family = "poisson", data = d_mod)
+m4 <- glm(sibs ~ mom_bs + fefam_agree, family = "poisson", data = d_mod)
+
+modelsummary(list(m1, m2, m3, m4))
+```
+
+Model 4 has a better out-of-sample predictive accuracy according to both BIC and AIC.
+
+The variable `fefam_agree` indicates that the respondent agrees with the phrase "It is much better for everyone involved if the man is the achiever outside the home and the woman takes care of the home and family." The variable `mom_bs` indicates that the respondent's mother has a bachelor's degree.
+
+$$
+e^{-0.304} = 0.734
+$$
+
+The exponentiated $\beta$ coefficient on `mom_bs` indicates that respondent's whose mother has a bachelor's degree have (on average) 27% less siblings than respondent's whose mother does not have a bachelor's degree.
