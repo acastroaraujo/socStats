@@ -57,8 +57,6 @@ ggplot() +
 ggplot() + 
   xlim(-5, 5) + 
   geom_function(fun = \(x) -x^2)
-
-
 ```
 
 -   $f(x) = e^{-(x - \mu)^2}$
@@ -114,12 +112,37 @@ d <- d |>
   mutate(male = as.integer(sex == "male")) 
   
 ols <- lm(height ~ male, data = d)
+ols2 <- lm(height ~ male + age, data = d)
 
-modelsummary(ols, gof_map = "none", output = "gt") |> 
+modelsummary(list(ols, ols2), gof_map = "none", output = "gt") |> 
   opt_table_font(font = "Optima")
 ```
 
+*Model 1.*
+
 The $\alpha$ indicates the average height for women. The $\beta$ indicates the associated increase in height for men (compared to women)---i.e., men are (on average) 5.7 (inches?) taller than women.
+
+*Model 2.*
+
+The $\alpha$ indicates the average height for women that are *age zero*. The $\beta_\text{male}$ indicates the associated increase in height for men (compared to women)---i.e., men are (on average) 5.7 (inches?) taller than women. The $\beta_\text{age}$ is too noisy ("not statistically significant") and is negative. This means that for every additional year the respondent is predicted to be 0.001 inches shorter. Does this makes sense? No it does not make sense. People grow up as they age, but the sample doesn't include anyone under the age of 18 (presumably when people have stop growing). Thus, the model doesn't pick up on this and is happy to assume that a newborn woman is 64 inches tall.
+
+I'll show you two ways of visualizing this.
+
+1.  Using the `ggpredict()` function that Steve likes so much.
+
+```{r}
+ggeffects::ggpredict(ols2, terms = c("age", "male")) |> plot()
+```
+
+2.  Using `broom::augment()` + `ggplot()`
+
+```{r}
+augment(ols2, interval = "confidence") |> 
+  mutate(sex = if_else(male == 1, "men", "women")) |> 
+  ggplot(aes(age, .fitted, fill = sex, color = sex)) + 
+  geom_line() + 
+  geom_ribbon(aes(ymin = .lower, ymax = .upper), alpha = 1/4, linetype = "dashed")
+```
 
 ## Exercise
 
